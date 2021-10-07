@@ -87,8 +87,13 @@ private String playerName;
             else if (input == 4){
                 System.out.println("You picked Goldfish");
             }
-            else {
+            else if (input == 5){
                 System.out.println("You picked Bird");
+            }
+            else
+            {
+                System.out.println("Please pick a number between 1 and 5");
+                animalSelect();
             }
         }
 
