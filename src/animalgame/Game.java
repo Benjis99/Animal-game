@@ -5,8 +5,12 @@ import java.util.Scanner;
 public class Game {
 Scanner console = new Scanner(System.in);
 
+private int playerPick;
 private int players;
 private String playerName;
+private String[] createdPlayers = new String[5];
+
+
 
     Bird bird;
     Cat cat;
@@ -20,28 +24,24 @@ private String playerName;
         amountOfPlayers();
     }
 
-    public void createPlayerInput(){
-        String name = console.nextLine();
-    }
-
 
     public void amountOfPlayers(){ //Method that will check how many players the user picked, and check it with the if else statement.
         System.out.println("How many players do you want? 2-4");
-         players = console.nextInt();
-        if (players < 2 || players > 4){
+         setPlayerPick(console.nextInt());
+        if (getPlayerPick() < 2 || getPlayerPick() > 4){
             System.out.println("Invalid amount of players, you must choose between 2-4");
             amountOfPlayers();
         } else{
-            System.out.println("You picked " + players + " players.");
+            System.out.println("You picked " + getPlayerPick() + " players.");
             createPlayer();
 
         }
     }
     public void createPlayer(){
-        System.out.println("What is your username?");
-        playerName = console.nextLine();
-        console.nextLine();
-
+        for (int i = 0; i < getPlayerPick(); i++) {
+            System.out.println("What is your username?");
+            setPlayerName(console.nextLine());
+        }
         amountOfRounds();
     }
 
@@ -93,13 +93,30 @@ private String playerName;
             else
             {
                 System.out.println("Please pick a number between 1 and 5");
-                animalSelect(); //
+                animalSelect();
             }
         }
+
+
+    public void setCreatedPlayers(String[] createdPlayers) {
+        this.createdPlayers = createdPlayers;
+    }
+
+    public int getPlayerPick() {
+        return playerPick;
+    }
+
+    public void setPlayerPick(int playerPick) {
+        this.playerPick = playerPick;
+    }
 
     public String getPlayerName() {
         return playerName;
     }
 
-//Game Class
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    //Game Class
 }
