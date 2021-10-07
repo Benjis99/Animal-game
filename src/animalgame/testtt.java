@@ -1,4 +1,4 @@
 package animalgame;
 
-public class test2 {
+public class testtt {
 }
