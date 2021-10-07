@@ -44,10 +44,10 @@ private String[] createdPlayers = new String[5];
             createdPlayers[i] = console.nextLine();
             //playerName = console.nextLine();
         }
-
-        System.out.println(createdPlayers[1]);
-        System.out.println(createdPlayers[2]);
-        System.out.println(createdPlayers[3]);
+        System.out.println("\nPlayer selected: ");
+        for (int k = 1; k <= getPlayerPick(); k++){
+            System.out.println(createdPlayers[k]); // Loops through the array and prints all the selected players
+        }
 
         amountOfRounds();
     }
