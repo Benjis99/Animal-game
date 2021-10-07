@@ -6,6 +6,7 @@ public class Game {
 Scanner console = new Scanner(System.in);
 
 private int players;
+private String playerName;
 
     Bird bird;
     Cat cat;
@@ -38,16 +39,10 @@ private int players;
     }
     public void createPlayer(){
         System.out.println("What is your username?");
+        playerName = console.nextLine();
+        console.nextLine();
 
         amountOfRounds();
-    }
-
-
-    public void amountOfGameNames(){
-        for (int i = 0; i < players; i++){
-
-        }
-        System.out.println(players);
     }
 
 
