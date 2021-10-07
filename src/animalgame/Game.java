@@ -37,15 +37,20 @@ private String[] createdPlayers = new String[5];
         }
     }
     public void createPlayer(){
-        for (int i = 0; i < getPlayerPick(); i++) {
-            System.out.println("What is your username?");
-            setPlayerName(console.nextLine());
+        System.out.println("What your usernames?"); // Enter all names of players and loops through amount of players chosen
 
+        for (int i = 0; i <= getPlayerPick(); i++) {
+            //setPlayerNames(console.nextLine());
+            createdPlayers[i] = console.nextLine();
+            //playerName = console.nextLine();
         }
+
+        System.out.println(createdPlayers[1]);
+        System.out.println(createdPlayers[2]);
+        System.out.println(createdPlayers[3]);
+
         amountOfRounds();
     }
-
-
 
     public void amountOfRounds (){ //Method that will check how many rounds the user picked, and check it with the if else statement.
         System.out.println("How many rounds do you wanna play? 5-30 rounds");
@@ -98,9 +103,9 @@ private String[] createdPlayers = new String[5];
         }
 
 
-    public void setCreatedPlayers(String[] createdPlayers) {
+/*    public void setCreatedPlayers(String[] createdPlayers) {
         this.createdPlayers = createdPlayers;
-    }
+    }*/
 
     public int getPlayerPick() {
         return playerPick;
@@ -110,11 +115,7 @@ private String[] createdPlayers = new String[5];
         this.playerPick = playerPick;
     }
 
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    public void setPlayerName(String playerName) {
+    public void setPlayerNames(String playerName) {
         this.playerName = playerName;
     }
 
