@@ -6,6 +6,17 @@ package animalgame;
     super();
     }
 
+
+    public void printInformation(String animalName){
+        System.out.println("------------------");
+        System.out.println(animalName);
+        new DryFoodDog();
+        name("Henny");
+        health(100);
+        gender("Male");
+        startingPrice(9500);
+        System.out.println("------------------");
+    }
     public void name(String name){
         System.out.println("Name: " + name);
     }

@@ -13,9 +13,9 @@ private int players;
     Dog dog;
     Player player;
     public Game() {
-       // this.dog = new Dog();
-       // this.cat = new Cat();
-      //  this.dryFood = new DryFoodDog();
+        this.dog = new Dog();
+        this.cat = new Cat();
+        this.dryFood = new DryFoodDog();
         amountOfPlayers();
 
     }
