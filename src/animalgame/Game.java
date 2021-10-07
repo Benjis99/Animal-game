@@ -13,11 +13,10 @@ private int players;
     Dog dog;
     Player player;
     public Game() {
-        this.dog = new Dog();
-        this.cat = new Cat();
-        this.dryFood = new DryFoodDog();
+      //  this.dog = new Dog();
+      //  this.cat = new Cat();
+      //  this.dryFood = new DryFoodDog();
         amountOfPlayers();
-
     }
 
     public void createPlayerInput(){
@@ -33,8 +32,7 @@ private int players;
             amountOfPlayers();
         } else{
             System.out.println("You picked " + players + " players.");
-
-          //  amountOfGameNames();
+            amountOfRounds();
 
         }
 
@@ -70,11 +68,28 @@ private int players;
         }
             else{
                 System.out.println("You have picked " + input + " Swedish Krona");
+                animalSelect();
             }
         }
 
         public void animalSelect(){ //1. for cat, 2. for dog, 3. for hamster, 4. for goldfish, 5. for bird
-
+            System.out.println("1. For Cat, 2. For Dog, 3. For Hamster, 4. For Goldfish, 5. For Bird");
+            int input = console.nextInt();
+            if (input == 1){
+                System.out.println("You picked Cat");
+            }
+            else if (input == 2){
+                System.out.println("You picked Dog");
+            }
+            else if (input == 3){
+                System.out.println("You picked Hamster");
+            }
+            else if (input == 4){
+                System.out.println("You picked Goldfish");
+            }
+            else {
+                System.out.println("You picked Bird");
+            }
         }
 
 
