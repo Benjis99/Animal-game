@@ -93,7 +93,7 @@ private String playerName;
             else
             {
                 System.out.println("Please pick a number between 1 and 5");
-                animalSelect();
+                animalSelect(); //
             }
         }
 
