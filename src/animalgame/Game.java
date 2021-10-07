@@ -16,10 +16,12 @@ private String[] createdPlayers = new String[5];
     DryFoodDog dryFood;
     Dog dog;
     Player player;
+
     public Game() {
       //  this.dog = new Dog();
       //  this.cat = new Cat();
       //  this.dryFood = new DryFoodDog();
+
         amountOfPlayers();
     }
 
@@ -80,25 +82,59 @@ private String[] createdPlayers = new String[5];
         public void animalSelect(){ //1. for cat, 2. for dog, 3. for hamster, 4. for goldfish, 5. for bird
             System.out.println("1. For Cat, 2. For Dog, 3. For Hamster, 4. For Goldfish, 5. For Bird");
             int input = console.nextInt();
-            if (input == 1){
-                System.out.println("You picked Cat");
-            }
-            else if (input == 2){
-                System.out.println("You picked Dog");
-            }
-            else if (input == 3){
-                System.out.println("You picked Hamster");
-            }
-            else if (input == 4){
-                System.out.println("You picked Goldfish");
-            }
-            else if (input == 5){
-                System.out.println("You picked Bird");
-            }
-            else
-            {
-                System.out.println("Please pick a number between 1 and 5");
-                animalSelect();
+            switch (input) {
+                case 1: {
+                    System.out.println("You picked Cat");
+                    System.out.println("Cat price 100.. age... ");
+                    System.out.println("1. Buy 2. Back to menu");
+                    int choice = console.nextInt();
+                    if (choice == 1){
+                        System.out.println("Bought one cat");
+                    } else if (choice == 2) {
+                        animalSelect();
+                    } else
+                        System.out.println("Invalid choice, back to main menu you go");
+                    animalSelect();
+                    break;
+                }
+                case 2: {
+
+                    System.out.println("You picked Dog");
+                    this.dog = new Dog();
+                    System.out.println("1. Buy 2. Back to menu");
+                    int choice = console.nextInt();
+                    if (choice == 1){
+                        System.out.println("Bought one Dog");
+                    } else if (choice == 2) {
+                        animalSelect();
+                    } else
+                        System.out.println("Invalid choice, back to main menu you go");
+                    animalSelect();
+
+                    }
+                case 3: {
+                    System.out.println("You picked Hamster");
+                    System.out.println("Hamster price 100.. age... ");
+                    System.out.println("1. Buy 2. Back to menu");
+                    animalSelect();
+                }
+                    case 4: {
+                        System.out.println("You picked Goldfish");
+                        System.out.println("Goldfish price 100.. age... ");
+                        System.out.println("1. Buy 2. Back to menu");
+                        animalSelect();
+                    }
+                case 5: {
+                    System.out.println("You picked Bird");
+                    System.out.println("Bird price 100.. age... ");
+                    System.out.println("1. Buy 2. Back to menu");
+                    animalSelect();
+                }
+                default:
+                        System.out.println("Please pick a number between 1 and 5");
+                        animalSelect();
+
+
             }
         }
 

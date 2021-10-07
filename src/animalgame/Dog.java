@@ -6,7 +6,7 @@ public class Dog extends Animal{
 
     public Dog()
     {
-       printInformation("Greta");
+       printInformationDog("Greta");
     }
 
 

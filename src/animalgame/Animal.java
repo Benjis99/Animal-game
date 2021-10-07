@@ -7,7 +7,7 @@ package animalgame;
     }
 
 
-    public void printInformation(String animalName){
+    public void printInformationDog(String animalName){
         System.out.println("------------------");
         System.out.println(animalName);
         new DryFoodDog();
