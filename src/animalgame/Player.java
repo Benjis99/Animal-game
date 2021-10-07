@@ -8,9 +8,5 @@ public class Player extends Game {
     }
 
 
-    public void createPlayer(){
-        System.out.println("What is your username?");
-        createPlayerInput();
-    }
 
 } //Player Class

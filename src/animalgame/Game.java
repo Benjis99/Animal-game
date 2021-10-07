@@ -32,11 +32,16 @@ private int players;
             amountOfPlayers();
         } else{
             System.out.println("You picked " + players + " players.");
-            amountOfRounds();
+            createPlayer();
 
         }
-
     }
+    public void createPlayer(){
+        System.out.println("What is your username?");
+
+        amountOfRounds();
+    }
+
 
     public void amountOfGameNames(){
         for (int i = 0; i < players; i++){
