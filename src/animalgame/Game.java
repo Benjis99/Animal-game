@@ -16,12 +16,12 @@ private String[] createdPlayers = new String[5];
     DryFoodDog dryFood;
     Dog dog;
     Player player;
-
+    Store store;
     public Game() {
       //  this.dog = new Dog();
       //  this.cat = new Cat();
       //  this.dryFood = new DryFoodDog();
-
+    this.store = new Store();
         amountOfPlayers();
     }
 
@@ -80,7 +80,7 @@ private String[] createdPlayers = new String[5];
         }
 
         public void animalSelect(){ //1. for cat, 2. for dog, 3. for hamster, 4. for goldfish, 5. for bird
-            System.out.println("1. For Cat, 2. For Dog, 3. For Hamster, 4. For Goldfish, 5. For Bird");
+            System.out.println("1. For Cat, 2. For Dog, 3. For Hamster, 4. For Goldfish, 5. For Bird, 6. End Game");
             int input = console.nextInt();
             switch (input) {
                 case 1: {
@@ -98,10 +98,9 @@ private String[] createdPlayers = new String[5];
                     break;
                 }
                 case 2: {
-
                     System.out.println("You picked Dog");
-                    this.dog = new Dog();
-                    System.out.println("1. Buy 2. Back to menu");
+                    store.buyAnimal();
+
                     int choice = console.nextInt();
                     if (choice == 1){
                         System.out.println("Bought one Dog");
@@ -129,6 +128,9 @@ private String[] createdPlayers = new String[5];
                     System.out.println("Bird price 100.. age... ");
                     System.out.println("1. Buy 2. Back to menu");
                     animalSelect();
+                }
+                case 6: {
+                    System.exit(1);
                 }
                 default:
                         System.out.println("Please pick a number between 1 and 5");
