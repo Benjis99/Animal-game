@@ -6,7 +6,6 @@ public class Game {
 Scanner console = new Scanner(System.in);
 
 private int playerPick;
-private int players;
 private String playerName;
 private String[] createdPlayers = new String[5];
 
@@ -41,6 +40,7 @@ private String[] createdPlayers = new String[5];
         for (int i = 0; i < getPlayerPick(); i++) {
             System.out.println("What is your username?");
             setPlayerName(console.nextLine());
+
         }
         amountOfRounds();
     }
