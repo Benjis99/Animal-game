@@ -92,6 +92,9 @@ private String playerName;
             }
         }
 
+    public String getPlayerName() {
+        return playerName;
+    }
 
-    //Game Class
+//Game Class
 }
