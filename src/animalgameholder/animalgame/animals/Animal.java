@@ -1,6 +1,8 @@
-package animalgame;
+package animalgameholder.animalgame.animals;
 
-    abstract class Animal {
+import animalgameholder.animalgame.foods.DryFoodDog;
+
+abstract class Animal  {
 
     public Animal() {
     super();

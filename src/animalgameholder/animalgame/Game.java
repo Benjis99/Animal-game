@@ -1,4 +1,9 @@
-package animalgame;
+package animalgameholder.animalgame.animalgame;
+
+import animalgameholder.animalgame.animals.Bird;
+import animalgameholder.animalgame.animals.Cat;
+import animalgameholder.animalgame.animals.Dog;
+import animalgameholder.animalgame.foods.DryFoodDog;
 
 import java.util.Scanner;
 
@@ -80,8 +85,8 @@ private String[] createdPlayers = new String[5];
         }
 
         public void animalSelect(){ //1. for cat, 2. for dog, 3. for hamster, 4. for goldfish, 5. for bird
-        //1 for animals, 2 for food
-            System.out.println("1. For animals 2. For food");
+        //1 for animalgameholder.animalgame.animals, 2 for food
+            System.out.println("1. For animalgameholder.animalgame.animals 2. For food");
             int inputForMenu = console.nextInt();
             if (inputForMenu == 2){
                 foodSelect();

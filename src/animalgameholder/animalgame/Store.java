@@ -1,4 +1,6 @@
-package animalgame;
+package animalgameholder.animalgame;
+
+import animalgameholder.animalgame.animals.Cat;
 
 public class Store{
 
@@ -27,5 +29,8 @@ public class Store{
         //Cat info upp
         System.out.println("1. Buy 2. Back to menu");
         //if the player is buying, go to buyAnimal
+
     }
+
+
 }

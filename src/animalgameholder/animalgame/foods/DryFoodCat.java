@@ -1,6 +1,8 @@
-package animalgame;
+package animalgameholder.animalgame.foods;
 
-public class DryFoodCat extends Food{
+import animalgameholder.animalgame.Food;
+
+public class DryFoodCat extends Food {
 
     public DryFoodCat() {
         foodType(royalCanin());

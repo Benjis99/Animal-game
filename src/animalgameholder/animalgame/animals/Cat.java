@@ -1,4 +1,6 @@
-package animalgame;
+package animalgameholder.animalgame.animals;
+
+import animalgameholder.animalgame.foods.DryFoodCat;
 
 public class Cat extends Animal {
 

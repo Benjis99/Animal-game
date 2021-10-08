@@ -1,6 +1,8 @@
-package animalgame;
+package animalgameholder.animalgame.foods;
 
-abstract class Food extends Animal{
+import animalgameholder.animalgame.animals.Animal;
+
+abstract class Food extends Animal {
 
     public Food() {
     super();
