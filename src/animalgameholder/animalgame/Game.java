@@ -5,14 +5,15 @@ import animalgameholder.animalgame.animals.Cat;
 import animalgameholder.animalgame.animals.Dog;
 import animalgameholder.animalgame.foods.DryFoodDog;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
 Scanner console = new Scanner(System.in);
 private int inputMoney;
 private int playerPick;
-private String playerName;
-private String[] createdPlayers = new String[5];
+
+ArrayList<Player> players = new ArrayList<>();
 
 
 
@@ -20,7 +21,7 @@ private String[] createdPlayers = new String[5];
     Cat cat;
     DryFoodDog dryFood;
     Dog dog;
-    Player player;
+
     Store store;
     public Game() {
       //  this.dog = new Dog();
@@ -44,17 +45,15 @@ private String[] createdPlayers = new String[5];
         }
     }
     public void createPlayer(){
-        System.out.println("What your usernames?"); // Enter all names of players and loops through amount of players chosen
+        System.out.println("Whats your usernames?"); // Enter all names of players and loops through amount of players chosen
 
-        for (int i = 0; i <= getPlayerPick(); i++) {
-            //setPlayerNames(console.nextLine());
-            createdPlayers[i] = console.nextLine();
-            //playerName = console.nextLine();
+        for (int i = 1; i < getPlayerPick() + 1; i++) {
+            System.out.println("Player " + i + " name:");
+            String name = console.nextLine();
+            players.add(new Player(name));
+
         }
-        System.out.println("\nPlayer selected: ");
-        for (int k = 1; k <= getPlayerPick(); k++){
-            System.out.println(createdPlayers[k]); // Loops through the array and prints all the selected players
-        }
+
         amountOfRounds();
     }
 
@@ -173,9 +172,7 @@ private String[] createdPlayers = new String[5];
         this.playerPick = playerPick;
     }
 
-    public void setPlayerNames(String playerName) {
-        this.playerName = playerName;
-    }
+
 
     public void setInputMoney(int inputMoney) {
         this.inputMoney = inputMoney;

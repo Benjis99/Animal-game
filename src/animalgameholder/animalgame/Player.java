@@ -1,14 +1,17 @@
 package animalgameholder.animalgame;
 
 import animalgameholder.animalgame.animals.Animal;
+import animalgameholder.animalgame.foods.Food;
 
 import java.util.ArrayList;
 
+
 public class Player extends Game {
+    private String name;
 
     private ArrayList<Animal> playerAnimals = new ArrayList<>();
-    public Player() {
-
+    public Player(String name) {
+    this.name = name;
     }
 
 
