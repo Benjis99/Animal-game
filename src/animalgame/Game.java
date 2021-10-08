@@ -80,6 +80,7 @@ private String[] createdPlayers = new String[5];
         }
 
         public void animalSelect(){ //1. for cat, 2. for dog, 3. for hamster, 4. for goldfish, 5. for bird
+        //1 for animals, 2 for food
             System.out.println("1. For Cat, 2. For Dog, 3. For Hamster, 4. For Goldfish, 5. For Bird, 6. End Game");
             int input = console.nextInt();
             switch (input) {
