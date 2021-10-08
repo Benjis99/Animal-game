@@ -10,8 +10,10 @@ import java.util.Scanner;
 
 public class Game {
 Scanner console = new Scanner(System.in);
+
 private int inputMoney;
 private int playerPick;
+private int numberOfPlayers = 0;
 
 ArrayList<Player> players = new ArrayList<>();
 
@@ -34,27 +36,26 @@ ArrayList<Player> players = new ArrayList<>();
 
     public void amountOfPlayers(){ //Method that will check how many players the user picked, and check it with the if else statement.
         System.out.println("How many players do you want? 2-4");
-         setPlayerPick(console.nextInt());
-        if (getPlayerPick() < 2 || getPlayerPick() > 4){
+        numberOfPlayers = console.nextInt();
+        if (numberOfPlayers < 2 || numberOfPlayers > 4){
             System.out.println("Invalid amount of players, you must choose between 2-4");
             amountOfPlayers();
         } else{
-            System.out.println("You picked " + getPlayerPick() + " players.");
+            System.out.println("You picked " + numberOfPlayers + " players.");
             createPlayer();
 
         }
     }
     public void createPlayer(){
         System.out.println("Whats your usernames?"); // Enter all names of players and loops through amount of players chosen
-
-        for (int i = 1; i < getPlayerPick() + 1; i++) {
+        for (int i = 1; i < numberOfPlayers + 1; i++) {
             System.out.println("Player " + i + " name:");
-            String name = console.nextLine();
-            players.add(new Player(name));
+            String name = console.next();
+            //players.add(new Player(name));
 
         }
 
-        amountOfRounds();
+        //amountOfRounds();
     }
 
     public void amountOfRounds (){ //Method that will check how many rounds the user picked, and check it with the if else statement.
@@ -164,9 +165,9 @@ ArrayList<Player> players = new ArrayList<>();
         System.out.println("\n".repeat(50));
     }
 
-    public int getPlayerPick() {
+/*    public int getPlayerPick() {
         return playerPick;
-    }
+    }*/
 
     public void setPlayerPick(int playerPick) {
         this.playerPick = playerPick;
