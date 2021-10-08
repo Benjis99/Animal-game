@@ -1,4 +1,6 @@
 package animalgameholder.animalgame.foods;
 
-public class FlakeLining {
+import animalgameholder.animalgame.animals.Goldfish;
+
+public class FlakeLining extends Goldfish {
 } //FlakeLining Class
