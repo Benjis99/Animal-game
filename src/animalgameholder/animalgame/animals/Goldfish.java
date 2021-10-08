@@ -1,4 +1,9 @@
 package animalgameholder.animalgame.animals;
 
-public class Goldfish {
+import animalgameholder.animalgame.animals.Animal;
+import animalgameholder.animalgame.animals.Animal;
+
+public class Goldfish extends Animal {
+
+
 } //Goldfish Class

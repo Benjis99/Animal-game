@@ -16,5 +16,5 @@ public class Bird extends Animal {
 
     }
 
-    //Bird Class
+    //Bird Class yes
 }
