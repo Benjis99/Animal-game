@@ -1,4 +1,4 @@
-package animalgameholder.animalgame.animalgame;
+package animalgameholder.animalgame;
 
 import animalgameholder.animalgame.animals.Bird;
 import animalgameholder.animalgame.animals.Cat;
