@@ -1,6 +1,7 @@
 package animalgameholder.animalgame.animals;
 
-import animalgameholder.animalgame.Animal;
+import animalgameholder.animalgame.animals.Animal;
+import animalgameholder.animalgame.foods.DryFoodDog;
 
 public class Dog extends Animal {
 
