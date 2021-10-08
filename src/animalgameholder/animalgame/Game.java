@@ -53,7 +53,7 @@ Scanner console = new Scanner(System.in);
             String name = console.next();
             players.add(new Player(name));
         }
-        //amountOfRounds();
+        amountOfRounds();
     }
 
     public void amountOfRounds (){ //Method that will check how many rounds the user picked, and check it with the if else statement.
