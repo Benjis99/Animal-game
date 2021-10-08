@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
-
+Scanner console = new Scanner(System.in);
 
 private int inputMoney;
 private int playerPick;
 private int numberOfPlayers = 0;
 
 ArrayList<Player> players = new ArrayList<>();
-Scanner console = new Scanner(System.in);
+
 
 
     Bird bird;
@@ -31,7 +31,6 @@ Scanner console = new Scanner(System.in);
       //  this.dryFood = new DryFoodDog();
     this.store = new Store();
         amountOfPlayers();
-        createPlayer();
     }
 
 
@@ -43,16 +42,19 @@ Scanner console = new Scanner(System.in);
             amountOfPlayers();
         } else{
             System.out.println("You picked " + numberOfPlayers + " players.");
+            createPlayer();
+
         }
     }
-
     public void createPlayer(){
         System.out.println("Whats your usernames?"); // Enter all names of players and loops through amount of players chosen
-        for(int i = 1; i < numberOfPlayers + 1; i++){
+        for (int i = 1; i < numberOfPlayers + 1; i++) {
             System.out.println("Player " + i + " name:");
             String name = console.next();
-            players.add(new Player(name));
+            //players.add(new Player(name));
+
         }
+
         //amountOfRounds();
     }
 
@@ -65,6 +67,7 @@ Scanner console = new Scanner(System.in);
         } else{
             System.out.println("You picked " + input + " rounds.");
             amountOfStartMoney();
+
         }
     }
     //Method that will check how much money the user picked, and check it with the if else statement.
