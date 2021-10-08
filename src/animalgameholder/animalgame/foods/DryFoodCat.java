@@ -3,17 +3,8 @@ package animalgameholder.animalgame.foods;
 public class DryFoodCat extends Food {
 
     public DryFoodCat() {
-        foodType(royalCanin());
-        pricePerKg(royalPrice());
-    }
-    public String royalCanin(){
-        String brand = "Royal Canin Sensible Dry Food";
-        return brand;
+        name = "DryFood";
+        price = 149.50;
     }
 
-    public String royalPrice(){
-        String price = "149.50";
-        return price;
-    }
-    //DryFoodCat Class
 }

@@ -1,4 +1,4 @@
 package animalgameholder.animalgame.foods;
 
-public class Seeds {
+public class Seeds extends Food{
 } //Seeds Class

@@ -3,18 +3,19 @@ package animalgameholder.animalgame.foods;
 import animalgameholder.animalgame.animals.Animal;
 
     public abstract class Food extends Animal {
+    protected String name;
+    protected double price;
+
 
     public Food() {
     super();
     }
 
-    public void foodType(String foodType){
-        System.out.println("What type of brand and food: " + foodType);
-    }
+        public String getName() {
+            return name;
+        }
 
-    public void pricePerKg(String price){
-        System.out.println("The price is: " + price + " per kg.");
-
-    }
-
-} //Food Class
+        public double getPrice() {
+            return price;
+        }
+    } //Food Class
