@@ -12,6 +12,7 @@ abstract class Food extends Animal{
 
     public void pricePerKg(String price){
         System.out.println("The price is: " + price + " per kg.");
+
     }
 
 } //Food Class
