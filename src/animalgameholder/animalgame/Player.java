@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 public class Player{
-    private final String name;
+    private final String name; // final
 
     private ArrayList<Animal> playerAnimals = new ArrayList<>();
 

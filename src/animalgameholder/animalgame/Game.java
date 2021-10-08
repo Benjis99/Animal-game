@@ -47,7 +47,6 @@ Scanner console = new Scanner(System.in);
     }
 
     public void createPlayer(){
-        //Scanner myScanner = new Scanner(System.in);
         System.out.println("Whats your usernames?"); // Enter all names of players and loops through amount of players chosen
         for(int i = 1; i < numberOfPlayers + 1; i++){
             System.out.println("Player " + i + " name:");
