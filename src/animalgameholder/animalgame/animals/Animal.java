@@ -2,7 +2,7 @@ package animalgameholder.animalgame.animals;
 
 import animalgameholder.animalgame.foods.DryFoodDog;
 
-abstract class Animal  {
+    public abstract class Animal  {
 
     public Animal() {
     super();

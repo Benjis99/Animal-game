@@ -2,7 +2,7 @@ package animalgameholder.animalgame.foods;
 
 import animalgameholder.animalgame.animals.Animal;
 
-abstract class Food extends Animal {
+    public abstract class Food extends Animal {
 
     public Food() {
     super();
