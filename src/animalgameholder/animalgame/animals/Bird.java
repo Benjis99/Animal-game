@@ -1,7 +1,7 @@
 package animalgameholder.animalgame.animals;
 
-import animalgameholder.animalgame.Animal;
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.animals.Animal;
+import animalgameholder.animalgame.foods.Seeds;
 
 public class Bird extends Animal {
 
