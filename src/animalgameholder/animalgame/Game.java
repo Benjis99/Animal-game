@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Game {
 Scanner console = new Scanner(System.in);
-
+private int inputMoney;
 private int playerPick;
 private String playerName;
 private String[] createdPlayers = new String[5];
@@ -55,7 +55,6 @@ private String[] createdPlayers = new String[5];
         for (int k = 1; k <= getPlayerPick(); k++){
             System.out.println(createdPlayers[k]); // Loops through the array and prints all the selected players
         }
-
         amountOfRounds();
     }
 
@@ -68,25 +67,27 @@ private String[] createdPlayers = new String[5];
         } else{
             System.out.println("You picked " + input + " rounds.");
             amountOfStartMoney();
+
         }
     }
     //Method that will check how much money the user picked, and check it with the if else statement.
     public void amountOfStartMoney(){ //Create start amount later when all the animal have prices
         System.out.println("How much money do you wanna start with? Lowest amount is 0 and max 2000000000 Swedish Krona");
-        int input = console.nextInt();
-        if (input < 0 || input > 2000000000) {
+        setInputMoney(console.nextInt());
+        if (getInputMoney() < 0 || getInputMoney() > 2000000000) {
             System.out.println("Invalid amount of money, try again. 0-2000000000 Swedish Krona");
             amountOfStartMoney();
         }
             else{
-                System.out.println("You have picked " + input + " Swedish Krona");
+                newScreen();
+                System.out.println("You have picked " + getInputMoney() + " Swedish Krona");
                 animalSelect();
             }
         }
 
         public void animalSelect(){ //1. for cat, 2. for dog, 3. for hamster, 4. for goldfish, 5. for bird
-        //1 for animalgameholder.animalgame.animals, 2 for food
-            System.out.println("1. For animalgameholder.animalgame.animals 2. For food");
+        //1 animal, 2 for food
+            System.out.println("1. For animal 2. For food");
             int inputForMenu = console.nextInt();
             if (inputForMenu == 2){
                 foodSelect();
@@ -160,9 +161,9 @@ private String[] createdPlayers = new String[5];
         }
 
 
-/*    public void setCreatedPlayers(String[] createdPlayers) {
-        this.createdPlayers = createdPlayers;
-    }*/
+    public void newScreen(){
+        System.out.println("\n".repeat(50));
+    }
 
     public int getPlayerPick() {
         return playerPick;
@@ -176,5 +177,12 @@ private String[] createdPlayers = new String[5];
         this.playerName = playerName;
     }
 
+    public void setInputMoney(int inputMoney) {
+        this.inputMoney = inputMoney;
+    }
+
+    public int getInputMoney() {
+        return inputMoney;
+    }
     //Game Class
 }
