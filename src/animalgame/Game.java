@@ -81,64 +81,77 @@ private String[] createdPlayers = new String[5];
 
         public void animalSelect(){ //1. for cat, 2. for dog, 3. for hamster, 4. for goldfish, 5. for bird
         //1 for animals, 2 for food
-            System.out.println("1. For Cat, 2. For Dog, 3. For Hamster, 4. For Goldfish, 5. For Bird, 6. End Game");
-            int input = console.nextInt();
-            switch (input) {
-                case 1: {
-                    System.out.println("You picked Cat");
-                    System.out.println("Cat price 100.. age... ");
-                    System.out.println("1. Buy 2. Back to menu");
-                    int choice = console.nextInt();
-                    if (choice == 1){
-                        System.out.println("Bought one cat");
-                    } else if (choice == 2) {
+            System.out.println("1. For animals 2. For food");
+            int inputForMenu = console.nextInt();
+            if (inputForMenu == 2){
+                foodSelect();
+            } else if (inputForMenu == 1) {
+                System.out.println("1. For Cat, 2. For Dog, 3. For Hamster, 4. For Goldfish, 5. For Bird, 6. End Game");
+                int input = console.nextInt();
+                switch (input) {
+                    case 1: {
+                        System.out.println("You picked Cat");
+                        System.out.println("Cat price 100.. age... ");
+                        System.out.println("1. Buy 2. Back to menu");
+                        int choice = console.nextInt();
+                        if (choice == 1) {
+                            System.out.println("Bought one cat");
+                        } else if (choice == 2) {
+                            animalSelect();
+                        } else
+                            System.out.println("Invalid choice, back to main menu you go");
                         animalSelect();
-                    } else
-                        System.out.println("Invalid choice, back to main menu you go");
-                    animalSelect();
-                    break;
-                }
-                case 2: {
-                    System.out.println("You picked Dog");
-                    store.buyAnimal();
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("You picked Dog");
+                        store.buyAnimal();
 
-                    int choice = console.nextInt();
-                    if (choice == 1){
-                        System.out.println("Bought one Dog");
-                    } else if (choice == 2) {
+                        int choice = console.nextInt();
+                        if (choice == 1) {
+                            System.out.println("Bought one Dog");
+                        } else if (choice == 2) {
+                            animalSelect();
+                        } else
+                            System.out.println("Invalid choice, back to main menu you go");
                         animalSelect();
-                    } else
-                        System.out.println("Invalid choice, back to main menu you go");
-                    animalSelect();
 
                     }
-                case 3: {
-                    System.out.println("You picked Hamster");
-                    System.out.println("Hamster price 100.. age... ");
-                    System.out.println("1. Buy 2. Back to menu");
-                    animalSelect();
-                }
+                    case 3: {
+                        System.out.println("You picked Hamster");
+                        System.out.println("Hamster price 100.. age... ");
+                        System.out.println("1. Buy 2. Back to menu");
+                        animalSelect();
+                    }
                     case 4: {
                         System.out.println("You picked Goldfish");
                         System.out.println("Goldfish price 100.. age... ");
                         System.out.println("1. Buy 2. Back to menu");
                         animalSelect();
                     }
-                case 5: {
-                    System.out.println("You picked Bird");
-                    System.out.println("Bird price 100.. age... ");
-                    System.out.println("1. Buy 2. Back to menu");
-                    animalSelect();
-                }
-                case 6: {
-                    System.exit(1);
-                }
-                default:
+                    case 5: {
+                        System.out.println("You picked Bird");
+                        System.out.println("Bird price 100.. age... ");
+                        System.out.println("1. Buy 2. Back to menu");
+                        animalSelect();
+                    }
+                    case 6: {
+                        System.exit(1);
+                    }
+                    default:
                         System.out.println("Please pick a number between 1 and 5");
                         animalSelect();
 
 
+                }
+            } else {
+                System.out.println("Invalid input");
+                animalSelect();
             }
+        }
+
+        public void foodSelect(){
+            System.out.println("food");
         }
 
 
