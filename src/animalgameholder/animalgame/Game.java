@@ -35,6 +35,9 @@ Scanner console = new Scanner(System.in);
         createPlayer();
     }
 
+    public void scannerPlayer(){
+        String input = console.nextLine();
+    }
 
     public void amountOfPlayers(){ //Method that will check how many players the user picked, and check it with the if else statement.
         System.out.println("How many players do you want? 2-4");

@@ -10,6 +10,7 @@ public class Player{
     private final String name; // final
 
     ArrayList<Animal> animals = new ArrayList<>();
+    ArrayList<Food> food = new ArrayList<>();
 
     public Player(String name) {
         this.name = name;
@@ -18,6 +19,16 @@ public class Player{
 
     public String getName() {
         return name;
+    }
+
+    public void getPlayerFood(){
+    if (food.size() > 0) {
+        System.out.println("This is your food");
+        int count = 1;
+        for (Food food: food) {
+            System.out.println(count + " "+ food.getName() + " " + food.getKg() + "kg");
+        }
+    }
     }
 
     public void getPlayerAnimal(){ //Method that prints out the players animals with information
@@ -30,6 +41,11 @@ public class Player{
                 counter++;
             }
         }
+    }
+
+    public void animalFeeding(Player player){
+        int pick1 = 0;
+        int pick2 = 0;
     }
 
 
