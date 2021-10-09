@@ -157,12 +157,19 @@ Scanner console = new Scanner(System.in);
             }
         }
 
+        public static void continueButtom(){
+        Scanner console = new Scanner(System.in); //We need to use one scanner, not crating more in the methods.
+            System.out.println("\n");
+            System.out.println("Press enter to continue");
+            console.nextLine();
+        }
+
         public void foodSelect(){
             System.out.println("food");
         }
 
 
-    public void newScreen(){
+    public static void newScreen(){ //Static so we can reach outside Game class
         System.out.println("\n".repeat(50));
     }
 
