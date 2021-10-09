@@ -1,6 +1,7 @@
 package animalgameholder.animalgame.animals;
 
 import animalgameholder.animalgame.foods.DryFoodDog;
+import animalgameholder.animalgame.foods.Food;
 
 import java.util.Locale;
 
@@ -27,6 +28,29 @@ public abstract class Animal  {
             return values()[(int) (Math.random() * values().length)];
         }
     }
+        public boolean eatTrue(Food food){
+            return true;
+         }
+
+         public void eatFood(Food food){ //Method that will check if the animal can eat the food or not
+                                        //If the animal is at 100 health, then it will not be able to eat
+        if (eatTrue(food)) {
+            if (this.health >= 100){
+                this.health = 100;
+                System.out.println("Animal is at full health");
+            }
+            if (this.health < 100){
+                this.health = this.health + (int) (this.health * 0.10);
+
+                    if (this.health > 100){
+                        this.health = 100;
+                        System.out.println(getName() + "animal is at full health " + getHealth() + "%");
+                    }
+                }
+            }
+        }
+
+
 
         public MaleFemale getGender() {
             return gender;
@@ -59,6 +83,7 @@ public abstract class Animal  {
         public void setHealth(int health) {
             this.health = health;
         }
+
 
         public int getAge() {
         return age;
