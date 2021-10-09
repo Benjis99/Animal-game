@@ -14,6 +14,7 @@ public class Player{
     public boolean ableToBuyAnimals;
     public boolean ableToBuyFoods;
     public boolean ableToBreed;
+    private int money = 15000;
 
     ArrayList<Animal> animals = new ArrayList<>();
     ArrayList<Food> foods = new ArrayList<>();
@@ -35,6 +36,16 @@ public class Player{
         ableToBuyAnimals = false;
         ableToBuyFoods = false;
         ableToBreed = false;
+    }
+
+    public void removeMoney(int money){
+        this.money = this.money - money;
+    }
+    public void addMoney(int money){
+        this.money = this.money + money;
+    }
+    public void getBalance(){
+        System.out.println("Current balance: " + this.money + " Swedish kronor");
     }
 
     public String getName() {
@@ -63,7 +74,7 @@ public class Player{
         }
     }
 
-    public void animalFeeding(Player player){
+    public void animalFeeding(Player player){ //Pick one animal to feed in the first try-catch
         Scanner console = new Scanner(System.in); //Delete when we use the Scanner from game class
         int pick1 = 0;
         int pick2 = 0;
@@ -73,8 +84,8 @@ public class Player{
             if ((player.animals.size() > 0 && player.foods.size() > 0)) { //if statement with try-catch inside.
                 while (pick1 < 1 || pick1 > animals.size()){
                 try {
-                    Game.newScreen();
-                    getPlayerAnimal();
+                    Game.newScreen(); //New screen, easy to see the information
+                    getPlayerAnimal(); //This will get the players animal
                     System.out.println("Write the name of the animal you wanna feed: ");
                     pick1 = Integer.parseInt(console.nextLine()); //We need a scanner from game class here
                 } catch (Exception e) {
@@ -100,6 +111,10 @@ public class Player{
                     animal.eatFood(food);
                     food.setKg(-1);
                     player.falseBooleans();
+                    player.setAbleToFeed(true);
+                    if (food.getKg() <= 0){
+                        foods.remove(food);
+                    }
 
                 }
             }
