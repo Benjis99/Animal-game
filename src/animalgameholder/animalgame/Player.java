@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Player{
     private final String name; // final
-
+    public boolean ableToFeed;
     ArrayList<Animal> animals = new ArrayList<>();
     ArrayList<Food> food = new ArrayList<>();
 
@@ -46,6 +46,22 @@ public class Player{
     public void animalFeeding(Player player){
         int pick1 = 0;
         int pick2 = 0;
+        if (checkWithPlayer(ableToFeed)) {
+
+            if ((player.animals.size() > 0 && player.food.size() > 0)) { //if statement with try-catch inside.
+                while (pick1 < 1 || pick1 > animals.size()){
+
+                }
+            }
+        }
+    }
+
+    public boolean checkWithPlayer(boolean lean){
+        if (!lean){
+            System.out.println("To many choices this turn");
+            return false;
+        }
+        return true;
     }
 
 
