@@ -20,6 +20,10 @@ import animalgameholder.animalgame.animals.Animal;
             return kg;
         }
 
+        public void setKg(int kg) {
+            this.kg = this.kg + kg;
+        }
+
         public double getPrice() {
             return price;
         }

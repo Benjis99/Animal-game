@@ -16,7 +16,7 @@ public class Player{
     public boolean ableToBreed;
 
     ArrayList<Animal> animals = new ArrayList<>();
-    ArrayList<Food> food = new ArrayList<>();
+    ArrayList<Food> foods = new ArrayList<>();
 
     public Player(String name) {
         this.name = name;
@@ -42,10 +42,10 @@ public class Player{
     }
 
     public void getPlayerFood(){
-    if (food.size() > 0) {
+    if (foods.size() > 0) {
         System.out.println("This is your food");
         int count = 1;
-        for (Food food: food) {
+        for (Food food: foods) {
             System.out.println(count + " "+ food.getName() + " " + food.getKg() + "kg");
         }
     }
@@ -64,13 +64,13 @@ public class Player{
     }
 
     public void animalFeeding(Player player){
-        Scanner console = new Scanner(System.in);
+        Scanner console = new Scanner(System.in); //Delete when we use the Scanner from game class
         int pick1 = 0;
         int pick2 = 0;
         if (checkWithPlayer(ableToFeed)) {
 
-            //Delete when we use the Scanner from game class
-            if ((player.animals.size() > 0 && player.food.size() > 0)) { //if statement with try-catch inside.
+
+            if ((player.animals.size() > 0 && player.foods.size() > 0)) { //if statement with try-catch inside.
                 while (pick1 < 1 || pick1 > animals.size()){
                 try {
                     Game.newScreen();
@@ -80,7 +80,27 @@ public class Player{
                 } catch (Exception e) {
                     System.out.println("You need to enter a number");
                     Game.continueButtom();
+                 }
                 }
+                while (pick2 < 1 || pick2 > foods.size()) {  //While loop with try-catch inside.
+                    try {
+                        Game.newScreen();
+                        getPlayerFood();
+                        System.out.println("\n Pick the food you wanna use");
+                        pick2 = Integer.parseInt(console.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("You need to enter a number");
+
+                    }
+                }
+                Food food = foods.get(pick2 - 1);
+                Animal animal = animals.get(pick1 - 1);
+
+                if (animal.eatTrue(food)) {
+                    animal.eatFood(food);
+                    food.setKg(-1);
+                    player.falseBooleans();
+
                 }
             }
         }
@@ -94,5 +114,23 @@ public class Player{
         return true;
     }
 
+    public void setAbleToFeed(boolean ableToFeed) {
+        this.ableToFeed = ableToFeed;
+    }
 
+    public void setAbleToSellAnimals(boolean ableToSellAnimals) {
+        this.ableToSellAnimals = ableToSellAnimals;
+    }
+
+    public void setAbleToBuyAnimals(boolean ableToBuyAnimals) {
+        this.ableToBuyAnimals = ableToBuyAnimals;
+    }
+
+    public void setAbleToBuyFoods(boolean ableToBuyFoods) {
+        this.ableToBuyFoods = ableToBuyFoods;
+    }
+
+    public void setAbleToBreed(boolean ableToBreed) {
+        this.ableToBreed = ableToBreed;
+    }
 } //Player Class

@@ -163,15 +163,16 @@ Scanner console = new Scanner(System.in);
             System.out.println("Press enter to continue");
             console.nextLine();
         }
+      public static void newScreen(){ //Static so we can reach outside Game class
+        System.out.println("\n".repeat(50));
+      }
 
         public void foodSelect(){
             System.out.println("food");
         }
 
 
-    public static void newScreen(){ //Static so we can reach outside Game class
-        System.out.println("\n".repeat(50));
-    }
+
 
 /*    public int getPlayerPick() {
         return playerPick;
