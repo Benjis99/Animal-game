@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Player{
     private final String name; // final
 
-    private ArrayList<Animal> playerAnimals = new ArrayList<>();
+    ArrayList<Animal> animals = new ArrayList<>();
 
     public Player(String name) {
         this.name = name;
@@ -20,15 +20,17 @@ public class Player{
         return name;
     }
 
-    public void removeAnimal(Animal animal){
-        this.playerAnimals.add(animal);
+    public void getPlayerAnimal(){ //Method that prints out the players animals with information
+        if (animals.size() > 0){
+            System.out.println("This is your animals");
+            int counter = 1;
+            for (Animal animal: animals) {
+                System.out.println(counter + "animal.getName" + "animal.getAnimalType" + "animal.getGender" +
+                        "animal.getHealth" + "% health." + "Age: " + "animal.getAge" );
+                counter++;
+            }
+        }
     }
-
-    public ArrayList<Animal> getAnimals(){
-        return getAnimals();
-    }
-
-
 
 
 } //Player Class
