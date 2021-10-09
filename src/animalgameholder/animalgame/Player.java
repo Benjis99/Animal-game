@@ -25,8 +25,8 @@ public class Player{
             System.out.println("This is your animals");
             int counter = 1;
             for (Animal animal: animals) {
-                System.out.println(counter + "animal.getName" + "animal.getAnimalType" + "animal.getGender" +
-                        "animal.getHealth" + "% health." + "Age: " + "animal.getAge" );
+                System.out.println(counter + animal.getName() + animal.getAnimalBreed() + animal.getGender() +
+                        animal.getHealth() + "% health." + "Age: " + animal.getAge() );
                 counter++;
             }
         }

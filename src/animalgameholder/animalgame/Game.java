@@ -15,6 +15,7 @@ private int inputMoney;
 private int playerPick;
 private int numberOfPlayers = 0;
 
+
 ArrayList<Player> players = new ArrayList<>();
 Scanner console = new Scanner(System.in);
 
