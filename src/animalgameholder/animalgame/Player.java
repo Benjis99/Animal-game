@@ -122,12 +122,23 @@ public class Player{
         }
     }
 
+    public void playerInv(){
+       getPlayerAnimal();
+       getPlayerFood();
+       getBalance();
+
+    }
+
     public boolean checkWithPlayer(boolean lean){
         if (!lean){
             System.out.println("To many choices this turn");
             return false;
         }
         return true;
+    }
+
+    public int getMoney() {
+        return money;
     }
 
     public void setAbleToFeed(boolean ableToFeed) {

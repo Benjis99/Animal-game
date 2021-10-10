@@ -4,7 +4,7 @@ public class DryFoodDog extends Food {
 
     public DryFoodDog() {
         name = "DryFood";
-        price = 69.50;
+        price = 69;
 
     }
 

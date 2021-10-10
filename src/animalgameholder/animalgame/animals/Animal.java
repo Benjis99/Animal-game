@@ -51,7 +51,11 @@ public abstract class Animal  {
             }
         }
 
-
+        public int currentPriceAnimal(){
+        double currentPrice = ((this.health / 100.0) * this.startPrice);
+        currentPrice = currentPrice - (this.age * 2);
+        return (int) currentPrice;
+        }
 
         public MaleFemale getGender() {
             return gender;

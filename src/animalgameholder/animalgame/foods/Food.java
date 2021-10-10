@@ -4,7 +4,7 @@ import animalgameholder.animalgame.animals.Animal;
 
     public abstract class Food extends Animal {
     protected String name;
-    protected double price;
+    protected int price;
     private int kg = 1;
 
 
@@ -24,7 +24,7 @@ import animalgameholder.animalgame.animals.Animal;
             this.kg = this.kg + kg;
         }
 
-        public double getPrice() {
+        public int getPrice() {
             return price;
         }
     } //Food Class
