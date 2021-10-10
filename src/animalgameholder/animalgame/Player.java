@@ -3,6 +3,7 @@ package animalgameholder.animalgame;
 import animalgameholder.animalgame.animals.Animal;
 import animalgameholder.animalgame.foods.Food;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
