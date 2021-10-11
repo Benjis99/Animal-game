@@ -7,13 +7,13 @@ import java.util.Locale;
 
 public abstract class Animal  {
 
-        private String name;
-        private int startPrice;
-        private int health = 100;
-        private String animalBreed;
-        private MaleFemale gender;
-        private int age = 0;
-        private int maxAge;
+        protected String name;
+        protected int startPrice;
+        protected int health = 100;
+        protected String animalBreed;
+        protected MaleFemale gender;
+        protected int age = 0;
+        protected int maxAge;
 
 
 
@@ -22,7 +22,9 @@ public abstract class Animal  {
     }
 
 
-        public enum MaleFemale{
+
+
+    public enum MaleFemale{
         FEMALE, MALE;
 
         public static MaleFemale getRandomSelectGender(){  //Random select for male or female
