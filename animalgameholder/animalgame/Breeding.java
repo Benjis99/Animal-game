@@ -81,6 +81,9 @@ public class Breeding {
 
         animal.setName(input.nextLine());
         animal.setGender(gender);
+
+        player.animals.add(animal);
+        player.
     }
 
 
