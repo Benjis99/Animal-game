@@ -112,7 +112,7 @@ Scanner console = new Scanner(System.in);
                     }
                     case 2: {
                         System.out.println("You picked Dog");
-                        store.buyMenu();
+
 
                         int choice = console.nextInt();
                         if (choice == 1) {

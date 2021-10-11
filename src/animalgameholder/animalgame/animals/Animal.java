@@ -57,6 +57,9 @@ public abstract class Animal  {
         return (int) currentPrice;
         }
 
+        public boolean canEat(Food food){
+        return true;
+        }
         public MaleFemale getGender() {
             return gender;
         }

@@ -1,7 +1,7 @@
 package animalgameholder.animalgame;
 
-import animalgameholder.animalgame.animals.Animal;
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.animals.*;
+import animalgameholder.animalgame.foods.*;
 
 import java.util.Scanner;
 
@@ -21,14 +21,35 @@ public class Store{
 
             switch (pick){
                 case 1:
-
+                animalShop(player);
                 case 2:
-
+                foodShop(player);
                 case 3:
-
+                sellAnimalsShop(player);
                 case 4:
                     menuCheck = false;
 
+            }
+        }
+    }
+
+    public void sellAnimalsShop(Player player){
+        boolean menuCheck = true;
+        if (player.animals.size() > 0) {
+            while (menuCheck) {
+                player.getMoney();
+                System.out.println("What animal do you wanna sell?");
+                int count = 1;
+                for (Animal animal : player.animals) {
+                    System.out.println(count + " : " + animal.getName() + " : " + animal.getGender() + " : " + animal.getAnimalBreed()
+                    + " : " + animal.getHealth() + "% health" + " Price: " +animal.currentPriceAnimal());
+                    count++;
+                }
+                System.out.println("0 - Leave store");
+                /*
+                Fix int index with player.animals.size
+                if else statement and if statement
+                 */
             }
         }
     }
@@ -37,22 +58,24 @@ public class Store{
 
     public void foodShop(Player player){
         boolean menuCheck = true;
+        while (menuCheck)
         player.playerInv();
         System.out.println("Food shop! 1. DryFood for cats 2. DryFood for dogs 3. FishFeed for fish " +
                 "4. Pellets for Hamster 5. Seeds for Bird 6. Exit food shop");
         int pick = console.nextInt();
         switch (pick){
             case 1:
-
+            addFood(new DryFoodCat(), player);
             case 2:
-
+            addFood(new DryFoodDog(), player);
             case 3:
-
+            addFood(new FishFeed(), player);
             case 4:
-
+            addFood(new Pellets(), player);
             case 5:
-
+            addFood(new Seeds(), player);
             case 6:
+            menuCheck = false;
         }
     }
 
@@ -66,24 +89,27 @@ public class Store{
             switch (pick) {
 
                 case 1:
-
+                addAnimals(new Bird(), player);     //Should be "addAnimals(player, new Bird());
                 case 2:
-
+                addAnimals(new Cat(), player);
                 case 3:
-
+                addAnimals(new Dog(), player);
                 case 4:
-
+                addAnimals(new Goldfish(), player);
                 case 5:
-
+                addAnimals(new Hamster(), player);
                 case 6:
-
+                checkMenu = false;
             }
         }
 
     }
 
-    public void sellAnimalShop(Animal animal, Player player){
+
+
+    public void sellAnimal(Animal animal, Player player){
         System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal());
+
         int pick = console.nextInt();
         if (pick == 1){
             player.addMoney(animal.currentPriceAnimal());
@@ -116,13 +142,21 @@ public class Store{
         }
     }
 
+    private void afterPurchaseAnimal(Animal animal, Player player) {
+        player.animals.add(animal);
+        player.removeMoney(animal.getStartPrice());
+        player.falseBooleans();
+        player.setAbleToBuyFoods(true);
+    }
+
+
     public void addFood(Food food, Player player){
         if (player.checkWithPlayer(player.ableToBuyFoods)){
             if (player.getMoney() < food.getPrice()){
                 System.out.println("Not enough money");
             } else {
                 int foodCount = 0;
-                System.out.println("1k of " + food.getName() + " for " + food.getPrice() + " 1. Yes 2. No");
+                System.out.println("1kg of " + food.getName() + " for " + food.getPrice() + " 1. Yes 2. No");
                 int yesNo = console.nextInt();
                 if (yesNo == 1){
                     if (player.foods.size() > 0){

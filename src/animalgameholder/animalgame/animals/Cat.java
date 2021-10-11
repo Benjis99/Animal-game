@@ -11,5 +11,7 @@ public class Cat extends Animal {
         startPrice = 30;
     }
 
+
+
     //Cat Class
 }

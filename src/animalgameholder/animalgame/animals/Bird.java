@@ -11,5 +11,7 @@ public class Bird extends Animal {
         startPrice = 30;
     }
 
+
+
     //Bird Class yes/no
 }

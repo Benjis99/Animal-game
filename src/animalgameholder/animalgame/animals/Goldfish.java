@@ -10,4 +10,6 @@ public class Goldfish extends Animal {
         animalBreed = "Goldfish";
         startPrice = 30;
     }
+
+
 } //Goldfish Class
