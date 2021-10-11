@@ -64,7 +64,7 @@ public class Breeding {
 
                     if (player.animals.get(animal1 - 1).getAnimalBreed().equals("bird")) {
                         counter = animalBirth(3);
-                        for (int i = 0; i < counter; i++) // xxxx
+                        for (int i = 0; i < counter; i++); // xxxx x
                     }
                 }
             }
