@@ -76,14 +76,14 @@ public class Breeding {
         Scanner input = new Scanner(System.in); // Use scanner from Game class
         String gender = Animal.MaleFemale.getRandomSelectGender().toString();
 
-        System.out.println("You've got a " + animal.getAnimalType() + " that is " + gender + "!");
+        System.out.println("You've got a " + animal.getAnimalBreed() + " that is " + gender + "!");
         System.out.println("Enter a name: ");
 
         animal.setName(input.nextLine());
         animal.setGender(gender);
 
         player.animals.add(animal);
-        player.
+        player.falseBooleans();
     }
 
 
