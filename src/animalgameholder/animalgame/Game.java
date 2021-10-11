@@ -16,6 +16,7 @@ private int currentTurn;
 private int currentPlayer;
 private int numberOfPlayers = 0;
 boolean exit = false;
+private Player currentUser;
 
 ArrayList<Player> players = new ArrayList<>();
 Scanner console = new Scanner(System.in);
@@ -65,6 +66,12 @@ Scanner console = new Scanner(System.in);
 
     public void game(){
 
+        for (int pick = currentTurn; pick < amountOfTurns + 1; pick++) {
+
+            for (int pick2 = currentPlayer; pick2 < players.size(); pick2++){
+                currentPlayer = players.get(pick2);
+            }
+        }
     }
 
 
