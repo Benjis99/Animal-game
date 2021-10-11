@@ -45,14 +45,33 @@ Scanner console = new Scanner(System.in);
     public void startMenu(){
         currentTurn = 1;
         exit = false;
-        amountOfTurns =
+        amountOfTurns = gameSettings("How many rounds do you wanna play", 5, 30);
+        numberOfPlayers = gameSettings("How many players do you want, between 2-5", 2, 5);
+        pickPlayerName();
+        information();
+
+
+    }
+    public void pickPlayerName(){
+        newScreen();
+        System.out.println("You picked " + numberOfPlayers + " amount of players");
+        for (int i = 1; i < numberOfPlayers + 1; i++ ) {
+            System.out.println("First Player " + i + " pick your name: ");
+            String name = console.next();
+            players.add(new Player(name));
+        }
+
+    }
+
+    public void game(){
+
     }
 
 
 
-    public void gameSettings(String setting, int min, int max) {
+    public int gameSettings(String text, int min, int max) {
 
-        System.out.println(setting);
+        System.out.println(text);
 
         int pick = -1;
         try {
@@ -61,8 +80,23 @@ Scanner console = new Scanner(System.in);
             console.next();
         }
         return pick < min || pick > max ?
-                gameSettings(setting, min, max) : pick;
+                gameSettings(text, min, max) : pick;
     }
+
+    public void information (){
+        System.out.println("Information");
+
+        System.out.println("Amount of rounds = " + amountOfTurns);
+        int amountOfPlayer = 1;
+        for (Player player : players){
+            System.out.println("Player " + amountOfPlayer + ": " + player.getName());
+            amountOfPlayer++;
+        }
+        System.out.println(players.get(0).getName() + " start the round");
+    }
+
+
+
     /*
     public void scannerPlayer(){
         String input = console.nextLine();
