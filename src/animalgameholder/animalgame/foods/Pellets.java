@@ -9,7 +9,5 @@ public class Pellets extends Food {
         price = 119;
     }
 
-    public void price(){
 
-    }
 } //Pellets Class

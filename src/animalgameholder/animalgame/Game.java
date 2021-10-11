@@ -11,30 +11,59 @@ import java.util.Scanner;
 public class Game {
 
 
-private int inputMoney;
-private int playerPick;
+private int amountOfTurns;
+private int currentTurn;
+private int currentPlayer;
 private int numberOfPlayers = 0;
-
+boolean exit = false;
 
 ArrayList<Player> players = new ArrayList<>();
 Scanner console = new Scanner(System.in);
 
-
-    Bird bird;
-    Cat cat;
-    DryFoodDog dryFood;
-    Dog dog;
-
-    Store store;
     public Game() {
-      //  this.dog = new Dog();
-      //  this.cat = new Cat();
-      //  this.dryFood = new DryFoodDog();
-    this.store = new Store();
-        amountOfPlayers();
-        createPlayer();
+
+        boolean start = true;
+        while (start) {
+
+            players.clear();
+            newScreen();
+            System.out.println("Welcome to our animal game!");
+            System.out.println("1. Start game 2. Information 3. Load Game 4. Exit Game");
+            int input = console.nextInt();
+
+            switch (input){
+                case 1:
+
+                case 2:
+                case 3:
+                case 4:
+
+            }
+        }
     }
 
+    public void startMenu(){
+        currentTurn = 1;
+        exit = false;
+        amountOfTurns =
+    }
+
+
+
+    public void gameSettings(String setting, int min, int max) {
+
+        System.out.println(setting);
+
+        int pick = -1;
+        try {
+            pick = console.nextInt();
+        } catch (Exception e) {
+            console.next();
+        }
+        return pick < min || pick > max ?
+                gameSettings(setting, min, max) : pick;
+    }
+    /*
     public void scannerPlayer(){
         String input = console.nextLine();
     }
@@ -157,6 +186,7 @@ Scanner console = new Scanner(System.in);
             }
         }
 
+        */
         public static void continueButtom(){
         Scanner console = new Scanner(System.in); //We need to use one scanner, not crating more in the methods.
             System.out.println("\n");
@@ -176,7 +206,7 @@ Scanner console = new Scanner(System.in);
 
 /*    public int getPlayerPick() {
         return playerPick;
-    }*/
+    }
 
     public void setPlayerPick(int playerPick) {
         this.playerPick = playerPick;
@@ -192,4 +222,6 @@ Scanner console = new Scanner(System.in);
         return inputMoney;
     }
     //Game Class
+
+ */
 }
