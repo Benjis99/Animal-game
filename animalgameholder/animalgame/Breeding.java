@@ -1,4 +1,5 @@
 package animalgameholder.animalgame;
+
 import animalgameholder.animalgame.animals.Animal;
 import animalgameholder.animalgame.Game;
 
@@ -8,19 +9,19 @@ import java.util.Scanner;
 
 public class Breeding {
 
-    public Breeding(){
+    public Breeding() {
 
     }
 
 
-    public void animalBreed(Player player){
+    public void animalBreed(Player player) {
         Scanner input = new Scanner(System.in); // Use scanner from game class, TO DO
         Random random = new Random();
         int animal1 = 0;
         int animal2 = 0;
         int chanceOfBreed = random.nextInt(101);
         ArrayList<Animal> tempList = new ArrayList<>();
-        if(player.checkWithPlayer(player.ableToBreed)){
+        if (player.checkWithPlayer(player.ableToBreed)) {
             if (player.animals.size() == 0) {
                 System.out.println("No available animals to breed."); // Maybe needs fixing
                 return;
@@ -57,34 +58,58 @@ public class Breeding {
                     }
                 }
             }
-            if (checkForBreed(player.animals.get(animal1 - 1), tempList.get(animal2 - 1))){
+            if (checkForBreed(player.animals.get(animal1 - 1), tempList.get(animal2 - 1))) {
                 if (chanceOfBreed > 50) {
                     int counter;
 
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("bird"))
+                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("bird")) {
+                        counter = animalBirth(3);
+                        for (int i = 0; i < counter; i++) // xxxx
+                    }
                 }
             }
 
-                    }
-                }
+        }
+    }
+
+    public void newAnimal(Player player, Animal animal){
+        Scanner input = new Scanner(System.in); // Use scanner from Game class
+        String gender = Animal.MaleFemale.getRandomSelectGender().toString();
+
+        System.out.println("You've got a " + animal.getAnimalType() + " that is " + gender + "!");
+        System.out.println("Enter a name: ");
+
+        animal.setName(input.nextLine());
+        animal.setGender(gender);
+    }
 
 
-
-
-
-
-    public boolean checkForBreed(Animal animal1, Animal animal2){
+    public boolean checkForBreed(Animal animal1, Animal animal2) {
         return animal1.getGender().equals(animal2.getGender()) || animal1.getName().equals(animal2.getName()) ||
                 !animal1.getAnimalBreed().equals(animal2.getAnimalBreed());
     }
 
-    public boolean animalsThatCanBreed(Player player, Animal animal1){
-        for (Animal animal : player.animals){
-            if (animal.getAnimalBreed().equals(animal1.getAnimalBreed()) && !animal.getGender().equals(animal1.getGender())){
+    public boolean animalsThatCanBreed(Player player, Animal animal1) {
+        for (Animal animal : player.animals) {
+            if (animal.getAnimalBreed().equals(animal1.getAnimalBreed()) && !animal.getGender().equals(animal1.getGender())) {
                 return true;
             }
         }
         return false;
+    }
+
+    public int animalBirth(int maxAmountOfBabies) {
+        Random random = new Random();
+        int counter = 1;
+        System.out.println("Breeding successful! You've now got a baby");
+        for (int i = 0; i < maxAmountOfBabies; i++) {
+            int numberOfBabies = random.nextInt(101);
+            if (numberOfBabies < 20) {
+                counter++;
+            }
+        }
+        System.out.println("You've got a total of " + counter + " babies!");
+        return counter;
     }
 
 }
