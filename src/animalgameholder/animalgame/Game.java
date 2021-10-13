@@ -33,10 +33,16 @@ Scanner console = new Scanner(System.in);
 
             switch (input){
                 case 1:
-
+                    startMenu();
+                    break;
                 case 2:
+                    information();
+                    break;
                 case 3:
+                    System.out.println("to be added");
+                    break;
                 case 4:
+                    System.exit(0);
 
             }
         }
@@ -45,8 +51,8 @@ Scanner console = new Scanner(System.in);
     public void startMenu(){
         currentTurn = 1;
         exit = false;
-        amountOfTurns = gameSettings("How many rounds do you wanna play", 5, 30);
-        numberOfPlayers = gameSettings("How many players do you want, between 2-5", 2, 5);
+        amountOfTurns = gameSettings("How many rounds do you wanna play (between 5-30 rounds) ?", 5, 30);
+        numberOfPlayers = gameSettings("How many players do you want (between 2-4 players) ?", 2, 4);
         pickPlayerName();
         information();
 
@@ -54,16 +60,16 @@ Scanner console = new Scanner(System.in);
     }
     public void pickPlayerName(){
         newScreen();
-        System.out.println("You picked " + numberOfPlayers + " amount of players");
+        System.out.println("You picked " + numberOfPlayers + " players");
         for (int i = 1; i < numberOfPlayers + 1; i++ ) {
-            System.out.println("First Player " + i + " pick your name: ");
+            System.out.println("Player: " + i + " Enter your name: ");
             String name = console.next();
             players.add(new Player(name));
         }
 
     }
 
-    public void game(){ //comment
+    public void mainGame(){ //comment
 
     }
 
@@ -234,8 +240,6 @@ Scanner console = new Scanner(System.in);
         public void foodSelect(){
             System.out.println("food");
         }
-
-
 
 
 /*    public int getPlayerPick() {
