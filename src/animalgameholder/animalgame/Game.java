@@ -4,6 +4,7 @@ import animalgameholder.animalgame.animals.Bird;
 import animalgameholder.animalgame.animals.Cat;
 import animalgameholder.animalgame.animals.Dog;
 import animalgameholder.animalgame.foods.DryFoodDog;
+import java.util.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ private int playerIndex;
 private int numberOfPlayers = 0;
 boolean exit = false;
 
-
+private final GameLogic logic = new GameLogic();
 ArrayList<Player> players = new ArrayList<>();
 ArrayList<Player> loss = new ArrayList<>();
 Scanner console = new Scanner(System.in);
@@ -68,13 +69,39 @@ Scanner console = new Scanner(System.in);
         currentTurn = 1;
         exit = false;
         amountOfTurns = gameSettings("How many rounds do you wanna play", 5, 30);
-        numberOfPlayers = gameSettings("How many players do you want, between 2-5", 2, 5);
+        numberOfPlayers = gameSettings("How many players do you want, between 2-4", 2, 4);
         pickPlayerName();
         information();
         gameMenu();
-
-
     }
+
+    public void game(){
+        Store store = new Store();
+        Breeding breed = new Breeding();
+        boolean game = true;
+
+        while (game) {
+            int pick = 0;
+
+            while (pick < 1 || pick > 7){
+                currentPlayer.playerInv();
+                System.out.println("It is round " + currentTurn);
+                System.out.println(currentPlayer.getName() + " turn");
+                System.out.println("1. Store 2. Breed 3. Feed Animal 4. Next Player 5. Game Info 6. Exit to main menu");
+                pick = console.nextInt();
+            }
+            switch (pick) {
+                case 1: store.buyMenu(currentPlayer);
+                case 2: breed.animalBreed(currentPlayer);
+                case 3: currentPlayer.animalFeeding(currentPlayer);
+                case 4: game = false;
+                case 5: information();
+                case 6: game = false;
+                exit = true;
+            }
+        }
+    }
+
     public void pickPlayerName(){
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
@@ -83,7 +110,7 @@ Scanner console = new Scanner(System.in);
             String name = console.next();
             players.add(new Player(name));
         }
-
+        game();
     }
 
     public void gameMenu(){ //comment
@@ -93,9 +120,9 @@ Scanner console = new Scanner(System.in);
             for (int pick1 = playerIndex; pick1 < players.size(); pick1++){
                 currentPlayer = players.get(pick1);
                 currentPlayer.trueBooleans();
+                logic.startRound(currentPlayer);
 
-                //Event class
-
+                logic.endRound(currentPlayer, this);
                 if (exit)
                     break;
                 playerIndex++;

@@ -77,6 +77,7 @@ public class GameLogic {
     }
     public void endRound(Player player, Game game){
         playerLoss(player, game);
+        animalHealth(player);
         checkDeadAnimals(player);
     }
 
