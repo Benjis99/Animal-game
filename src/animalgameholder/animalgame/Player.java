@@ -39,6 +39,8 @@ public class Player{
         ableToBreed = false;
     }
 
+
+
     public void removeMoney(int money){
         this.money = this.money - money;
     }
