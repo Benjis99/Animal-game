@@ -20,6 +20,7 @@ boolean exit = false;
 
 
 ArrayList<Player> players = new ArrayList<>();
+ArrayList<Player> loss = new ArrayList<>();
 Scanner console = new Scanner(System.in);
 
 
