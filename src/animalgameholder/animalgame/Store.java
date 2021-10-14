@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Store{
     Scanner console = new Scanner(System.in); //Use the scanner from game, delete this one
+    private int index;
 
     public Store() {
     }
@@ -26,6 +27,7 @@ public class Store{
                 foodShop(player);
                 case 3:
                 sellAnimalsShop(player);
+                break;
                 case 4:
                     menuCheck = false;
 
@@ -46,6 +48,13 @@ public class Store{
                     count++;
                 }
                 System.out.println("0 - Leave store");
+                if (index <= player.animals.size() && index == 0) {
+                    menuCheck = false;
+                } else {
+                    if(player.checkWithPlayer(player.ableToSellAnimals)) {
+                        sellAnimal(player.animals.get(index - 1), player);
+                    }
+                }
                 /*
                 Fix int index with player.animals.size
                 if else statement and if statement
