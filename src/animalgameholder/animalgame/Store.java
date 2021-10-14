@@ -16,7 +16,7 @@ public class Store{
         boolean menuCheck = true;
         while (menuCheck){
             player.playerInv();
-            System.out.println("1. Buy animals 2. Buy food 3. Sell animal 4. Exit store");
+            System.out.println("1.Animal store 2.Food store 3.Sell animal 4.Exit store");
             int pick = console.nextInt();
 
             switch (pick){
@@ -38,7 +38,7 @@ public class Store{
         if (player.animals.size() > 0) {
             while (menuCheck) {
                 player.getMoney();
-                System.out.println("What animal do you wanna sell?");
+                System.out.println("What animal do you want to sell?");
                 int count = 1;
                 for (Animal animal : player.animals) {
                     System.out.println(count + " : " + animal.getName() + " : " + animal.getGender() + " : " + animal.getAnimalBreed()
@@ -60,8 +60,8 @@ public class Store{
         boolean menuCheck = true;
         while (menuCheck)
         player.playerInv();
-        System.out.println("Food shop! 1. DryFood for cats 2. DryFood for dogs 3. FishFeed for fish " +
-                "4. Pellets for Hamster 5. Seeds for Bird 6. Exit food shop");
+        System.out.println("You are now in the Food shop! Your options: ");
+        System.out.println("1.DryFood for cats 2.DryFood for dogs 3.FishFeed for fish 4.Pellets for Hamster 5.Seeds for Bird 6.Exit food shop");
         int pick = console.nextInt();
         switch (pick){
             case 1:
@@ -84,7 +84,8 @@ public class Store{
         boolean checkMenu = true;
         while (checkMenu) {
             player.playerInv();
-            System.out.println("Animal store 1. Bird 2. Cat 3. Dog 4. Goldfish 5. Hamster 6. Exit program" );
+            System.out.println("You are now in the Animal store, this is your options: " );
+            System.out.println("1.Bird 2.Cat 3.Dog 4.Goldfish 5.Hamster 6.Exit program" );
             int pick = console.nextInt();
             switch (pick) {
 
