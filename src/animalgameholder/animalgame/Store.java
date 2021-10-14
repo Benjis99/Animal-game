@@ -16,7 +16,7 @@ public class Store{
         boolean menuCheck = true;
         while (menuCheck){
             player.playerInv();
-            System.out.println("1. Store 2. Buy Animals 3. Buy Food 4. Sell Animals 5. Exit store");
+            System.out.println("1. Buy animals 2. Buy food 3. Sell animal 4. Exit store");
             int pick = console.nextInt();
 
             switch (pick){

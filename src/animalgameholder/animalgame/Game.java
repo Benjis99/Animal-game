@@ -91,12 +91,21 @@ Scanner console = new Scanner(System.in);
                 pick = console.nextInt();
             }
             switch (pick) {
-                case 1: store.buyMenu(currentPlayer);
-                case 2: breed.animalBreed(currentPlayer);
-                case 3: currentPlayer.animalFeeding(currentPlayer);
-                case 4: game = false;
-                case 5: information();
-                case 6: game = false;
+                case 1:
+                    newScreen();
+                    store.buyMenu(currentPlayer);
+                case 2:
+                    newScreen();
+                    breed.animalBreed(currentPlayer);
+                case 3:
+                    newScreen();
+                    currentPlayer.animalFeeding(currentPlayer);
+                case 4:
+                    game = false;
+                case 5:
+                    information();
+                case 6:
+                    game = false;
                 exit = true;
             }
         }
@@ -110,7 +119,6 @@ Scanner console = new Scanner(System.in);
             String name = console.next();
             players.add(new Player(name));
         }
-        //game();
     }
 
     public void gameMenu(){ //comment
