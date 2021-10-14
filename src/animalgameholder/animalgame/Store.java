@@ -130,8 +130,9 @@ public class Store{
     }
 
     public void addAnimals(Animal animal, Player player){
+    Scanner newConsole = new Scanner(System.in);
 
-        if (player.checkWithPlayer(player.ableToFeed)) {
+        if (player.checkWithPlayer(player.ableToBuyAnimals)) {
             if (player.getMoney() < animal.getStartPrice()){
                 System.out.println("Not enough money for the animal");
             } else {
@@ -140,13 +141,14 @@ public class Store{
 
                 if (choice == 1){
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
-                    animal.setName(console.nextLine());
+                    animal.setName(newConsole.nextLine());
 
                     System.out.println("Pick the gender for " + animal.getAnimalBreed() + " Pick gender: 1. Male 2. Female");
                     int input = console.nextInt();
 
                     if (input == 1) animal.setGender("MALE");
                     if (input == 2) animal.setGender("FEMALE");
+                    afterPurchaseAnimal(animal, player);
                 }
             }
         }
