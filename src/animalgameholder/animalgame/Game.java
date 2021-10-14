@@ -37,30 +37,30 @@ Scanner console = new Scanner(System.in);
             System.out.println("1. Start game 2. Information 3. Load Game 4. Exit Game");
             int input = console.nextInt();
 
-            switch (input){
+            switch (input) {
                 case 1:
-                startMenu();
+                    startMenu();
                 case 2:
-                    information();
+                    gameRules();
+
                 case 3:
-                    System.out.println("Save");
-                case 4:
+                    System.out.println("Save"); //Printar ut när man går in på information
+                case 4: {
                     boolean exit = true;
                     while (exit) {
-                        System.out.println("Exit Game 1. Yes 2. No");
+                        System.out.println("1. Start Game 2. Turn off game");
                         input = console.nextInt();
-                        if (input == 1){
-                            System.out.println("Game is turning off");
+                        if (input == 1) {
+                            start = false;
                             exit = false;
-                            start = false;
+                            startMenu();
                         }
-                        if (input == 2){
+                        if (input == 2) {
                             start = false;
+                            System.exit(1);
                         }
                     }
-
-
-
+                }
             }
         }
     }
@@ -157,6 +157,10 @@ Scanner console = new Scanner(System.in);
         }
         return pick < min || pick > max ?
                 gameSettings(text, min, max) : pick;
+    }
+
+    public void gameRules(){
+        System.out.println("All the game rules");
     }
 
     public void information (){
