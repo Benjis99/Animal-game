@@ -68,7 +68,7 @@ Scanner console = new Scanner(System.in);
     public void startMenu(){
         currentTurn = 1;
         exit = false;
-        amountOfTurns = gameSettings("How many rounds do you wanna play", 5, 30);
+        amountOfTurns = gameSettings("How many rounds do you wanna play 5-30 rounds", 5, 30);
         numberOfPlayers = gameSettings("How many players do you want, between 2-4", 2, 4);
         pickPlayerName();
         information();
@@ -140,7 +140,7 @@ Scanner console = new Scanner(System.in);
             playerIndex = 0;
             currentTurn++;
         }
-
+        logic.winnerPick(this);
     }
 
 
