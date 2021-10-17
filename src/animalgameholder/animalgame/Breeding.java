@@ -31,7 +31,9 @@ public class Breeding {
                     Game.newScreen();
                     player.getPlayerAnimal();
                     System.out.println("Choose your first animal to breed! Enter a number: ");
-                    // Try catch needed if player enters an invalid number
+                    // Try catch needed if player enters an invalid number -----------------
+                    animal1 = input.nextInt();
+
                 }
                 if (animalsThatCanBreed(player, player.animals.get(animal1 - 1))) {
                     for (Animal animal : player.animals) {
@@ -63,23 +65,23 @@ public class Breeding {
                 if (chanceOfBreed > 50) {
                     int counter;
 
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("bird")) {
+                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Bird")) {
                         counter = animalBirth(5);
                         for (int i = 0; i < counter; i++) newAnimal(player, new Bird());
                     }
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("cat")) {
+                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Cat")) {
                         counter = animalBirth(12);
                         for (int i = 0; i < counter; i++) newAnimal(player, new Cat());
                     }
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("dog")) {
+                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Dog")) {
                         counter = animalBirth(12);
                         for (int i = 0; i < counter; i++) newAnimal(player, new Dog());
                     }
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("goldfish")) {
+                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Goldfish")) {
                         counter = animalBirth(10);
                         for (int i = 0; i < counter; i++) newAnimal(player, new Goldfish());
                     }
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("hamster")) {
+                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Hamster")) {
                         counter = animalBirth(3);
                         for (int i = 0; i < counter; i++) newAnimal(player, new Hamster());
                     }
@@ -108,9 +110,13 @@ public class Breeding {
     }
 
 
-    public boolean checkForBreed(Animal animal1, Animal animal2) {
+/*    public boolean checkForBreed(Animal animal1, Animal animal2) {
         return animal1.getGender().equals(animal2.getGender()) || animal1.getName().equals(animal2.getName()) ||
                 !animal1.getAnimalBreed().equals(animal2.getAnimalBreed());
+    }*/
+
+    public boolean checkForBreed(Animal animal1, Animal animal2) {
+        return animal1.getAnimalBreed().equals(animal2.getAnimalBreed()) && animal1.getGender() != animal2.getGender();
     }
 
     public boolean checkAnimalsLeftForBreeding(Animal animal1, Animal animal2){
