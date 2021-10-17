@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class Game {
 
-
 private int amountOfTurns;
 private int currentTurn;
 private Player currentPlayer;
@@ -38,26 +37,21 @@ Scanner console = new Scanner(System.in);
             int input = console.nextInt();
 
             switch (input) {
-                case 1:
-                    startMenu();
-                case 2:
-                    gameRules();
-
-                case 3:
-                    System.out.println("Save"); //Printar ut när man går in på information
-                case 4: {
+                case 1 -> startMenu();
+                case 2 -> gameRules();
+                case 3 -> System.out.println("Save"); //Printar ut när man går in på information
+                case 4 -> {
                     boolean exit = true;
                     while (exit) {
-                        System.out.println("1. Start Game 2. Turn off game");
-                        input = console.nextInt();
-                        if (input == 1) {
+                        System.out.println("1.Start Game \n2.Turn off game");
+                        int input2 = console.nextInt();
+                        if (input2 == 1) {
+                            System.out.println("Turning off game");
                             start = false;
                             exit = false;
-                            startMenu();
                         }
-                        if (input == 2) {
-                            start = false;
-                            System.exit(1);
+                        if (input2 == 2) {
+                            exit = false;
                         }
                     }
                 }
@@ -87,7 +81,7 @@ Scanner console = new Scanner(System.in);
                 currentPlayer.playerInv();
                 System.out.println("It is round " + currentTurn);
                 System.out.println(currentPlayer.getName() + " turn");
-                System.out.println("1. Store 2. Breed 3. Feed Animal 4. Next Player 5. Game Info 6. Exit to main menu");
+                System.out.println("["+"1.Store"+"]"+ " ["+ "2.Breed" +"]"+ " ["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"6.Exit to main menu"+"]");
                 pick = console.nextInt();
             }
             switch (pick) {
@@ -128,9 +122,11 @@ Scanner console = new Scanner(System.in);
             for (int pick1 = playerIndex; pick1 < players.size(); pick1++){
                 currentPlayer = players.get(pick1);
                 currentPlayer.trueBooleans();
+
                 logic.startRound(currentPlayer);
                 game();
                 logic.endRound(currentPlayer, this);
+
                 if (exit)
                     break;
                 playerIndex++;
@@ -172,6 +168,7 @@ Scanner console = new Scanner(System.in);
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
+        System.out.println("-------");
         System.out.println(players.get(0).getName() + " start the round");
     }
 

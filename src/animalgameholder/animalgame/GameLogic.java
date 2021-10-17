@@ -108,7 +108,7 @@ public class GameLogic {
         if (deadBcusAge.size() > 0){
             System.out.println(player.getName() + " you have animals that died because old age");
             for (Animal animal : deadBcusAge){
-                System.out.println(animal.getName() + " died becuase of old age");
+                System.out.println(animal.getName() + " died because of old age");
             }
         }
     }

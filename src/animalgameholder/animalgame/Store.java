@@ -21,15 +21,10 @@ public class Store{
             int pick = console.nextInt();
 
             switch (pick){
-                case 1:
-                animalShop(player);
-                case 2:
-                foodShop(player);
-                case 3:
-                sellAnimalsShop(player);
-                break;
-                case 4:
-                    menuCheck = false;
+                case 1 -> animalShop(player);
+                case 2 -> foodShop(player);
+                case 3 -> sellAnimalsShop(player);
+                case 4 -> menuCheck = false;
 
             }
         }
@@ -55,10 +50,6 @@ public class Store{
                         sellAnimal(player.animals.get(index - 1), player);
                     }
                 }
-                /*
-                Fix int index with player.animals.size
-                if else statement and if statement
-                 */
             }
         }
     }
@@ -66,25 +57,22 @@ public class Store{
 
 
     public void foodShop(Player player){
+
         boolean menuCheck = true;
-        while (menuCheck)
+        while (menuCheck) {
         player.playerInv();
         System.out.println("You are now in the Food shop! Your options: ");
-        System.out.println("1.DryFood for cats 2.DryFood for dogs 3.FishFeed for fish 4.Pellets for Hamster 5.Seeds for Bird 6.Exit food shop");
+        System.out.println("1.DryFood for cats 2.DryFood for dogs 3.FishFeed for fish " +
+                "4.Pellets for Hamster 5.Seeds for Bird 6.Exit food shop");
         int pick = console.nextInt();
-        switch (pick){
-            case 1:
-            addFood(new DryFoodCat(), player);
-            case 2:
-            addFood(new DryFoodDog(), player);
-            case 3:
-            addFood(new FishFeed(), player);
-            case 4:
-            addFood(new Pellets(), player);
-            case 5:
-            addFood(new Seeds(), player);
-            case 6:
-            menuCheck = false;
+        switch (pick) {
+            case 1 -> addFood(new DryFoodCat(), player);
+            case 2 -> addFood(new DryFoodDog(), player);
+            case 3 -> addFood(new FishFeed(), player);
+            case 4 -> addFood(new Pellets(), player);
+            case 5 -> addFood(new Seeds(), player);
+            case 6 -> menuCheck = false;
+         }
         }
     }
 
@@ -94,22 +82,17 @@ public class Store{
         while (checkMenu) {
             player.playerInv();
             System.out.println("You are now in the Animal store, this is your options: " );
-            System.out.println("1.Bird 2.Cat 3.Dog 4.Goldfish 5.Hamster 6.Exit program" );
+            System.out.println("1.Bird \n2.Cat \n3.Dog \n4.Goldfish \n5.Hamster \n6.Exit Animal shop" );
             int pick = console.nextInt();
+
             switch (pick) {
 
-                case 1:
-                addAnimals(new Bird(), player);     //Should be "addAnimals(player, new Bird());
-                case 2:
-                addAnimals(new Cat(), player);
-                case 3:
-                addAnimals(new Dog(), player);
-                case 4:
-                addAnimals(new Goldfish(), player);
-                case 5:
-                addAnimals(new Hamster(), player);
-                case 6:
-                checkMenu = false;
+                case 1 -> addAnimals(player, new Bird());     //Should be "addAnimals(player, new Bird());
+                case 2 -> addAnimals(player, new Cat());
+                case 3 -> addAnimals(player, new Dog());
+                case 4 -> addAnimals(player, new Goldfish());
+                case 5 -> addAnimals(player, new Hamster());
+                case 6 -> checkMenu = false;
             }
         }
 
@@ -119,7 +102,7 @@ public class Store{
 
     public void sellAnimal(Animal animal, Player player){
         System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal());
-
+        System.out.println("1.Yes 2.No");
         int pick = console.nextInt();
         if (pick == 1){
             player.addMoney(animal.currentPriceAnimal());
@@ -129,14 +112,14 @@ public class Store{
         }
     }
 
-    public void addAnimals(Animal animal, Player player){
+    public void addAnimals(Player player, Animal animal){
     Scanner newConsole = new Scanner(System.in);
 
         if (player.checkWithPlayer(player.ableToBuyAnimals)) {
             if (player.getMoney() < animal.getStartPrice()){
                 System.out.println("Not enough money for the animal");
             } else {
-                System.out.println("Do you want to buy " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " 1. Yes 2. No");
+                System.out.println("Do you want to buy " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " \n1.Yes \n2.No");
                 int choice = console.nextInt();
 
                 if (choice == 1){
@@ -148,17 +131,17 @@ public class Store{
 
                     if (input == 1) animal.setGender("MALE");
                     if (input == 2) animal.setGender("FEMALE");
-                    afterPurchaseAnimal(animal, player);
+                    afterPurchaseAnimal(player, animal);
                 }
             }
         }
     }
 
-    private void afterPurchaseAnimal(Animal animal, Player player) {
+    private void afterPurchaseAnimal(Player player, Animal animal) {
         player.animals.add(animal);
         player.removeMoney(animal.getStartPrice());
         player.falseBooleans();
-        player.setAbleToBuyFoods(true);
+        player.setAbleToBuyAnimals(true);
     }
 
 
