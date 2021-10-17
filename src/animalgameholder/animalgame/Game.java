@@ -1,9 +1,6 @@
 package animalgameholder.animalgame;
 
-import animalgameholder.animalgame.animals.Bird;
-import animalgameholder.animalgame.animals.Cat;
-import animalgameholder.animalgame.animals.Dog;
-import animalgameholder.animalgame.foods.DryFoodDog;
+
 import java.util.*;
 
 import java.util.ArrayList;
@@ -60,6 +57,7 @@ Scanner console = new Scanner(System.in);
     }
 
     public void startMenu(){
+
         currentTurn = 1;
         exit = false;
         amountOfTurns = gameSettings("How many rounds do you wanna play 5-30 rounds", 5, 30);
@@ -67,6 +65,7 @@ Scanner console = new Scanner(System.in);
         pickPlayerName();
         information();
         gameMenu();
+
     }
 
     public void game(){
@@ -84,33 +83,28 @@ Scanner console = new Scanner(System.in);
                 System.out.println("["+"1.Store"+"]"+ " ["+ "2.Breed" +"]"+ " ["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"6.Exit to main menu"+"]");
                 pick = console.nextInt();
             }
+
             switch (pick) {
-                case 1:
-                    newScreen();
-                    store.buyMenu(currentPlayer);
-                case 2:
-                    newScreen();
-                    breed.animalBreed(currentPlayer);
-                case 3:
-                    newScreen();
-                    currentPlayer.animalFeeding(currentPlayer);
-                case 4:
+                case 1 -> store.buyMenu(currentPlayer);
+                case 2 -> breed.animalBreed(currentPlayer);
+                case 3 -> currentPlayer.animalFeeding(currentPlayer);
+                case 4 -> game = false;
+                case 5 ->information();
+                case 6 -> {
                     game = false;
-                case 5:
-                    information();
-                case 6:
-                    game = false;
-                exit = true;
+                    exit = true;
+                }
             }
         }
     }
 
     public void pickPlayerName(){
+        Scanner scan = new Scanner(System.in);
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
         for (int i = 1; i < numberOfPlayers + 1; i++ ) {
-            System.out.println("First Player " + i + " pick your name: ");
-            String name = console.next();
+            System.out.println("Player " + i + " pick your name: ");
+            String name = scan.next();
             players.add(new Player(name));
         }
     }
@@ -160,6 +154,7 @@ Scanner console = new Scanner(System.in);
     }
 
     public void information (){
+
         System.out.println("Information");
 
         System.out.println("Amount of rounds = " + amountOfTurns);
