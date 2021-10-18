@@ -1,12 +1,12 @@
 package animalgameholder.animalgame;
 
-import animalgameholder.animalgame.animals.Animal;
-import animalgameholder.animalgame.Game;
+import animalgameholder.animalgame.animals.models.Animal;
 import animalgameholder.animalgame.animals.*;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
 
 /**
  * This is our Breeding class
@@ -21,6 +21,13 @@ public class Breeding {
     }
 
 
+    /**
+     * The method will try to breed the animals selected by the player. The method also compares the players selected
+     * animal and the remaining available animals to see if the animals are compatible to breed. If the chosen animals are
+     * compatible to breed, the program will randomise a value from 0-100, and >50 will successfully breed the animal and
+     * have the player name the new animal.
+     * @param player the instance of the current player
+     */
     public void animalBreed(Player player) {
         Scanner input = new Scanner(System.in); // Use scanner from game class, TO DO
         Random random = new Random();
@@ -100,6 +107,12 @@ public class Breeding {
             }
         }
     }
+
+    /**
+     * This method allows the player to name their new animal once the parents have mated.
+     * @param player
+     * @param animal
+     */
 
     public void newAnimal(Player player, Animal animal){
         Scanner input = new Scanner(System.in); // Use scanner from Game class

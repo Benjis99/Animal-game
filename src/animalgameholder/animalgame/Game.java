@@ -8,26 +8,23 @@ import java.util.Scanner;
 
 /**
  * This is our Game class where we have all the menus right now
- *
+ * <p>
  * Author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Game {
 
-private int amountOfTurns;
-private int currentTurn;
-private Player currentPlayer;
-private int playerIndex;
-private int numberOfPlayers = 0;
-boolean exit = false;
+    private int amountOfTurns;
+    private int currentTurn;
+    private Player currentPlayer;
+    private int playerIndex;
+    private int numberOfPlayers = 0;
+    boolean exit = false;
 
-private final GameLogic logic = new GameLogic();
+    private final GameLogic logic = new GameLogic();
     Scanner console = new Scanner(System.in);
 
-ArrayList<Player> players = new ArrayList<>();
-ArrayList<Player> loss = new ArrayList<>();
-
-
-
+    ArrayList<Player> players = new ArrayList<>();
+    ArrayList<Player> loss = new ArrayList<>();
 
 
     public Game() {
@@ -49,22 +46,22 @@ ArrayList<Player> loss = new ArrayList<>();
                     boolean exit = true;
                     while (exit)
                         System.out.println("1.Start Game \n2.Turn off game");
-                        int input2 = console.nextInt();
-                        if (input2 == 1) {
-                            System.out.println("Turning off game");
-                            start = false;
-                            exit = false;
-                        }
-                        if (input2 == 2) {
-                            exit = false;
-                        }
+                    int input2 = console.nextInt();
+                    if (input2 == 1) {
+                        System.out.println("Turning off game");
+                        start = false;
+                        exit = false;
+                    }
+                    if (input2 == 2) {
+                        exit = false;
                     }
                 }
             }
         }
+    }
 
 
-    public void startMenu(){
+    public void startMenu() {
 
         currentTurn = 1;
         exit = false;
@@ -76,7 +73,7 @@ ArrayList<Player> loss = new ArrayList<>();
 
     }
 
-    public void game(){
+    public void game() {
         Store store = new Store();
         Breeding breed = new Breeding();
         boolean game = true;
@@ -84,11 +81,11 @@ ArrayList<Player> loss = new ArrayList<>();
         while (game) {
             int pick = 0;
 
-            while (pick < 1 || pick > 7){
+            while (pick < 1 || pick > 7) {
                 currentPlayer.playerInv();
                 System.out.println("It is round " + currentTurn);
                 System.out.println(currentPlayer.getName() + " turn");
-                System.out.println("["+"1.Store"+"]"+ " ["+ "2.Breed" +"]"+ " ["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"6.Exit to main menu"+"]");
+                System.out.println("[" + "1.Store" + "]" + " [" + "2.Breed" + "]" + " [" + "3.Feed Animal" + "]" + " [" + "4.Next Player" + "]" + " [" + "5.Game Info" + "]" + " [" + "6.Exit to main menu" + "]");
                 pick = console.nextInt();
             }
 
@@ -97,7 +94,7 @@ ArrayList<Player> loss = new ArrayList<>();
                 case 2 -> breed.animalBreed(currentPlayer);
                 case 3 -> currentPlayer.animalFeeding(currentPlayer);
                 case 4 -> game = false;
-                case 5 ->information();
+                case 5 -> information();
                 case 6 -> {
                     game = false;
                     exit = true;
@@ -106,22 +103,22 @@ ArrayList<Player> loss = new ArrayList<>();
         }
     }
 
-    public void pickPlayerName(){
+    public void pickPlayerName() {
         Scanner scan = new Scanner(System.in);
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
-        for (int i = 1; i < numberOfPlayers + 1; i++ ) {
+        for (int i = 1; i < numberOfPlayers + 1; i++) {
             System.out.println("Player " + i + " pick your name: ");
             String name = scan.next();
             players.add(new Player(name));
         }
     }
 
-    public void gameMenu(){ //comment
+    public void gameMenu() { //comment
 
         for (int pick = currentTurn; pick < amountOfTurns + 1; pick++) {
 
-            for (int pick1 = playerIndex; pick1 < players.size(); pick1++){
+            for (int pick1 = playerIndex; pick1 < players.size(); pick1++) {
                 currentPlayer = players.get(pick1);
                 currentPlayer.trueBooleans();
 
@@ -132,7 +129,8 @@ ArrayList<Player> loss = new ArrayList<>();
                 if (exit)
                     break;
                 playerIndex++;
-            } if (exit)
+            }
+            if (exit)
                 break;
 
             playerIndex = 0;
@@ -140,7 +138,6 @@ ArrayList<Player> loss = new ArrayList<>();
         }
         logic.winnerPick(this);
     }
-
 
 
     public int gameSettings(String text, int min, int max) {
@@ -157,17 +154,17 @@ ArrayList<Player> loss = new ArrayList<>();
                 gameSettings(text, min, max) : pick;
     }
 
-    public void gameRules(){
+    public void gameRules() {
         System.out.println("All the game rules");
     }
 
-    public void information (){
+    public void information() {
 
         System.out.println("Information");
 
         System.out.println("Amount of rounds = " + amountOfTurns);
         int amountOfPlayer = 1;
-        for (Player player : players){
+        for (Player player : players) {
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
@@ -176,24 +173,20 @@ ArrayList<Player> loss = new ArrayList<>();
     }
 
 
-
-
-        public static void continueButton(){
+    public static void continueButton() {
         Scanner console = new Scanner(System.in); //We need to use one scanner, not crating more in the methods.
-            System.out.println("\n");
-            System.out.println("Press enter to continue");
-            console.nextLine();
-        }
-      public static void newScreen(){ //Static so we can reach outside Game class
+        System.out.println("\n");
+        System.out.println("Press enter to continue");
+        console.nextLine();
+    }
+
+    public static void newScreen() { //Static so we can reach outside Game class
         System.out.println("\n".repeat(50));
-      }
+    }
 
-        public void foodSelect(){
-            System.out.println("food");
-        }
-
-
-
+    public void foodSelect() {
+        System.out.println("food");
+    }
 
 
 }

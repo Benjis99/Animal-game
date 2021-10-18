@@ -1,6 +1,6 @@
-package animalgameholder.animalgame.foods;
+package animalgameholder.animalgame.foods.models;
 
-import animalgameholder.animalgame.animals.Animal;
+import animalgameholder.animalgame.animals.models.Animal;
 
 /**
  * This is our Food class that extends the Animal class.

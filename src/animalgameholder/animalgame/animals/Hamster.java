@@ -1,14 +1,15 @@
 package animalgameholder.animalgame.animals;
 
+import animalgameholder.animalgame.animals.models.Animal;
 import animalgameholder.animalgame.foods.Pellets;
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.foods.models.Food;
 
 /**
  * This is our Hamster class
  *
  * Author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Hamster extends Animal{
+public class Hamster extends Animal {
 
 
     public Hamster() {
