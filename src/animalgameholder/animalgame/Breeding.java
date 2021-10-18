@@ -155,6 +155,12 @@ public class Breeding {
                 !animal1.getAnimalBreed().equals(animal2.getAnimalBreed());
     }
 
+    /**
+     * Checks which animals the player owns and... ???? needs fix
+     * @param player
+     * @param animal1
+     * @return
+     */
     public boolean animalsThatCanBreed(Player player, Animal animal1) {
         for (Animal animal : player.animals) {
             if (animal.getAnimalBreed().equals(animal1.getAnimalBreed()) && !animal.getGender().equals(animal1.getGender())) {
@@ -164,6 +170,11 @@ public class Breeding {
         return false;
     }
 
+    /**
+     * Randomizes an amount of babies to an animal once they've given birth with a max amount of babies an animal can have.
+     * @param maxAmountOfBabies the max amount of babies an animal can have.
+     * @return the amount of babies of a certain animal to add to the current player
+     */
     public int animalBirth(int maxAmountOfBabies) {
         Random random = new Random();
         int counter = 1;
