@@ -17,7 +17,6 @@ import animalgameholder.animalgame.animals.models.Animal;
     /**
      * Here we have the constructor that gives "Food" a Name, kg and price.
      */
-
     public Food() {
     super();
     }
