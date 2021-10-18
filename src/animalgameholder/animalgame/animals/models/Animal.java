@@ -24,6 +24,7 @@ public abstract class Animal  {
 
 
 
+
     public Animal(String name, MaleFemale mf) {
         this.name = name;
         this.gender = mf;

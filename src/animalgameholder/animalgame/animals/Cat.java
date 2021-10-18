@@ -28,6 +28,7 @@ public class Cat extends Animal {
         super( name, gender);
     }
 
+
     /**
      * This overrides the Animal class
      * @param food this is in the method, so we can get information from the Food class
