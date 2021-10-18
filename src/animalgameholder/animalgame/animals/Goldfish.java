@@ -1,21 +1,23 @@
 package animalgameholder.animalgame.animals;
 
 import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.enums.MaleFemale;
 import animalgameholder.animalgame.foods.models.Food;
 import animalgameholder.animalgame.foods.FishFeed;
 
 /**
  * This is our Goldfish class
  *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
 public class Goldfish extends Animal {
 
-    public Goldfish() {
-        maxAge = 10;
-        animalBreed = "Goldfish";
-        startPrice = 300;
+    public static final int maxAge = 10;
+    public static final String animalBreed = "Goldfish";
+    public static final int fullPrice = 300;
+
+    public Goldfish(String name, MaleFemale gender) {
+        super( name, gender);
     }
 
     //@Overrides the super class, in this case Animal

@@ -8,7 +8,7 @@ import animalgameholder.animalgame.foods.models.Food;
 /**
  * This is our Animal class
  *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public abstract class Animal  {
         //Change to private or protected

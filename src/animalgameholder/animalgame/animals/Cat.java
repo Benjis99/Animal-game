@@ -1,20 +1,22 @@
 package animalgameholder.animalgame.animals;
 
 import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.enums.MaleFemale;
 import animalgameholder.animalgame.foods.models.Food;
 import animalgameholder.animalgame.foods.DryFoodCat;
 
 /**
  * This is our Cat class
  *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Cat extends Animal {
+    public static final int maxAge = 10;
+    public static final String animalBreed = "Cat";
+    public static final int fullPrice = 5000;
 
-    public Cat() {
-        maxAge = 10;
-        animalBreed = "Cat";
-        startPrice = 5000;
+    public Cat(String name, MaleFemale gender) {
+        super( name, gender);
     }
 
     //@Overrides the super class, in this case Animal

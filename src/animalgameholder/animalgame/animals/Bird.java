@@ -8,15 +8,15 @@ import animalgameholder.animalgame.foods.Seeds;
 /**
  * This is our Bird class
  *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Bird extends Animal {
     public static final int maxAge = 10;
     public static final String animalBreed = "Bird";
     public static final int fullPrice = 800;
 
-    public Bird(String name, MaleFemale mf) {
-        super( name, mf);
+    public Bird(String name, MaleFemale gender) {
+        super( name, gender);
     }
 
     //@Overrides the super class, in this case Animal

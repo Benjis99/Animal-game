@@ -1,22 +1,22 @@
 package animalgameholder.animalgame.animals;
 
 import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.enums.MaleFemale;
 import animalgameholder.animalgame.foods.Pellets;
 import animalgameholder.animalgame.foods.models.Food;
 
 /**
  * This is our Hamster class
  *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Hamster extends Animal {
+    public static final int maxAge = 10;
+    public static final String animalBreed = "Bird";
+    public static final int fullPrice = 800;
 
-
-    public Hamster() {
-        maxAge = 10;
-        animalBreed = "Hamster";
-        startPrice = 300;
-
+    public Hamster(String name, MaleFemale gender) {
+        super( name, gender);
     }
 
     //@Overrides the super class, in this case Animal
