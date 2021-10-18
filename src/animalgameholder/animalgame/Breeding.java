@@ -11,7 +11,7 @@ import java.util.Scanner;
 /**
  * This is our Breeding class
  *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @Author Lukas L, Isabella S, Benjamin E, Carl M
  */
 
 public class Breeding {

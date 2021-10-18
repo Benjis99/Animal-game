@@ -11,7 +11,7 @@ import java.util.Scanner;
 /**
  * This is our Store class where we have all the shops etc.
  *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @Author Lukas L, Isabella S, Benjamin E, Carl M
  */
 
 public class Store{

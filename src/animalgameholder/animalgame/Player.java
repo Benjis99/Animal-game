@@ -10,9 +10,8 @@ import java.util.Scanner;
 /**
  * This is our Player class where we have all the information about the players.
  *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @Author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
 public class Player{
     private final String name; // final
     public boolean ableToFeed;
