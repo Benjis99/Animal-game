@@ -5,7 +5,7 @@ import animalgameholder.animalgame.animals.models.Animal;
 /**
  * This is our Food class that extends the Animal class.
  * In this class we give the food value.
- * @Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 
     public abstract class Food extends Animal {
@@ -14,6 +14,9 @@ import animalgameholder.animalgame.animals.models.Animal;
     private int kg = 1;
 
 
+    /**
+     * Here we have the constructor that gives "Food" a Name, kg and price.
+     */
     public Food() {
     super();
     }
