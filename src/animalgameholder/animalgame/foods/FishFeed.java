@@ -7,7 +7,6 @@ import animalgameholder.animalgame.foods.models.Food;
  * We give our food value in this class.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
 public class FishFeed extends Food {
 
     /**
