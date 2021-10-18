@@ -70,6 +70,7 @@ public abstract class Animal  {
             return gender;
         }
 
+
         public void setGender(String gender) {
             this.gender = MaleFemale.valueOf(gender.toUpperCase());
         }
