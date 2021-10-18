@@ -1,7 +1,10 @@
 package animalgameholder.animalgame;
 
 import animalgameholder.animalgame.animals.*;
+import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.enums.MaleFemale;
 import animalgameholder.animalgame.foods.*;
+import animalgameholder.animalgame.foods.models.Food;
 
 import java.util.Scanner;
 
@@ -93,7 +96,7 @@ public class Store{
 
             switch (pick) {
 
-                case 1 -> addAnimals(player, new Bird());     //Should be "addAnimals(player, new Bird());
+                case 1 -> addAnimals(player, new Bird("Bella", MaleFemale.FEMALE));     //Should be "addAnimals(player, new Bird());
                 case 2 -> addAnimals(player, new Cat());
                 case 3 -> addAnimals(player, new Dog());
                 case 4 -> addAnimals(player, new Goldfish());

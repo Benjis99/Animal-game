@@ -1,42 +1,33 @@
-package animalgameholder.animalgame.animals;
+package animalgameholder.animalgame.animals.models;
 
-import animalgameholder.animalgame.foods.DryFoodDog;
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.enums.MaleFemale;
+import animalgameholder.animalgame.foods.models.Food;
 
-import java.util.Locale;
+
 
 /**
  * This is our Animal class
  *
  * Author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
 public abstract class Animal  {
         //Change to private or protected
-        public String name;
-        public int startPrice;
         public int health = 100;
-        public String animalBreed;
+        public String name;
         public MaleFemale gender;
         public int age = 0;
-        public int maxAge;
 
 
 
-    public Animal() {
-    super();
+    public Animal(String name, MaleFemale mf) {
+        this.name = name;
+        this.gender = mf;
     }
 
 
 
 
-    public enum MaleFemale{
-        FEMALE, MALE;
 
-        public static MaleFemale getRandomSelectGender(){  //Random select for male or female
-            return values()[(int) (Math.random() * values().length)];
-        }
-    }
         public boolean eatTrue(Food food){
             return true;
          }

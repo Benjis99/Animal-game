@@ -6,7 +6,7 @@ package animalgameholder.animalgame;
  * Author Lukas L, Isabella S, Benjamin E, Carl M
  */
 
-import animalgameholder.animalgame.animals.Animal;
+import animalgameholder.animalgame.animals.models.Animal;
 
 import java.util.ArrayList;
 import java.util.Random;

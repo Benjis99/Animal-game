@@ -1,5 +1,7 @@
 package animalgameholder.animalgame.foods;
 
+import animalgameholder.animalgame.foods.models.Food;
+
 /**
  * This is our Dryfoodclass where we choose the name and price
  *

@@ -1,6 +1,8 @@
 package animalgameholder.animalgame.animals;
 
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.enums.MaleFemale;
+import animalgameholder.animalgame.foods.models.Food;
 import animalgameholder.animalgame.foods.Seeds;
 
 /**
@@ -9,11 +11,12 @@ import animalgameholder.animalgame.foods.Seeds;
  * Author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Bird extends Animal {
+    public static final int maxAge = 10;
+    public static final String animalBreed = "Bird";
+    public static final int fullPrice = 800;
 
-    public Bird() {
-        maxAge = 10;
-        animalBreed = "Bird";
-        startPrice = 800;
+    public Bird(String name, MaleFemale mf) {
+        super( name, mf);
     }
 
     //@Overrides the super class, in this case Animal

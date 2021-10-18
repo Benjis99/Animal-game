@@ -1,6 +1,6 @@
 package animalgameholder.animalgame.foods;
 
-import animalgameholder.animalgame.animals.Goldfish;
+import animalgameholder.animalgame.foods.models.Food;
 
 /**
  * This is our Fishfeed class where we choose the name and price on the food.

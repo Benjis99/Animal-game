@@ -1,7 +1,7 @@
 package animalgameholder.animalgame;
 
-import animalgameholder.animalgame.animals.Animal;
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.foods.models.Food;
 
 
 import java.util.ArrayList;
