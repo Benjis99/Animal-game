@@ -19,4 +19,4 @@ public class FishFeed extends Food {
         price = 149; //Price for 750mg
     }
 
-} //FlakeLining Class
+}
