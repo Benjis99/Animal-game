@@ -3,17 +3,22 @@ package animalgameholder.animalgame.animals;
 import animalgameholder.animalgame.foods.Pellets;
 import animalgameholder.animalgame.foods.Food;
 
-
+/**
+ * This is our Hamster class
+ *
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class Hamster extends Animal{
 
 
     public Hamster() {
         maxAge = 10;
         animalBreed = "Hamster";
-        startPrice = 30;
+        startPrice = 300;
 
     }
 
+    //@Overrides the super class, in this case Animal
     @Override
     public boolean canEat (Food food) {
         return food instanceof Pellets;

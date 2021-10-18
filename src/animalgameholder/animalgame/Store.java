@@ -5,6 +5,12 @@ import animalgameholder.animalgame.foods.*;
 
 import java.util.Scanner;
 
+/**
+ * This is our Store class where we have all the shops etc.
+ *
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
+ */
+
 public class Store{
     Scanner console = new Scanner(System.in); //Use the scanner from game, delete this one
     private int index;
@@ -39,7 +45,7 @@ public class Store{
                 int count = 1;
                 for (Animal animal : player.animals) {
                     System.out.println(count + " : " + animal.getName() + " : " + animal.getGender() + " : " + animal.getAnimalBreed()
-                    + " : " + animal.getHealth() + "% health" + " Price: " +animal.currentPriceAnimal());
+                    + " : " + animal.getHealth() + "% health" + " Price: " +animal.currentPriceAnimal() + "Swedish Kronor");
                     count++;
                 }
                 System.out.println("0 - Leave store");

@@ -1,5 +1,11 @@
 package animalgameholder.animalgame;
 
+/**
+ * This is our Gamelogic class where the "brain" of the game is.
+ *
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
+ */
+
 import animalgameholder.animalgame.animals.Animal;
 
 import java.util.ArrayList;

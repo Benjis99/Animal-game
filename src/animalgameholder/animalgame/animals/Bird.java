@@ -3,15 +3,20 @@ package animalgameholder.animalgame.animals;
 import animalgameholder.animalgame.foods.Food;
 import animalgameholder.animalgame.foods.Seeds;
 
+/**
+ * This is our Bird class
+ *
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class Bird extends Animal {
 
     public Bird() {
         maxAge = 10;
         animalBreed = "Bird";
-        startPrice = 30;
+        startPrice = 800;
     }
 
-
+    //@Overrides the super class, in this case Animal
     @Override
     public boolean canEat (Food food) {
         return food instanceof Seeds;

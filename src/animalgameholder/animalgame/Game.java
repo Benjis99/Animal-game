@@ -6,6 +6,11 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * This is our Game class where we have all the menus right now
+ *
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class Game {
 
 private int amountOfTurns;
@@ -16,9 +21,12 @@ private int numberOfPlayers = 0;
 boolean exit = false;
 
 private final GameLogic logic = new GameLogic();
+    Scanner console = new Scanner(System.in);
+
 ArrayList<Player> players = new ArrayList<>();
 ArrayList<Player> loss = new ArrayList<>();
-Scanner console = new Scanner(System.in);
+
+
 
 
 
@@ -39,7 +47,7 @@ Scanner console = new Scanner(System.in);
                 case 3 -> System.out.println("Save"); //Printar ut när man går in på information
                 case 4 -> {
                     boolean exit = true;
-                    while (exit) {
+                    while (exit)
                         System.out.println("1.Start Game \n2.Turn off game");
                         int input2 = console.nextInt();
                         if (input2 == 1) {
@@ -54,7 +62,7 @@ Scanner console = new Scanner(System.in);
                 }
             }
         }
-    }
+
 
     public void startMenu(){
 
@@ -170,7 +178,7 @@ Scanner console = new Scanner(System.in);
 
 
 
-        public static void continueButtom(){
+        public static void continueButton(){
         Scanner console = new Scanner(System.in); //We need to use one scanner, not crating more in the methods.
             System.out.println("\n");
             System.out.println("Press enter to continue");

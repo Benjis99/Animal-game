@@ -3,15 +3,21 @@ package animalgameholder.animalgame.animals;
 import animalgameholder.animalgame.foods.Food;
 import animalgameholder.animalgame.foods.FishFeed;
 
+/**
+ * This is our Goldfish class
+ *
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 
 public class Goldfish extends Animal {
 
     public Goldfish() {
         maxAge = 10;
         animalBreed = "Goldfish";
-        startPrice = 30;
+        startPrice = 300;
     }
 
+    //@Overrides the super class, in this case Animal
     @Override
     public boolean canEat (Food food) {
         return food instanceof FishFeed;
