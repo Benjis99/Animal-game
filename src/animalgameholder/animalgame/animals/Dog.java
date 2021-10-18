@@ -15,7 +15,6 @@ public class Dog extends Animal {
         startPrice = 30;
     }
 
-
     @Override
     public boolean canEat (Food food) {
         return food instanceof DryFoodDog;
