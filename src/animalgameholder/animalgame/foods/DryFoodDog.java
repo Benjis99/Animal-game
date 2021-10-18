@@ -9,6 +9,7 @@ import animalgameholder.animalgame.foods.models.Food;
  */
 public class DryFoodDog extends Food {
 
+
     /**
      * Here we have the constructor that gives "DryFoodDog" a
      * name and price.

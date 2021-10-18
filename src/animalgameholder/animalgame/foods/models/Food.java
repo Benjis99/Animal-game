@@ -19,7 +19,6 @@ import animalgameholder.animalgame.animals.models.Animal;
     public Food() {
     super();
     }
-
         public String getName() {
             return name;
         }
