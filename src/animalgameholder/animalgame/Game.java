@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * This is our Game class where we have all the menus right now
  * <p>
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @Author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Game {
 

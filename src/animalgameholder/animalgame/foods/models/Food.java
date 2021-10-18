@@ -4,8 +4,8 @@ import animalgameholder.animalgame.animals.models.Animal;
 
 /**
  * This is our Food class that extends the Animal class.
- *
- * Author Lukas L, Isabella S, Benjamin E, Carl M
+ * In this class we give the food value.
+ * @Author Lukas L, Isabella S, Benjamin E, Carl M
  */
 
     public abstract class Food extends Animal {
