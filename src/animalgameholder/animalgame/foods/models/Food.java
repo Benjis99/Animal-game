@@ -7,7 +7,6 @@ import animalgameholder.animalgame.animals.models.Animal;
  * In this class we give the food value.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
     public abstract class Food extends Animal {
     public String name; //Change to private or protected
     public int price;   //Change to private or protected
@@ -20,7 +19,6 @@ import animalgameholder.animalgame.animals.models.Animal;
     public Food() {
     super();
     }
-
         public String getName() {
             return name;
         }
