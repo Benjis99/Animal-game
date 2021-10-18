@@ -3,16 +3,20 @@ package animalgameholder.animalgame.animals;
 import animalgameholder.animalgame.foods.Food;
 import animalgameholder.animalgame.foods.DryFoodCat;
 
-
+/**
+ * This is our Cat class
+ *
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class Cat extends Animal {
 
     public Cat() {
         maxAge = 10;
         animalBreed = "Cat";
-        startPrice = 30;
+        startPrice = 5000;
     }
 
-
+    //@Overrides the super class, in this case Animal
     @Override
     public boolean canEat (Food food) {
         return food instanceof DryFoodCat;

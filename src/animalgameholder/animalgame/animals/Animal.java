@@ -5,15 +5,21 @@ import animalgameholder.animalgame.foods.Food;
 
 import java.util.Locale;
 
-public abstract class Animal  {
+/**
+ * This is our Animal class
+ *
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 
-        protected String name;
-        protected int startPrice;
-        protected int health = 100;
-        protected String animalBreed;
-        protected MaleFemale gender;
-        protected int age = 0;
-        protected int maxAge;
+public abstract class Animal  {
+        //Change to private or protected
+        public String name;
+        public int startPrice;
+        public int health = 100;
+        public String animalBreed;
+        public MaleFemale gender;
+        public int age = 0;
+        public int maxAge;
 
 
 
