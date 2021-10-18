@@ -11,7 +11,7 @@ import java.util.Scanner;
 /**
  * This is our Breeding class
  *
- * @Author Lukas L, Isabella S, Benjamin E, Carl M
+ * Author Lukas L, Isabella S, Benjamin E, Carl M
  */
 
 public class Breeding {
@@ -110,10 +110,9 @@ public class Breeding {
 
     /**
      * This method allows the player to name their new animal once the parents have mated.
-     * @param player
-     * @param animal
+     * @param player assigns the new name of the newborn animal to the current player.
+     * @param animal generates a gender and what animal type the newborn animal is.
      */
-
     public void newAnimal(Player player, Animal animal){
         Scanner input = new Scanner(System.in); // Use scanner from Game class
         String gender = Animal.MaleFemale.getRandomSelectGender().toString();
@@ -134,10 +133,23 @@ public class Breeding {
                 !animal1.getAnimalBreed().equals(animal2.getAnimalBreed());
     }*/
 
+    /**
+     * A method to check if two animals can breed.
+     * @param animal1 gets the information about animal breed and gender for animal1.
+     * @param animal2 gets the information about animal breed and gender for animal2.
+     * @return true if animal breed is the same and gender is one of each. Otherwise, returns false.
+     */
     public boolean checkForBreed(Animal animal1, Animal animal2) {
         return animal1.getAnimalBreed().equals(animal2.getAnimalBreed()) && animal1.getGender() != animal2.getGender();
     }
 
+    /**
+     * Checks which available animals that can breed with each other. Carl, pls help (ノ°Д°）ノ︵ ┻━┻
+     * Behövs omformuleras  ^
+     * @param animal1 grabs information such as gender, name and breed about animal1.
+     * @param animal2 compares the current animal2 with animal1
+     * @return
+     */
     public boolean checkAnimalsLeftForBreeding(Animal animal1, Animal animal2){
         return animal1.getGender().equals(animal2.getGender()) || animal1.getName().equals(animal2.getName()) ||
                 !animal1.getAnimalBreed().equals(animal2.getAnimalBreed());
