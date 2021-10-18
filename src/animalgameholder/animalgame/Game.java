@@ -6,6 +6,11 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * This is our Game class where we have all the menus right now
+ * <p>
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class Game {
 
 private int amountOfTurns;

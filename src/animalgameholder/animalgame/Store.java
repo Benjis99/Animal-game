@@ -1,10 +1,17 @@
 package animalgameholder.animalgame;
 
 import animalgameholder.animalgame.animals.*;
+import animalgameholder.animalgame.animals.models.Animal;
 import animalgameholder.animalgame.foods.*;
+import animalgameholder.animalgame.foods.models.Food;
 
 import java.util.Scanner;
 
+/**
+ * This is our Store class where we have all the shops etc.
+ *
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class Store{
     Scanner console = new Scanner(System.in); //Use the scanner from game, delete this one
     private int index;

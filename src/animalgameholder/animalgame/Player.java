@@ -1,13 +1,17 @@
 package animalgameholder.animalgame;
 
-import animalgameholder.animalgame.animals.Animal;
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.foods.models.Food;
 
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * This is our Player class where we have all the information about the players.
+ *
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class Player{
     private final String name; // final
     public boolean ableToFeed;

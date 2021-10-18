@@ -1,12 +1,19 @@
-package animalgameholder.animalgame.animals;
+package animalgameholder.animalgame.animals.models;
 
-import animalgameholder.animalgame.foods.DryFoodDog;
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.foods.models.Food;
 
-import java.util.Locale;
-
+/**
+ * This is our Animal class where we check with the animal if they can,
+ * eat the food or not.
+ * We also have all the methods for the Animal class here
+ *
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public abstract class Animal  {
 
+    /**
+     * This is our field variables
+     */
         protected String name;
         protected int startPrice;
         protected int health = 100;
@@ -21,9 +28,6 @@ public abstract class Animal  {
     super();
     }
 
-
-
-
     public enum MaleFemale{
         FEMALE, MALE;
 
@@ -31,10 +35,17 @@ public abstract class Animal  {
             return values()[(int) (Math.random() * values().length)];
         }
     }
+
         public boolean eatTrue(Food food){
             return true;
          }
 
+    /**
+     * eatFood class will check with the animal if it can eat the food we are giving to it.
+     * If the animal is at 100% health then it won't be able to eat anything.
+     *
+     * @param food this is in the method, so we can get information from the Food class
+     */
          public void eatFood(Food food){ //Method that will check if the animal can eat the food or not
                                         //If the animal is at 100 health, then it will not be able to eat
         if (eatTrue(food)) {

@@ -1,10 +1,15 @@
 package animalgameholder.animalgame;
 
-import animalgameholder.animalgame.animals.Animal;
+import animalgameholder.animalgame.animals.models.Animal;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This is our Gamelogic class where the "brain" of the game is.
+ *
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class GameLogic {
     ArrayList<Animal> deadBcusHealth = new ArrayList<>();
     ArrayList<Animal> deadBcusAge = new ArrayList<>();

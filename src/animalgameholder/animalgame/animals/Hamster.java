@@ -1,12 +1,19 @@
 package animalgameholder.animalgame.animals;
 
+import animalgameholder.animalgame.animals.models.Animal;
 import animalgameholder.animalgame.foods.Pellets;
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.foods.models.Food;
 
+/**
+ * This is our Hamster class
+ *
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
+public class Hamster extends Animal {
 
-public class Hamster extends Animal{
-
-
+    /**
+     * Our constructor that contains maxAge, animalBreed and startPrice of the animal
+     */
     public Hamster() {
         maxAge = 10;
         animalBreed = "Hamster";
@@ -14,11 +21,20 @@ public class Hamster extends Animal{
 
     }
 
+    /**
+     * This overrides the Animal class
+     * @param food this is in the method, so we can get information from the Food class
+     * @return this returns the instance of seeds
+     */
     @Override
     public boolean canEat (Food food) {
         return food instanceof Pellets;
     }
 
+    /**
+     * The eatFood method will override with new health for the animal.
+     * @param food this is in the method, so we can get information from the Food class
+     */
     @Override
     public void eatFood (Food food){
         if (canEat(food)) {

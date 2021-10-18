@@ -1,22 +1,34 @@
 package animalgameholder.animalgame.animals;
 
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.foods.models.Food;
 import animalgameholder.animalgame.foods.Seeds;
 
 public class Bird extends Animal {
 
+    /**
+     * Our constructor that contains maxAge, animalBreed and startPrice of the animal
+     */
     public Bird() {
         maxAge = 10;
         animalBreed = "Bird";
         startPrice = 30;
     }
 
-
+    /**
+     * This overrides the Animal class
+     * @param food this is in the method, so we can get information from the Food class
+     * @return this returns the instance of seeds
+     */
     @Override
     public boolean canEat (Food food) {
         return food instanceof Seeds;
     }
 
+    /**
+     * The eatFood method will override with new health for the animal.
+     * @param food this is in the method, so we can get information from the Food class
+     */
     @Override
     public void eatFood (Food food){
         if (canEat(food)) {

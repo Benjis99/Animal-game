@@ -1,22 +1,38 @@
 package animalgameholder.animalgame.animals;
 
-import animalgameholder.animalgame.foods.Food;
+import animalgameholder.animalgame.animals.models.Animal;
+import animalgameholder.animalgame.foods.models.Food;
 import animalgameholder.animalgame.foods.FishFeed;
 
-
+/**
+ * This is our Goldfish class
+ *
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
 public class Goldfish extends Animal {
 
+    /**
+     * Our constructor that contains maxAge, animalBreed and startPrice of the animal
+     */
     public Goldfish() {
         maxAge = 10;
         animalBreed = "Goldfish";
         startPrice = 30;
     }
-
+    /**
+     * This overrides the Animal class
+     * @param food this is in the method, so we can get information from the Food class
+     * @return this returns the instance of seeds
+     */
     @Override
     public boolean canEat (Food food) {
         return food instanceof FishFeed;
     }
 
+    /**
+     * The eatFood method will override with new health for the animal.
+     * @param food this is in the method, so we can get information from the Food class
+     */
     @Override
     public void eatFood (Food food){
         if (canEat(food)) {
