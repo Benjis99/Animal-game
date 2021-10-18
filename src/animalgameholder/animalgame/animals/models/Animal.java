@@ -6,11 +6,16 @@ import animalgameholder.animalgame.foods.models.Food;
 
 
 /**
- * This is our Animal class
+ * This is our Animal class where we check with the animal if they can,
+ * eat the food or not.
+ * We also have all the methods for the Animal class here
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public abstract class Animal  {
+    /**
+     * This is our field variables
+     */
         //Change to private or protected
         public int health = 100;
         public String name;
@@ -24,15 +29,16 @@ public abstract class Animal  {
         this.gender = mf;
     }
 
-
-
-
-
         public boolean eatTrue(Food food){
             return true;
          }
 
-         public void eatFood(Food food){ //Method that will check if the animal can eat the food or not
+    /**
+     * eatFood class will check with the animal if it can eat the food we are giving to it.
+     * If the animal is at 100% health then it won't be able to eat anything.
+     * @param food this is in the method, so we can get information from the Food class
+     */
+    public void eatFood(Food food){ //Method that will check if the animal can eat the food or not
                                         //If the animal is at 100 health, then it will not be able to eat
         if (eatTrue(food)) {
             if (this.health >= 100){
@@ -59,6 +65,7 @@ public abstract class Animal  {
         public boolean canEat(Food food){
         return true;
         }
+
         public MaleFemale getGender() {
             return gender;
         }
