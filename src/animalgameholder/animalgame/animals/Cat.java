@@ -11,20 +11,39 @@ import animalgameholder.animalgame.foods.DryFoodCat;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Cat extends Animal {
+    /**
+     * Our field variables will never change value during the start of the game,
+     * that is why all field variables are static.
+     */
     public static final int maxAge = 10;
     public static final String animalBreed = "Cat";
     public static final int fullPrice = 5000;
 
+    /**
+     * The constructor contains String name, MaleFemale gender and that is declared in the super.
+     * @param name lets us set a name for the animal
+     * @param gender lets us set a gender for the animal
+     */
     public Cat(String name, MaleFemale gender) {
         super( name, gender);
     }
 
+
+    /**
+     * This overrides the Animal class
+     * @param food this is in the method, so we can get information from the Food class
+     * @return this returns the instance of seeds
+     */
     //@Overrides the super class, in this case Animal
     @Override
     public boolean canEat (Food food) {
         return food instanceof DryFoodCat;
     }
 
+    /**
+     * The eatFood method will override with new health for the animal.
+     * @param food this is in the method, so we can get information from the Food class
+     */
     @Override
     public void eatFood (Food food){
         if (canEat(food)) {
