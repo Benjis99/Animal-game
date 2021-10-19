@@ -54,6 +54,7 @@ public class Store{
                     count++;
                 }
                 System.out.println("0 - Leave store");
+                //Use a scanner to read the input from 0 - leave store?
                 if (index <= player.animals.size() && index == 0) {
                     menuCheck = false;
                 } else {
