@@ -1,13 +1,11 @@
 package food.models;
 
-
-import animals.models.Animal;
 /**
  * This is our Food class that extends the Animal class.
  * In this class we give the food value.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-    public abstract class Food extends Animal {
+    public abstract class Food {
 
     protected String name;
     protected int price;
