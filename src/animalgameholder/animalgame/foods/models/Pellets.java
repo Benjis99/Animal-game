@@ -9,7 +9,6 @@ import animalgameholder.animalgame.foods.models.Food;
  */
 public class Pellets extends Food {
 
-
     /**
      * Here we have the constructor that gives "pellets"
      * a name and price.

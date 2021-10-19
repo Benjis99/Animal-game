@@ -1,43 +1,32 @@
 package animalgameholder.animalgame.animals;
 
 import animalgameholder.animalgame.animals.models.Animal;
-import animalgameholder.animalgame.enums.MaleFemale;
 import animalgameholder.animalgame.foods.models.Food;
-import animalgameholder.animalgame.foods.Seeds;
+import animalgameholder.animalgame.foods.FishFeed;
 
 /**
- * This is our Bird class
+ * This is our Goldfish class
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Bird extends Animal {
-    /**
-     * Our field variables will never change value during the start of the game,
-     * that is why all field variables are static.
-     */
-    public static final int maxAge = 10;
-    public static final String animalBreed = "Bird";
-    public static final int fullPrice = 800;
+public class Goldfish extends Animal {
 
     /**
-     * The constructor contains String name, MaleFemale gender and that is declared in the super.
-     * @param name lets us set a name for the animal
-     * @param gender lets us set a gender for the animal
+     * Our constructor that contains maxAge, animalBreed and startPrice of the animal
      */
-    public Bird(String name, MaleFemale gender) {
-        super( name, gender);
+    public Goldfish() {
+        maxAge = 10;
+        animalBreed = "Goldfish";
+        startPrice = 30;
     }
-
-
     /**
      * This overrides the Animal class
      * @param food this is in the method, so we can get information from the Food class
      * @return this returns the instance of seeds
      */
-    //@Overrides the super class, in this case Animal
     @Override
     public boolean canEat (Food food) {
-        return food instanceof Seeds;
+        return food instanceof FishFeed;
     }
 
     /**
@@ -63,5 +52,4 @@ public class Bird extends Animal {
             }
         }
     }
-    //Bird Class yes/no
-}
+} //Goldfish Class

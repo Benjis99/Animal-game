@@ -2,7 +2,6 @@ package animalgameholder.animalgame;
 
 import animalgameholder.animalgame.animals.*;
 import animalgameholder.animalgame.animals.models.Animal;
-import animalgameholder.animalgame.enums.MaleFemale;
 import animalgameholder.animalgame.foods.*;
 import animalgameholder.animalgame.foods.models.Food;
 
@@ -11,9 +10,8 @@ import java.util.Scanner;
 /**
  * This is our Store class where we have all the shops etc.
  *
- * @Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
 public class Store{
     Scanner console = new Scanner(System.in); //Use the scanner from game, delete this one
     private int index;
@@ -48,7 +46,7 @@ public class Store{
                 int count = 1;
                 for (Animal animal : player.animals) {
                     System.out.println(count + " : " + animal.getName() + " : " + animal.getGender() + " : " + animal.getAnimalBreed()
-                    + " : " + animal.getHealth() + "% health" + " Price: " +animal.currentPriceAnimal() + "Swedish Kronor");
+                    + " : " + animal.getHealth() + "% health" + " Price: " +animal.currentPriceAnimal());
                     count++;
                 }
                 System.out.println("0 - Leave store");
@@ -96,7 +94,7 @@ public class Store{
 
             switch (pick) {
 
-                case 1 -> addAnimals(player, new Bird("Bella", MaleFemale.FEMALE));     //Should be "addAnimals(player, new Bird());
+                case 1 -> addAnimals(player, new Bird());     //Should be "addAnimals(player, new Bird());
                 case 2 -> addAnimals(player, new Cat());
                 case 3 -> addAnimals(player, new Dog());
                 case 4 -> addAnimals(player, new Goldfish());

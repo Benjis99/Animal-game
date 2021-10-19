@@ -8,17 +8,18 @@ import animalgameholder.animalgame.animals.models.Animal;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
     public abstract class Food extends Animal {
-    public String name; //Change to private or protected
-    public int price;   //Change to private or protected
+
+    protected String name;
+    protected int price;
     private int kg = 1;
 
-
     /**
-     * Here we have the constructor that gives "Food" a Name, kg and price.
+     * Here we have the constructor with a super inside.
      */
     public Food() {
     super();
     }
+
         public String getName() {
             return name;
         }

@@ -1,5 +1,4 @@
 package animalgameholder.animalgame;
-
 /**
  * This is our Main class that start the game
  *

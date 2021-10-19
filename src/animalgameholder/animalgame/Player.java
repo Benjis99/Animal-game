@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  * This is our Player class where we have all the information about the players.
  *
- * @Author Lukas L, Isabella S, Benjamin E, Carl M
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Player{
     private final String name; // final
@@ -52,6 +52,9 @@ public class Player{
         this.money = this.money + money;
     }
 
+    public String getName() {
+        return name;
+    }
 
     public void getAnimalFood(){
     if (foods.size() > 0) {
@@ -94,7 +97,7 @@ public class Player{
                     pick1 = Integer.parseInt(console.nextLine()); //We need a scanner from game class here
                 } catch (Exception e) {
                     System.out.println("You need to enter a number");
-                    Game.continueButton();
+                    Game.continueButtom();
                  }
                 }
                 while (pick2 < 1 || pick2 > foods.size()) {  //While loop with try-catch inside.
@@ -133,6 +136,9 @@ public class Player{
        getAnimalFood();
        getBalance();
     }
+    public void getBalance(){
+        System.out.println("Current balance: " + this.money + " Swedish kronor");
+    }
 
     public boolean checkWithPlayer(boolean lean){
         if (!lean){
@@ -140,14 +146,6 @@ public class Player{
             return false;
         }
         return true;
-    }
-
-    public void getBalance(){
-        System.out.println("Current balance: " + this.money + " Swedish kronor");
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getMoney() {

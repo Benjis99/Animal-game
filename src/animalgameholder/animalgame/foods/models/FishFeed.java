@@ -9,7 +9,6 @@ import animalgameholder.animalgame.foods.models.Food;
  */
 public class FishFeed extends Food {
 
-
     /**
      * Here we have the constructor that gives "FishFeed" a name
      * and price.
@@ -19,4 +18,4 @@ public class FishFeed extends Food {
         price = 149; //Price for 750mg
     }
 
-}
+} //FlakeLining Class
