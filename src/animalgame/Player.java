@@ -5,7 +5,7 @@ import animals.models.*;
 
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  * This is our Player class where we have all the information about the players.
@@ -19,7 +19,7 @@ public class Player{
     public boolean ableToBuyAnimals;
     public boolean ableToBuyFoods;
     public boolean ableToBreed;
-    private int money = 15000;
+    private int money = 400;
 
     ArrayList<Animal> animals = new ArrayList<>();
     ArrayList<Food> foods = new ArrayList<>();
@@ -82,7 +82,7 @@ public class Player{
     }
 
     public void animalFeeding(Player player){ //Pick one animal to feed in the first try-catch
-        Scanner console = new Scanner(System.in); //Delete when we use the Scanner from game class
+
         int pick1 = 0;
         int pick2 = 0;
         if (checkWithPlayer(ableToFeed)) {
@@ -93,11 +93,11 @@ public class Player{
                 try {
                     Game.newScreen(); //New screen, easy to see the information
                     getPlayerAnimal(); //This will get the players animal
-                    System.out.println("Write the name of the animal you wanna feed: ");
-                    pick1 = Integer.parseInt(console.nextLine()); //We need a scanner from game class here
+                    System.out.println("Which animal do you want to feed: ");
+                    pick1 = Integer.parseInt(Dialog.stringReturn()); //We need a scanner from game class here
                 } catch (Exception e) {
                     System.out.println("You need to enter a number");
-                    Game.continueButtom();
+                    Game.continueButton();
                  }
                 }
                 while (pick2 < 1 || pick2 > foods.size()) {  //While loop with try-catch inside.
@@ -105,7 +105,7 @@ public class Player{
                         Game.newScreen();
                         getAnimalFood();
                         System.out.println("\n Pick the food you wanna use");
-                        pick2 = Integer.parseInt(console.nextLine());
+                        pick2 = Integer.parseInt(Dialog.stringReturn());
                     } catch (Exception e) {
                         System.out.println("You need to enter a number");
 

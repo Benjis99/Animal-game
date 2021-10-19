@@ -1,7 +1,6 @@
 package animalgame;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * This is our Game class where we have all the menus right now
@@ -20,7 +19,6 @@ boolean exit = false;
 private final GameLogic logic = new GameLogic();
 ArrayList<Player> players = new ArrayList<>();
 ArrayList<Player> loss = new ArrayList<>();
-Scanner console = new Scanner(System.in);
 
 
 
@@ -32,24 +30,24 @@ Scanner console = new Scanner(System.in);
             players.clear();
             newScreen();
             System.out.println("Welcome to our animal game!");
-            System.out.println("1. Start game 2. Information 3. Load Game 4. Exit Game");
-            int input = console.nextInt();
 
-            switch (input) {
+            int first = Dialog.dialog("1. Start game 2. Information 3. Load Game 4. Exit Game");
+
+            switch (first) {
                 case 1 -> startMenu();
                 case 2 -> gameRules();
                 case 3 -> System.out.println("Save"); //Printar ut när man går in på information
                 case 4 -> {
                     boolean exit = true;
                     while (exit) {
-                        System.out.println("1.Start Game \n2.Turn off game");
-                        int input2 = console.nextInt();
+                        int input2 = Dialog.dialog("1.Start game \n2.Turn off game");
                         if (input2 == 1) {
-                            System.out.println("Turning off game");
                             start = false;
                             exit = false;
                         }
                         if (input2 == 2) {
+                            System.out.println("Turning off game");
+                            System.exit(1);
                             exit = false;
                         }
                     }
@@ -57,6 +55,7 @@ Scanner console = new Scanner(System.in);
             }
         }
     }
+
 
     public void startMenu(){
 
@@ -82,8 +81,8 @@ Scanner console = new Scanner(System.in);
                 currentPlayer.playerInv();
                 System.out.println("It is round " + currentTurn);
                 System.out.println(currentPlayer.getName() + " turn");
-                System.out.println("["+"1.Store"+"]"+ " ["+ "2.Breed" +"]"+ " ["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"6.Exit to main menu"+"]");
-                pick = console.nextInt();
+                pick = storeMenu();
+
             }
 
             switch (pick) {
@@ -99,14 +98,19 @@ Scanner console = new Scanner(System.in);
             }
         }
     }
+    public int storeMenu(){
+        int input = Dialog.dialog("["+"1.Store"+"]"+ " ["+ "2.Breed" +"]"+ " " +
+                "["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"6.Exit to main menu"+"]");
+        return input;
+    }
 
     public void pickPlayerName(){
-        Scanner scan = new Scanner(System.in);
+
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
         for (int i = 1; i < numberOfPlayers + 1; i++ ) {
             System.out.println("Player " + i + " pick your name: ");
-            String name = scan.next();
+            String name = Dialog.stringReturn();
             players.add(new Player(name));
         }
     }
@@ -143,13 +147,15 @@ Scanner console = new Scanner(System.in);
 
         int pick = -1;
         try {
-            pick = console.nextInt();
+            pick = Dialog.intReturn();
         } catch (Exception e) {
-            console.next();
+            Dialog.intReturn();
         }
         return pick < min || pick > max ?
                 gameSettings(text, min, max) : pick;
     }
+
+
 
     public void gameRules(){
         System.out.println("All the game rules");
@@ -172,11 +178,10 @@ Scanner console = new Scanner(System.in);
 
 
 
-        public static void continueButtom(){
-        Scanner console = new Scanner(System.in); //We need to use one scanner, not crating more in the methods.
+        public static void continueButton(){
             System.out.println("\n");
             System.out.println("Press enter to continue");
-            console.nextLine();
+            Dialog.stringReturn();
         }
       public static void newScreen(){ //Static so we can reach outside Game class
         System.out.println("\n".repeat(50));

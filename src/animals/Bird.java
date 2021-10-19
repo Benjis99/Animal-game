@@ -11,7 +11,7 @@ public class Bird extends Animal {
     public Bird() {
         maxAge = 10;
         animalBreed = "Bird";
-        startPrice = 30;
+        startPrice = 150;
     }
 
     /**

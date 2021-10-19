@@ -5,7 +5,7 @@ import animals.models.*;
 import food.*;
 import animals.*;
 
-import java.util.Scanner;
+
 
 
 /**
@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Store{
-    Scanner console = new Scanner(System.in); //Use the scanner from game, delete this one
+
     private int index;
 
     public Store() {
@@ -25,8 +25,7 @@ public class Store{
         boolean menuCheck = true;
         while (menuCheck){
             player.playerInv();
-            System.out.println("1.Animal store 2.Food store 3.Sell animal 4.Exit store");
-            int pick = console.nextInt();
+            int pick = animalQuestion();
 
             switch (pick){
                 case 1 -> animalShop(player);
@@ -36,6 +35,10 @@ public class Store{
 
             }
         }
+    }
+    public int animalQuestion(){
+        int answer = Dialog.dialog("1.Animal store 2.Food store 3.Sell animal 4.Exit store");
+        return answer;
     }
 
     public void sellAnimalsShop(Player player){
@@ -70,9 +73,7 @@ public class Store{
         while (menuCheck) {
         player.playerInv();
         System.out.println("You are now in the Food shop! Your options: ");
-        System.out.println("1.DryFood for cats 2.DryFood for dogs 3.FishFeed for fish " +
-                "4.Pellets for Hamster 5.Seeds for Bird 6.Exit food shop");
-        int pick = console.nextInt();
+        int pick = secondQuestion();
         switch (pick) {
             case 1 -> addFood(new DryFoodCat(), player);
             case 2 -> addFood(new DryFoodDog(), player);
@@ -84,14 +85,19 @@ public class Store{
         }
     }
 
+    public int secondQuestion(){
+        int answer = Dialog.dialog("1.DryFood for cats 2.DryFood for dogs 3.FishFeed for fish " +
+                "4.Pellets for Hamster 5.Seeds for Bird 6.Exit food shop");
+        return answer;
+    }
+
     public void animalShop(Player player){
 
         boolean checkMenu = true;
         while (checkMenu) {
             player.playerInv();
             System.out.println("You are now in the Animal store, this is your options: " );
-            System.out.println("1.Bird \n2.Cat \n3.Dog \n4.Goldfish \n5.Hamster \n6.Exit Animal shop" );
-            int pick = console.nextInt();
+            int pick = thirdQuestion();
 
             switch (pick) {
 
@@ -106,12 +112,16 @@ public class Store{
 
     }
 
+    public int thirdQuestion(){
+        int answer = Dialog.dialog("1.Bird \n2.Cat \n3.Dog \n4.Goldfish \n5.Hamster \n6.Exit Animal shop");
+        return answer;
+    }
+
 
 
     public void sellAnimal(Animal animal, Player player){
         System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal());
-        System.out.println("1.Yes 2.No");
-        int pick = console.nextInt();
+        int pick = yesno();
         if (pick == 1){
             player.addMoney(animal.currentPriceAnimal());
             player.animals.remove(animal);
@@ -119,23 +129,27 @@ public class Store{
             player.setAbleToSellAnimals(true);
         }
     }
+    public int yesno(){
+        int answer = Dialog.dialog("1.Yes 2.No");
+        return answer;
+    }
 
     public void addAnimals(Player player, Animal animal){
-    Scanner newConsole = new Scanner(System.in);
+
 
         if (player.checkWithPlayer(player.ableToBuyAnimals)) {
             if (player.getMoney() < animal.getStartPrice()){
                 System.out.println("Not enough money for the animal");
             } else {
-                System.out.println("Do you want to buy " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " \n1.Yes \n2.No");
-                int choice = console.nextInt();
+                System.out.println("Do you want to buy " + animal.getAnimalBreed() + " for " + animal.getStartPrice());
+                int choice = fourth();
 
                 if (choice == 1){
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
-                    animal.setName(newConsole.nextLine());
+                    animal.setName(Dialog.stringReturn());
 
-                    System.out.println("Pick the gender for " + animal.getAnimalBreed() + " Pick gender: 1. Male 2. Female");
-                    int input = console.nextInt();
+                    System.out.println("Pick the gender for " + animal.getAnimalBreed());
+                    int input = maleFemale();
 
                     if (input == 1) animal.setGender("MALE");
                     if (input == 2) animal.setGender("FEMALE");
@@ -143,6 +157,15 @@ public class Store{
                 }
             }
         }
+    }
+
+    public int fourth (){
+        int answer = Dialog.dialog("1. Yes 2. No");
+        return answer;
+    }
+    public int maleFemale (){
+        int answer = Dialog.dialog("Pick gender: 1. Male 2. Female");
+        return answer;
     }
 
     private void afterPurchaseAnimal(Player player, Animal animal) {
@@ -159,8 +182,8 @@ public class Store{
                 System.out.println("Not enough money");
             } else {
                 int foodCount = 0;
-                System.out.println("1kg of " + food.getName() + " for " + food.getPrice() + " 1. Yes 2. No");
-                int yesNo = console.nextInt();
+                System.out.println("1kg of " + food.getName() + " for " + food.getPrice());
+                int yesNo = noyes();
                 if (yesNo == 1){
                     if (player.foods.size() > 0){
                         for (Food food1: player.foods){
@@ -182,6 +205,11 @@ public class Store{
                 }
             }
         }
+    }
+
+    public int noyes(){
+        int answer = Dialog.dialog("1. Yes 2. No");
+        return answer;
     }
 
 

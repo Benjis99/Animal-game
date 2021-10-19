@@ -6,7 +6,6 @@ import animals.models.*;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * This is our Breeding class
@@ -28,7 +27,7 @@ public class Breeding {
      * @param player the instance of the current player
      */
     public void animalBreed(Player player) {
-        Scanner input = new Scanner(System.in); // Use scanner from game class, TO DO
+
         Random random = new Random();
         int animal1 = 0;
         int animal2 = 0;
@@ -42,9 +41,9 @@ public class Breeding {
                 while (animal1 < 1 || animal1 > player.animals.size()) {
                     Game.newScreen();
                     player.getPlayerAnimal();
-                    System.out.println("Choose your first animal to breed! Enter a number: ");
                     // Try catch needed if player enters an invalid number -----------------
-                    animal1 = input.nextInt();
+
+                    animal1 = firstAnimal();
 
                 }
                 if (animalsThatCanBreed(player, player.animals.get(animal1 - 1))) {
@@ -67,7 +66,7 @@ public class Breeding {
                     }
                     System.out.println("Choose your second animal to breed. Enter a number: ");
                     try {
-                        animal2 = Integer.parseInt(input.nextLine());
+                        animal2 = Dialog.intReturn();
                     } catch (Exception e) {
                         System.out.println("You must enter a number for an animal.");
                     }
@@ -113,13 +112,13 @@ public class Breeding {
      * @param animal generates a gender and what animal type the newborn animal is.
      */
     public void newAnimal(Player player, Animal animal){
-        Scanner input = new Scanner(System.in); // Use scanner from Game class
+
         String gender = Animal.MaleFemale.getRandomSelectGender().toString();
 
         System.out.println("You've got a " + animal.getAnimalBreed() + " that is " + gender + "!");
         System.out.println("Enter a name: ");
 
-        animal.setName(input.nextLine());
+        animal.setName(Dialog.stringReturn());
         animal.setGender(gender);
 
         player.animals.add(animal);
@@ -186,6 +185,10 @@ public class Breeding {
         }
         System.out.println("You've got a total of " + counter + " babies!");
         return counter;
+    }
+    public int firstAnimal(){
+        int first = Dialog.dialog("Choose your first animal to breed! Enter a number: ");
+        return first;
     }
 
 }
