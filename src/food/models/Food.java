@@ -1,11 +1,13 @@
 package food.models;
 
+import java.io.Serializable;
+
 /**
  * This is our Food class that extends the Animal class.
  * In this class we give the food value.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-    public abstract class Food {
+    public abstract class Food implements Serializable {
 
 
     protected String name;

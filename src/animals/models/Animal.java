@@ -1,6 +1,9 @@
 package animals.models;
 
 import food.models.Food;
+
+import java.io.Serializable;
+
 /**
  * This is our Animal class where we check with the animal if they can,
  * eat the food or not.
@@ -8,7 +11,7 @@ import food.models.Food;
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public abstract class Animal  {
+public abstract class Animal implements Serializable {
 
 
     /**

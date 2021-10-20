@@ -5,7 +5,7 @@ import animals.models.*;
 import food.*;
 import animals.*;
 
-
+import java.io.Serializable;
 
 
 /**
@@ -13,7 +13,7 @@ import animals.*;
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Store{
+public class Store implements Serializable {
 
     public Store() {
     }

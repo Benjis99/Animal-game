@@ -2,6 +2,7 @@ package animalgame;
 
 import animals.models.Animal;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ import java.util.Random;
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class GameLogic {
+public class GameLogic implements Serializable {
 
     ArrayList<Animal> deadBcusHealth = new ArrayList<>();
     ArrayList<Animal> deadBcusAge = new ArrayList<>();

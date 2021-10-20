@@ -4,6 +4,7 @@ import animals.*;
 import animals.models.*;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,7 +13,7 @@ import java.util.Random;
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Breeding { // s
+public class Breeding implements Serializable { // s
 
 
     public Breeding() {

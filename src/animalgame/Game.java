@@ -1,5 +1,8 @@
 package animalgame;
 
+import gameSave.SaveGame;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +10,7 @@ import java.util.ArrayList;
  * <p>
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Game { // sss
+public class Game implements Serializable { // sss
 
 private int amountOfTurns;
 private int currentTurn;
@@ -15,6 +18,7 @@ private Player currentPlayer;
 private int playerIndex;
 private int numberOfPlayers = 0;
 boolean exit = false;
+SaveGame saveGame = new SaveGame();
 
 private final GameLogic logic = new GameLogic();
 ArrayList<Player> players = new ArrayList<>();
@@ -23,6 +27,7 @@ ArrayList<Player> loss = new ArrayList<>();
 
 
     public Game() {
+        saveGame.setGame(this);
 
         boolean start = true;
         while (start) {
@@ -36,7 +41,7 @@ ArrayList<Player> loss = new ArrayList<>();
             switch (first) {
                 case 1 -> startMenu();
                 case 2 -> gameRules();
-                case 3 -> System.out.println("Save"); //Printar ut när man går in på information
+                case 3 -> saveGame.loadGame(); //Printar ut när man går in på information
                 case 4 -> {
                     boolean exit = true;
                     while (exit) {
@@ -91,16 +96,23 @@ ArrayList<Player> loss = new ArrayList<>();
                 case 3 -> currentPlayer.animalFeeding(currentPlayer);
                 case 4 -> game = false;
                 case 5 ->information();
-                case 6 -> {
+                case 6 -> saveGame.saveGame(this);
+                case 7 -> {
                     game = false;
                     exit = true;
                 }
             }
         }
     }
-    public int menuStore(){
+/*    public int menuStore(){
         int input = Dialog.dialog("["+"1.Store"+"]"+ " ["+ "2.Breed" +"]"+ " " +
-                "["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"6.Exit to main menu"+"]");
+                "["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"7.Exit to main menu"+"]");
+        return input;
+    }*/
+
+    public int menuStore(){
+        int input = Dialog.dialog("[1.Store]" + " [2.Breed]" + " " +
+                "[3.Feed Animal]" + " [4.Next Player]"+ " [5.Game Info]"+ " " + "[6. Save game]" + "[7.Exit to main menu]" );
         return input;
     }
 

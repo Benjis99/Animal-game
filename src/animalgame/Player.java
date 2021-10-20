@@ -4,6 +4,7 @@ import food.models.Food;
 import animals.models.*;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Player{
+public class Player implements Serializable {
 
     private final String name; // final
     public boolean ableToFeed;
