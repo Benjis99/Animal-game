@@ -99,7 +99,7 @@ public class Breeding { // s
                     }
                 } else {
                     System.out.println("Breeding failed!");
-                    player.falseBooleans();
+                    player.falseStatistics();
                 }
             } else {
                 System.out.println("The animals you chose are unable to breed with each other. Please pick a compatible pair");
@@ -123,7 +123,7 @@ public class Breeding { // s
         animal.setGender(gender);
 
         player.animals.add(animal);
-        player.falseBooleans();
+        player.falseStatistics();
     }
 
 

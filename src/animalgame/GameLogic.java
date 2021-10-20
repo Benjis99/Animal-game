@@ -25,7 +25,7 @@ public class GameLogic {
     if (game.players.size() == 0){
         System.out.println("No winners");
     } else {
-    sellAnimals(game);
+    autoSellAnimals(game);
     for (int i = 0; i < game.players.size(); i++){
         if (game.players.get(i).getMoney() > score ) {
             score = game.players.get(i).getMoney();
@@ -43,7 +43,7 @@ public class GameLogic {
       }
     }
 
-    public void sellAnimals(Game game){
+    public void autoSellAnimals(Game game){
         System.out.println("Game is ending, all animals have been sold.");
         for (Player player : game.players) {
 
@@ -56,7 +56,7 @@ public class GameLogic {
     }
 
 
-    public void animalHealth(Player player){
+    public void animalsHealth(Player player){
         Random random = new Random();
         for (Animal animal: player.animals){
             int dmg = 10 + random.nextInt(22);
@@ -83,7 +83,7 @@ public class GameLogic {
     }
     public void endRound(Player player, Game game){
         playerLoss(player, game);
-        animalHealth(player);
+        animalsHealth(player);
         checkDeadAnimals(player);
     }
 

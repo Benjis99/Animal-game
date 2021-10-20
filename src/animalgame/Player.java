@@ -29,14 +29,14 @@ public class Player{
         this.name = name;
     }
 
-    public void trueBooleans(){
+    public void trueStatistics(){
         ableToFeed = true;
         ableToSellAnimals = true;
         ableToBuyAnimals = true;
         ableToBuyFoods = true;
         ableToBreed = true;
     }
-    public void falseBooleans(){
+    public void falseStatistics(){
         ableToFeed = false;
         ableToSellAnimals = false;
         ableToBuyAnimals = false;
@@ -118,7 +118,7 @@ public class Player{
                 if (animal.eatTrue(food)) {
                     animal.eatFood(food);
                     food.setKg(-1);
-                    player.falseBooleans();
+                    player.falseStatistics();
                     player.setAbleToFeed(true);
                     if (food.getKg() <= 0){
                         foods.remove(food);
@@ -141,8 +141,8 @@ public class Player{
         System.out.println("Current balance: " + this.money + " Swedish kronor");
     }
 
-    public boolean checkWithPlayer(boolean lean){
-        if (!lean){
+    public boolean checkWithPlayer(boolean checkPlayer){
+        if (!checkPlayer){
             System.out.println("To many choices this turn");
             return false;
         }

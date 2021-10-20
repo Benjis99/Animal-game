@@ -23,7 +23,7 @@ public class Store{
         boolean menuCheck = true;
         while (menuCheck){
             player.playerInv();
-            int pick = animalQuestion();
+            int pick = decisionMenu();
 
             switch (pick){
                 case 1 -> animalShop(player);
@@ -34,7 +34,7 @@ public class Store{
             }
         }
     }
-    public int animalQuestion(){
+    public int decisionMenu(){
         int answer = Dialog.dialog("1.Animal store 2.Food store 3.Sell animal 4.Exit store");
         return answer;
     }
@@ -78,7 +78,7 @@ public class Store{
         while (menuCheck) {
         player.playerInv();
         System.out.println("You are now in the Food shop! Your options: ");
-        int pick = secondQuestion();
+        int pick = foodSelect();
         switch (pick) {
             case 1 -> addFood(new DryFoodCat(), player);
             case 2 -> addFood(new DryFoodDog(), player);
@@ -90,7 +90,7 @@ public class Store{
         }
     }
 
-    public int secondQuestion(){
+    public int foodSelect(){
         int answer = Dialog.dialog("1.DryFood for cats 2.DryFood for dogs 3.FishFeed for fish " +
                 "4.Pellets for Hamster 5.Seeds for Bird 6.Exit food shop");
         return answer;
@@ -102,7 +102,7 @@ public class Store{
         while (checkMenu) {
             player.playerInv();
             System.out.println("You are now in the Animal store, this is your options: " );
-            int pick = thirdQuestion();
+            int pick = animalSelect();
 
             switch (pick) {
 
@@ -117,7 +117,7 @@ public class Store{
 
     }
 
-    public int thirdQuestion(){
+    public int animalSelect(){
         int answer = Dialog.dialog("1.Bird \n2.Cat \n3.Dog \n4.Goldfish \n5.Hamster \n6.Exit Animal shop");
         return answer;
     }
@@ -130,7 +130,7 @@ public class Store{
         if (pick == 1){
             player.addMoney(animal.currentPriceAnimal());
             player.animals.remove(animal);
-            player.falseBooleans();
+            player.falseStatistics();
             player.setAbleToSellAnimals(true);
         }
     }
@@ -140,14 +140,12 @@ public class Store{
     }
 
     public void addAnimals(Player player, Animal animal){
-
-
         if (player.checkWithPlayer(player.ableToBuyAnimals)) {
             if (player.getMoney() < animal.getStartPrice()){
                 System.out.println("Not enough money for the animal");
             } else {
                 System.out.println("Do you want to buy " + animal.getAnimalBreed() + " for " + animal.getStartPrice());
-                int choice = fourth();
+                int choice = decision();
 
                 if (choice == 1){
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
@@ -164,7 +162,7 @@ public class Store{
         }
     }
 
-    public int fourth (){
+    public int decision(){
         int answer = Dialog.dialog("1. Yes 2. No");
         return answer;
     }
@@ -176,7 +174,7 @@ public class Store{
     private void afterPurchaseAnimal(Player player, Animal animal) {
         player.animals.add(animal);
         player.removeMoney(animal.getStartPrice());
-        player.falseBooleans();
+        player.falseStatistics();
         player.setAbleToBuyAnimals(true);
     }
 
@@ -188,14 +186,14 @@ public class Store{
             } else {
                 int foodCount = 0;
                 System.out.println("1kg of " + food.getName() + " for " + food.getPrice());
-                int yesNo = noyes();
+                int yesNo = decisionFood();
                 if (yesNo == 1){
                     if (player.foods.size() > 0){
                         for (Food food1: player.foods){
                             if (food1.getName().equals(food.getName())) {
                                 food1.setKg(1);
                                 player.removeMoney(food.getPrice());
-                                player.falseBooleans();
+                                player.falseStatistics();
                                 player.setAbleToBuyFoods(true);
                                 foodCount++;
                             }
@@ -204,7 +202,7 @@ public class Store{
                     if (foodCount == 0){
                         player.foods.add(food);
                         player.removeMoney(food.getPrice());
-                        player.falseBooleans();
+                        player.falseStatistics();
                         player.setAbleToFeed(true);
                     }
                 }
@@ -212,7 +210,7 @@ public class Store{
         }
     }
 
-    public int noyes(){
+    public int decisionFood(){
         int answer = Dialog.dialog("1. Yes 2. No");
         return answer;
     }

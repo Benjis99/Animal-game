@@ -63,15 +63,15 @@ ArrayList<Player> loss = new ArrayList<>();
         exit = false;
         amountOfTurns = gameSettings("How many rounds do you wanna play 5-30 rounds", 5, 30);
         numberOfPlayers = gameSettings("How many players do you want, between 2-4", 2, 4);
-        pickPlayerName();
+        playerName();
         information();
         gameMenu();
 
     }
 
-    public void game(){
+    public void gameBrain(){
         Store store = new Store();
-        Breeding breed = new Breeding();
+        Breeding breeding = new Breeding();
         boolean game = true;
 
         while (game) {
@@ -81,13 +81,13 @@ ArrayList<Player> loss = new ArrayList<>();
                 currentPlayer.playerInv();
                 System.out.println("It is round " + currentTurn);
                 System.out.println(currentPlayer.getName() + " turn");
-                pick = storeMenu();
+                pick = menuStore();
 
             }
 
             switch (pick) {
                 case 1 -> store.buyMenu(currentPlayer);
-                case 2 -> breed.animalBreed(currentPlayer);
+                case 2 -> breeding.animalBreed(currentPlayer);
                 case 3 -> currentPlayer.animalFeeding(currentPlayer);
                 case 4 -> game = false;
                 case 5 ->information();
@@ -98,14 +98,13 @@ ArrayList<Player> loss = new ArrayList<>();
             }
         }
     }
-    public int storeMenu(){
+    public int menuStore(){
         int input = Dialog.dialog("["+"1.Store"+"]"+ " ["+ "2.Breed" +"]"+ " " +
                 "["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"6.Exit to main menu"+"]");
         return input;
     }
 
-    public void pickPlayerName(){
-
+    public void playerName(){
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
         for (int i = 1; i < numberOfPlayers + 1; i++ ) {
@@ -121,10 +120,10 @@ ArrayList<Player> loss = new ArrayList<>();
 
             for (int pick1 = playerIndex; pick1 < players.size(); pick1++){
                 currentPlayer = players.get(pick1);
-                currentPlayer.trueBooleans();
+                currentPlayer.trueStatistics();
 
                 logic.startRound(currentPlayer);
-                game();
+                gameBrain();
                 logic.endRound(currentPlayer, this);
 
                 if (exit)
@@ -162,9 +161,7 @@ ArrayList<Player> loss = new ArrayList<>();
     }
 
     public void information (){
-
-        System.out.println("Information");
-
+        System.out.println("Current statistics: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
         int amountOfPlayer = 1;
         for (Player player : players){
