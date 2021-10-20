@@ -10,6 +10,7 @@ import food.models.Food;
  */
 public abstract class Animal  {
 
+
     /**
      * This is our field variables
      */

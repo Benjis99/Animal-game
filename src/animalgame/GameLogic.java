@@ -11,6 +11,7 @@ import java.util.Random;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class GameLogic {
+
     ArrayList<Animal> deadBcusHealth = new ArrayList<>();
     ArrayList<Animal> deadBcusAge = new ArrayList<>();
 

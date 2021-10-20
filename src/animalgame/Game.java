@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * <p>
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Game {
+public class Game { // sss
 
 private int amountOfTurns;
 private int currentTurn;

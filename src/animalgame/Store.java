@@ -15,6 +15,7 @@ import animals.*;
  */
 public class Store{
 
+
     private int index;
 
     public Store() {

@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Player{
+
     private final String name; // final
     public boolean ableToFeed;
     public boolean ableToSellAnimals;

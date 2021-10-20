@@ -2,7 +2,7 @@ package animalgame;
 
 import java.util.Scanner;
 
-public class Dialog {
+public class Dialog { // s
     private static Scanner console = new Scanner(System.in);
 
     public static int dialog(String text){

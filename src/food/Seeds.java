@@ -13,6 +13,7 @@ public class Seeds extends Food {
      * Here we have the constructor that gives "seeds"
      * name and price.
      */
+
     public Seeds() {
         name = "Seeds";
         price = 119;

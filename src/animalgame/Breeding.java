@@ -12,7 +12,8 @@ import java.util.Random;
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Breeding {
+public class Breeding { // s
+
 
     public Breeding() {
 

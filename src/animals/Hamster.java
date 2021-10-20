@@ -10,6 +10,7 @@ import food.models.Food;
  */
 public class Hamster extends Animal {
 
+
     /**
      * Our constructor that contains maxAge, animalBreed and startPrice of the animal
      */

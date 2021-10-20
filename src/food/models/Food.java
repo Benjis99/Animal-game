@@ -7,6 +7,7 @@ package food.models;
  */
     public abstract class Food {
 
+
     protected String name;
     protected int price;
     private int kg = 1;

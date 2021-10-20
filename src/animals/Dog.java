@@ -10,6 +10,7 @@ public class Dog extends Animal {
      * Our constructor that contains maxAge, animalBreed and startPrice of the animal
      */
     public Dog() {
+
         maxAge = 10;
         animalBreed = "Dog";
         startPrice = 400;
