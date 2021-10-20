@@ -15,9 +15,6 @@ import animals.*;
  */
 public class Store{
 
-
-    private int index;
-
     public Store() {
     }
 
@@ -54,17 +51,23 @@ public class Store{
                     + " : " + animal.getHealth() + "% health" + " Price: " +animal.currentPriceAnimal());
                     count++;
                 }
-                System.out.println("0 - Leave store");
-                //Use a scanner to read the input from 0 - leave store?
+                int index = leaveStore();
                 if (index <= player.animals.size() && index == 0) {
                     menuCheck = false;
                 } else {
+
+                    //If-statement does not work correctly
                     if(player.checkWithPlayer(player.ableToSellAnimals)) {
                         sellAnimal(player.animals.get(index - 1), player);
                     }
                 }
             }
         }
+    }
+
+    public int leaveStore(){
+        int answer = Dialog.dialog("0 - Leave store");
+        return answer;
     }
 
 
