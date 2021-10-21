@@ -15,7 +15,6 @@ import java.util.Random;
  */
 public class Breeding implements Serializable { // s
 
-
     public Breeding() {
 
     }
@@ -29,84 +28,86 @@ public class Breeding implements Serializable { // s
      * @param player the instance of the current player
      */
     public void animalBreed(Player player) {
+            Random random = new Random();
+            int animal1 = 0;
+            int animal2 = 0;
+            int chanceOfBreed = random.nextInt(101);
 
-        Random random = new Random();
-        int animal1 = 0;
-        int animal2 = 0;
-        int chanceOfBreed = random.nextInt(101);
-        ArrayList<Animal> tempList = new ArrayList<>();
-        if (player.checkWithPlayer(player.ableToBreed)) {
-            if (player.animals.size() == 0) {
-                System.out.println("No available animals to breed."); // Maybe needs fixing
-                return;
-            } else {
-                while (animal1 < 1 || animal1 > player.animals.size()) {
-                    Game.newScreen();
-                    player.getPlayerAnimal();
-                    // Try catch needed if player enters an invalid number -----------------
+            ArrayList<Animal> tempList = new ArrayList<>();
+            if (player.checkWithPlayer(player.ableToBreed)) {
+                if (player.animals.size() <= 1) {
+                    System.out.println("You have 1 or less animals, not enough to breed. "); // Maybe needs fixing
+                    return;
+                } else {
+                    while (animal1 < 1 || animal1 > player.animals.size()) {
+                        Game.newScreen();
+                        player.getPlayerAnimal();
+                        // Try catch needed if player enters an invalid number -----------------
 
-                    animal1 = firstAnimal();
+                        animal1 = firstAnimal();
 
-                }
-                if (animalsThatCanBreed(player, player.animals.get(animal1 - 1))) {
-                    for (Animal animal : player.animals) {
-                        if (!(checkAnimalsLeftForBreeding(player.animals.get(animal1 - 1), animal))) {
-                            tempList.add(animal);
+
+                    if (animalsThatCanBreed(player, player.animals.get(animal1 - 1))) {
+                        for (Animal animal : player.animals) {
+                            if (!(checkAnimalsLeftForBreeding(player.animals.get(animal1 - 1), animal))) {
+                                tempList.add(animal);
+                            }
+                        }
+                    } else {
+                        System.out.println("There is no suitable animal to breed for " + player.animals.get(animal1 - 1).getName() + "!");
+                        return;
+                    }
+                    while (animal2 < 1 || animal2 > tempList.size()) {
+                        System.out.println("You can pair " + player.animals.get(animal1 - 1).getName() + " with: ");
+                        int count = 1;
+                        for (Animal animal : tempList) {
+                            System.out.println("[" + count + "] " + animal.getName() + " > " + animal.getAnimalBreed() + " | " + animal.getGender()
+                                    + " | " + animal.getHealth() + "% health left.");
+                            count++;
+                        }
+                        System.out.println("Choose your second animal to breed. Enter a number: ");
+                        try {
+                            animal2 = Dialog.intReturn();
+                        } catch (Exception e) {
+                            System.out.println("You must enter a number for an animal.");
                         }
                     }
-                } else {
-                    System.out.println("There is no suitable animal to breed for " + player.animals.get(animal1 - 1).getName() + "!");
-                    return;
                 }
-                while (animal2 < 1 || animal2 > tempList.size()) {
-                    System.out.println("You can pair " + player.animals.get(animal1 - 1).getName() + " with: ");
-                    int count = 1;
-                    for (Animal animal : tempList) {
-                        System.out.println("[" + count + "] " + animal.getName() + " > " + animal.getAnimalBreed() + " | " + animal.getGender()
-                                + " | " + animal.getHealth() + "% health left.");
-                        count++;
-                    }
-                    System.out.println("Choose your second animal to breed. Enter a number: ");
-                    try {
-                        animal2 = Dialog.intReturn();
-                    } catch (Exception e) {
-                        System.out.println("You must enter a number for an animal.");
-                    }
-                }
-            }
-            if (checkForBreed(player.animals.get(animal1 - 1), tempList.get(animal2 - 1))) {
-                if (chanceOfBreed > 50) {
-                    int counter;
+                if (checkForBreed(player.animals.get(animal1 - 1), tempList.get(animal2 - 1))) {
+                    if (chanceOfBreed > 50) {
+                        int counter;
 
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Bird")) {
-                        counter = animalBirth(5);
-                        for (int i = 0; i < counter; i++) newAnimal(player, new Bird());
-                    }
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Cat")) {
-                        counter = animalBirth(12);
-                        for (int i = 0; i < counter; i++) newAnimal(player, new Cat());
-                    }
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Dog")) {
-                        counter = animalBirth(12);
-                        for (int i = 0; i < counter; i++) newAnimal(player, new Dog());
-                    }
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Goldfish")) {
-                        counter = animalBirth(10);
-                        for (int i = 0; i < counter; i++) newAnimal(player, new Goldfish());
-                    }
-                    if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Hamster")) {
-                        counter = animalBirth(3);
-                        for (int i = 0; i < counter; i++) newAnimal(player, new Hamster());
+                        if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Bird")) {
+                            counter = animalBirth(5);
+                            for (int i = 0; i < counter; i++) newAnimal(player, new Bird());
+                        }
+                        if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Cat")) {
+                            counter = animalBirth(12);
+                            for (int i = 0; i < counter; i++) newAnimal(player, new Cat());
+                        }
+                        if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Dog")) {
+                            counter = animalBirth(12);
+                            for (int i = 0; i < counter; i++) newAnimal(player, new Dog());
+                        }
+                        if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Goldfish")) {
+                            counter = animalBirth(10);
+                            for (int i = 0; i < counter; i++) newAnimal(player, new Goldfish());
+                        }
+                        if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Hamster")) {
+                            counter = animalBirth(3);
+                            for (int i = 0; i < counter; i++) newAnimal(player, new Hamster());
+                        }
+                    } else {
+                        System.out.println("Breeding failed!");
+                        player.falseStatistics();
                     }
                 } else {
-                    System.out.println("Breeding failed!");
-                    player.falseStatistics();
+                    System.out.println("The animals you chose are unable to breed with each other. Please pick a compatible pair");
                 }
-            } else {
-                System.out.println("The animals you chose are unable to breed with each other. Please pick a compatible pair");
             }
         }
     }
+
 
     /**
      * This method allows the player to name their new animal once the parents have mated.
@@ -127,11 +128,6 @@ public class Breeding implements Serializable { // s
         player.falseStatistics();
     }
 
-
-/*    public boolean checkForBreed(Animal animal1, Animal animal2) {
-        return animal1.getGender().equals(animal2.getGender()) || animal1.getName().equals(animal2.getName()) ||
-                !animal1.getAnimalBreed().equals(animal2.getAnimalBreed());
-    }*/
 
     /**
      * A method to check if two animals can breed.

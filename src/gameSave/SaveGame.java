@@ -37,9 +37,6 @@ public class SaveGame implements Serializable {
         File gameFile = new File("SavedGames/");
         boolean running = true;
         while (running) {
-            //System.out.println("Name your game save: ");
-            //saveGameName();
-            //String savedGameFileName = input.nextLine() + ".ser";
             String savedGameFileName = saveGameName() + ".ser";
 
             if (!Files.exists(Paths.get("SavedGames/" + savedGameFileName))) {
@@ -50,9 +47,6 @@ public class SaveGame implements Serializable {
                 running = false;
             } else {
                 System.out.println("Filename already exists.");
-                //System.out.println("1. Overwrite existing file\n"
-                //        + "2. Enter a new name");
-
                 int choiceSave = inputSaveGame();
                 if (choiceSave == 1) { // Try catch metod
                     Serializer.serialize("SavedGames/" + savedGameFileName, game);
@@ -79,7 +73,6 @@ public class SaveGame implements Serializable {
                 System.out.println("|" + counter + "| - " + file.getName());
                 counter++;
             }
-            //System.out.println("\n");
             int choice = inputLoadGame();
             if (choice == 0) {
                 return;

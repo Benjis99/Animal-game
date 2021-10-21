@@ -33,7 +33,7 @@ ArrayList<Player> loss = new ArrayList<>();
         while (start) {
 
             players.clear();
-            newScreen();
+            //newScreen();
             System.out.println("Welcome to our animal game!");
 
             int first = Dialog.dialog("1. Start game 2. Information 3. Load Game 4. Exit Game");
@@ -95,7 +95,7 @@ ArrayList<Player> loss = new ArrayList<>();
                 case 2 -> breeding.animalBreed(currentPlayer);
                 case 3 -> currentPlayer.animalFeeding(currentPlayer);
                 case 4 -> game = false;
-                case 5 ->information();
+                case 5 -> information();
                 case 6 -> saveGame.saveGame(this);
                 case 7 -> {
                     game = false;
@@ -104,15 +104,10 @@ ArrayList<Player> loss = new ArrayList<>();
             }
         }
     }
-/*    public int menuStore(){
-        int input = Dialog.dialog("["+"1.Store"+"]"+ " ["+ "2.Breed" +"]"+ " " +
-                "["+ "3.Feed Animal"+"]" + " ["+"4.Next Player"+"]"+ " ["+"5.Game Info"+"]"+ " ["+"7.Exit to main menu"+"]");
-        return input;
-    }*/
 
     public int menuStore(){
         int input = Dialog.dialog("[1.Store]" + " [2.Breed]" + " " +
-                "[3.Feed Animal]" + " [4.Next Player]"+ " [5.Game Info]"+ " " + "[6. Save game]" + "[7.Exit to main menu]" );
+                "[3.Feed Animal]" + " [4.Next Player]"+ " [5.Game Info]"+ " " + "[6. Save game]" + " [7.Exit to main menu]" );
         return input;
     }
 

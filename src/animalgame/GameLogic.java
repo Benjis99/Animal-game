@@ -45,11 +45,12 @@ public class GameLogic implements Serializable {
     }
 
     public void autoSellAnimals(Game game){
+        Game.newScreen();
         System.out.println("Game is ending, all animals have been sold.");
         for (Player player : game.players) {
 
             for (int i = 0; i < player.animals.size(); i++) {
-                player.addMoney(player.animals.get(i).getStartPrice());
+                player.addMoney(player.animals.get(i).currentPriceAnimal());
                 player.animals.remove(player.animals.get(i));
                 i--;
             }
