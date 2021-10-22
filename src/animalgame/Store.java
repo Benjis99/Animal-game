@@ -91,8 +91,8 @@ public class Store implements Serializable {
     }
 
     public int foodSelect(){
-        int answer = Dialog.dialog("1.DryFood for cats 2.DryFood for dogs 3.FishFeed for fish " +
-                "4.Pellets for Hamster 5.Seeds for Bird 6.Exit food shop");
+        int answer = Dialog.dialog("1.DryFood for cats \n2.DryFood for dogs \n3.FishFeed for fish " +
+                "\n4.Pellets for Hamster \n5.Seeds for Bird \n6.Exit food shop");
         return answer;
     }
 
