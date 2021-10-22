@@ -57,7 +57,7 @@ public abstract class Animal implements Serializable {
                 System.out.println("Animal is at full health");
             }
             if (this.health < 100){
-                this.health = this.health + (int) (this.health * 0.10);
+                this.health = this.getHealth() + 10;
 
                     if (this.health > 100){
                         this.health = 100;
