@@ -13,8 +13,8 @@ import java.util.Random;
  */
 public class GameLogic implements Serializable {
 
-    ArrayList<Animal> deadBcusHealth = new ArrayList<>();
-    ArrayList<Animal> deadBcusAge = new ArrayList<>();
+/*    ArrayList<Animal> deadBcusHealth = new ArrayList<>();
+    ArrayList<Animal> deadBcusAge = new ArrayList<>();*/
 
 
     public GameLogic() {
@@ -91,6 +91,8 @@ public class GameLogic implements Serializable {
 
 
     public void checkDeadAnimals (Player player){
+        ArrayList<Animal> deadBcusHealth = new ArrayList<>();
+        ArrayList<Animal> deadBcusAge = new ArrayList<>();
 
         for (int i = 0; i < player.animals.size(); i++){
             if (player.animals.get(i).getHealth() < 1){
