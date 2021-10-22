@@ -126,8 +126,8 @@ public class Player implements Serializable {
                 } else {
                     System.out.println("Wrong food for the animal");
                 }
-            } else {
-                System.out.println("All the animals are full");
+            } if (player.animals.size() < 1 || player.foods.size() < 1){    //If the player don't have one animal and one sorts of food, it wont be abel to eat
+                System.out.println("You need one animal and one sorts of food to be able to feed!");
             }
         }
     }
