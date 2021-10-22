@@ -180,7 +180,7 @@ public class Breeding implements Serializable { // s
         return counter;
     }
     public int firstAnimal(){
-        int first = Dialog.dialog("[0] - back to menu or choose your first animal to breed! Enter a number: ");
+        int first = Dialog.dialog("Choose your first animal to breed! Enter a number: ");
         return first;
     }
 

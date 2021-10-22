@@ -108,15 +108,15 @@ public class GameLogic implements Serializable {
             System.out.println("---");
         }
         if (deadBcusHealth.size() > 0){
-            System.out.println(player.getName() + "  you have animals that died because low health");
+            System.out.println("Player [" +player.getName()+ "] you have animals that died because low health");
             for (Animal animal : deadBcusHealth){
-                System.out.println(animal.getName() + " died because of low health");
+                System.out.println("Animal [" +animal.getName()+ "] died because of low health");
             }
         }
         if (deadBcusAge.size() > 0){
-            System.out.println(player.getName() + " you have animals that died because old age");
+            System.out.println("Player [" +player.getName()+ "] you have animals that died because old age");
             for (Animal animal : deadBcusAge){
-                System.out.println(animal.getName() + " died because of old age");
+                System.out.println("Animal [" +animal.getName()+ "] died because of old age");
             }
         }
     }
