@@ -34,10 +34,11 @@ ArrayList<Player> loss = new ArrayList<>();
 
             players.clear();
             //newScreen();
+            System.out.println("───────────────────────────");
             System.out.println("Welcome to our animal game!");
 
             int first = Dialog.dialog("1. Start game 2. Information 3. Load Game 4. Exit Game");
-
+            System.out.println("───────────────────────────");
             switch (first) {
                 case 1 -> startMenu();
                 case 2 -> gameRules();
@@ -67,7 +68,9 @@ ArrayList<Player> loss = new ArrayList<>();
         currentTurn = 1;
         exit = false;
         amountOfTurns = gameSettings("How many rounds do you wanna play 5-30 rounds", 5, 30);
+        System.out.println("───────────────────────────");
         numberOfPlayers = gameSettings("How many players do you want, between 2-4", 2, 4);
+        System.out.println("───────────────────────────");
         playerName();
         information();
         gameMenu();
@@ -81,11 +84,11 @@ ArrayList<Player> loss = new ArrayList<>();
 
         while (game) {
             int pick = 0;
-
             while (pick < 1 || pick > 7){
+                System.out.println("───────────────");
+                System.out.println("It is round " + currentTurn + " and it is: " + currentPlayer.getName() +"'s" + " turn.");
+               // System.out.println(currentPlayer.getName() + " turn");
                 currentPlayer.playerInv();
-                System.out.println("It is round " + currentTurn);
-                System.out.println(currentPlayer.getName() + " turn");
                 pick = menuStore();
 
             }
@@ -106,13 +109,16 @@ ArrayList<Player> loss = new ArrayList<>();
     }
 
     public int menuStore(){
-        int input = Dialog.dialog("[1.Store]" +
+        int input = Dialog.dialog(
+                "───────────────" +
+                "\n[1.Store]" +
                 "\n[2.Breed]" +
                 "\n[3.Feed Animal]" +
                 "\n[4.Next Player]"+
                 "\n[5.Game Info]" +
                 "\n[6. Save game]" +
-                "\n[7.Exit to main menu]" );
+                "\n[7.Exit to main menu]"+
+                "\n───────────────");
         return input;
     }
 
@@ -120,6 +126,7 @@ ArrayList<Player> loss = new ArrayList<>();
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
         for (int i = 1; i < numberOfPlayers + 1; i++ ) {
+            System.out.println("───────────────");
             System.out.println("Player " + i + " pick your name: ");
             String name = Dialog.stringReturn();
             players.add(new Player(name));
@@ -173,14 +180,14 @@ ArrayList<Player> loss = new ArrayList<>();
     }
 
     public void information (){
-        System.out.println("Current statistics: ");
+        System.out.println("Current game info: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
         int amountOfPlayer = 1;
         for (Player player : players){
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
-        System.out.println("-------");
+        System.out.println("───────────────");
         System.out.println(players.get(0).getName() + " start the round");
     }
 

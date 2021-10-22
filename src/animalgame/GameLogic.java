@@ -45,7 +45,7 @@ public class GameLogic implements Serializable {
     }
 
     public void autoSellAnimals(Game game){
-        Game.newScreen();
+       // Game.newScreen();
         System.out.println("Game is ending, all animals have been sold.");
         for (Player player : game.players) {
 
@@ -72,10 +72,16 @@ public class GameLogic implements Serializable {
     }
 
     public void playerLoss (Player player, Game game){
-        if (player.animals.size() <= 0 && player.getMoney() < 10){
-            System.out.println(player.getName() + " no money or animals food, you lost");
+        if (player.animals.size() <= 0 && player.getMoney() <= 0){
+            System.out.println("\n".repeat(30));
+            figure();
+            System.out.println(player.getName() + " have no money, animals or animal food, you have lost the game");
             game.players.remove(player);
             game.loss.add(player);
+            //autoSellAnimals(game);
+            winnerPick(game);
+            System.out.println("\n".repeat(1));
+            new Game();
         }
     }
 
@@ -88,7 +94,24 @@ public class GameLogic implements Serializable {
         animalsHealth(player);
         checkDeadAnimals(player);
     }
-
+    public void figure(){
+        System.out.println("""
+                     ██████╗  █████╗ ███╗   ███╗███████╗
+                    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
+                    ██║  ███╗███████║██╔████╔██║█████╗ \s
+                    ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝ \s
+                    ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
+                     ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
+                                                       \s
+                     ██████╗ ██╗   ██╗███████╗██████╗  \s
+                    ██╔═══██╗██║   ██║██╔════╝██╔══██╗ \s
+                    ██║   ██║██║   ██║█████╗  ██████╔╝ \s
+                    ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗ \s
+                    ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║ \s
+                     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝ \s
+                                                       \s""");
+        System.out.println("\n".repeat(1));
+    }
 
     public void checkDeadAnimals (Player player){
         ArrayList<Animal> deadBcusHealth = new ArrayList<>();
