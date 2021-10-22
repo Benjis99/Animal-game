@@ -5,12 +5,9 @@ import animalgame.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
 
 public class SaveGame implements Serializable {
     Game game;
-    //Scanner input = new Scanner(System.in); // Use scanner from game class, TO DO
-
 
     public void setGame(Game game) {
         this.game = game;

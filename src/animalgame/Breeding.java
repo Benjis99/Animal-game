@@ -14,7 +14,6 @@ import java.util.Random;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Breeding implements Serializable { // s
-
     public Breeding() {
 
     }
@@ -42,11 +41,8 @@ public class Breeding implements Serializable { // s
                     while (animal1 < 1 || animal1 > player.animals.size()) {
                         Game.newScreen();
                         player.getPlayerAnimal();
-                        // Try catch needed if player enters an invalid number -----------------
-
                         animal1 = firstAnimal();
-
-
+                    }
                     if (animalsThatCanBreed(player, player.animals.get(animal1 - 1))) {
                         for (Animal animal : player.animals) {
                             if (!(checkAnimalsLeftForBreeding(player.animals.get(animal1 - 1), animal))) {
@@ -106,7 +102,6 @@ public class Breeding implements Serializable { // s
                 }
             }
         }
-    }
 
 
     /**
@@ -185,7 +180,7 @@ public class Breeding implements Serializable { // s
         return counter;
     }
     public int firstAnimal(){
-        int first = Dialog.dialog("Choose your first animal to breed! Enter a number: ");
+        int first = Dialog.dialog("[0] - back to menu or choose your first animal to breed! Enter a number: ");
         return first;
     }
 
