@@ -20,7 +20,7 @@ public class Player implements Serializable {
     public boolean ableToBuyAnimals;
     public boolean ableToBuyFoods;
     public boolean ableToBreed;
-    private int money = 400;
+    private int money = 100400;
 
     ArrayList<Animal> animals = new ArrayList<>();
     ArrayList<Food> foods = new ArrayList<>();
@@ -141,13 +141,7 @@ public class Player implements Serializable {
         System.out.println("Current balance: " + this.money + " Swedish kronor");
     }
 
-    public boolean checkWithPlayer(boolean checkPlayer){
-        if (!checkPlayer){
-            System.out.println("To many choices this turn");
-            return false;
-        }
-        return true;
-    }
+
 
     public int getMoney() {
         return this.money;
@@ -169,4 +163,11 @@ public class Player implements Serializable {
         this.ableToBuyFoods = ableToBuyFoods;
     }
 
+    public boolean checkWithPlayer(boolean checkPlayer){
+        if (!checkPlayer){
+            System.out.println("To many choices this turn");
+            return false;
+        }
+        return true;
+    }
 } //Player Class

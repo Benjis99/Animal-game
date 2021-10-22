@@ -203,7 +203,7 @@ public class Store implements Serializable {
                         player.foods.add(food);
                         player.removeMoney(food.getPrice());
                         player.falseStatistics();
-                        player.setAbleToFeed(true);
+                        player.setAbleToBuyFoods(true);
                     }
                 }
             }
