@@ -34,11 +34,15 @@ ArrayList<Player> loss = new ArrayList<>();
 
             players.clear();
             //newScreen();
-            System.out.println("───────────────────────────");
+            System.out.println("─────────────────────");
             System.out.println("Welcome to our animal game!");
 
-            int first = Dialog.dialog("1. Start game 2. Information 3. Load Game 4. Exit Game");
-            System.out.println("───────────────────────────");
+            int first = Dialog.dialog(
+                    "[1] Start game"+
+                    "\n[2] Information"+
+                    "\n[3] Load Game"+
+                    "\n[4] Exit Game"+
+                    "\n─────────────────────");
             switch (first) {
                 case 1 -> startMenu();
                 case 2 -> gameRules();
@@ -46,13 +50,16 @@ ArrayList<Player> loss = new ArrayList<>();
                 case 4 -> {
                     boolean exit = true;
                     while (exit) {
-                        int input2 = Dialog.dialog("1.Start game \n2.Turn off game");
+                        int input2 = Dialog.dialog(
+                                "[1] Start game"+
+                                "\n[2] Turn off game"+
+                                        "\n─────────────────────");
                         if (input2 == 1) {
                             start = false;
                             exit = false;
                         }
                         if (input2 == 2) {
-                            System.out.println("Turning off game");
+                            System.out.println("Turning off game...");
                             System.exit(1);
                             exit = false;
                         }
@@ -111,13 +118,13 @@ ArrayList<Player> loss = new ArrayList<>();
     public int menuStore(){
         int input = Dialog.dialog(
                 "───────────────" +
-                "\n[1.Store]" +
-                "\n[2.Breed]" +
-                "\n[3.Feed Animal]" +
-                "\n[4.Next Player]"+
-                "\n[5.Game Info]" +
-                "\n[6. Save game]" +
-                "\n[7.Exit to main menu]"+
+                "\n[1] Store" +
+                "\n[2] Breed" +
+                "\n[3] Feed Animal" +
+                "\n[4] Next Player"+
+                "\n[5] Game Info" +
+                "\n[6] Save game" +
+                "\n[7] Exit to main menu"+
                 "\n───────────────");
         return input;
     }
