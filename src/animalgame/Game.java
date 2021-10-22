@@ -106,8 +106,13 @@ ArrayList<Player> loss = new ArrayList<>();
     }
 
     public int menuStore(){
-        int input = Dialog.dialog("[1.Store]" + " [2.Breed]" + " " +
-                "[3.Feed Animal]" + " [4.Next Player]"+ " [5.Game Info]"+ " " + "[6. Save game]" + " [7.Exit to main menu]" );
+        int input = Dialog.dialog("[1.Store]" +
+                "\n[2.Breed]" +
+                "\n[3.Feed Animal]" +
+                "\n[4.Next Player]"+
+                "\n[5.Game Info]" +
+                "\n[6. Save game]" +
+                "\n[7.Exit to main menu]" );
         return input;
     }
 
