@@ -42,7 +42,7 @@ public class Goldfish extends Animal {
             }
             if (this.health < 100) {
                 if (this.health >= 50)
-                    this.health = this.getHealth() + (int) (this.getHealth() * 0.10);
+                    this.health = this.getHealth() + 10;
                 if (this.health < 50)
                     this.health = this.getHealth() + 10;
                 if (this.health > 100){
