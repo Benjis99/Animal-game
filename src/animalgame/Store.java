@@ -46,7 +46,7 @@ public class Store implements Serializable {
         return answer;
     }
 
-    public void sellAnimalsShop(Player player){
+    public void sellAnimalsShop(Player player) {
         boolean menuCheck = true;
         if (player.animals.size() > 0) {
             while (menuCheck) {
@@ -55,7 +55,7 @@ public class Store implements Serializable {
                 int count = 1;
                 for (Animal animal : player.animals) {
                     System.out.println(count + " : " + animal.getName() + " : " + animal.getGender() + " : " + animal.getAnimalBreed()
-                    + " : " + animal.getHealth() + "% health" + " Price: " +animal.currentPriceAnimal());
+                            + " : " + animal.getHealth() + "% health" + " Price: " + animal.currentPriceAnimal());
                     count++;
                 }
                 int index = leaveStore();
@@ -64,11 +64,14 @@ public class Store implements Serializable {
                 } else {
 
                     //If-statement does not work correctly
-                    if(player.checkWithPlayer(player.ableToSellAnimals)) {
+                    if (player.checkWithPlayer(player.ableToSellAnimals)) {
                         sellAnimal(player.animals.get(index - 1), player);
                     }
                 }
             }
+        }
+    else {
+            System.out.println("You have no animals to sell");
         }
     }
 
