@@ -62,23 +62,24 @@ public class Player implements Serializable {
         System.out.println("This is your food");
         int count = 1;
         for (Food food: foods) {
-            System.out.println(count + " "+ food.getName() + " " + food.getKg() + "kg");
+            System.out.println("["+count+"]" + " "+ food.getName() + " " + food.getKg() + "kg");
             count++;
         }
-        System.out.println("--------");
+        System.out.println("─────────────────────");
     }
     }
 
     public void getPlayerAnimal(){ //Method that prints out the players animals with information
         if (animals.size() > 0){
+            System.out.println("─────────────────────");
             System.out.println("This is your animals");
             int counter = 1;
             for (Animal animal : animals) {
-                System.out.println("|"+counter+"|" +" "+ animal.getName() +" ---- "+ animal.getAnimalBreed() + " " + animal.getGender() +
-                        " " +animal.getHealth() + " % health." + " Age: " + animal.getAge() );
+                System.out.println("["+counter+"]" +" "+ animal.getName() +" ─ "+ animal.getAnimalBreed() + " " + animal.getGender() +
+                        " " +animal.getHealth() + " % health." + " Age: " + animal.getAge() + " lost " + animal.getHealthDifference() + " health this turn." );
                 counter++;
             }
-            System.out.println("-------");
+            System.out.println("─────────────────────");
         }
     }
 

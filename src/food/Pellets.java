@@ -16,7 +16,7 @@ public class Pellets extends Food {
 
     public Pellets() {
         name = "Pellets";
-        price = 119;
+        price = 19;
     }
 
 

@@ -15,7 +15,7 @@ public class Hamster extends Animal {
      * Our constructor that contains maxAge, animalBreed and startPrice of the animal
      */
     public Hamster() {
-        maxAge = 10;
+        maxAge = 7;
         animalBreed = "Hamster";
         startPrice = 100;
 

@@ -63,6 +63,7 @@ public class GameLogic implements Serializable {
         for (Animal animal: player.animals){
             int dmg = 10 + random.nextInt(20); //Lowest health 10, random.nextInt randomize 1-20.
             animal.setHealth(animal.getHealth() - dmg);
+            animal.setHealthDifference(dmg);
         }
     }
 

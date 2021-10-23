@@ -15,7 +15,7 @@ public class Goldfish extends Animal {
      * Our constructor that contains maxAge, animalBreed and startPrice of the animal
      */
     public Goldfish() {
-        maxAge = 10;
+        maxAge = 4;
         animalBreed = "Goldfish";
         startPrice = 30;
     }

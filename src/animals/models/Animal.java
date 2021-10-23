@@ -24,6 +24,7 @@ public abstract class Animal implements Serializable {
         protected MaleFemale gender;
         protected int age = 0;
         protected int maxAge;
+        protected int healthDifference;
 
 
 
@@ -73,9 +74,18 @@ public abstract class Animal implements Serializable {
         return (int) currentPrice;
         }
 
-        public boolean canEat(Food food){
+    public int getHealthDifference() {
+        return healthDifference;
+    }
+
+    public void setHealthDifference(int healthDifference) {
+        this.healthDifference = healthDifference;
+    }
+
+    public boolean canEat(Food food){
         return true;
         }
+
         public MaleFemale getGender() {
             return gender;
         }
@@ -107,7 +117,6 @@ public abstract class Animal implements Serializable {
         public void setHealth(int health) {
             this.health = health;
         }
-
 
         public int getAge() {
         return age;

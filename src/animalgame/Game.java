@@ -117,7 +117,7 @@ ArrayList<Player> loss = new ArrayList<>();
 
     public int menuStore(){
         int input = Dialog.dialog(
-                "───────────────" +
+                "─────────────────────" +
                 "\n[1] Store" +
                 "\n[2] Breed" +
                 "\n[3] Feed Animal" +
@@ -125,7 +125,7 @@ ArrayList<Player> loss = new ArrayList<>();
                 "\n[5] Game Info" +
                 "\n[6] Save game" +
                 "\n[7] Exit to main menu"+
-                "\n───────────────");
+                "\n─────────────────────");
         return input;
     }
 
@@ -151,7 +151,7 @@ ArrayList<Player> loss = new ArrayList<>();
                 logic.startRound(currentPlayer);
                 gameBrain();
                 logic.endRound(currentPlayer, this);
-
+                newScreen();
                 if (exit)
                     break;
                 playerIndex++;
