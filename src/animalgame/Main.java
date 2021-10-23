@@ -1,4 +1,5 @@
 package animalgame;
+
 /**
  * This is our Main class that start the game
  *
@@ -10,3 +11,4 @@ public class Main {
         new Game();
     }
 } //Main Class
+

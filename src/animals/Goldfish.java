@@ -3,6 +3,7 @@ package animals;
 import animals.models.Animal;
 import food.FishFeed;
 import food.models.Food;
+
 /**
  * This is our Goldfish class
  *
@@ -19,22 +20,25 @@ public class Goldfish extends Animal {
         animalBreed = "Goldfish";
         startPrice = 30;
     }
+
     /**
      * This overrides the Animal class
+     *
      * @param food this is in the method, so we can get information from the Food class
      * @return this returns the instance of seeds
      */
     @Override
-    public boolean canEat (Food food) {
+    public boolean canEat(Food food) {
         return food instanceof FishFeed;
     }
 
     /**
      * The eatFood method will override with new health for the animal.
+     *
      * @param food this is in the method, so we can get information from the Food class
      */
     @Override
-    public void eatFood (Food food){
+    public void eatFood(Food food) {
         if (canEat(food)) {
             if (this.health >= 100) {
                 this.health = 100;
@@ -45,7 +49,7 @@ public class Goldfish extends Animal {
                     this.health = this.getHealth() + 10;
                 if (this.health < 50)
                     this.health = this.getHealth() + 10;
-                if (this.health > 100){
+                if (this.health > 100) {
                     this.health = 100;
                     System.out.println(getName() + " is at full health: " + getHealth());
                 }

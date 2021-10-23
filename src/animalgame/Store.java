@@ -19,13 +19,13 @@ public class Store implements Serializable {
     }
 
 
-    public void buyMenu(Player player){
+    public void buyMenu(Player player) {
         boolean menuCheck = true;
-        while (menuCheck){
+        while (menuCheck) {
             player.playerInv();
             int pick = decisionMenu();
 
-            switch (pick){
+            switch (pick) {
                 case 1 -> animalShop(player);
                 case 2 -> foodShop(player);
                 case 3 -> sellAnimalsShop(player);
@@ -34,15 +34,16 @@ public class Store implements Serializable {
             }
         }
     }
-    public int decisionMenu(){
+
+    public int decisionMenu() {
         int answer = Dialog.dialog(
-                "─────────────────────"+
-                        "\n    Stores:"+
-                "\n[1] Animal store"+
-                "\n[2] Food store"+
-                "\n[3] Sell animal"+
-                "\n[4] Exit store"+
-                "\n─────────────────────");
+                "─────────────────────" +
+                        "\n    Stores:" +
+                        "\n[1] Animal store" +
+                        "\n[2] Food store" +
+                        "\n[3] Sell animal" +
+                        "\n[4] Exit store" +
+                        "\n─────────────────────");
         return answer;
     }
 
@@ -69,52 +70,50 @@ public class Store implements Serializable {
                     }
                 }
             }
-        }
-    else {
+        } else {
             System.out.println("You have no animals to sell");
         }
     }
 
-    public int leaveStore(){
+    public int leaveStore() {
         int answer = Dialog.dialog("0 - Leave store");
         return answer;
     }
 
 
-
-    public void foodShop(Player player){
+    public void foodShop(Player player) {
 
         boolean menuCheck = true;
         while (menuCheck) {
-        player.playerInv();
-        int pick = foodSelect();
-        switch (pick) {
-            case 1 -> addFood(new DryFoodCat(), player);
-            case 2 -> addFood(new DryFoodDog(), player);
-            case 3 -> addFood(new FishFeed(), player);
-            case 4 -> addFood(new Pellets(), player);
-            case 5 -> addFood(new Seeds(), player);
-            case 6 -> menuCheck = false;
-         }
+            player.playerInv();
+            int pick = foodSelect();
+            switch (pick) {
+                case 1 -> addFood(new DryFoodCat(), player);
+                case 2 -> addFood(new DryFoodDog(), player);
+                case 3 -> addFood(new FishFeed(), player);
+                case 4 -> addFood(new Pellets(), player);
+                case 5 -> addFood(new Seeds(), player);
+                case 6 -> menuCheck = false;
+            }
         }
     }
 
-    public int foodSelect(){
+    public int foodSelect() {
         int answer = Dialog.dialog(
                 "─────────────────────" +
-                        "\n   Food store"+
-                "\n[1] DryFood for cats"+
-                "\n[2] DryFood for dogs"+
-                "\n[3] FishFeed for fish"+
-                "\n[4] Pellets for hamster"+
-                "\n[5] Seeds for bird"+
-                "\n[6] Exit food shop"+
-                "\n─────────────────────");
+                        "\n   Food store" +
+                        "\n[1] DryFood for cats" +
+                        "\n[2] DryFood for dogs" +
+                        "\n[3] FishFeed for fish" +
+                        "\n[4] Pellets for hamster" +
+                        "\n[5] Seeds for bird" +
+                        "\n[6] Exit food shop" +
+                        "\n─────────────────────");
 
         return answer;
     }
 
-    public void animalShop(Player player){
+    public void animalShop(Player player) {
 
         boolean checkMenu = true;
         while (checkMenu) {
@@ -134,46 +133,46 @@ public class Store implements Serializable {
 
     }
 
-    public int animalSelect(){
+    public int animalSelect() {
         int answer = Dialog.dialog(
                 "─────────────────────" +
                         "\n   Animal store" +
-                "\n[1] Bird"+
-                "\n[2] Cat"+
-                "\n[3] Dog"+
-                "\n[4] Goldfish"+
-                "\n[5] Hamster"+
-                "\n[6] Exit Animal shop"+
+                        "\n[1] Bird" +
+                        "\n[2] Cat" +
+                        "\n[3] Dog" +
+                        "\n[4] Goldfish" +
+                        "\n[5] Hamster" +
+                        "\n[6] Exit Animal shop" +
                         "\n─────────────────────");
         return answer;
     }
 
 
-
-    public void sellAnimal(Animal animal, Player player){
+    public void sellAnimal(Animal animal, Player player) {
         System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal());
         int pick = yesno();
-        if (pick == 1){
+        if (pick == 1) {
             player.addMoney(animal.currentPriceAnimal());
             player.animals.remove(animal);
             player.falseStatistics();
             player.setAbleToSellAnimals(true);
         }
     }
-    public int yesno(){
+
+    public int yesno() {
         int answer = Dialog.dialog("1.Yes 2.No");
         return answer;
     }
 
-    public void addAnimals(Player player, Animal animal){
+    public void addAnimals(Player player, Animal animal) {
         if (player.checkWithPlayer(player.ableToBuyAnimals)) {
-            if (player.getMoney() < animal.getStartPrice()){
+            if (player.getMoney() < animal.getStartPrice()) {
                 System.out.println("Not enough money for the animal");
             } else {
                 System.out.println("Do you want to buy " + animal.getAnimalBreed() + " for " + animal.getStartPrice());
                 int choice = decision();
 
-                if (choice == 1){
+                if (choice == 1) {
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
                     animal.setName(Dialog.stringReturn());
 
@@ -188,11 +187,12 @@ public class Store implements Serializable {
         }
     }
 
-    public int decision(){
+    public int decision() {
         int answer = Dialog.dialog("1. Yes 2. No");
         return answer;
     }
-    public int maleFemale (){
+
+    public int maleFemale() {
         int answer = Dialog.dialog("Pick gender: 1. Male 2. Female");
         return answer;
     }
@@ -205,17 +205,17 @@ public class Store implements Serializable {
     }
 
 
-    public void addFood(Food food, Player player){
-        if (player.checkWithPlayer(player.ableToBuyFoods)){
-            if (player.getMoney() < food.getPrice()){
+    public void addFood(Food food, Player player) {
+        if (player.checkWithPlayer(player.ableToBuyFoods)) {
+            if (player.getMoney() < food.getPrice()) {
                 System.out.println("Not enough money");
             } else {
                 int foodCount = 0;
                 System.out.println("1kg of " + food.getName() + " for " + food.getPrice());
                 int yesNo = decisionFood();
-                if (yesNo == 1){
-                    if (player.foods.size() > 0){
-                        for (Food food1: player.foods){
+                if (yesNo == 1) {
+                    if (player.foods.size() > 0) {
+                        for (Food food1 : player.foods) {
                             if (food1.getName().equals(food.getName())) {
                                 food1.setKg(1);
                                 player.removeMoney(food.getPrice());
@@ -225,7 +225,7 @@ public class Store implements Serializable {
                             }
                         }
                     }
-                    if (foodCount == 0){
+                    if (foodCount == 0) {
                         player.foods.add(food);
                         player.removeMoney(food.getPrice());
                         player.falseStatistics();
@@ -236,12 +236,10 @@ public class Store implements Serializable {
         }
     }
 
-    public int decisionFood(){
+    public int decisionFood() {
         int answer = Dialog.dialog("1. Yes 2. No");
         return answer;
     }
-
-
 
 
 }

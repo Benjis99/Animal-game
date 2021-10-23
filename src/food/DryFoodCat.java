@@ -1,9 +1,11 @@
 package food;
 
 import food.models.Food;
+
 /**
  * This is our Dryfoodclass where we choose the name and price
  * We give the food value.
+ *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class DryFoodCat extends Food {

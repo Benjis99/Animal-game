@@ -8,22 +8,22 @@ import java.util.ArrayList;
 /**
  * This is our Game class where we have all the menus right now
  * <p>
+ *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Game implements Serializable { // sss
 
-private int amountOfTurns;
-private int currentTurn;
-private Player currentPlayer;
-private int playerIndex;
-private int numberOfPlayers = 0;
-boolean exit = false;
-SaveGame saveGame = new SaveGame();
+    private int amountOfTurns;
+    private int currentTurn;
+    private Player currentPlayer;
+    private int playerIndex;
+    private int numberOfPlayers = 0;
+    boolean exit = false;
+    SaveGame saveGame = new SaveGame();
 
-private final GameLogic logic = new GameLogic();
-ArrayList<Player> players = new ArrayList<>();
-ArrayList<Player> loss = new ArrayList<>();
-
+    private final GameLogic logic = new GameLogic();
+    ArrayList<Player> players = new ArrayList<>();
+    ArrayList<Player> loss = new ArrayList<>();
 
 
     public Game() {
@@ -38,11 +38,11 @@ ArrayList<Player> loss = new ArrayList<>();
             System.out.println("Welcome to our animal game!");
 
             int first = Dialog.dialog(
-                    "[1] Start game"+
-                    "\n[2] Information"+
-                    "\n[3] Load Game"+
-                    "\n[4] Exit Game"+
-                    "\n─────────────────────");
+                    "[1] Start game" +
+                            "\n[2] Information" +
+                            "\n[3] Load Game" +
+                            "\n[4] Exit Game" +
+                            "\n─────────────────────");
             switch (first) {
                 case 1 -> startMenu();
                 case 2 -> gameRules();
@@ -51,8 +51,8 @@ ArrayList<Player> loss = new ArrayList<>();
                     boolean exit = true;
                     while (exit) {
                         int input2 = Dialog.dialog(
-                                "[1] Start game"+
-                                "\n[2] Turn off game"+
+                                "[1] Start game" +
+                                        "\n[2] Turn off game" +
                                         "\n─────────────────────");
                         if (input2 == 1) {
                             start = false;
@@ -70,7 +70,7 @@ ArrayList<Player> loss = new ArrayList<>();
     }
 
 
-    public void startMenu(){
+    public void startMenu() {
 
         currentTurn = 1;
         exit = false;
@@ -84,17 +84,17 @@ ArrayList<Player> loss = new ArrayList<>();
 
     }
 
-    public void gameBrain(){
+    public void gameBrain() {
         Store store = new Store();
         Breeding breeding = new Breeding();
         boolean game = true;
 
         while (game) {
             int pick = 0;
-            while (pick < 1 || pick > 7){
+            while (pick < 1 || pick > 7) {
                 System.out.println("───────────────");
-                System.out.println("It is round " + currentTurn + " and it is: " + currentPlayer.getName() +"'s" + " turn.");
-               // System.out.println(currentPlayer.getName() + " turn");
+                System.out.println("It is round " + currentTurn + " and it is: " + currentPlayer.getName() + "'s" + " turn.");
+                // System.out.println(currentPlayer.getName() + " turn");
                 currentPlayer.playerInv();
                 pick = menuStore();
 
@@ -115,24 +115,24 @@ ArrayList<Player> loss = new ArrayList<>();
         }
     }
 
-    public int menuStore(){
+    public int menuStore() {
         int input = Dialog.dialog(
                 "─────────────────────" +
-                "\n[1] Store" +
-                "\n[2] Breed" +
-                "\n[3] Feed Animal" +
-                "\n[4] Next Player"+
-                "\n[5] Game Info" +
-                "\n[6] Save game" +
-                "\n[7] Exit to main menu"+
-                "\n─────────────────────");
+                        "\n[1] Store" +
+                        "\n[2] Breed" +
+                        "\n[3] Feed Animal" +
+                        "\n[4] Next Player" +
+                        "\n[5] Game Info" +
+                        "\n[6] Save game" +
+                        "\n[7] Exit to main menu" +
+                        "\n─────────────────────");
         return input;
     }
 
-    public void playerName(){
+    public void playerName() {
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
-        for (int i = 1; i < numberOfPlayers + 1; i++ ) {
+        for (int i = 1; i < numberOfPlayers + 1; i++) {
             System.out.println("───────────────");
             System.out.println("Player " + i + " pick your name: ");
             String name = Dialog.stringReturn();
@@ -140,11 +140,11 @@ ArrayList<Player> loss = new ArrayList<>();
         }
     }
 
-    public void gameMenu(){ //comment
+    public void gameMenu() { //comment
 
         for (int pick = currentTurn; pick < amountOfTurns + 1; pick++) {
 
-            for (int pick1 = playerIndex; pick1 < players.size(); pick1++){
+            for (int pick1 = playerIndex; pick1 < players.size(); pick1++) {
                 currentPlayer = players.get(pick1);
                 currentPlayer.trueStatistics();
 
@@ -155,7 +155,8 @@ ArrayList<Player> loss = new ArrayList<>();
                 if (exit)
                     break;
                 playerIndex++;
-            } if (exit)
+            }
+            if (exit)
                 break;
 
             playerIndex = 0;
@@ -163,7 +164,6 @@ ArrayList<Player> loss = new ArrayList<>();
         }
         logic.winnerPick(this);
     }
-
 
 
     public int gameSettings(String text, int min, int max) {
@@ -181,16 +181,15 @@ ArrayList<Player> loss = new ArrayList<>();
     }
 
 
-
-    public void gameRules(){
+    public void gameRules() {
         System.out.println("All the game rules");
     }
 
-    public void information (){
+    public void information() {
         System.out.println("Current game info: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
         int amountOfPlayer = 1;
-        for (Player player : players){
+        for (Player player : players) {
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
@@ -199,23 +198,19 @@ ArrayList<Player> loss = new ArrayList<>();
     }
 
 
+    public static void continueButton() {
+        System.out.println("\n");
+        System.out.println("Press enter to continue");
+        Dialog.stringReturn();
+    }
 
-
-        public static void continueButton(){
-            System.out.println("\n");
-            System.out.println("Press enter to continue");
-            Dialog.stringReturn();
-        }
-      public static void newScreen(){ //Static so we can reach outside Game class
+    public static void newScreen() { //Static so we can reach outside Game class
         System.out.println("\n".repeat(50));
-      }
+    }
 
-        public void foodSelect(){
-            System.out.println("food");
-        }
-
-
-
+    public void foodSelect() {
+        System.out.println("food");
+    }
 
 
 }

@@ -5,9 +5,10 @@ import java.io.Serializable;
 /**
  * This is our Food class that extends the Animal class.
  * In this class we give the food value.
+ *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-    public abstract class Food implements Serializable {
+public abstract class Food implements Serializable {
 
 
     protected String name;
@@ -18,22 +19,22 @@ import java.io.Serializable;
      * Here we have the constructor with a super inside.
      */
     public Food() {
-    super();
+        super();
     }
 
-        public String getName() {
-            return name;
-        }
+    public String getName() {
+        return name;
+    }
 
-        public int getKg() {
-            return kg;
-        }
+    public int getKg() {
+        return kg;
+    }
 
-        public void setKg(int kg) {
-            this.kg = this.kg + kg;
-        }
+    public void setKg(int kg) {
+        this.kg = this.kg + kg;
+    }
 
-        public int getPrice() {
-            return price;
-        }
-    } //Food Class
+    public int getPrice() {
+        return price;
+    }
+} //Food Class

@@ -14,17 +14,17 @@ public class SaveGame implements Serializable {
     }
 
 
-    public String saveGameName(){
+    public String saveGameName() {
         String answer = Dialog.dialogString("Name your game save: ");
         return answer;
     }
 
-    public int inputSaveGame(){
+    public int inputSaveGame() {
         int inputAnswer = Dialog.dialog("\"1. Overwrite existing file 2. Enter a new name");
         return inputAnswer;
     }
 
-    public int inputLoadGame(){
+    public int inputLoadGame() {
         int inputLoad = Dialog.dialog("|0| - back");
         return inputLoad;
     }

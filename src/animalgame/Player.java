@@ -29,14 +29,15 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public void trueStatistics(){
+    public void trueStatistics() {
         ableToFeed = true;
         ableToSellAnimals = true;
         ableToBuyAnimals = true;
         ableToBuyFoods = true;
         ableToBreed = true;
     }
-    public void falseStatistics(){
+
+    public void falseStatistics() {
         ableToFeed = false;
         ableToSellAnimals = false;
         ableToBuyAnimals = false;
@@ -45,11 +46,11 @@ public class Player implements Serializable {
     }
 
 
-
-    public void removeMoney(int money){
+    public void removeMoney(int money) {
         this.money = this.money - money;
     }
-    public void addMoney(int money){
+
+    public void addMoney(int money) {
         this.money = this.money + money;
     }
 
@@ -57,33 +58,34 @@ public class Player implements Serializable {
         return name;
     }
 
-    public void getAnimalFood(){
-    if (foods.size() > 0) {
-        System.out.println("This is your food");
-        int count = 1;
-        for (Food food: foods) {
-            System.out.println("["+count+"]" + " "+ food.getName() + " " + food.getKg() + "kg");
-            count++;
+    public void getAnimalFood() {
+        if (foods.size() > 0) {
+            System.out.println("This is your food");
+            int count = 1;
+            for (Food food : foods) {
+                System.out.println("[" + count + "]" + " " + food.getName() + " " + food.getKg() + "kg");
+                count++;
+            }
+            System.out.println("─────────────────────");
         }
-        System.out.println("─────────────────────");
-    }
     }
 
-    public void getPlayerAnimal(){ //Method that prints out the players animals with information
-        if (animals.size() > 0){
+
+    public void getPlayerAnimal() { //Method that prints out the players animals with information
+        if (animals.size() > 0) {
             System.out.println("─────────────────────");
             System.out.println("This is your animals");
             int counter = 1;
             for (Animal animal : animals) {
-                System.out.println("["+counter+"]" +" "+ animal.getName() +" ─ "+ animal.getAnimalBreed() + " " + animal.getGender() +
-                        " " +animal.getHealth() + " % health." + " Age: " + animal.getAge() + " lost " + animal.getHealthDifference() + " health this turn." );
+                System.out.println("[" + counter + "]" + " " + animal.getName() + " ─ " + animal.getAnimalBreed() + " " + animal.getGender() +
+                        " " + animal.getHealth() + " % health." + " Age: " + animal.getAge() + " lost " + animal.getHealthDifference() + " health this turn.");
                 counter++;
             }
             System.out.println("─────────────────────");
         }
     }
 
-    public void animalFeeding(Player player){ //Pick one animal to feed in the first try-catch
+    public void animalFeeding(Player player) { //Pick one animal to feed in the first try-catch
 
         int pick1 = 0;
         int pick2 = 0;
@@ -91,16 +93,16 @@ public class Player implements Serializable {
 
 
             if (player.animals.size() > 0 && player.foods.size() > 0) { //if statement with try-catch inside.
-                while (pick1 < 1 || pick1 > animals.size()){
-                try {
-                    Game.newScreen(); //New screen, easy to see the information
-                    getPlayerAnimal(); //This will get the players animal
-                    System.out.println("Which animal do you want to feed: ");
-                    pick1 = Integer.parseInt(Dialog.stringReturn()); //We need a scanner from game class here
-                } catch (Exception e) {
-                    System.out.println("You need to enter a number");
-                    Game.continueButton();
-                 }
+                while (pick1 < 1 || pick1 > animals.size()) {
+                    try {
+                        Game.newScreen(); //New screen, easy to see the information
+                        getPlayerAnimal(); //This will get the players animal
+                        System.out.println("Which animal do you want to feed: ");
+                        pick1 = Integer.parseInt(Dialog.stringReturn()); //We need a scanner from game class here
+                    } catch (Exception e) {
+                        System.out.println("You need to enter a number");
+                        Game.continueButton();
+                    }
                 }
                 while (pick2 < 1 || pick2 > foods.size()) {  //While loop with try-catch inside.
                     try {
@@ -121,27 +123,28 @@ public class Player implements Serializable {
                     food.setKg(-1);
                     player.falseStatistics();
                     player.setAbleToFeed(true);
-                    if (food.getKg() <= 0){
+                    if (food.getKg() <= 0) {
                         foods.remove(food);
                     }
                 } else {
                     System.out.println("Wrong food for the animal");
                 }
-            } if (player.animals.size() < 1 || player.foods.size() < 1){    //If the player don't have one animal and one sorts of food, it wont be abel to eat
+            }
+            if (player.animals.size() < 1 || player.foods.size() < 1) {    //If the player don't have one animal and one sorts of food, it wont be abel to eat
                 System.out.println("You need one animal and one sorts of food to be able to feed!");
             }
         }
     }
 
-    public void playerInv(){
-       getPlayerAnimal();
-       getAnimalFood();
-       getBalance();
-    }
-    public void getBalance(){
-        System.out.println("Current balance: " + this.money + " Swedish kronor");
+    public void playerInv() {
+        getPlayerAnimal();
+        getAnimalFood();
+        getBalance();
     }
 
+    public void getBalance() {
+        System.out.println("Current balance: " + this.money + " Swedish kronor");
+    }
 
 
     public int getMoney() {
@@ -164,8 +167,8 @@ public class Player implements Serializable {
         this.ableToBuyFoods = ableToBuyFoods;
     }
 
-    public boolean checkWithPlayer(boolean checkPlayer){
-        if (!checkPlayer){
+    public boolean checkWithPlayer(boolean checkPlayer) {
+        if (!checkPlayer) {
             System.out.println("To many choices this turn");
             return false;
         }

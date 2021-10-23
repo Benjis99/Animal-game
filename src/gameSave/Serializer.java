@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Serializer implements Serializable {
 
-    static public void serialize(String filePath, Object data){
+    static public void serialize(String filePath, Object data) {
         try {
             var file = new FileOutputStream(filePath);
             var out = new ObjectOutputStream(file);
@@ -12,14 +12,13 @@ public class Serializer implements Serializable {
             out.close();
             file.close();
             System.out.println("Game is saved!");
-        }
-        catch (Exception error){
+        } catch (Exception error) {
             System.out.println("Game was not saved.");
             System.out.println(error);
         }
     }
 
-    static public Object deserialize(String filePath){
+    static public Object deserialize(String filePath) {
         try {
             var file = new FileInputStream(filePath);
             var in = new ObjectInputStream(file);
@@ -27,8 +26,7 @@ public class Serializer implements Serializable {
             in.close();
             file.close();
             return data;
-        }
-        catch (Exception error){
+        } catch (Exception error) {
             System.out.println(error);
             return false;
         }
