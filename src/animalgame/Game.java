@@ -51,17 +51,14 @@ public class Game implements Serializable { // sss
                     boolean exit = true;
                     while (exit) {
                         int input2 = Dialog.dialog(
-                                "[1] Start game" +
-                                        "\n[2] Turn off game" +
+                                "[1] Turn off game" +
                                         "\n─────────────────────");
                         if (input2 == 1) {
                             start = false;
                             exit = false;
-                        }
-                        if (input2 == 2) {
-                            System.out.println("Turning off game...");
+                            System.out.println("Turning off game" + ".".repeat(3));
+
                             System.exit(1);
-                            exit = false;
                         }
                     }
                 }
@@ -151,7 +148,6 @@ public class Game implements Serializable { // sss
                 logic.startRound(currentPlayer);
                 gameBrain();
                 logic.endRound(currentPlayer, this);
-                newScreen();
                 if (exit)
                     break;
                 playerIndex++;
@@ -161,6 +157,7 @@ public class Game implements Serializable { // sss
 
             playerIndex = 0;
             currentTurn++;
+            newScreen();
         }
         logic.winnerPick(this);
     }
