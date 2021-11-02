@@ -14,6 +14,8 @@ import java.util.Random;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Breeding implements Serializable { // Breeding Class
+    public String animalBabyBreed;
+
     public Breeding() {
 
     }
@@ -60,6 +62,7 @@ public class Breeding implements Serializable { // Breeding Class
                     for (Animal animal : tempList) {
                         System.out.println("[" + count + "] " + animal.getName() + " > " + animal.getAnimalBreed() + " | " + animal.getGender()
                                 + " | " + animal.getHealth() + "% health left.");
+                        animalBabyBreed = animal.getAnimalBreed();
                         count++;
                     }
                     System.out.println("Choose your second animal to breed. Enter a number: ");
@@ -183,9 +186,10 @@ public class Breeding implements Serializable { // Breeding Class
                 counter++;
             }
         }
-        System.out.println("You've got a total of " + counter + " babies!");
+        System.out.println("You've got a total of " + counter + " " + animalBabyBreed + " babies!");
         return counter;
     }
+
 
     public int firstAnimal() {
         int first = Dialog.dialog("Choose your first animal to breed! Enter a number: ");
