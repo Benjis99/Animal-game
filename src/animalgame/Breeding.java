@@ -13,7 +13,7 @@ import java.util.Random;
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Breeding implements Serializable { // s
+public class Breeding implements Serializable { // Breeding Class
     public Breeding() {
 
     }
