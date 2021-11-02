@@ -108,7 +108,7 @@ public class Player implements Serializable {
                     try {
                         Game.newScreen();
                         getAnimalFood();
-                        System.out.println("\n Pick the food you wanna use");
+                        System.out.println("\nPick the food you wanna use");
                         pick2 = Integer.parseInt(Dialog.stringReturn());
                     } catch (Exception e) {
                         System.out.println("You need to enter a number");
