@@ -152,7 +152,7 @@ public class Breeding implements Serializable { // Breeding Class
 
 
     /**
-     * Checks which animals the player owns and... ???? needs fix
+     * Checks which animals the player owns, gender and breed of the animal.
      *
      * @param player
      * @param animal1
