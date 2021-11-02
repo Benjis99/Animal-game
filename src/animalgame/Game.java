@@ -172,7 +172,7 @@ public class Game implements Serializable { // sss
         try {
             pick = Dialog.intReturn();
         } catch (Exception e) {
-            Dialog.intReturn();
+            Dialog.intReturnNext();
         }
         return pick < min || pick > max ?
                 gameSettings(text, min, max) : pick;
