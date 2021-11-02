@@ -2,6 +2,7 @@ package animalgame;
 
 import gameSave.SaveGame;
 
+import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -179,8 +180,41 @@ public class Game implements Serializable { // sss
 
 
     public void gameRules() {
-        System.out.println("All the game rules");
+        int input = Dialog.dialog(
+                "─────────────────────" +
+                        "\n [1] Game Summary" +
+                        "\n [2] Detailed description" +
+                        "\n─────────────────────");
+
+        switch (input) {
+            case 1 -> gameSummary();
+            case 2 -> gameDescription();
+        }
     }
+    public void gameSummary(){
+        System.out.println("""
+                Summary: 
+                We use coins to purchase animals, animalfood, and we gain coins when we sell animals.
+                Animals can also breed, and require you to feed them!
+                Different animals have different values, depending on health and age. 
+                After the selected amount of turns exceeds, 
+                the game automatically sells every players animals and calculates the value. 
+                The player with the most coins wins!""");
+    }
+    public void gameDescription(){
+        System.out.println("""
+                The first turn allows the player to chose between different options:
+                [Store] - Where you buy animals or food. Here you can also sell animals.
+                [Breed] - A feature you unlock after buying two of the same animals, with opposite genders.
+                [Feed Animal] - Since the animals have health points, it's necessary to feed the animals, otherwise they die and you lose them
+                [Next Player/End your turn] - Simply ends the current players turn, and puts the next player up
+                [Game Info] - Prints out the current game info, such as: Current round, current turns, current balance.
+                [Save Game] - Allows the participants to save the current game for later progression
+                [Exit] - Exits the game
+                
+                """);
+    }
+
 
     public void information() {
         System.out.println("Current game info: ");
