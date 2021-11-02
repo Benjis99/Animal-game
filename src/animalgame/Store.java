@@ -198,6 +198,7 @@ public class Store implements Serializable {
         }
     }
 
+
     public int decision() {
         int answer = Dialog.dialog("1. Yes 2. No");
         return answer;

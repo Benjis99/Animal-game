@@ -39,6 +39,7 @@ public abstract class Animal implements Serializable {
         }
     }
 
+
     public boolean eatTrue(Food food) {
         return true;
     }

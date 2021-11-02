@@ -136,6 +136,7 @@ public class Player implements Serializable {
         }
     }
 
+
     public void playerInv() {
         getPlayerAnimal();
         getAnimalFood();
