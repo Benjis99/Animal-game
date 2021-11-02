@@ -15,10 +15,8 @@ public class FishFeed extends Food {
      * Here we have the constructor that gives "FishFeed" a name
      * and price.
      */
-
     public FishFeed() {
         name = "FishFeed";
         price = 29; //Price for 750mg
     }
-
 }

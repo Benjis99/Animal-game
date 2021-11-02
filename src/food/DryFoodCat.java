@@ -13,10 +13,8 @@ public class DryFoodCat extends Food {
     /**
      * Here we have the constructor that gives "DryFoodCat" a name and price.
      */
-
     public DryFoodCat() {
         name = "DryFoodCat";
         price = 49;
     }
-
 }
