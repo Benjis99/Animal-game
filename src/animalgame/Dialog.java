@@ -29,8 +29,8 @@ public class Dialog implements Serializable { // s
         return console.next();
     }
 
-    public static String intReturnNext() {
-        return console.next();
+    public static int intScannerNext() {
+        return console.nextInt();
     }
 
     public static int tryCatch(int min, int max){
