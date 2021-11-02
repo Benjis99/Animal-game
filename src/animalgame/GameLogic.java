@@ -73,16 +73,28 @@ public class GameLogic implements Serializable {
     }
 
     public void playerLoss(Player player, Game game) {
-        if (player.animals.size() <= 0 && player.getMoney() <= 0) {
-            System.out.println("\n".repeat(30));
-            figure();
-            System.out.println(player.getName() + " have no money, animals or animal food, you have lost the game");
+        if (game.players.size() > 2) {
+            if (player.animals.size() <= 0 && player.getMoney() <= 0) {
+               // System.out.println("\n".repeat(30));
+                figure();
+                System.out.println(player.getName() + " have no money, animals or animal food, you have lost the game");
+                game.players.remove(player);
+                game.loss.add(player);
+            }
+        }
+        else {
+            if (player.animals.size() <= 0 && player.getMoney() <= 0) {
+              //  System.out.println("\n".repeat(30));
+                figure();
+                System.out.println(player.getName() + " have no money, animals or animal food, you have lost the game");
+
             game.players.remove(player);
             game.loss.add(player);
             //autoSellAnimals(game);
             winnerPick(game);
             System.out.println("\n".repeat(1));
             new Game();
+            }
         }
     }
 
