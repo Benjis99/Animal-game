@@ -5,7 +5,7 @@ import food.models.Food;
 
 /**
  * This is our Pellets class where we choose the name and price on the food
- * We give the food value in this class.
+ * We give the food specific value in this class.
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
@@ -22,4 +22,4 @@ public class Pellets extends Food {
     }
 
 
-} //Pellets Class
+}

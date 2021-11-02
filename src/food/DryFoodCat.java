@@ -3,8 +3,8 @@ package food;
 import food.models.Food;
 
 /**
- * This is our Dryfoodclass where we choose the name and price
- * We give the food value.
+ * This is our DryFood class where we choose the name and price
+ * We give the food specific value.
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */

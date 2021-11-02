@@ -129,5 +129,4 @@ public abstract class Animal implements Serializable {
         return maxAge;
     }
 
-    //Animal Class
 }

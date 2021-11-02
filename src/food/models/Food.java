@@ -37,4 +37,4 @@ public abstract class Food implements Serializable {
     public int getPrice() {
         return price;
     }
-} //Food Class
+}

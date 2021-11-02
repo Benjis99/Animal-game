@@ -4,8 +4,8 @@ package food;
 import food.models.Food;
 
 /**
- * This is our Fishfeed class where we choose the name and price on the food.
- * We give our food value in this class.
+ * This is our FishFeed class where we choose the name and price on the food.
+ * We give our food specific value in this class.
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
@@ -21,4 +21,4 @@ public class FishFeed extends Food {
         price = 29; //Price for 750mg
     }
 
-} //FlakeLining Class
+}
