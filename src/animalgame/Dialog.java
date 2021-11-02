@@ -29,5 +29,23 @@ public class Dialog implements Serializable { // s
         return console.next();
     }
 
+    public static int intScannerNext() {
+        return console.nextInt();
+    }
+
+    public static int tryCatch(int min, int max){
+        Scanner input = new Scanner(System.in);
+        int playerChoice = -1;
+        while (playerChoice < min || playerChoice > max){
+            try {
+                System.out.println("Enter an option: ");
+                playerChoice = input.nextInt();
+            } catch (Exception e){
+                System.out.println("Please enter a number in the menu. Try again");
+                input.next();
+            }
+        } return playerChoice;
+    }
+
 
 }

@@ -1,34 +1,67 @@
 package gameSave;
 
+
 import animalgame.*;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+
+/**
+ * This is our SaveGame Class that saves the game,
+ * gives the game a name or you can choose to play an existing
+ * game.
+ *
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
+
 public class SaveGame implements Serializable {
     Game game;
 
+    /**
+     * Here we make a new game.
+     * @param game
+     */
     public void setGame(Game game) {
         this.game = game;
     }
 
-
+    /**
+     * here we name our game that we want to save
+     * using the SaveGameName method.
+     * @return
+     */
     public String saveGameName() {
         String answer = Dialog.dialogString("Name your game save: ");
         return answer;
     }
 
+    /**
+     * This method checks if there is an existing name of a game
+     * and asks the user to either save the game with a new name or
+     * overwrite an existing file.
+     * @return
+     */
     public int inputSaveGame() {
         int inputAnswer = Dialog.dialog("\"1. Overwrite existing file 2. Enter a new name");
         return inputAnswer;
     }
 
+    /**
+     * This method shows a list of played games you can choose
+     * between.
+     * @return
+     */
     public int inputLoadGame() {
         int inputLoad = Dialog.dialog("|0| - back");
         return inputLoad;
     }
 
+    /**
+     * This method Is the actual game this is where we save the game.
+     * @param game
+     */
     public void saveGame(Game game) {
 
         File gameFile = new File("SavedGames/");
@@ -53,7 +86,11 @@ public class SaveGame implements Serializable {
         }
     }
 
-
+    /**
+     * The method loadGame loads either a new game or
+     * a saved game. If there isn't any saved game the
+     * game will show that there isn't any games in the history.
+     */
     public void loadGame() {
         File[] savedGames;
         File f = new File("SavedGames/");

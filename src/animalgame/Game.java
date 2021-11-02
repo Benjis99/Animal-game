@@ -170,9 +170,9 @@ public class Game implements Serializable { // sss
 
         int pick = -1;
         try {
-            pick = Dialog.intReturn();
+            pick = Dialog.intScannerNext();
         } catch (Exception e) {
-            Dialog.intReturn();
+            Dialog.stringReturnNext();
         }
         return pick < min || pick > max ?
                 gameSettings(text, min, max) : pick;
