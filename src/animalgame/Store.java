@@ -19,6 +19,13 @@ public class Store implements Serializable {
     }
 
 
+    /**
+     * The buy menu is used to open our stores.
+     * This method has a switch case that is simplified.
+     * Menu check is true in the beginning, when you are exiting the menus it changes to false.
+     * Decision menu have the question we are asking about, and a scanner from the dialog class.
+     * @param player
+     */
     public void buyMenu(Player player) {
         boolean menuCheck = true;
         while (menuCheck) {
@@ -35,6 +42,10 @@ public class Store implements Serializable {
         }
     }
 
+    /**
+     *Decision menu have our store options
+     * @return
+     */
     public int decisionMenu() {
         int answer = Dialog.dialog(
                 "─────────────────────" +
