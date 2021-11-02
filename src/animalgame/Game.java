@@ -184,11 +184,13 @@ public class Game implements Serializable { // sss
                 "─────────────────────" +
                         "\n [1] Game Summary" +
                         "\n [2] Detailed description" +
+                        "\n [3] Detailed description of terminology and game logic" +
                         "\n─────────────────────");
 
         switch (input) {
             case 1 -> gameSummary();
             case 2 -> gameDescription();
+            case 3 -> detailedGameInfo();
         }
     }
     public void gameSummary(){
@@ -203,19 +205,62 @@ public class Game implements Serializable { // sss
     }
     public void gameDescription(){
         System.out.println("""
-                The first turn allows the player to chose between different options:
+                When you first start the game, you get to choose how many rounds you want to play (between 5 and 30).
+                Afterwards, you get to choose how many participants that will play (between 2 and 4).
+                The first turn allows the player to choose between different options:
                 [Store] - Where you buy animals or food. Here you can also sell animals.
-                [Breed] - A feature you unlock after buying two of the same animals, with opposite genders.
-                [Feed Animal] - Since the animals have health points, it's necessary to feed the animals, otherwise they die and you lose them
-                [Next Player/End your turn] - Simply ends the current players turn, and puts the next player up
-                [Game Info] - Prints out the current game info, such as: Current round, current turns, current balance.
-                [Save Game] - Allows the participants to save the current game for later progression
-                [Exit] - Exits the game
+                [Breed] - A feature you unlock after buying two of the same animals with opposite genders.
+                [Feed Animal] - Since the animals have health points, it's necessary to feed the animals, otherwise they die and you lose them.
+                [Next Player/End your turn] - Simply ends the current players turn, and puts the next player up.
+                [Game Info] - Prints out the current game info, such as: Current round, current turn and current balance.
+                [Save Game] - Allows the participants to save the current game for later progression.
+                [Exit] - Exits the game.
                 
                 """);
     }
+    public void detailedGameInfo(){
+        int input = Dialog.dialog(
+                """
+                        \n────────────────
+                        How does it work?
+                        ──────────────────
+                        [1] Breeding
+                        [2] Coins
+                        [3] Food
+                        """);
+        switch (input){
+            case 1 -> detailedInfoBreeding();
+            case 2 -> detailedinfoCoins();
+            case 3 -> detailedInfoFood();
+        }
+    }
 
-
+    public void detailedInfoBreeding(){
+        System.out.println("""
+        [Breeding] - After you've purchased two of the same animal with opposite gender, you unlock the feature to breed them.
+        Breed has a 50% success rate and the amount of babies depends on the chosen animal.
+        Different animals can breed different amounts of babies.
+        
+        [Bird] max babies: 5
+        [Cat] max babies: 12
+        [Dog] max babies: 12
+        [Goldfish] max babies: 10
+        [Hamster] max babies: 3
+                                
+        After a successful breeding, a random generated number of offsprings dependant on the chosen animal is generated, and
+        has the age: 0, and health: 100.""");
+    }
+    public void detailedinfoCoins(){
+        System.out.println("""
+                Every player starts with the same amount of coins: 400.\s
+                You use coins to purchase animals and animalfood and you gain coins by selling animals.
+                At the end of the game, the player with the most amount of coins wins.
+                """);
+    }
+    public void detailedInfoFood(){
+        System.out.println("""
+                Food""");
+    }
     public void information() {
         System.out.println("Current game info: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
