@@ -15,7 +15,6 @@ import java.nio.file.Paths;
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
 public class SaveGame implements Serializable {
     Game game;
 
