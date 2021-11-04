@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * This is our Gamelogic class where the "brain" of the game is.
+ * This is our GameLogic class where the "brain" of the game is.
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */

@@ -68,6 +68,12 @@ public abstract class Animal implements Serializable {
         }
     }
 
+    /**
+     * This method declares the current price of the animal
+     * based on the age.
+     * @return
+     */
+
     public int currentPriceAnimal() {
         double currentPrice = ((this.getHealth() / 100.0) * this.startPrice);
             currentPrice = currentPrice - (this.age * 2);
@@ -77,6 +83,12 @@ public abstract class Animal implements Serializable {
     public int getHealthDifference() {
         return healthDifference;
     }
+
+    /**
+     * The healthDifference is the method that declares
+     * the current health of the animal.
+     * @param healthDifference
+     */
 
     public void setHealthDifference(int healthDifference) {
         this.healthDifference = healthDifference;

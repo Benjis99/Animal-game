@@ -27,7 +27,7 @@ public class SaveGame implements Serializable {
     }
 
     /**
-     * here we name our game that we want to save
+     * Here we name our game that we want to save
      * using the SaveGameName method.
      * @return
      */

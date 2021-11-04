@@ -4,6 +4,12 @@ import animals.models.Animal;
 import food.DryFoodDog;
 import food.models.Food;
 
+/**
+ * This is our Dog class were we give our
+ *  Dog a name, age limit and start price.
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
+
 public class Dog extends Animal {
 
 

@@ -67,7 +67,7 @@ public class Store implements Serializable {
                 int count = 1;
                 for (Animal animal : player.animals) {
                     System.out.println("[ " +count + " ] --" + " | " + animal.getName() + " | " + animal.getGender() + " | " + animal.getAnimalBreed()
-                            + " | " +animal.getHealth() + " % health |" + " Price: " + animal.currentPriceAnimal()+ " Kr |");
+                            + " | " +animal.getHealth() + " % health |" + " Price: " + animal.currentPriceAnimal()+ " coins |");
                     count++;
                 }
                 int index = leaveStore();
@@ -180,7 +180,7 @@ public class Store implements Serializable {
             if (player.getMoney() < animal.getStartPrice()) {
                 System.out.println("Not enough money for the animal");
             } else {
-                System.out.println("Do you want to buy " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " Kr");
+                System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " coins ?");
                 int choice = decision();
 
                 if (choice == 1) {
@@ -223,7 +223,7 @@ public class Store implements Serializable {
                 System.out.println("Not enough money");
             } else {
                 int foodCount = 0;
-                System.out.println("1kg of " + food.getName() + " for " + food.getPrice() + "Kr");
+                System.out.println("1kg of " + food.getName() + " for " + food.getPrice() + "coins");
                 int yesNo = decisionFood();
                 if (yesNo == 1) {
                     if (player.foods.size() > 0) {

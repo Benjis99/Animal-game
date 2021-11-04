@@ -4,6 +4,12 @@ import animals.models.Animal;
 import food.Seeds;
 import food.models.Food;
 
+/**
+ * This is our Bird class were we give our
+ *  bird a name, age limit and start price.
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
+
 public class Bird extends Animal {
 
     /**

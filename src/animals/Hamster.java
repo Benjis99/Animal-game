@@ -5,8 +5,8 @@ import food.Pellets;
 import food.models.Food;
 
 /**
- * This is our Hamster class
- *
+ * This is our Hamster class were we give our
+ *  hamster a name, age limit and start price.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Hamster extends Animal {

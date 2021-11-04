@@ -5,8 +5,8 @@ import food.FishFeed;
 import food.models.Food;
 
 /**
- * This is our Goldfish class
- *
+ * This is our Goldfish class were we
+ * give our goldfish a name, max age and price.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Goldfish extends Animal {

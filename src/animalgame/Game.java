@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * This is our Game class where we have all the menus right now
+ * This is our Game class where we have all the menus.
  * <p>
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
@@ -191,9 +191,9 @@ public class Game implements Serializable { // sss
 
         int pick = -1;
         try {
-            pick = Dialog.intScannerNext();
+            pick = Dialog.intReturn();
         } catch (Exception e) {
-            Dialog.stringReturnNext();
+            Dialog.intScannerNext();
         }
         return pick < min || pick > max ?
                 gameSettings(text, min, max) : pick;
