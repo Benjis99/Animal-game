@@ -278,9 +278,10 @@ public class Store implements Serializable {
     /**
      * A method for the player to buy food for their animal(s). The method will inform the player of some basic
      * information about the food the player selected in foodShop, such as amount, food name and cost of the food.
+     * If the player bought food, it will be added to an Arraylist with foods.
      *
-     * @param food
-     * @param player
+     * @param food Lets us get information from the Food class
+     * @param player Lets us get information from the Player class
      */
     public void addFood(Food food, Player player) {
         if (player.checkWithPlayer(player.ableToBuyFoods)) {
