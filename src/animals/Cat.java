@@ -7,7 +7,8 @@ import food.models.Food;
 
 /**
  * This is our Cat class were we give our
- *  cat a name, age limit and start price.
+ * cat a name, age limit and start price.
+ *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Cat extends Animal {
@@ -16,7 +17,6 @@ public class Cat extends Animal {
      * Our constructor that contains maxAge, animalBreed and startPrice of the animal
      */
     public Cat() {
-
         maxAge = 9;
         animalBreed = "Cat";
         startPrice = 200;
@@ -57,5 +57,4 @@ public class Cat extends Animal {
             }
         }
     }
-
 }
