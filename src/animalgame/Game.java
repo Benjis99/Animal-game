@@ -13,7 +13,10 @@ import java.util.ArrayList;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Game implements Serializable { // sss
-
+    /**
+     * The field variables keep track of the game settings chosen by the player, and provides
+     * information about the current game to the player.
+     */
     private int amountOfTurns;
     private int currentTurn;
     private Player currentPlayer;
@@ -26,6 +29,10 @@ public class Game implements Serializable { // sss
     ArrayList<Player> players = new ArrayList<>();
     ArrayList<Player> loss = new ArrayList<>();
 
+
+    /**
+     *  The constructor Game() is providing a way for the user to navigate through the menus.
+     */
     public Game() {
         saveGame.setGame(this);
 
@@ -66,6 +73,9 @@ public class Game implements Serializable { // sss
         }
     }
 
+    /**
+     * Method for storing the game settings
+     */
     public void startMenu() {
 
         currentTurn = 1;
@@ -79,6 +89,11 @@ public class Game implements Serializable { // sss
         gameMenu();
     }
 
+    /**
+     * In gameBrain we give access to the Store-class and Breeding-class.
+     * We use a while-loop that runs with the game.
+     * Switch (pick) recieves the user input. // skriv mer
+     */
     public void gameBrain() {
         Store store = new Store();
         Breeding breeding = new Breeding();
@@ -110,13 +125,17 @@ public class Game implements Serializable { // sss
         }
     }
 
+    /**
+     * Simple menu for store navigation
+     * @return
+     */
     public int menuStore() {
         int input = Dialog.dialog(
                 "─────────────────────" +
                         "\n[1] Store" +
                         "\n[2] Breed" +
                         "\n[3] Feed Animal" +
-                        "\n[4] Next Player" +
+                        "\n[4] End Turn" +
                         "\n[5] Game Info" +
                         "\n[6] Save game" +
                         "\n[7] Exit to main menu" +
@@ -124,6 +143,9 @@ public class Game implements Serializable { // sss
         return input;
     }
 
+    /**
+     *
+     */
     public void playerName() {
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
@@ -135,6 +157,9 @@ public class Game implements Serializable { // sss
         }
     }
 
+    /**
+     *
+     */
     public void gameMenu() { //comment
 
         for (int pick = currentTurn; pick < amountOfTurns + 1; pick++) {
@@ -188,6 +213,9 @@ public class Game implements Serializable { // sss
         }
     }
 
+    /**
+     * A brief summary on how the game works
+     */
     public void gameSummary(){
         System.out.println("""
                 Summary: 
@@ -199,6 +227,9 @@ public class Game implements Serializable { // sss
                 The player with the most coins wins!""");
     }
 
+    /**
+     * A more detailed version of what the store provides
+     */
     public void detailedStoreDescription(){
         System.out.println("""
                 When you first start the game, you get to choose how many rounds you want to play (between 5 and 30).
@@ -207,12 +238,16 @@ public class Game implements Serializable { // sss
                 [Store] - Where you buy animals or food. Here you can also sell animals.
                 [Breed] - A feature you unlock after buying two of the same animals with opposite genders.
                 [Feed Animal] - Since the animals have health points, it's necessary to feed the animals, otherwise they die and you lose them.
-                [Next Player/End your turn] - Simply ends the current players turn, and puts the next player up.
+                [End your turn] - Simply ends the current players turn, and puts the next player up.
                 [Game Info] - Prints out the current game info, such as: Current round, current turn and current balance.
                 [Save Game] - Allows the participants to save the current game for later progression.
                 [Exit] - Exits the game.""");
     }
 
+    /**
+     * A switch case for an information-menu.
+     * This menu allows the user to read more about how the game works.
+     */
     public void detailedGameInfo(){
         int input = Dialog.dialog(
                 """
@@ -235,6 +270,9 @@ public class Game implements Serializable { // sss
         }
     }
 
+    /**
+     * In-depth on how Breeding works
+     */
     public void detailedInfoBreeding(){
         System.out.println("""
         [Breeding] - After you've purchased two of the same animal with opposite gender, you unlock the feature to breed them.
@@ -251,6 +289,9 @@ public class Game implements Serializable { // sss
         has the age: 0, and health: 100.""");
     }
 
+    /**
+     * In-depth on how coins work
+     */
     public void detailedInfoCoins(){
         System.out.println("""
         Every player starts with the same amount of coins: 400.\s
@@ -258,6 +299,9 @@ public class Game implements Serializable { // sss
         At the end of the game, the player with the most amount of coins wins.""");
     }
 
+    /**
+     * In-depth on how food works
+     */
     public void detailedInfoFood(){
         System.out.println("""
                 [Food] Food is purchased from the store with coins and is bought in kilos. The kind of food your animal eats
@@ -265,7 +309,9 @@ public class Game implements Serializable { // sss
                 Every kilo increases the health of the animal by 10%.
                 You can't sell food back to the store nor to other players!""");
     }
-
+    /**
+     * In-depth on how each turn impacts the game
+     */
     public void detailedRoundInfo(){
         System.out.println("""
                 After chosen amount of players has made their turn, a new round begins. With a new round comes
@@ -274,6 +320,9 @@ public class Game implements Serializable { // sss
                 A new turn allows each player to make a new action, such as: Buy, sell breed.\s""");
     }
 
+    /**
+     * Prints out the current game information
+     */
     public void information() {
         System.out.println("Current game info: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
