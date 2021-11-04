@@ -6,11 +6,11 @@ import food.models.Food;
 
 /**
  * This is our Hamster class were we give our
- *  hamster a name, age limit and start price.
+ * hamster a name, age limit and start price.
+ *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Hamster extends Animal {
-
 
     /**
      * Our constructor that contains maxAge, animalBreed and startPrice of the animal
@@ -19,7 +19,6 @@ public class Hamster extends Animal {
         maxAge = 7;
         animalBreed = "Hamster";
         startPrice = 100;
-
     }
 
     /**
