@@ -184,13 +184,13 @@ public class Game implements Serializable { // sss
                 "─────────────────────" +
                         "\n [1] Game Summary" +
                         "\n [2] Detailed description" +
-                        "\n [3] Detailed description of terminology and game logic" +
+                        "\n [3] Return to Main Menu" +
                         "\n─────────────────────");
 
         switch (input) {
             case 1 -> gameSummary();
-            case 2 -> gameDescription();
-            case 3 -> detailedGameInfo();
+            case 2 -> detailedGameInfo();
+         //   case 3 ->
         }
     }
     public void gameSummary(){
@@ -203,7 +203,7 @@ public class Game implements Serializable { // sss
                 the game automatically sells every players animals and calculates the value. 
                 The player with the most coins wins!""");
     }
-    public void gameDescription(){
+    public void detailedStoreDescription(){
         System.out.println("""
                 When you first start the game, you get to choose how many rounds you want to play (between 5 and 30).
                 Afterwards, you get to choose how many participants that will play (between 2 and 4).
@@ -221,19 +221,22 @@ public class Game implements Serializable { // sss
     public void detailedGameInfo(){
         int input = Dialog.dialog(
                 """
-                        \n────────────────
+                        ───────────────────────
                         How does it work?
-                        ──────────────────
+                        ───────────────────────
                         [1] Breeding
                         [2] Coins
                         [3] Food
                         [4] After a round ends
+                        [5] Store
                         """);
         switch (input){
             case 1 -> detailedInfoBreeding();
             case 2 -> detailedInfoCoins();
             case 3 -> detailedInfoFood();
             case 4 -> detailedRoundInfo();
+            case 5 -> detailedStoreDescription();
+         //   case 6 -> // return to menu
         }
     }
 
