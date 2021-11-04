@@ -10,7 +10,6 @@ import java.io.Serializable;
  */
 public abstract class Food implements Serializable {
 
-
     /**
      * Here we have field variables that declare
      * name, price and kg of the foods
