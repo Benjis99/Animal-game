@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Game implements Serializable { // sss
+
     /**
      * The field variables keep track of the game settings chosen by the player, and provides
      * information about the current game to the player.
@@ -29,9 +30,9 @@ public class Game implements Serializable { // sss
     ArrayList<Player> players = new ArrayList<>();
     ArrayList<Player> loss = new ArrayList<>();
 
-
     /**
-     *  The constructor Game() is providing a way for the user to navigate through the menus.
+     * The constructor Game() is providing a way for the user to navigate through the menus.
+     *
      */
     public Game() {
         saveGame.setGame(this);
@@ -40,7 +41,6 @@ public class Game implements Serializable { // sss
         while (start) {
 
             players.clear();
-            //newScreen();
             System.out.println("─────────────────────");
             System.out.println("Welcome to our animal game!");
 
@@ -126,8 +126,8 @@ public class Game implements Serializable { // sss
     }
 
     /**
-     * Simple menu for store navigation
-     * @return
+     * Menu of options for the current player
+     * @return Returns the chosen menu option.
      */
     public int menuStore() {
         int input = Dialog.dialog(
@@ -144,7 +144,8 @@ public class Game implements Serializable { // sss
     }
 
     /**
-     *
+     * Allows the user to name their player.
+     * We use user input to declare a name for the player
      */
     public void playerName() {
         newScreen();
@@ -158,7 +159,7 @@ public class Game implements Serializable { // sss
     }
 
     /**
-     *
+     * Behöver hjälp
      */
     public void gameMenu() { //comment
 
@@ -185,6 +186,13 @@ public class Game implements Serializable { // sss
         logic.winnerPick(this);
     }
 
+    /**
+     *  Behöver hjälp
+     * @param text
+     * @param min
+     * @param max
+     * @return
+     */
     public int gameSettings(String text, int min, int max) {
 
         System.out.println(text);
@@ -199,6 +207,11 @@ public class Game implements Serializable { // sss
                 gameSettings(text, min, max) : pick;
 
     }
+
+    /**
+     * Reads the user input and navigates the user to read the Game summary, detailed description
+     * or to return to Main Menu
+     */
     public void gameRules() {
         int input = Dialog.dialog(
                 "──────────────────────────────" +
@@ -216,7 +229,7 @@ public class Game implements Serializable { // sss
     /**
      * A brief summary on how the game works
      */
-    public void gameSummary(){
+    public void gameSummary() {
         System.out.println("""
                 Summary: 
                 We use coins to purchase animals, animalfood, and we gain coins when we sell animals.
@@ -230,7 +243,7 @@ public class Game implements Serializable { // sss
     /**
      * A more detailed version of what the store provides
      */
-    public void detailedStoreDescription(){
+    public void detailedStoreDescription() {
         System.out.println("""
                 When you first start the game, you get to choose how many rounds you want to play (between 5 and 30).
                 Afterwards, you get to choose how many participants that will play (between 2 and 4).
@@ -248,7 +261,7 @@ public class Game implements Serializable { // sss
      * A switch case for an information-menu.
      * This menu allows the user to read more about how the game works.
      */
-    public void detailedGameInfo(){
+    public void detailedGameInfo() {
         int input = Dialog.dialog(
                 """
                         ───────────────────────
@@ -261,7 +274,7 @@ public class Game implements Serializable { // sss
                         [5] Store
                         [6] Return to Main Menu
                         ────────────────────────────────""");
-        switch (input){
+        switch (input) {
             case 1 -> detailedInfoBreeding();
             case 2 -> detailedInfoCoins();
             case 3 -> detailedInfoFood();
@@ -273,46 +286,47 @@ public class Game implements Serializable { // sss
     /**
      * In-depth on how Breeding works
      */
-    public void detailedInfoBreeding(){
+    public void detailedInfoBreeding() {
         System.out.println("""
-        [Breeding] - After you've purchased two of the same animal with opposite gender, you unlock the feature to breed them.
-        Breed has a 50% success rate and the amount of babies depends on the chosen animal.
-        Different animals can breed different amounts of babies.
-        
-        [Bird] max babies: 5
-        [Cat] max babies: 12
-        [Dog] max babies: 12
-        [Goldfish] max babies: 10
-        [Hamster] max babies: 3
-                                
-        After a successful breeding, a random generated number of offsprings dependant on the chosen animal is generated, and
-        has the age: 0, and health: 100.""");
+                [Breeding] - After you've purchased two of the same animal with opposite gender, you unlock the feature to breed them.
+                Breed has a 50% success rate and the amount of babies depends on the chosen animal.
+                Different animals can breed different amounts of babies.
+                        
+                [Bird] max babies: 5
+                [Cat] max babies: 12
+                [Dog] max babies: 12
+                [Goldfish] max babies: 10
+                [Hamster] max babies: 3
+                                        
+                After a successful breeding, a random generated number of offsprings dependant on the chosen animal is generated, and
+                has the age: 0, and health: 100.""");
     }
 
     /**
      * In-depth on how coins work
      */
-    public void detailedInfoCoins(){
+    public void detailedInfoCoins() {
         System.out.println("""
-        Every player starts with the same amount of coins: 400.\s
-        You use coins to purchase animals and animalfood. You gain coins by selling animals.
-        At the end of the game, the player with the most amount of coins wins.""");
+                Every player starts with the same amount of coins: 400.\s
+                You use coins to purchase animals and animalfood. You gain coins by selling animals.
+                At the end of the game, the player with the most amount of coins wins.""");
     }
 
     /**
      * In-depth on how food works
      */
-    public void detailedInfoFood(){
+    public void detailedInfoFood() {
         System.out.println("""
                 [Food] Food is purchased from the store with coins and is bought in kilos. The kind of food your animal eats
                 differs with the animal. Each animal can consume 1-3 different kind of food.\s
                 Every kilo increases the health of the animal by 10%.
                 You can't sell food back to the store nor to other players!""");
     }
+
     /**
      * In-depth on how each turn impacts the game
      */
-    public void detailedRoundInfo(){
+    public void detailedRoundInfo() {
         System.out.println("""
                 After chosen amount of players has made their turn, a new round begins. With a new round comes
                 a loss of health on ALL animals, the ones you own, and those in store. Health loss is randomly
@@ -322,6 +336,7 @@ public class Game implements Serializable { // sss
 
     /**
      * Prints out the current game information
+     * Hjälp
      */
     public void information() {
         System.out.println("Current game info: ");
@@ -335,12 +350,19 @@ public class Game implements Serializable { // sss
         System.out.println(players.get(0).getName() + " start the round");
     }
 
+    /**
+     * ??? hjälp
+     */
+
     public static void continueButton() {
         System.out.println("\n");
         System.out.println("Press enter to continue");
         Dialog.stringReturn();
     }
 
+    /**
+     * Prints 50 lines to make it easier for the user to read the console
+     */
     public static void newScreen() { //Static so we can reach outside Game class
         System.out.println("\n".repeat(50));
     }
