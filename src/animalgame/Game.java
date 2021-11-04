@@ -366,5 +366,5 @@ public class Game implements Serializable { // sss
     public static void newScreen() { //Static so we can reach outside Game class
         System.out.println("\n".repeat(50));
     }
-
+ //
 }

@@ -13,17 +13,14 @@ import java.util.Random;
  */
 public class GameLogic implements Serializable {
 
-/*    ArrayList<Animal> deadBcusHealth = new ArrayList<>();
-    ArrayList<Animal> deadBcusAge = new ArrayList<>();*/
-
-
     public GameLogic() {
     }
 
 
     /**
-     * This is our winnerPick method. In this method we
-     * declare the winner of the game
+     * When the winnerPick method is called, we declare the winner of the game by automatically
+     * selling all animals that each player owns. Depending on health and age,
+     * each animal is given a value in coins, the player with the most coins wins.
      * @param game
      */
     public void winnerPick(Game game) {
@@ -52,8 +49,7 @@ public class GameLogic implements Serializable {
 
 
     /**
-     * This is our autoSellAnimals method. In this method
-     * we sell all the animals when the game is over.
+     * When this method is called, the price of each animal is calculated and then sold.
      * @param game
      */
     public void autoSellAnimals(Game game) {
@@ -71,8 +67,8 @@ public class GameLogic implements Serializable {
 
 
     /**
-     * This is our animalsHealth method. In this method we
-     *
+     * This method is for decreasing the health of an animal. The damage taken differs from 10 to 20
+     * and is randomly generated.
      * @param player
      */
     public void animalsHealth(Player player) {
@@ -84,11 +80,23 @@ public class GameLogic implements Serializable {
         }
     }
 
+    /**
+     * animalAge declares the age of an animal to 1. Since every time an animal is breed, the age
+     * is set to: 1.
+     * @param player
+     */
     public void animalAge(Player player) {
         for (Animal animal : player.animals)
             animal.setAge(1);
     }
 
+    /**
+     * The playerLoss method lets us check if the current player have lost the game or not.
+     * It is using an if-statement to check the players animal inventory and the players money.
+     * If the player has lost the game it will be removed from the game.
+     * @param player Lets us get information from the Player class
+     * @param game Lets us get information from the game class
+     */
     public void playerLoss(Player player, Game game) {
         if (game.players.size() > 2) {
             if (player.animals.size() <= 0 && player.getMoney() <= 0) {
@@ -115,16 +123,28 @@ public class GameLogic implements Serializable {
         }
     }
 
+    /**
+     * Method that is in the start of every round.
+     * This method lets us check the age of the current players animals and if any animals are dead
+     * @param player Lets us get information from the Player class
+     */
     public void startRound(Player player) {
         animalAge(player);
         checkDeadAnimals(player);
     }
 
+    /**
+     * Method that checks if the current player will be able to play more games.
+     * If the player have no food, animals or money the player will lose the game.
+     * @param player Lets us get information from the Player class
+     * @param game Lets us get information from the game class
+     */
     public void endRound(Player player, Game game) {
         playerLoss(player, game);
         animalsHealth(player);
         checkDeadAnimals(player);
     }
+
 
     public void figure() {
         System.out.println("""
@@ -145,7 +165,12 @@ public class GameLogic implements Serializable {
         System.out.println("\n".repeat(1));
     }
 
-
+    /**
+     * Method that is using an if-statement to check whether the animal is dead or not.
+     * If the animal died because of the age, then it will be added to an array list
+     * If it died because the health, it will be added to an array List aswell
+     * @param player Lets us get information from the Player class
+     */
     public void checkDeadAnimals(Player player) {
         ArrayList<Animal> deadBcusHealth = new ArrayList<>();
         ArrayList<Animal> deadBcusAge = new ArrayList<>();
