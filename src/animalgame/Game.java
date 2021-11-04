@@ -26,7 +26,6 @@ public class Game implements Serializable { // sss
     ArrayList<Player> players = new ArrayList<>();
     ArrayList<Player> loss = new ArrayList<>();
 
-
     public Game() {
         saveGame.setGame(this);
 
@@ -67,7 +66,6 @@ public class Game implements Serializable { // sss
         }
     }
 
-
     public void startMenu() {
 
         currentTurn = 1;
@@ -79,7 +77,6 @@ public class Game implements Serializable { // sss
         playerName();
         information();
         gameMenu();
-
     }
 
     public void gameBrain() {
@@ -163,7 +160,6 @@ public class Game implements Serializable { // sss
         logic.winnerPick(this);
     }
 
-
     public int gameSettings(String text, int min, int max) {
 
         System.out.println(text);
@@ -176,23 +172,22 @@ public class Game implements Serializable { // sss
         }
         return pick < min || pick > max ?
                 gameSettings(text, min, max) : pick;
+
     }
-
-
     public void gameRules() {
         int input = Dialog.dialog(
-                "─────────────────────" +
+                "──────────────────────────────" +
                         "\n [1] Game Summary" +
                         "\n [2] Detailed description" +
                         "\n [3] Return to Main Menu" +
-                        "\n─────────────────────");
+                        "\n──────────────────────────────");
 
         switch (input) {
             case 1 -> gameSummary();
             case 2 -> detailedGameInfo();
-         //   case 3 ->
         }
     }
+
     public void gameSummary(){
         System.out.println("""
                 Summary: 
@@ -203,6 +198,7 @@ public class Game implements Serializable { // sss
                 the game automatically sells every players animals and calculates the value. 
                 The player with the most coins wins!""");
     }
+
     public void detailedStoreDescription(){
         System.out.println("""
                 When you first start the game, you get to choose how many rounds you want to play (between 5 and 30).
@@ -214,10 +210,9 @@ public class Game implements Serializable { // sss
                 [Next Player/End your turn] - Simply ends the current players turn, and puts the next player up.
                 [Game Info] - Prints out the current game info, such as: Current round, current turn and current balance.
                 [Save Game] - Allows the participants to save the current game for later progression.
-                [Exit] - Exits the game.
-                
-                """);
+                [Exit] - Exits the game.""");
     }
+
     public void detailedGameInfo(){
         int input = Dialog.dialog(
                 """
@@ -229,14 +224,14 @@ public class Game implements Serializable { // sss
                         [3] Food
                         [4] After a round ends
                         [5] Store
-                        """);
+                        [6] Return to Main Menu
+                        ────────────────────────────────""");
         switch (input){
             case 1 -> detailedInfoBreeding();
             case 2 -> detailedInfoCoins();
             case 3 -> detailedInfoFood();
             case 4 -> detailedRoundInfo();
             case 5 -> detailedStoreDescription();
-         //   case 6 -> // return to menu
         }
     }
 
@@ -255,20 +250,20 @@ public class Game implements Serializable { // sss
         After a successful breeding, a random generated number of offsprings dependant on the chosen animal is generated, and
         has the age: 0, and health: 100.""");
     }
+
     public void detailedInfoCoins(){
         System.out.println("""
         Every player starts with the same amount of coins: 400.\s
         You use coins to purchase animals and animalfood. You gain coins by selling animals.
-        At the end of the game, the player with the most amount of coins wins.
-        """);
+        At the end of the game, the player with the most amount of coins wins.""");
     }
+
     public void detailedInfoFood(){
         System.out.println("""
                 [Food] Food is purchased from the store with coins and is bought in kilos. The kind of food your animal eats
                 differs with the animal. Each animal can consume 1-3 different kind of food.\s
                 Every kilo increases the health of the animal by 10%.
-                You can't sell food back to the store nor to other players!
-                """);
+                You can't sell food back to the store nor to other players!""");
     }
 
     public void detailedRoundInfo(){
@@ -278,6 +273,7 @@ public class Game implements Serializable { // sss
                 generated from 10% to 30%.
                 A new turn allows each player to make a new action, such as: Buy, sell breed.\s""");
     }
+
     public void information() {
         System.out.println("Current game info: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
@@ -289,7 +285,6 @@ public class Game implements Serializable { // sss
         System.out.println("───────────────");
         System.out.println(players.get(0).getName() + " start the round");
     }
-
 
     public static void continueButton() {
         System.out.println("\n");
