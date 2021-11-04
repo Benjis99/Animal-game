@@ -3,18 +3,16 @@ package gameSave;
 import java.io.*;
 
 /**
- * This is our Serializer class that convert the
- * code in your game to a long string of bytes that
- * saves where you are at the game at the moment.
+ * This class is responsible for serializing and deserializing a state in the program
+ * by converting the current state into a byte stream.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Serializer implements Serializable {
 
     /**
-     * This is our method serialize that deserialize our data
-     * this makes our code converted into a linear data format.
-     * @param filePath
-     * @param data
+     * This method will write the current state of an object into a byte stream in order to save the game.
+     * @param filePath the save game directory
+     * @param data the game object
      */
     static public void serialize(String filePath, Object data) {
         try {
@@ -31,11 +29,11 @@ public class Serializer implements Serializable {
     }
 
     /**
-     * This is our deserialize method.
-     * The deserialization process from the linear data is the reverse,
-     * and causes the Address object to be instantiated in memory.
-     * @param filePath
-     * @return
+     * The deserialize method will do the reverse of what the serializer method does.
+     * This method will read the byte stream from the serialized file and load the state of
+     * the object when it was saved.
+     * @param filePath the save game directory
+     * @return The object read from the stream
      */
     static public Object deserialize(String filePath) {
         try {

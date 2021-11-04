@@ -9,18 +9,15 @@ import java.nio.file.Paths;
 
 
 /**
- * This is our SaveGame Class that saves the game,
- * gives the game a name or you can choose to play an existing
- * game.
- *
+ * In this class we handle all the saving and loading for the Animal game.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class SaveGame implements Serializable {
     Game game;
 
     /**
-     * Here we make a new game.
-     * @param game
+     * We select the current game when we start the game.
+     * @param game the current game.
      */
     public void setGame(Game game) {
         this.game = game;
@@ -29,7 +26,7 @@ public class SaveGame implements Serializable {
     /**
      * Here we name our game that we want to save
      * using the SaveGameName method.
-     * @return
+     * @return the name of the save that the player chose.
      */
     public String saveGameName() {
         String answer = Dialog.dialogString("Name your game save: ");
@@ -37,20 +34,20 @@ public class SaveGame implements Serializable {
     }
 
     /**
-     * This method checks if there is an existing name of a game
-     * and asks the user to either save the game with a new name or
-     * overwrite an existing file.
-     * @return
+     * This method checks if there's an existing game save with the chosen name from saveGameName method.
+     * If there is an existing game save with an already chosen name, the player will get the option to either
+     * overwrite a save or enter a new name.
+     * @return the input from the user.
      */
     public int inputSaveGame() {
-        int inputAnswer = Dialog.dialog("\"1. Overwrite existing file 2. Enter a new name");
+        int inputAnswer = Dialog.dialog("1. Overwrite existing file 2. Enter a new name");
         return inputAnswer;
     }
 
     /**
-     * This method shows a list of played games you can choose
-     * between.
-     * @return
+     * This method shows a list of saved games. The player can either load a save, or go back to the
+     * previous menu.
+     * @return the input from the user.
      */
     public int inputLoadGame() {
         int inputLoad = Dialog.dialog("|0| - back");
@@ -58,8 +55,11 @@ public class SaveGame implements Serializable {
     }
 
     /**
-     * This method Is the actual game this is where we save the game.
-     * @param game
+     * This method will create a new directory (SavedGames) where we store all our saved games.
+     * If the user doesn't have a SavedGames directory, the method will create one. If the user saves the game
+     * the method will call on the serialize method
+     * in the Serializer class to serialize the program.
+     * @param game the instance we created at the start of the game.
      */
     public void saveGame(Game game) {
 
@@ -86,9 +86,9 @@ public class SaveGame implements Serializable {
     }
 
     /**
-     * The method loadGame loads either a new game or
-     * a saved game. If there isn't any saved game the
-     * game will show that there isn't any games in the history.
+     * Loads a saved game if a game save exists in the SavedGames directory.
+     * If a save exists, the method will call on the deserialize method in the Serializer class.
+     * If no saved game exists in SavedGames, the user will get a message that no saves exist.
      */
     public void loadGame() {
         File[] savedGames;
