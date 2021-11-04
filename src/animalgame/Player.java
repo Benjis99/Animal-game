@@ -14,21 +14,35 @@ import java.util.ArrayList;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Player implements Serializable {
-    private final String name; // final
-    public boolean ableToFeed;
+
+    /**
+     * This is our field variables that is private and public
+     */
+    private final String name;
+    private int money = 400;
+    private boolean ableToFeed;
     public boolean ableToSellAnimals;
     public boolean ableToBuyAnimals;
     public boolean ableToBuyFoods;
     public boolean ableToBreed;
-    private int money = 400;
 
     ArrayList<Animal> animals = new ArrayList<>();
     ArrayList<Food> foods = new ArrayList<>();
 
+    /**
+     * Our constructor have String name inside it, which lets us
+     * create players with different names.
+     * @param name of the player
+     */
     public Player(String name) {
         this.name = name;
     }
 
+    /**
+     * We have all our true booleans together which lets us open them with one method.
+     * If a player have made a decision to buy food, it will not be able to
+     * sell animals etc.
+     */
     public void trueStatistics() {
         ableToFeed = true;
         ableToSellAnimals = true;
@@ -37,6 +51,11 @@ public class Player implements Serializable {
         ableToBreed = true;
     }
 
+    /**
+     * We have all our false booleans together which lets us close them with one method.
+     * If a player have made a decision to buy food, it will not be able to
+     * sell animals etc.
+     */
     public void falseStatistics() {
         ableToFeed = false;
         ableToSellAnimals = false;
@@ -45,19 +64,10 @@ public class Player implements Serializable {
         ableToBreed = false;
     }
 
-
-    public void removeMoney(int money) {
-        this.money = this.money - money;
-    }
-
-    public void addMoney(int money) {
-        this.money = this.money + money;
-    }
-
-    public String getName() {
-        return name;
-    }
-
+    /**
+     * This is our method to find out how much food the current player have.
+     * It will show you the amount of food, the name of the food and the amount of kg.
+     */
     public void getAnimalFood() {
         if (foods.size() > 0) {
             System.out.println("This is your food");
@@ -70,7 +80,10 @@ public class Player implements Serializable {
         }
     }
 
-
+    /**
+     * Method that prints out the players animals and the information.
+     * It will show the name, type of animal, gender, health, age and how much health the animal has lost.
+     */
     public void getPlayerAnimal() { //Method that prints out the players animals with information
         if (animals.size() > 0) {
             System.out.println("─────────────────────");
@@ -85,12 +98,18 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * AnimalFeeding method that will let the current player feed the animals.
+     * It will show your inventory of animals and lets you pick which food you want to use.
+     *
+     * If the current player have no animals or no food, then it won't be able to feed.
+     * @param player Lets us get methods from the Player class
+     */
     public void animalFeeding(Player player) { //Pick one animal to feed in the first try-catch
 
         int pick1 = 0;
         int pick2 = 0;
         if (checkWithPlayer(ableToFeed)) {
-
 
             if (player.animals.size() > 0 && player.foods.size() > 0) { //if statement with try-catch inside.
                 while (pick1 < 1 || pick1 > animals.size()) {
@@ -136,12 +155,43 @@ public class Player implements Serializable {
         }
     }
 
-
+    /**
+     * PlayerInv lets us check what the current player have.
+     * We are using getters to get Animals, Food and Balance.
+     */
     public void playerInv() {
         getPlayerAnimal();
         getAnimalFood();
         getBalance();
     }
+
+    /**
+     * If the current player made the decision to buy animals, he must buy -
+     * animals for all his money or skip the turn.
+     * This method will if the player are trying to buy something else.
+     * @param checkPlayer Will check if the players options are closed
+     * @return To many choice this turn - false
+     */
+    public boolean checkWithPlayer(boolean checkPlayer) {
+        if (!checkPlayer) {
+            System.out.println("To many choices this turn");
+            return false;
+        }
+        return true;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void removeMoney(int money) {
+        this.money = this.money - money;
+    }
+
+    public void addMoney(int money) {
+        this.money = this.money + money;
+    }
+
 
     public void getBalance() {
         System.out.println("Current balance: " + this.money + " Swedish kronor");
@@ -168,11 +218,4 @@ public class Player implements Serializable {
         this.ableToBuyFoods = ableToBuyFoods;
     }
 
-    public boolean checkWithPlayer(boolean checkPlayer) {
-        if (!checkPlayer) {
-            System.out.println("To many choices this turn");
-            return false;
-        }
-        return true;
-    }
 } //Player Class
