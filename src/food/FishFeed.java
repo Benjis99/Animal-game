@@ -17,6 +17,6 @@ public class FishFeed extends Food {
      */
     public FishFeed() {
         name = "FishFeed";
-        price = 29; //Price for 750mg
+        price = 29;
     }
 }
