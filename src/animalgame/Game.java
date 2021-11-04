@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * This is our Game class where we have all the menus right now
+ * This is our Game class where we have all the menus.
  * <p>
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
