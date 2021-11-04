@@ -14,14 +14,15 @@ import java.io.Serializable;
 public abstract class Animal implements Serializable {
 
 
+
     /**
-     * This is our field variables
+     * This is our field variables that is protected.
      */
     protected String name;
-    protected int startPrice;
-    protected int health = 100;
     protected String animalBreed;
     protected MaleFemale gender;
+    protected int startPrice;
+    protected int health = 100;
     protected int age = 0;
     protected int maxAge;
     protected int healthDifference;
@@ -45,7 +46,7 @@ public abstract class Animal implements Serializable {
     }
 
     /**
-     * eatFood class will check with the animal if it can eat the food we are giving to it.
+     * eatFood method will check with the animal if it can eat the food we are giving to it.
      * If the animal is at 100% health then it won't be able to eat anything.
      *
      * @param food this is in the method, so we can get information from the Food class
@@ -71,9 +72,8 @@ public abstract class Animal implements Serializable {
     /**
      * This method declares the current price of the animal
      * based on the age.
-     * @return
+     * @return The current price of the animal
      */
-
     public int currentPriceAnimal() {
         double currentPrice = ((this.getHealth() / 100.0) * this.startPrice);
             currentPrice = currentPrice - (this.age * 2);
@@ -85,11 +85,10 @@ public abstract class Animal implements Serializable {
     }
 
     /**
-     * The healthDifference is the method that declares
-     * the current health of the animal.
-     * @param healthDifference
+     * The healthDifference is the method that shows how much health the animal has lost,
+     * this will show each rounds if the animal is alive.
+     * @param healthDifference Will show the amount health that the animal has lost.
      */
-
     public void setHealthDifference(int healthDifference) {
         this.healthDifference = healthDifference;
     }
