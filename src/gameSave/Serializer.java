@@ -11,10 +11,8 @@ import java.io.*;
 public class Serializer implements Serializable {
 
     /**
-     * This is the method that saves the game and turns the string onto
-     * bytes and
-     * give the player an error to show that the game
-     * was not saved.
+     * This is our method deserialize that deserialize our data
+     * this makes our code converted into a linear data format.
      * @param filePath
      * @param data
      */
@@ -33,8 +31,9 @@ public class Serializer implements Serializable {
     }
 
     /**
-     * This is our method deserialize that converts bytes to
-     *
+     * this is our deserialize method.
+     * The deserialization process from the linear data is the reverse,
+     * and causes the Address object to be instantiated in memory.
      * @param filePath
      * @return
      */
