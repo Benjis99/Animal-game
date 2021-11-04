@@ -227,11 +227,13 @@ public class Game implements Serializable { // sss
                         [1] Breeding
                         [2] Coins
                         [3] Food
+                        [4] After a round ends
                         """);
         switch (input){
             case 1 -> detailedInfoBreeding();
-            case 2 -> detailedinfoCoins();
+            case 2 -> detailedInfoCoins();
             case 3 -> detailedInfoFood();
+            case 4 -> detailedRoundInfo();
         }
     }
 
@@ -250,16 +252,28 @@ public class Game implements Serializable { // sss
         After a successful breeding, a random generated number of offsprings dependant on the chosen animal is generated, and
         has the age: 0, and health: 100.""");
     }
-    public void detailedinfoCoins(){
+    public void detailedInfoCoins(){
         System.out.println("""
-                Every player starts with the same amount of coins: 400.\s
-                You use coins to purchase animals and animalfood and you gain coins by selling animals.
-                At the end of the game, the player with the most amount of coins wins.
-                """);
+        Every player starts with the same amount of coins: 400.\s
+        You use coins to purchase animals and animalfood. You gain coins by selling animals.
+        At the end of the game, the player with the most amount of coins wins.
+        """);
     }
     public void detailedInfoFood(){
         System.out.println("""
-                Food""");
+                [Food] Food is purchased from the store with coins and is bought in kilos. The kind of food your animal eats
+                differs with the animal. Each animal can consume 1-3 different kind of food.\s
+                Every kilo increases the health of the animal by 10%.
+                You can't sell food back to the store nor to other players!
+                """);
+    }
+
+    public void detailedRoundInfo(){
+        System.out.println("""
+                After chosen amount of players has made their turn, a new round begins. With a new round comes
+                a loss of health on ALL animals, the ones you own, and those in store. Health loss is randomly
+                generated from 10% to 30%.
+                A new turn allows each player to make a new action, such as: Buy, sell breed.\s""");
     }
     public void information() {
         System.out.println("Current game info: ");
@@ -283,10 +297,5 @@ public class Game implements Serializable { // sss
     public static void newScreen() { //Static so we can reach outside Game class
         System.out.println("\n".repeat(50));
     }
-
-    public void foodSelect() {
-        System.out.println("food");
-    }
-
 
 }
