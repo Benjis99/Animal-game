@@ -101,7 +101,6 @@ public class Store implements Serializable {
         return answer;
     }
 
-
     /**
      * A method for the player to buy food for their animal(s).
      * Depending on the players input from the foodSelect method, the player can buy food for their animals.
@@ -197,22 +196,13 @@ public class Store implements Serializable {
      */
     public void sellAnimal(Animal animal, Player player) {
             System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal());
-        int pick = sellAnimalConfirmation();
+        int pick = decisionMaker();
         if (pick == 1) {
             player.addMoney(animal.currentPriceAnimal());
             player.animals.remove(animal);
             player.falseStatistics();
             player.setAbleToSellAnimals(true);
         }
-    }
-
-    /**
-     * A simple confirmation message asking the user if they want to sell the selected animal.
-     * @return Yes if input is 1, no if input is 2.
-     */
-    public int sellAnimalConfirmation() {
-        int answer = Dialog.dialog("1.Yes 2.No");
-        return answer;
     }
 
     /**
@@ -228,8 +218,8 @@ public class Store implements Serializable {
             if (player.getMoney() < animal.getStartPrice()) {
                 System.out.println("Not enough money for the animal");
             } else {
-                System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " coins ?");
-                int choice = sellAnimalConfirmation(); // decision method, obs ta inte bort!!
+                System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " coins?");
+                int choice = decisionMaker(); // decision method, obs ta inte bort!!
 
                 if (choice == 1) {
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
@@ -246,14 +236,8 @@ public class Store implements Serializable {
         }
     }
 
-
-/*    public int decision() { // obs ta inte bort!!!
-        int answer = Dialog.dialog("1. Yes 2. No");
-        return answer;
-    }*/
-
     /**
-     * Allows the player to select if they want to buy an male or female animal in the addAnimals method
+     * Allows the player to select if they want to buy a male or female animal in the addAnimals method
      * @return male if input is 1, female if input is 2.
      */
     public int maleFemale() {
@@ -289,8 +273,8 @@ public class Store implements Serializable {
                 System.out.println("Not enough money");
             } else {
                 int foodCount = 0;
-                System.out.println("1kg of " + food.getName() + " for " + food.getPrice() + "coins");
-                int yesNo = decisionFood();
+                System.out.println("1kg of " + food.getName() + " for " + food.getPrice() + " coins");
+                int yesNo = decisionMaker();
                 if (yesNo == 1) {
                     if (player.foods.size() > 0) {
                         for (Food food1 : player.foods) {
@@ -314,10 +298,15 @@ public class Store implements Serializable {
         }
     }
 
-    public int decisionFood() {
-        int answer = Dialog.dialog("1. Yes 2. No");
+    /**
+     * A simple confirmation message asking the user if they want to sell the selected animal.
+     * @return Yes if input is 1, no if input is 2.
+     */
+    public int decisionMaker() {
+        int answer = Dialog.dialog("1.Yes 2.No");
         return answer;
     }
+
 
 
 }
