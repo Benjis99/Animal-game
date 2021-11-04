@@ -20,6 +20,7 @@ public class GameLogic implements Serializable {
     public GameLogic() {
     }
 
+
     /**
      * This is our winnerPick method. In this method we
      * declare the winner of the game
@@ -49,6 +50,7 @@ public class GameLogic implements Serializable {
         }
     }
 
+
     /**
      * This is our autoSellAnimals method. In this method
      * we sell all the animals when the game is over.
@@ -66,6 +68,7 @@ public class GameLogic implements Serializable {
             }
         }
     }
+
 
     /**
      * This is our animalsHealth method. In this method we
