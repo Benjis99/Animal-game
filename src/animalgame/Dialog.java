@@ -7,15 +7,30 @@ import java.util.Scanner;
  * This is our Dialog class were we have our scanners.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
-public class Dialog implements Serializable { // s
+public class Dialog implements Serializable {
     private static Scanner console = new Scanner(System.in);
 
+    /**
+     * Dialog method is used all over the program instead of using new scanners.
+     * The 'String text' lets us have an outprint where we use the method,
+     * without we would not be able to use it with different texts.
+     * This is used for ints.
+     * @param text Lets the program know you need to insert text
+     * @return The input
+     */
     public static int dialog(String text) {
         System.out.println(text);
         return Integer.parseInt(console.nextLine());
     }
 
+    /**
+     * Dialog method is used all over the program instead of using new scanners.
+     * The 'String text' lets us have an outprint where we use the method,
+     * without we would not be able to use it with different texts.
+     * This is used for Strings.
+     * @param text Lets the program know you need to insert text
+     * @return The input
+     */
     public static String dialogString(String text) {
         System.out.println(text);
         return console.nextLine();
