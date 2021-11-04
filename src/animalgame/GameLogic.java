@@ -84,11 +84,22 @@ public class GameLogic implements Serializable {
         }
     }
 
+    /**
+     * This is our animalAge that declares the
+     * start age of the animal.
+     * @param player
+     */
     public void animalAge(Player player) {
         for (Animal animal : player.animals)
             animal.setAge(1);
     }
 
+    /**
+     * This is oyr PlayerLoss method that
+     * shows that the player lost the game.
+     * @param player
+     * @param game
+     */
     public void playerLoss(Player player, Game game) {
         if (game.players.size() > 2) {
             if (player.animals.size() <= 0 && player.getMoney() <= 0) {
@@ -115,16 +126,28 @@ public class GameLogic implements Serializable {
         }
     }
 
+    /**
+     * This is our startRound method that shows
+     * ???
+     * @param player
+     */
     public void startRound(Player player) {
         animalAge(player);
         checkDeadAnimals(player);
     }
 
+    /**
+     * This is the endRound method that
+     * ????
+     * @param player
+     * @param game
+     */
     public void endRound(Player player, Game game) {
         playerLoss(player, game);
         animalsHealth(player);
         checkDeadAnimals(player);
     }
+
 
     public void figure() {
         System.out.println("""
@@ -145,7 +168,11 @@ public class GameLogic implements Serializable {
         System.out.println("\n".repeat(1));
     }
 
-
+    /**
+     * This is the checkDeadAnimals method were
+     * the player can check the dead animals.
+     * @param player
+     */
     public void checkDeadAnimals(Player player) {
         ArrayList<Animal> deadBcusHealth = new ArrayList<>();
         ArrayList<Animal> deadBcusAge = new ArrayList<>();
