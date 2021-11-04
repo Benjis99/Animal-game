@@ -3,6 +3,11 @@ package animalgame;
 import java.io.Serializable;
 import java.util.Scanner;
 
+/**
+ * This is our Dialog class were we have our scanners.
+ * @author Lukas L, Isabella S, Benjamin E, Carl M
+ */
+
 public class Dialog implements Serializable { // s
     private static Scanner console = new Scanner(System.in);
 
