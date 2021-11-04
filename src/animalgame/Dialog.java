@@ -37,6 +37,7 @@ public class Dialog implements Serializable {
     }
 
 
+
     public static int intReturn() {
         return Integer.parseInt(console.nextLine());
     }
