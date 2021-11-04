@@ -68,6 +68,8 @@ public abstract class Animal implements Serializable {
         }
     }
 
+    //javadock
+
     public int currentPriceAnimal() {
         double currentPrice = ((this.getHealth() / 100.0) * this.startPrice);
             currentPrice = currentPrice - (this.age * 2);
@@ -77,6 +79,11 @@ public abstract class Animal implements Serializable {
     public int getHealthDifference() {
         return healthDifference;
     }
+
+    /**
+     *
+     * @param healthDifference
+     */
 
     public void setHealthDifference(int healthDifference) {
         this.healthDifference = healthDifference;
