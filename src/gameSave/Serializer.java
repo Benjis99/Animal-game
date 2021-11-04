@@ -11,7 +11,7 @@ import java.io.*;
 public class Serializer implements Serializable {
 
     /**
-     * This is our method deserialize that deserialize our data
+     * This is our method serialize that deserialize our data
      * this makes our code converted into a linear data format.
      * @param filePath
      * @param data
@@ -31,7 +31,7 @@ public class Serializer implements Serializable {
     }
 
     /**
-     * this is our deserialize method.
+     * This is our deserialize method.
      * The deserialization process from the linear data is the reverse,
      * and causes the Address object to be instantiated in memory.
      * @param filePath
