@@ -9,7 +9,6 @@ import food.models.Food;
  *  bird a name, age limit and start price.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-
 public class Bird extends Animal {
 
     /**

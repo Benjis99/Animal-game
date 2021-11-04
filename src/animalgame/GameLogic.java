@@ -20,6 +20,11 @@ public class GameLogic implements Serializable {
     public GameLogic() {
     }
 
+    /**
+     * This is our winnerPick method. In this method we
+     * declare the winner of the game
+     * @param game
+     */
     public void winnerPick(Game game) {
         int score = 0;
         int index = 0;
@@ -44,6 +49,11 @@ public class GameLogic implements Serializable {
         }
     }
 
+    /**
+     * This is our autoSellAnimals method. In this method
+     * we sell all the animals when the game is over.
+     * @param game
+     */
     public void autoSellAnimals(Game game) {
         // Game.newScreen();
         System.out.println("Game is ending, all animals have been sold.");
@@ -57,7 +67,11 @@ public class GameLogic implements Serializable {
         }
     }
 
-
+    /**
+     * This is our animalsHealth method. In this method we
+     *
+     * @param player
+     */
     public void animalsHealth(Player player) {
         Random random = new Random();
         for (Animal animal : player.animals) {
