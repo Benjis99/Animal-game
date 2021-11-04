@@ -140,5 +140,4 @@ public abstract class Animal implements Serializable {
     public int getMaxAge() {
         return maxAge;
     }
-
 }
