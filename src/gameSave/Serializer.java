@@ -33,7 +33,7 @@ public class Serializer implements Serializable {
      * This method will read the byte stream from the serialized file and load the state of
      * the object when it was saved.
      * @param filePath the save game directory
-     * @return The object read from the stream
+     * @return the object read from the stream
      */
     static public Object deserialize(String filePath) {
         try {

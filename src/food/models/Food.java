@@ -3,24 +3,16 @@ package food.models;
 import java.io.Serializable;
 
 /**
- * This is our Food class that extends the Animal class.
- * In this class we give the food value.
+ * This is our abstract Food class where we create a blueprint for the subclasses
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public abstract class Food implements Serializable {
 
-    /**
-     * Here we have field variables that declare
-     * name, price and kg of the foods
-     */
     protected String name;
     protected int price;
     private int kg = 1;
 
-    /**
-     * Here we have the constructor with a super inside.
-     */
     public Food() {
         super();
     }
