@@ -22,10 +22,10 @@ public class Goldfish extends Animal {
     }
 
     /**
-     * This overrides the Animal class
+     * This overrides the canEat method in the Animal class.
      *
-     * @param food this is in the method, so we can get information from the Food class
-     * @return this returns the instance of seeds
+     * @param food lets us get information from the Food class
+     * @return the instance of fishfeed
      */
     @Override
     public boolean canEat(Food food) {
@@ -33,9 +33,10 @@ public class Goldfish extends Animal {
     }
 
     /**
-     * The eatFood method will override with new health for the animal.
+     * The eatFood method will add health to the animal.
+     * If the animal has 100% health, it would not be able to eat.
      *
-     * @param food this is in the method, so we can get information from the Food class
+     * @param food lets us get information from the Food class
      */
     @Override
     public void eatFood(Food food) {
