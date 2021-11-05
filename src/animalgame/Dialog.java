@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 /**
- * This is our Dialog class were we have our scanners.
+ * This is our Dialog class where we have our scanner.
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Dialog implements Serializable {
@@ -13,10 +13,10 @@ public class Dialog implements Serializable {
     /**
      * Dialog method is used all over the program instead of using new scanners.
      * The 'String text' lets us have an outprint where we use the method,
-     * without we would not be able to use it with different texts.
+     * without it, we would not be able to use it with different texts.
      * This is used for ints.
-     * @param text Lets the program know you need to insert text
-     * @return The input
+     * @param text lets the program know you need to insert text
+     * @return the input
      */
     public static int dialog(String text) {
         System.out.println(text);
@@ -28,8 +28,8 @@ public class Dialog implements Serializable {
      * The 'String text' lets us have an outprint where we use the method,
      * without we would not be able to use it with different texts.
      * This is used for Strings.
-     * @param text Lets the program know you need to insert text
-     * @return The input
+     * @param text lets the program know you need to insert text
+     * @return the input
      */
     public static String dialogString(String text) {
         System.out.println(text);
@@ -54,6 +54,7 @@ public class Dialog implements Serializable {
         return console.nextInt();
     }
 
+    /*
     public static int tryCatch(int min, int max){
         Scanner input = new Scanner(System.in);
         int playerChoice = -1;
@@ -67,6 +68,8 @@ public class Dialog implements Serializable {
             }
         } return playerChoice;
     }
+
+     */
 
 
 }
