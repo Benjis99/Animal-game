@@ -23,7 +23,7 @@ public class Store implements Serializable {
      * The buy menu is used to open our stores.
      * This method has a switch case that is simplified.
      * Menu check is true in the beginning, when you are exiting the menus it changes to false.
-     * The player gets to choose what menu to enter with the decisionMenu method
+     * The player gets to choose what menu to enter with the decisionMenu method.
      * @param player the current player
      */
     public void buyMenu(Player player) {
@@ -43,8 +43,8 @@ public class Store implements Serializable {
     }
 
     /**
-     * The different stores a player can enter while being in the store class.
-     * @return the input chosen by the player.
+     * The different options a player can enter while being in the store class.
+     * @return the input chosen by the player
      */
     public int decisionMenu() {
         int answer = Dialog.dialog(
@@ -62,7 +62,7 @@ public class Store implements Serializable {
      * The menu is used for players to sell their animals. The method checks if a player has any animals to sell
      * and then allows the player to sell any animals the user wants to. The method will also print some
      * basic information about the animal they want to sell, such as name, age, health and price.
-     * @param player the current player.
+     * @param player the current player
      */
     public void sellAnimalsShop(Player player) {
         boolean menuCheck = true;
@@ -81,7 +81,6 @@ public class Store implements Serializable {
                     menuCheck = false;
                 } else {
 
-                    //If-statement does not work correctly
                     if (player.checkWithPlayer(player.ableToSellAnimals)) {
                         sellAnimal(player.animals.get(index - 1), player);
                     }
@@ -94,7 +93,7 @@ public class Store implements Serializable {
 
     /**
      * A simple method to leave the sellAnimalsShop.
-     * @return 0 if the player wants to leave the store.
+     * @return 0 if the player wants to leave the store
      */
     public int leaveStore() {
         int answer = Dialog.dialog("[ 0 ] -- Leave store");
@@ -105,7 +104,7 @@ public class Store implements Serializable {
      * A method for the player to buy food for their animal(s).
      * Depending on the players input from the foodSelect method, the player can buy food for their animals.
      * The player will also get a print of what food the player currently owns.
-     * @param player the current player.
+     * @param player the current player
      */
     public void foodShop(Player player) {
 
@@ -126,7 +125,7 @@ public class Store implements Serializable {
 
     /**
      * A menu for the player to select which food the player wants to buy.
-     * @return the type of food the player wants to buy.
+     * @return the type of food the player wants to buy
      */
     public int foodSelect() {
         int answer = Dialog.dialog(
@@ -144,10 +143,10 @@ public class Store implements Serializable {
     }
 
     /**
-     * A method for the player to buy animal(s).
+     * A method for the players to buy animal(s).
      * Depending on the players input from the animalSelect method, the player can buy an animal.
      * The player will also get a print of what animal the player currently owns.
-     * @param player the current player.
+     * @param player the current player
      */
     public void animalShop(Player player) {
 
@@ -171,7 +170,7 @@ public class Store implements Serializable {
 
     /**
      * A menu for the player to select which animal the player wants to buy.
-     * @return the type of animal the player wants to buy.
+     * @return the type of animal the player wants to buy
      */
     public int animalSelect() {
         int answer = Dialog.dialog(
@@ -191,11 +190,11 @@ public class Store implements Serializable {
      * A method for the player to sell animal(s).
      * Depending on the players input from the sellAnimalConfirmation method, the player can sell an animal.
      * The player will also get a print of what animal the player currently owns.
-     * @param animal the selected animal from the sellAnimalsShop method.
-     * @param player the current player.
+     * @param animal the selected animal from the sellAnimalsShop method
+     * @param player the current player
      */
     public void sellAnimal(Animal animal, Player player) {
-            System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal());
+            System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal() + " Coins? ");
         int pick = decisionMaker();
         if (pick == 1) {
             player.addMoney(animal.currentPriceAnimal());
@@ -210,16 +209,16 @@ public class Store implements Serializable {
      * If the player doesn't have enough money for the selected animal, the player will get a message saying
      * that they don't have enough money for it.
      * After an animal is bought, the said animal will be added to the players arraylist of owned animals.
-     * @param player the current player.
-     * @param animal the type of animal selected from the animalShop method.
+     * @param player the current player
+     * @param animal the type of animal selected from the animalShop method
      */
     public void addAnimals(Player player, Animal animal) {
         if (player.checkWithPlayer(player.ableToBuyAnimals)) {
             if (player.getMoney() < animal.getStartPrice()) {
-                System.out.println("Not enough money for the animal");
+                System.out.println("Not enough coins for the animal");
             } else {
-                System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " coins?");
-                int choice = decisionMaker(); // decision method, obs ta inte bort!!
+                System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " Coins?");
+                int choice = decisionMaker();
 
                 if (choice == 1) {
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
@@ -238,7 +237,7 @@ public class Store implements Serializable {
 
     /**
      * Allows the player to select if they want to buy a male or female animal in the addAnimals method
-     * @return male if input is 1, female if input is 2.
+     * @return male if input is 1, female if input is 2
      */
     public int maleFemale() {
         int answer = Dialog.dialog("Pick gender: 1. Male 2. Female");
@@ -248,8 +247,8 @@ public class Store implements Serializable {
     /**
      * This method will add the animals that was bought in the addAnimals to the players ArrayList of animals as well
      * as removing the cost of the animals from the players current balance.
-     * @param player the current player.
-     * @param animal the selected animal from the animalShop method. ???? Kolla igenom denna
+     * @param player the current player
+     * @param animal the selected animal from the animalShop method
      */
     private void afterPurchaseAnimal(Player player, Animal animal) {
         player.animals.add(animal);
@@ -260,17 +259,17 @@ public class Store implements Serializable {
 
 
     /**
-     * A method for the player to buy food for their animal(s). The method will inform the player of some basic
-     * information about the food the player selected in foodShop, such as amount, food name and cost of the food.
+     * A method for the player to buy food for their animal(s). The method will inform the player with
+     * information about food price in kilos.
      * If the player bought food, it will be added to an Arraylist with foods.
      *
-     * @param food Lets us get information from the Food class
-     * @param player Lets us get information from the Player class
+     * @param food lets us get information from the Food class
+     * @param player lets us get information from the Player class
      */
     public void addFood(Food food, Player player) {
         if (player.checkWithPlayer(player.ableToBuyFoods)) {
             if (player.getMoney() < food.getPrice()) {
-                System.out.println("Not enough money");
+                System.out.println("Not enough coins");
             } else {
                 int foodCount = 0;
                 System.out.println("1kg of " + food.getName() + " for " + food.getPrice() + " coins");
@@ -300,7 +299,7 @@ public class Store implements Serializable {
 
     /**
      * A simple confirmation message asking the user if they want to sell the selected animal.
-     * @return Yes if input is 1, no if input is 2.
+     * @return Yes if input is 1, no if input is 2
      */
     public int decisionMaker() {
         int answer = Dialog.dialog("1.Yes 2.No");
