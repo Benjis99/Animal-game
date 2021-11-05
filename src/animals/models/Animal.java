@@ -5,17 +5,12 @@ import food.models.Food;
 import java.io.Serializable;
 
 /**
- * This is our Animal class where we check with the animal if they can,
- * eat the food or not.
- * We also have all the methods for the Animal class here
+ * This is our Animal class where we have information about the animals.
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public abstract class Animal implements Serializable {
 
-    /**
-     * This is our field variables that is protected.
-     */
     protected String name;
     protected String animalBreed;
     protected MaleFemale gender;
@@ -44,13 +39,12 @@ public abstract class Animal implements Serializable {
     }
 
     /**
-     * eatFood method will check with the animal if it can eat the food we are giving to it.
-     * If the animal is at 100% health then it won't be able to eat anything.
+     * Method eatFood will check with the animals if they can eat the food we are giving to it.
+     * If the animal have 100% health then it won't be able to eat anything.
      *
-     * @param food this is in the method, so we can get information from the Food class
+     * @param food lets us get information from the food class
      */
-    public void eatFood(Food food) { //Method that will check if the animal can eat the food or not
-        //If the animal is at 100 health, then it will not be able to eat
+    public void eatFood(Food food) {
         if (eatTrue(food)) {
             if (this.health >= 100) {
                 this.health = 100;
@@ -71,7 +65,7 @@ public abstract class Animal implements Serializable {
      * This method declares the current price of the animal
      * based on the age.
      *
-     * @return The current price of the animal
+     * @return the current price of the animal
      */
     public int currentPriceAnimal() {
         double currentPrice = ((this.getHealth() / 100.0) * this.startPrice);
@@ -83,7 +77,7 @@ public abstract class Animal implements Serializable {
      * The healthDifference is the method that shows how much health the animal has lost,
      * this will show each rounds if the animal is alive.
      *
-     * @param healthDifference Will show the amount health that the animal has lost.
+     * @param healthDifference will show the amount health that the animal has lost
      */
     public void setHealthDifference(int healthDifference) {
         this.healthDifference = healthDifference;
