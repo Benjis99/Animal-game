@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * This is our Breeding class
+ * This is our Breeding class, where the logic of the breeding brain is.
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Breeding implements Serializable { // Breeding Class
+public class Breeding implements Serializable {
+
     public String animalBabyBreed;
 
     public Breeding() {
-
     }
 
 
@@ -27,7 +27,7 @@ public class Breeding implements Serializable { // Breeding Class
      * compatible to breed, the program will randomise a value from 0-100, and >50 will successfully breed the animal and
      * have the player name the new animal.
      *
-     * @param player the instance of the current player
+     * @param player The instance of the current player
      */
     public void animalBreed(Player player) {
         Random random = new Random();
@@ -38,7 +38,7 @@ public class Breeding implements Serializable { // Breeding Class
         ArrayList<Animal> tempList = new ArrayList<>();
         if (player.checkWithPlayer(player.ableToBreed)) {
             if (player.animals.size() <= 1) {
-                System.out.println("You have 1 or less animals, not enough to breed. "); // Maybe needs fixing
+                System.out.println("You have 1 or less animal, not enough to breed. ");
                 return;
             } else {
                 while (animal1 < 1 || animal1 > player.animals.size()) {
@@ -65,7 +65,7 @@ public class Breeding implements Serializable { // Breeding Class
                         animalBabyBreed = animal.getAnimalBreed();
                         count++;
                     }
-                    System.out.println("Choose your second animal to breed. Enter a number: ");
+                    System.out.println("Choose your second animal to breed. \nEnter a number: ");
                     try {
                         animal2 = Dialog.intReturn();
                     } catch (Exception e) {
@@ -111,8 +111,8 @@ public class Breeding implements Serializable { // Breeding Class
     /**
      * This method allows the player to name their new animal once the parents have mated.
      *
-     * @param player assigns the new name of the newborn animal to the current player.
-     * @param animal generates a gender and what animal type the newborn animal is.
+     * @param player Assigns the new name of the newborn animal to the current player.
+     * @param animal Generates a gender and what animal type the newborn animal is.
      */
     public void newAnimal(Player player, Animal animal) {
 
@@ -132,19 +132,19 @@ public class Breeding implements Serializable { // Breeding Class
     /**
      * A method to check if two animals can breed.
      *
-     * @param animal1 gets the information about animal breed and gender for animal1.
-     * @param animal2 gets the information about animal breed and gender for animal2.
-     * @return true if animal breed is the same and gender is the opposite. Otherwise, returns false.
+     * @param animal1 Gets the information about animal breed and gender for animal1.
+     * @param animal2 Gets the information about animal breed and gender for animal2.
+     * @return True if animal breed is the same and gender is the opposite. Otherwise, returns false.
      */
     public boolean checkForBreed(Animal animal1, Animal animal2) {
         return animal1.getAnimalBreed().equals(animal2.getAnimalBreed()) && animal1.getGender() != animal2.getGender();
     }
 
     /**
-     * Checks which animals that are compatible for breeding
+     * Checks which animals that are compatible for breeding.
      *
-     * @param animal1 grabs information such as: gender, name and breed about animal1.
-     * @param animal2 compares the current animal2 with animal1
+     * @param animal1 Grabs information such as: gender, name and breed about animal1.
+     * @param animal2 Compares the current animal2 with animal1
      * @return Returns the value of each variable for animal1 and animal2
      */
     public boolean checkAnimalsLeftForBreeding(Animal animal1, Animal animal2) {
@@ -154,11 +154,11 @@ public class Breeding implements Serializable { // Breeding Class
 
 
     /**
-     * Checks which animals the player owns, and also stores the gender and breed of the animal.
+     * Checks which animals the player owns, and also if the animals are compatible to breed.
      *
-     * @param player
-     * @param animal1
-     * @return
+     * @param player Grabs information such as: Animals.
+     * @param animal1 Grabs information such as: Gender.
+     * @return True or False value.
      */
     public boolean animalsThatCanBreed(Player player, Animal animal1) {
         for (Animal animal : player.animals) {
@@ -171,8 +171,8 @@ public class Breeding implements Serializable { // Breeding Class
 
     /**
      * Randomizes an amount of babies to an animal once they've given birth with a max amount of babies an animal can have.
-     * @param maxAmountOfBabies the max amount of babies an animal can have.
-     * @return the amount of babies of a certain animal to add to the current player
+     * @param maxAmountOfBabies The max amount of babies an animal can breed at once.
+     * @return The amount of babies of a certain animal to add to the current player.
      */
     public int animalBirth(int maxAmountOfBabies) {
         Random random = new Random();
@@ -189,8 +189,8 @@ public class Breeding implements Serializable { // Breeding Class
     }
 
     /**
-     * Allows the user to choose an animal for breeding
-     * @return Returns the chosen animal
+     * Allows the user to choose an animal for breeding.
+     * @return Returns the chosen animal.
      */
     public int firstAnimal() {
         int first = Dialog.dialog("Choose your first animal to breed! Enter a number: ");
