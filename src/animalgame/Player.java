@@ -114,23 +114,20 @@ public class Player implements Serializable {
             if (player.animals.size() > 0 && player.foods.size() > 0) { //if statement with try-catch inside.
                 while (pick1 < 1 || pick1 > animals.size()) {
                     try {
-                        Game.newScreen(); //New screen, easy to see the information
                         getPlayerAnimal(); //This will get the players animal
                         System.out.println("Which animal do you want to feed: ");
                         pick1 = Integer.parseInt(Dialog.stringReturn()); //We need a scanner from game class here
                     } catch (Exception e) {
-                        System.out.println("You need to enter a number");
-                        Game.continueButton();
+                        System.out.println("You need to enter a number!");
                     }
                 }
                 while (pick2 < 1 || pick2 > foods.size()) {  //While loop with try-catch inside.
                     try {
-                        Game.newScreen();
                         getAnimalFood();
                         System.out.println("\nPick the food you wanna use");
                         pick2 = Integer.parseInt(Dialog.stringReturn());
                     } catch (Exception e) {
-                        System.out.println("You need to enter a number");
+                        System.out.println("You need to enter a number!");
 
                     }
                 }

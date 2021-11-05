@@ -7,12 +7,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * This is our Game class where we have all the menus.
- * <p>
+ * This is our Game class where we have information about the game.
  *
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
-public class Game implements Serializable { // sss
+public class Game implements Serializable {
 
     /**
      * The field variables keep track of the game settings chosen by the player, and provides
@@ -31,7 +30,7 @@ public class Game implements Serializable { // sss
     ArrayList<Player> loss = new ArrayList<>();
 
     /**
-     * The constructor Game() is providing a way for the user to navigate through the menus.
+     * The constructor is providing a way for the user to navigate through the menus.
      *
      */
     public Game() {
@@ -74,16 +73,16 @@ public class Game implements Serializable { // sss
     }
 
     /**
-     * Method for storing the game settings
+     * Method for storing the amount of rounds and players.
      */
     public void startMenu() {
 
         currentTurn = 1;
         exit = false;
         amountOfTurns = gameSettings("How many rounds do you wanna play 5-30 rounds", 5, 30);
-        System.out.println("───────────────────────────");
+        System.out.println("─────────────────────");
         numberOfPlayers = gameSettings("How many players do you want, between 2-4", 2, 4);
-        System.out.println("───────────────────────────");
+        System.out.println("─────────────────────");
         playerName();
         information();
         gameMenu();
@@ -92,7 +91,7 @@ public class Game implements Serializable { // sss
     /**
      * In gameBrain we give access to the Store-class and Breeding-class.
      * We use a while-loop that runs with the game.
-     * Switch (pick) recieves the user input. // skriv mer
+     * The switch-case receives the user input and lets the player choose an option.
      */
     public void gameBrain() {
         Store store = new Store();
@@ -102,14 +101,11 @@ public class Game implements Serializable { // sss
         while (game) {
             int pick = 0;
             while (pick < 1 || pick > 7) {
-                System.out.println("───────────────");
+                System.out.println("─────────────────────");
                 System.out.println("It is round " + currentTurn + " and it is: " + currentPlayer.getName() + "'s" + " turn.");
-                // System.out.println(currentPlayer.getName() + " turn");
                 currentPlayer.playerInv();
                 pick = menuStore();
-
             }
-
             switch (pick) {
                 case 1 -> store.buyMenu(currentPlayer);
                 case 2 -> breeding.animalBreed(currentPlayer);
@@ -127,7 +123,7 @@ public class Game implements Serializable { // sss
 
     /**
      * Menu of options for the current player
-     * @return Returns the chosen menu option.
+     * @return returns the chosen menu option
      */
     public int menuStore() {
         int input = Dialog.dialog(
@@ -144,14 +140,13 @@ public class Game implements Serializable { // sss
     }
 
     /**
-     * Allows the user to name their player.
-     * We use user input to declare a name for the player
+     * Allows the users to name their players.
      */
     public void playerName() {
         newScreen();
         System.out.println("You picked " + numberOfPlayers + " amount of players");
         for (int i = 1; i < numberOfPlayers + 1; i++) {
-            System.out.println("───────────────");
+            System.out.println("─────────────────────");
             System.out.println("Player " + i + " pick your name: ");
             String name = Dialog.stringReturn();
             players.add(new Player(name));
@@ -159,10 +154,14 @@ public class Game implements Serializable { // sss
     }
 
     /**
-     * Behöver hjälp
+     * The method checks if the amount of turns has been exceeded,
+     * if the amount of turns has been exceeded the game will pick a winner.
+     *
+     * This method will also check the current age of the animals, and if there are dead animals.
+     * End round will check if any player has lost the game, the health of the animals,
+     * and any dead animals.
      */
-    public void gameMenu() { //comment
-
+    public void gameMenu() {
         for (int pick = currentTurn; pick < amountOfTurns + 1; pick++) {
 
             for (int pick1 = playerIndex; pick1 < players.size(); pick1++) {
@@ -189,12 +188,11 @@ public class Game implements Serializable { // sss
     /**
      *  Behöver hjälp
      * @param text
-     * @param min
+     * @param min the lowest amount of rounds/players
      * @param max
      * @return
      */
     public int gameSettings(String text, int min, int max) {
-
         System.out.println(text);
 
         int pick = -1;
@@ -205,7 +203,6 @@ public class Game implements Serializable { // sss
         }
         return pick < min || pick > max ?
                 gameSettings(text, min, max) : pick;
-
     }
 
     /**
@@ -214,11 +211,11 @@ public class Game implements Serializable { // sss
      */
     public void gameRules() {
         int input = Dialog.dialog(
-                "──────────────────────────────" +
+                "─────────────────────" +
                         "\n [1] Game Summary" +
                         "\n [2] Detailed description" +
                         "\n [3] Return to Main Menu" +
-                        "\n──────────────────────────────");
+                        "\n─────────────────────");
 
         switch (input) {
             case 1 -> gameSummary();
@@ -245,8 +242,8 @@ public class Game implements Serializable { // sss
      */
     public void detailedStoreDescription() {
         System.out.println("""
-                When you first start the game, you get to choose how many rounds you want to play (between 5 and 30).
-                Afterwards, you get to choose how many participants that will play (between 2 and 4).
+                When you first start the game, you get to choose how many rounds you want to play (from 5 to 30).
+                Afterwards, you get to choose how many participants that will play (from 2 to 4).
                 The first turn allows the player to choose between different options:
                 [Store] - Where you buy animals or food. Here you can also sell animals.
                 [Breed] - A feature you unlock after buying two of the same animals with opposite genders.
@@ -264,16 +261,16 @@ public class Game implements Serializable { // sss
     public void detailedGameInfo() {
         int input = Dialog.dialog(
                 """
-                        ───────────────────────
+                        ─────────────────────
                         How does it work?
-                        ───────────────────────
+                        ─────────────────────
                         [1] Breeding
                         [2] Coins
                         [3] Food
                         [4] After a round ends
                         [5] Store
                         [6] Return to Main Menu
-                        ────────────────────────────────""");
+                        ─────────────────────""");
         switch (input) {
             case 1 -> detailedInfoBreeding();
             case 2 -> detailedInfoCoins();
@@ -318,7 +315,7 @@ public class Game implements Serializable { // sss
     public void detailedInfoFood() {
         System.out.println("""
                 [Food] Food is purchased from the store with coins and is bought in kilos. The kind of food your animal eats
-                differs with the animal. Each animal can consume 1-3 different kind of food.\s
+                differs with the animal. Each animal can consume 1-3 different kind of food.
                 Every kilo increases the health of the animal by 10%.
                 You can't sell food back to the store nor to other players!""");
     }
@@ -331,12 +328,11 @@ public class Game implements Serializable { // sss
                 After chosen amount of players has made their turn, a new round begins. With a new round comes
                 a loss of health on ALL animals, the ones you own, and those in store. Health loss is randomly
                 generated from 10% to 30%.
-                A new turn allows each player to make a new action, such as: Buy, sell breed.\s""");
+                A new turn allows each player to make a new action, such as: Buy, sell breed.""");
     }
 
     /**
      * Prints out the current game information
-     * Hjälp
      */
     public void information() {
         System.out.println("Current game info: ");
@@ -346,18 +342,8 @@ public class Game implements Serializable { // sss
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
-        System.out.println("───────────────");
+        System.out.println("─────────────────────");
         System.out.println(players.get(0).getName() + " start the round");
-    }
-
-    /**
-     * ??? hjälp
-     */
-
-    public static void continueButton() {
-        System.out.println("\n");
-        System.out.println("Press enter to continue");
-        Dialog.stringReturn();
     }
 
     /**
@@ -366,5 +352,5 @@ public class Game implements Serializable { // sss
     public static void newScreen() { //Static so we can reach outside Game class
         System.out.println("\n".repeat(50));
     }
- //
+
 }
