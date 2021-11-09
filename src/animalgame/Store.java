@@ -96,7 +96,7 @@ public class Store implements Serializable {
      * @return 0 if the player wants to leave the store
      */
     public int leaveStore() {
-        int answer = Dialog.dialog("[ 0 ] -- Leave store",0,0);
+        int answer = Dialog.dialogWithoutMax("[ 0 ] -- Leave store");
         return answer;
     }
 
