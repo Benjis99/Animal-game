@@ -52,7 +52,7 @@ public class Game implements Serializable {
             switch (first) {
                 case 1 -> startMenu();
                 case 2 -> gameRules();
-                case 3 -> saveGame.loadGame(); //Printar ut när man går in på information
+                case 3 -> saveGame.loadGame();
                 case 4 -> {
                     boolean exit = true;
                     while (exit) {
@@ -62,7 +62,7 @@ public class Game implements Serializable {
                         if (input2 == 1) {
                             start = false;
                             exit = false;
-                            System.out.println("Turning off game" + ".".repeat(3));
+                            System.out.println("Turning off game" + "...");
 
                             System.exit(1);
                         }
