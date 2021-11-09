@@ -192,7 +192,7 @@ public class Player implements Serializable {
     }
 
 
-    public int getMoney() {
+    public int getCoins() {
         return this.money;
     }
 

@@ -31,18 +31,18 @@ public class GameLogic implements Serializable {
         } else {
             autoSellAnimals(game);
             for (int i = 0; i < game.players.size(); i++) {
-                if (game.players.get(i).getMoney() > score) {
-                    score = game.players.get(i).getMoney();
+                if (game.players.get(i).getCoins() > score) {
+                    score = game.players.get(i).getCoins();
                     index = i;
                 }
             }
             System.out.println("Winner is: " + game.players.get(index).getName() + " with: "
-                    + game.players.get(index).getMoney() + " C");
+                    + game.players.get(index).getCoins() + " C");
             for (Player player : game.players) {
-                System.out.println(player.getName() + ": " + player.getMoney() + " C");
+                System.out.println(player.getName() + ": " + player.getCoins() + " C");
             }
             for (Player player : game.loss) {
-                System.out.println(player.getName() + ": " + player.getMoney() + " C");
+                System.out.println(player.getName() + ": " + player.getCoins() + " C");
             }
         }
     }
@@ -98,7 +98,7 @@ public class GameLogic implements Serializable {
      */
     public void playerLoss(Player player, Game game) {
         if (game.players.size() > 2) {
-            if (player.animals.size() <= 0 && player.getMoney() <= 0) {
+            if (player.animals.size() <= 0 && player.getCoins() <= 0) {
                 figure();
                 System.out.println(player.getName() + " has no money, animals or animal food, you have lost the game!");
                 game.players.remove(player);
@@ -106,7 +106,7 @@ public class GameLogic implements Serializable {
             }
         }
         else {
-            if (player.animals.size() <= 0 && player.getMoney() <= 0) {
+            if (player.animals.size() <= 0 && player.getCoins() <= 0) {
                 figure();
                 System.out.println(player.getName() + " has no money, animals or animal food, you have lost the game!");
 
