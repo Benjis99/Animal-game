@@ -48,7 +48,7 @@ public class SaveGame implements Serializable {
      * @return the input from the user
      */
     public int inputLoadGame() {
-        int inputLoad = Dialog.dialog("|0| - back", 0, 0);
+        int inputLoad = Dialog.dialogWithoutMax("|0| - back");
         return inputLoad;
     }
 
