@@ -84,11 +84,12 @@ public class Player implements Serializable {
     public void getPlayerAnimal() { //Method that prints out the players animals with information
         if (animals.size() > 0) {
             System.out.println("─────────────────────");
-            System.out.println("This is your animals");
+            System.out.println("These are your animals");
             int counter = 1;
             for (Animal animal : animals) {
                 System.out.println("[" + counter + "]" + " " + animal.getName() + " ─ " + animal.getAnimalBreed() + " " + animal.getGender() +
-                        " " + animal.getHealth() + " % health." + " Age: " + animal.getAge() + " lost " + animal.getHealthDifference() + " health this turn.");
+                        " " + animal.getHealth() + " % health." + " Age: " + animal.getAge());
+                System.out.println(animal.getName() + " lost " + animal.getHealthDifference() + " health this turn.");
                 counter++;
             }
             System.out.println("─────────────────────");

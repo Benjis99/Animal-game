@@ -54,19 +54,8 @@ public class Game implements Serializable {
                 case 2 -> gameRules();
                 case 3 -> saveGame.loadGame();
                 case 4 -> {
-                    boolean exit = true;
-                    while (exit) {
-                        int input2 = Dialog.dialog(
-                                "[1] Turn off game" +
-                                        "\n─────────────────────");
-                        if (input2 == 1) {
-                            start = false;
-                            exit = false;
-                            System.out.println("Turning off game" + "...");
-
-                            System.exit(1);
-                        }
-                    }
+                    System.out.println("Game is ending...");
+               System.exit(1);
                 }
             }
         }
@@ -134,7 +123,7 @@ public class Game implements Serializable {
                         "\n[4] End Turn" +
                         "\n[5] Game Info" +
                         "\n[6] Save game" +
-                        "\n[7] Exit to main menu" +
+                        "\n[7] Exit game" +
                         "\n─────────────────────");
         return input;
     }
@@ -342,8 +331,8 @@ public class Game implements Serializable {
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
-        System.out.println("─────────────────────");
-        System.out.println(players.get(0).getName() + " start the round");
+       // System.out.println("─────────────────────");
+        //System.out.println(players.get(0).getName() + " start the game");
     }
 
     /**
