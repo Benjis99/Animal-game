@@ -193,7 +193,7 @@ public class Breeding implements Serializable {
      * @return returns the chosen animal
      */
     public int firstAnimal() {
-        int first = Dialog.dialog("Choose your first animal to breed! Enter a number: ");
+        int first = Dialog.dialogWithoutMax("Choose your first animal to breed! Enter a number: ");
         return first;
     }
 

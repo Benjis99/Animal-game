@@ -54,7 +54,7 @@ public class Store implements Serializable {
                         "\n[2] Food store" +
                         "\n[3] Sell animal" +
                         "\n[4] Exit store" +
-                        "\n─────────────────────");
+                        "\n─────────────────────", 1, 4);
         return answer;
     }
 
@@ -96,7 +96,7 @@ public class Store implements Serializable {
      * @return 0 if the player wants to leave the store
      */
     public int leaveStore() {
-        int answer = Dialog.dialog("[ 0 ] -- Leave store");
+        int answer = Dialog.dialog("[ 0 ] -- Leave store",0,0);
         return answer;
     }
 
@@ -137,7 +137,7 @@ public class Store implements Serializable {
                         "\n[4] Pellets for hamster" +
                         "\n[5] Seeds for bird" +
                         "\n[6] Exit food shop" +
-                        "\n─────────────────────");
+                        "\n─────────────────────", 1, 6);
 
         return answer;
     }
@@ -182,7 +182,7 @@ public class Store implements Serializable {
                         "\n[4] Goldfish" +
                         "\n[5] Hamster" +
                         "\n[6] Exit Animal shop" +
-                        "\n─────────────────────");
+                        "\n─────────────────────", 1, 6);
         return answer;
     }
 
@@ -240,7 +240,7 @@ public class Store implements Serializable {
      * @return male if input is 1, female if input is 2
      */
     public int maleFemale() {
-        int answer = Dialog.dialog("Pick gender: 1. Male 2. Female");
+        int answer = Dialog.dialog("Pick gender: 1. Male 2. Female", 1, 2);
         return answer;
     }
 
@@ -302,7 +302,7 @@ public class Store implements Serializable {
      * @return Yes if input is 1, no if input is 2
      */
     public int decisionMaker() {
-        int answer = Dialog.dialog("1.Yes 2.No");
+        int answer = Dialog.dialog("1.Yes 2.No", 1, 2);
         return answer;
     }
 

@@ -48,7 +48,7 @@ public class Game implements Serializable {
                             "\n[2] Information" +
                             "\n[3] Load Game" +
                             "\n[4] Exit Game" +
-                            "\n─────────────────────");
+                            "\n─────────────────────",1, 4);
             switch (first) {
                 case 1 -> startMenu();
                 case 2 -> gameRules();
@@ -130,7 +130,7 @@ public class Game implements Serializable {
                         "\n[5] Game Info" +
                         "\n[6] Save game" +
                         "\n[7] Exit game" +
-                        "\n─────────────────────");
+                        "\n─────────────────────", 1, 7);
         return input;
     }
 
@@ -210,7 +210,7 @@ public class Game implements Serializable {
                         "\n [1] Game Summary" +
                         "\n [2] Detailed description" +
                         "\n [3] Return to Main Menu" +
-                        "\n─────────────────────");
+                        "\n─────────────────────", 1, 3);
 
         switch (input) {
             case 1 -> gameSummary();
@@ -265,7 +265,7 @@ public class Game implements Serializable {
                         [4] After a round ends
                         [5] Store
                         [6] Return to Main Menu
-                        ─────────────────────""");
+                        ─────────────────────""", 1,6);
         switch (input) {
             case 1 -> detailedInfoBreeding();
             case 2 -> detailedInfoCoins();

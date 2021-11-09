@@ -38,7 +38,7 @@ public class SaveGame implements Serializable {
      * @return the input from the user
      */
     public int inputSaveGame() {
-        int inputAnswer = Dialog.dialog("1. Overwrite existing file 2. Enter a new name");
+        int inputAnswer = Dialog.dialog("1. Overwrite existing file 2. Enter a new name", 1, 2);
         return inputAnswer;
     }
 
@@ -48,7 +48,7 @@ public class SaveGame implements Serializable {
      * @return the input from the user
      */
     public int inputLoadGame() {
-        int inputLoad = Dialog.dialog("|0| - back");
+        int inputLoad = Dialog.dialog("|0| - back", 0, 0);
         return inputLoad;
     }
 

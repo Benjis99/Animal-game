@@ -18,11 +18,40 @@ public class Dialog implements Serializable {
      * @param text lets the program know you need to insert text
      * @return the input
      */
-    public static int dialog(String text) {
+    /*
+    public static int dialog(String text, int min, int max) {
         while (true) {
             System.out.println(text);
             try {
                 return Integer.parseInt(console.nextLine());
+            } catch (Exception e) {
+                System.out.println("Wrong input!");
+            }
+        }
+    }
+
+     */
+    public static int dialog(String text, int min, int max) {
+        while (true) {
+            System.out.println(text);
+            try {
+                int number = Integer.parseInt(console.nextLine());
+                if (number >= min && number <= max)
+                    return number;
+                else {
+                    System.out.println("Wrong input!");
+                }
+            } catch (Exception e) {
+                System.out.println("Wrong input!");
+            }
+        }
+    }
+    public static int dialogWithoutMax(String text) {
+        while (true) {
+            System.out.println(text);
+            try {
+               return Integer.parseInt(console.nextLine());
+
             } catch (Exception e) {
                 System.out.println("Wrong input!");
             }
