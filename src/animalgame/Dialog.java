@@ -15,21 +15,10 @@ public class Dialog implements Serializable {
      * The 'String text' lets us have an outprint where we use the method,
      * without it, we would not be able to use it with different texts.
      * This is used for ints.
-     * @param text lets the program know you need to insert text
+     * @param text lets the program know that you need to insert a text
+     * @param min this is the minimum value
+     * @param max this is the maximum value
      * @return the input
-     */
-    /*
-    public static int dialog(String text, int min, int max) {
-        while (true) {
-            System.out.println(text);
-            try {
-                return Integer.parseInt(console.nextLine());
-            } catch (Exception e) {
-                System.out.println("Wrong input!");
-            }
-        }
-    }
-
      */
     public static int dialog(String text, int min, int max) {
         while (true) {
@@ -46,6 +35,15 @@ public class Dialog implements Serializable {
             }
         }
     }
+
+    /**
+     * Dialog method is used all over the program instead of using new scanners.
+     * The 'String text' lets us have an outprint where we use the method,
+     * without it, we would not be able to use it with different texts.
+     * This is used for ints.
+     * @param text lets the program know that you need to insert a text
+     * @return the input
+     */
     public static int dialogWithoutMax(String text) {
         while (true) {
             System.out.println(text);
@@ -80,31 +78,4 @@ public class Dialog implements Serializable {
     public static String stringReturn() {
         return console.nextLine();
     }
-
-    public static String stringReturnNext() {
-        return console.next();
-    }
-
-    public static int intScannerNext() {
-        return console.nextInt();
-    }
-
-    /*
-    public static int tryCatch(int min, int max){
-        Scanner input = new Scanner(System.in);
-        int playerChoice = -1;
-        while (playerChoice < min || playerChoice > max){
-            try {
-                System.out.println("Enter an option: ");
-                playerChoice = input.nextInt();
-            } catch (Exception e){
-                System.out.println("Please enter a number in the menu. Try again");
-                input.next();
-            }
-        } return playerChoice;
-    }
-
-     */
-
-
 }
