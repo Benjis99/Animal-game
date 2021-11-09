@@ -69,12 +69,9 @@ public class Game implements Serializable {
         currentTurn = 1;
         exit = false;
 
-            amountOfTurns = gameSettings("How many rounds do you wanna play 5-30 rounds", 5, 30);
+            amountOfTurns = Dialog.dialog("How many rounds do you wanna play 5-30 rounds", 5, 30);
             System.out.println("─────────────────────");
-
-            System.out.println("Wrong input");
-
-            numberOfPlayers = gameSettings("How many players do you want, between 2-4", 2, 4);
+            numberOfPlayers = Dialog.dialog("How many players do you want, between 2-4", 2, 4);
             System.out.println("─────────────────────");
 
 
@@ -178,26 +175,6 @@ public class Game implements Serializable {
             newScreen();
         }
         logic.winnerPick(this);
-    }
-
-    /**
-     *  Behöver hjälp
-     * @param text
-     * @param min the lowest amount of rounds/players
-     * @param max
-     * @return
-     */
-    public int gameSettings(String text, int min, int max) {
-        System.out.println(text);
-
-        int pick = -1;
-        try {
-            pick = Dialog.intReturn();
-        } catch (Exception e) {
-            System.out.println("Wrong input");
-        }
-        return pick < min || pick > max ?
-                gameSettings(text, min, max) : pick;
     }
 
     /**
@@ -329,6 +306,7 @@ public class Game implements Serializable {
     /**
      * Prints out the current game information
      */
+
     public void information() {
         System.out.println("Current game info: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
