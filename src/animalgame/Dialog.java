@@ -19,8 +19,14 @@ public class Dialog implements Serializable {
      * @return the input
      */
     public static int dialog(String text) {
-        System.out.println(text);
-        return Integer.parseInt(console.nextLine());
+        while (true) {
+            System.out.println(text);
+            try {
+                return Integer.parseInt(console.nextLine());
+            } catch (Exception e) {
+                System.out.println("Wrong input!");
+            }
+        }
     }
 
     /**

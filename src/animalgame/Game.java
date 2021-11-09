@@ -68,10 +68,16 @@ public class Game implements Serializable {
 
         currentTurn = 1;
         exit = false;
-        amountOfTurns = gameSettings("How many rounds do you wanna play 5-30 rounds", 5, 30);
-        System.out.println("─────────────────────");
-        numberOfPlayers = gameSettings("How many players do you want, between 2-4", 2, 4);
-        System.out.println("─────────────────────");
+
+            amountOfTurns = gameSettings("How many rounds do you wanna play 5-30 rounds", 5, 30);
+            System.out.println("─────────────────────");
+
+            System.out.println("Wrong input");
+
+            numberOfPlayers = gameSettings("How many players do you want, between 2-4", 2, 4);
+            System.out.println("─────────────────────");
+
+
         playerName();
         information();
         gameMenu();
@@ -188,7 +194,7 @@ public class Game implements Serializable {
         try {
             pick = Dialog.intReturn();
         } catch (Exception e) {
-            Dialog.intScannerNext();
+            System.out.println("Wrong input");
         }
         return pick < min || pick > max ?
                 gameSettings(text, min, max) : pick;
