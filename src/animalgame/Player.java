@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Player implements Serializable {
 
     private final String name;
-    private int money = 400;
+    private int coins = 400;
     private boolean ableToFeed;
     public boolean ableToSellAnimals;
     public boolean ableToBuyAnimals;
@@ -178,22 +178,22 @@ public class Player implements Serializable {
         return name;
     }
 
-    public void removeMoney(int money) {
-        this.money = this.money - money;
+    public void removeCoins(int coins) {
+        this.coins = this.coins - coins;
     }
 
-    public void addMoney(int money) {
-        this.money = this.money + money;
+    public void addCoins(int coins) {
+        this.coins = this.coins + coins;
     }
 
 
     public void getBalance() {
-        System.out.println("Current balance: " + this.money + " Coins");
+        System.out.println("Current balance: " + this.coins + " Coins");
     }
 
 
     public int getCoins() {
-        return this.money;
+        return this.coins;
     }
 
     public void setAbleToFeed(boolean ableToFeed) {

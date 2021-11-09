@@ -197,7 +197,7 @@ public class Store implements Serializable {
             System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal() + " Coins? ");
         int pick = decisionMaker();
         if (pick == 1) {
-            player.addMoney(animal.currentPriceAnimal());
+            player.addCoins(animal.currentPriceAnimal());
             player.animals.remove(animal);
             player.falseStatistics();
             player.setAbleToSellAnimals(true);
@@ -252,7 +252,7 @@ public class Store implements Serializable {
      */
     private void afterPurchaseAnimal(Player player, Animal animal) {
         player.animals.add(animal);
-        player.removeMoney(animal.getStartPrice());
+        player.removeCoins(animal.getStartPrice());
         player.falseStatistics();
         player.setAbleToBuyAnimals(true);
     }
@@ -279,7 +279,7 @@ public class Store implements Serializable {
                         for (Food food1 : player.foods) {
                             if (food1.getName().equals(food.getName())) {
                                 food1.setKg(1);
-                                player.removeMoney(food.getPrice());
+                                player.removeCoins(food.getPrice());
                                 player.falseStatistics();
                                 player.setAbleToBuyFoods(true);
                                 foodCount++;
@@ -288,7 +288,7 @@ public class Store implements Serializable {
                     }
                     if (foodCount == 0) {
                         player.foods.add(food);
-                        player.removeMoney(food.getPrice());
+                        player.removeCoins(food.getPrice());
                         player.falseStatistics();
                         player.setAbleToBuyFoods(true);
                     }

@@ -58,7 +58,7 @@ public class GameLogic implements Serializable {
         for (Player player : game.players) {
 
             for (int i = 0; i < player.animals.size(); i++) {
-                player.addMoney(player.animals.get(i).currentPriceAnimal());
+                player.addCoins(player.animals.get(i).currentPriceAnimal());
                 player.animals.remove(player.animals.get(i));
                 i--;
             }
