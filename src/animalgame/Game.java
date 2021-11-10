@@ -249,6 +249,7 @@ public class Game implements Serializable {
             case 3 -> detailedInfoFood();
             case 4 -> detailedRoundInfo();
             case 5 -> detailedStoreDescription();
+            case 6 -> gameRules();
         }
     }
 
@@ -315,8 +316,7 @@ public class Game implements Serializable {
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
-       // System.out.println("─────────────────────");
-        //System.out.println(players.get(0).getName() + " start the game");
+
     }
 
     /**
