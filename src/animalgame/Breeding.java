@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class Breeding implements Serializable {
 
-    public String animalBabyBreed;
+    public String animalOffspringBreed;
 
     public Breeding() {
     }
@@ -62,7 +62,7 @@ public class Breeding implements Serializable {
                     for (Animal animal : tempList) {
                         System.out.println("[" + count + "] " + animal.getName() + " > " + animal.getAnimalBreed() + " | " + animal.getGender()
                                 + " | " + animal.getHealth() + "% health left.");
-                        animalBabyBreed = animal.getAnimalBreed();
+                        animalOffspringBreed = animal.getAnimalBreed();
                         count++;
                     }
                     System.out.println("Choose your second animal to breed. \nEnter a number: ");
@@ -171,20 +171,20 @@ public class Breeding implements Serializable {
 
     /**
      * Randomizes an amount of babies to an animal once they've given birth with a max amount of babies an animal can have.
-     * @param maxAmountOfBabies the max amount of babies an animal can breed at once
+     * @param maxAmountOfOffsprings the max amount of babies an animal can breed at once
      * @return the amount of babies of a certain animal to add to the current player
      */
-    public int animalBirth(int maxAmountOfBabies) {
+    public int animalBirth(int maxAmountOfOffsprings) {
         Random random = new Random();
         int counter = 1;
         System.out.println("Breeding successful! You've now got a baby");
-        for (int i = 0; i < maxAmountOfBabies; i++) {
-            int numberOfBabies = random.nextInt(101);
-            if (numberOfBabies < 20) {
+        for (int i = 0; i < maxAmountOfOffsprings; i++) {
+            int numberOfOffsprings = random.nextInt(101);
+            if (numberOfOffsprings < 20) {
                 counter++;
             }
         }
-        System.out.println("You've got a total of " + counter + " " + animalBabyBreed + " babies!");
+        System.out.println("You've got a total of " + counter + " " + animalOffspringBreed + " Offsprings!");
         return counter;
     }
 
