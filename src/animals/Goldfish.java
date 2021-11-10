@@ -18,7 +18,7 @@ public class Goldfish extends Animal {
     public Goldfish() {
         maxAge = 4;
         animalBreed = "Goldfish";
-        startPrice = 30;
+        startPrice = 250;
     }
 
     /**

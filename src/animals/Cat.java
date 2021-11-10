@@ -19,7 +19,7 @@ public class Cat extends Animal {
     public Cat() {
         maxAge = 9;
         animalBreed = "Cat";
-        startPrice = 200;
+        startPrice = 600;
     }
 
     /**

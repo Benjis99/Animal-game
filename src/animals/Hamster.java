@@ -18,7 +18,7 @@ public class Hamster extends Animal {
     public Hamster() {
         maxAge = 7;
         animalBreed = "Hamster";
-        startPrice = 100;
+        startPrice = 350;
     }
 
     /**

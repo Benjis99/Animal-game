@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Player implements Serializable {
 
     private final String name;
-    private int coins = 400;
+    private int coins = 4000;
     private boolean ableToFeed;
     public boolean ableToSellAnimals;
     public boolean ableToBuyAnimals;
