@@ -49,11 +49,11 @@ public class Store implements Serializable {
     public int decisionMenu() {
         int answer = Dialog.dialog(
                 "─────────────────────" +
-                        "\n    Stores:" +
-                        "\n[1] Animal store" +
-                        "\n[2] Food store" +
-                        "\n[3] Sell animal" +
-                        "\n[4] Exit store" +
+                        "\n    Stores:" + PURPLE_BOLD  +
+                        "\n[1] Animal store" + TEXT_RESET + GREEN_BOLD +
+                        "\n[2] Food store" + TEXT_RESET + CYAN_BOLD +
+                        "\n[3] Sell animal" + TEXT_RESET + RED_BOLD +
+                        "\n[4] Exit store" + TEXT_RESET +
                         "\n─────────────────────", 1, 4);
         return answer;
     }
@@ -129,8 +129,8 @@ public class Store implements Serializable {
      */
     public int foodSelect() {
         int answer = Dialog.dialog(
-                "─────────────────────" +
-                        "\n   Food store" +
+                "─────────────────────" + TEXT_GREEN +
+                        "\n   Food store" + TEXT_RESET +
                         "\n[1] DryFood for cats" +
                         "\n[2] DryFood for dogs" +
                         "\n[3] FishFeed for fish" +
@@ -174,8 +174,8 @@ public class Store implements Serializable {
      */
     public int animalSelect() {
         int answer = Dialog.dialog(
-                "─────────────────────" +
-                        "\n   Animal store" +
+                "─────────────────────" + TEXT_PURPLE+
+                        "\n   Animal store" + TEXT_RESET +
                         "\n[1] Bird" +
                         "\n[2] Cat" +
                         "\n[3] Dog" +
@@ -306,6 +306,13 @@ public class Store implements Serializable {
         return answer;
     }
 
+    public static final String TEXT_PURPLE = "\u001B[35m";
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String RED_BOLD = "\033[1;31m";    // RED
+    public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
+    public static final String PURPLE_BOLD = "\033[1;35m"; // PURPLE
+    public static final String CYAN_BOLD = "\033[1;36m";   // CYAN
 
 
 }

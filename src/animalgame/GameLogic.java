@@ -36,7 +36,7 @@ public class GameLogic implements Serializable {
                     index = i;
                 }
             }
-            System.out.println("Winner is: " + game.players.get(index).getName() + " with: "
+            System.out.println("Winner is: " + TEXT_YELLOW + game.players.get(index).getName() + TEXT_RESET + " with: "
                     + game.players.get(index).getCoins() + " C");
             for (Player player : game.players) {
                 System.out.println(player.getName() + ": " + player.getCoins() + " C");
@@ -190,18 +190,20 @@ public class GameLogic implements Serializable {
             System.out.println("---");
         }
         if (deadBecauseHealth.size() > 0) {
-            System.out.println("Player [" + player.getName() + "] you have animals that died because of low health");
+            System.out.println(TEXT_RED + "Player [" + player.getName() + "] you have animals that died because of low health"+TEXT_RESET);
             for (Animal animal : deadBecauseHealth) {
-                System.out.println("Animal [" + animal.getName() + "] died because of low health");
+                System.out.println(TEXT_RED + "Animal [" + animal.getName() + "] died because of low health" + TEXT_RESET);
             }
         }
         if (deadBecauseAge.size() > 0) {
-            System.out.println("Player [" + player.getName() + "] you have animals that died from getting too old");
+            System.out.println(TEXT_RED + "Player [" + player.getName() + "] you have animals that died from getting too old"+TEXT_RESET);
             for (Animal animal : deadBecauseAge) {
-                System.out.println("Animal [" + animal.getName() + "] died because of old age");
+                System.out.println(TEXT_RED +"Animal [" + animal.getName() + "] died because of old age"+TEXT_RESET);
             }
         }
     }
 
-
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
+    public static final String TEXT_RESET = "\u001B[0m";
 }
