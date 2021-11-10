@@ -81,7 +81,7 @@ public class Player implements Serializable {
      * Method that prints out the players animals and the information.
      * It will show the name, type of animal, gender, health, age and how much health the animal has lost.
      */
-    public void getPlayerAnimal() {
+    public void getPlayerAnimal() { //Method that prints out the players animals with information
         if (animals.size() > 0) {
             System.out.println("─────────────────────");
             System.out.println("These are your animals");
@@ -143,7 +143,7 @@ public class Player implements Serializable {
                     System.out.println("Wrong food for the animal");
                 }
             }
-            if (player.animals.size() < 1 || player.foods.size() < 1) {
+            if (player.animals.size() < 1 || player.foods.size() < 1) { //If the player don't have one animal and one sorts of food, it won't be able to eat
                 System.out.println("You need one animal and one sorts of food to be able to feed!");
             }
         }
