@@ -316,8 +316,7 @@ public class Game implements Serializable {
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
-       // System.out.println("─────────────────────");
-        //System.out.println(players.get(0).getName() + " start the game");
+
     }
 
     /**
