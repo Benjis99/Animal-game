@@ -103,12 +103,16 @@ public class GameLogic implements Serializable {
                 System.out.println(player.getName() + " has no money, animals or animal food, you have lost the game!");
                 game.players.remove(player);
                 game.loss.add(player);
+                System.out.println("Press ENTER to continue. ");
+                Dialog.stringReturn();
+                Game.newScreen();
             }
         }
         else {
             if (player.animals.size() <= 0 && player.getCoins() <= 0) {
                 figure();
                 System.out.println(player.getName() + " has no money, animals or animal food, you have lost the game!");
+
 
             game.players.remove(player);
             game.loss.add(player);
