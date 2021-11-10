@@ -249,6 +249,7 @@ public class Game implements Serializable {
             case 3 -> detailedInfoFood();
             case 4 -> detailedRoundInfo();
             case 5 -> detailedStoreDescription();
+            case 6 -> gameRules();
         }
     }
 
