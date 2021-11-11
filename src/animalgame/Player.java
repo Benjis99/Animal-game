@@ -88,8 +88,7 @@ public class Player implements Serializable {
             int counter = 1;
             for (Animal animal : animals) {
                 System.out.println("[" + counter + "]" + " " + animal.getName() + " ─ " + animal.getAnimalBreed() + " " + animal.getGender() +
-                        " " + animal.getHealth() + " % health." + " Age: " + animal.getAge());
-                System.out.println(animal.getName() + " lost " + animal.getHealthDifference() + " health this turn.");
+                        " " + animal.getHealth() + "% "+ TEXT_RED +"(-" + animal.getHealthDifference()+")"+ TEXT_RESET + " health." + " Age: " + animal.getAge());
                 counter++;
             }
             System.out.println("─────────────────────");
@@ -119,7 +118,7 @@ public class Player implements Serializable {
                     try {
                         getPlayerAnimal(); //This will get the players animal
                         System.out.println("Which animal do you want to feed: ");
-                        pick1 = Integer.parseInt(Dialog.stringReturn()); //We need a scanner from game class here
+                        pick1 = Integer.parseInt(Dialog.enterButton()); //We need a scanner from game class here
                     } catch (Exception e) {
                         System.out.println("You need to enter a number!");
                     }
@@ -128,7 +127,7 @@ public class Player implements Serializable {
                     try {
                         getAnimalFood();
                         System.out.println("\nPick the food you wanna use");
-                        pick2 = Integer.parseInt(Dialog.stringReturn());
+                        pick2 = Integer.parseInt(Dialog.enterButton());
                     } catch (Exception e) {
                         System.out.println("You need to enter a number!");
 
@@ -154,7 +153,7 @@ public class Player implements Serializable {
             }
         }
         Game.newScreen();
-        System.out.println("You fed the animal with food and it gained " + 10 + " health!");
+        System.out.println("You fed the animal with food and it gained " + GREEN_BOLD + 10 + " health!" + TEXT_RESET);
     }
 
     /**
@@ -221,5 +220,13 @@ public class Player implements Serializable {
     public void setAbleToBuyFoods(boolean ableToBuyFoods) {
         this.ableToBuyFoods = ableToBuyFoods;
     }
+
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String RED_BOLD = "\033[1;31m";    // RED
+    public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
+    public static final String PURPLE_BOLD = "\033[1;35m"; // PURPLE
+    public static final String CYAN_BOLD = "\033[1;36m";   // CYAN
 
 }

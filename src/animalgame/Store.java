@@ -76,7 +76,7 @@ public class Store implements Serializable {
                 int count = 1;
                 for (Animal animal : player.animals) {
                     System.out.println("[" +count + "] --" + " | " + animal.getName() + " | " + animal.getGender() + " | " + animal.getAnimalBreed()
-                            + " | " +animal.getHealth() + " % health |" + " Price: " + animal.currentPriceAnimal()+ " coins |");
+                            + " | " +animal.getHealth() + " % health |" + " Price: " + TEXT_GREEN + animal.currentPriceAnimal()+ " coins"+ TEXT_RESET+" |" );
                     count++;
                 }
                 int index = leaveStore();
@@ -91,7 +91,7 @@ public class Store implements Serializable {
             }
         } else {
             System.out.println("You have no animals to sell");
-            System.out.println("Press ENTER to continue. ");
+            System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
             Dialog.stringReturn();
             Game.newScreen();
         }
@@ -226,7 +226,7 @@ public class Store implements Serializable {
         if (player.checkWithPlayer(player.ableToBuyAnimals)) {
             if (player.getCoins() < animal.getStartPrice()) {
                 System.out.println("Not enough coins for the animal.");
-                System.out.println("Press ENTER to continue. ");
+                System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
                 Dialog.stringReturn();
                 Game.newScreen();
             } else {
@@ -327,6 +327,7 @@ public class Store implements Serializable {
     public static final String TEXT_PURPLE = "\u001B[35m";
     public static final String TEXT_GREEN = "\u001B[32m";
     public static final String TEXT_RESET = "\u001B[0m";
+    public static final String WHITE_BOLD = "\033[1;37m";
     public static final String RED_BOLD = "\033[1;31m";    // RED
     public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
     public static final String PURPLE_BOLD = "\033[1;35m"; // PURPLE
