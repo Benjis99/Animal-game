@@ -27,6 +27,7 @@ public class Store implements Serializable {
      * @param player the current player
      */
     public void buyMenu(Player player) {
+        Game.newScreen();
         boolean menuCheck = true;
         while (menuCheck) {
             player.playerInv();
@@ -40,6 +41,7 @@ public class Store implements Serializable {
 
             }
         }
+        Game.newScreen();
     }
 
     /**
@@ -65,6 +67,7 @@ public class Store implements Serializable {
      * @param player the current player
      */
     public void sellAnimalsShop(Player player) {
+        Game.newScreen();
         boolean menuCheck = true;
         if (player.animals.size() > 0) {
             while (menuCheck) {
@@ -88,7 +91,11 @@ public class Store implements Serializable {
             }
         } else {
             System.out.println("You have no animals to sell");
+            System.out.println("Press ENTER to continue. ");
+            Dialog.stringReturn();
+            Game.newScreen();
         }
+        Game.newScreen();
     }
 
     /**
@@ -107,7 +114,7 @@ public class Store implements Serializable {
      * @param player the current player
      */
     public void foodShop(Player player) {
-
+        Game.newScreen();
         boolean menuCheck = true;
         while (menuCheck) {
             player.playerInv();
@@ -121,6 +128,7 @@ public class Store implements Serializable {
                 case 6 -> menuCheck = false;
             }
         }
+        Game.newScreen();
     }
 
     /**
@@ -149,7 +157,7 @@ public class Store implements Serializable {
      * @param player the current player
      */
     public void animalShop(Player player) {
-
+        Game.newScreen();
         boolean checkMenu = true;
         while (checkMenu) {
             player.playerInv();
@@ -164,6 +172,7 @@ public class Store implements Serializable {
                 case 5 -> addAnimals(player, new Hamster());
                 case 6 -> checkMenu = false;
             }
+            Game.newScreen();
         }
 
     }
@@ -213,6 +222,7 @@ public class Store implements Serializable {
      * @param animal the type of animal selected from the animalShop method
      */
     public void addAnimals(Player player, Animal animal) {
+        Game.newScreen();
         if (player.checkWithPlayer(player.ableToBuyAnimals)) {
             if (player.getCoins() < animal.getStartPrice()) {
                 System.out.println("Not enough coins for the animal");
@@ -235,6 +245,7 @@ public class Store implements Serializable {
                 }
             }
         }
+        Game.newScreen();
     }
 
     /**
@@ -269,6 +280,7 @@ public class Store implements Serializable {
      * @param player lets us get information from the Player class
      */
     public void addFood(Food food, Player player) {
+        Game.newScreen();
         if (player.checkWithPlayer(player.ableToBuyFoods)) {
             if (player.getCoins() < food.getPrice()) {
                 System.out.println("Not enough coins");
@@ -297,6 +309,7 @@ public class Store implements Serializable {
                 }
             }
         }
+        Game.newScreen();
     }
 
     /**

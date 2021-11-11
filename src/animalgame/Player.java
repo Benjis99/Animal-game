@@ -103,9 +103,15 @@ public class Player implements Serializable {
      * @param player allows us to get the current players inventory
      */
     public void animalFeeding(Player player) { //Pick one animal to feed in the first try-catch
-
+        Game.newScreen();
         int pick1 = 0;
         int pick2 = 0;
+        if (player.animals.size() == 0){
+            System.out.println("You have no animals to feed.");
+            System.out.println("Press ENTER to continue. ");
+            Dialog.stringReturn();
+            Game.newScreen();
+        }
         if (checkWithPlayer(ableToFeed)) {
 
             if (player.animals.size() > 0 && player.foods.size() > 0) { //if statement with try-catch inside.
@@ -148,6 +154,7 @@ public class Player implements Serializable {
                 }
             }
         }
+        Game.newScreen();
     }
 
     /**

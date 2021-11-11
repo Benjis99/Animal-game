@@ -27,8 +27,11 @@ public class SaveGame implements Serializable {
      * @return the name of the save that the player chose
      */
     public String saveGameName() {
+        Game.newScreen();
         String answer = Dialog.dialogString("Name your game save: ");
+        Game.newScreen();
         return answer;
+
     }
 
     /**

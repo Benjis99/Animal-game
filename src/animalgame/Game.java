@@ -65,6 +65,7 @@ public class Game implements Serializable {
      * Method for storing the amount of rounds and players.
      */
     public void startMenu() {
+        newScreen();
 
         currentTurn = 1;
         exit = false;
@@ -89,6 +90,7 @@ public class Game implements Serializable {
         Store store = new Store();
         Breeding breeding = new Breeding();
         boolean game = true;
+        Game.newScreen();
 
         while (game) {
             int pick = 0;
@@ -108,10 +110,13 @@ public class Game implements Serializable {
                 case 7 -> {
                     game = false;
                     exit = true;
+                    Game.newScreen();
                 }
             }
         }
     }
+
+
 
     /**
      * Menu of options for the current player
@@ -143,6 +148,7 @@ public class Game implements Serializable {
             String name = Dialog.stringReturn();
             players.add(new Player(name));
         }
+        newScreen();
     }
 
     /**
@@ -309,6 +315,7 @@ public class Game implements Serializable {
      */
 
     public void information() {
+        Game.newScreen();
         System.out.println("Current game info: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
         int amountOfPlayer = 1;
