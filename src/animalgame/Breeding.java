@@ -103,10 +103,16 @@ public class Breeding implements Serializable {
                     }
                 } else {
                     System.out.println("Breeding failed!");
+                    System.out.println("Press ENTER to continue. ");
+                    Dialog.stringReturn();
+                    Game.newScreen();
                     player.falseStatistics();
                 }
             } else {
                 System.out.println("The animals you choose are unable to breed with each other. Please pick a compatible pair");
+                System.out.println("Press ENTER to continue. ");
+                Dialog.stringReturn();
+                Game.newScreen();
             }
         }
         Game.newScreen();
@@ -182,6 +188,7 @@ public class Breeding implements Serializable {
     public int animalBirth(int maxAmountOfOffsprings) {
         Random random = new Random();
         int counter = 1;
+        Game.newScreen();
         System.out.println("Breeding successful!");
         for (int i = 0; i < maxAmountOfOffsprings; i++) {
             int numberOfOffsprings = random.nextInt(101);
@@ -190,6 +197,7 @@ public class Breeding implements Serializable {
             }
         }
         System.out.println("You've got a total of " + counter + " " + animalOffspringBreed + " offsprings!");
+        Game.newScreen();
         return counter;
     }
 

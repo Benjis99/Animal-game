@@ -187,19 +187,25 @@ public class GameLogic implements Serializable {
             }
         }
         if (deadBecauseAge.size() > 0 || deadBecauseNoHealth.size() > 0) {
-            System.out.println("---");
         }
+        Game.newScreen();
         if (deadBecauseNoHealth.size() > 0) {
             System.out.println(TEXT_RED + "Player [" + player.getName() + "] you have animals that died because of low health"+TEXT_RESET);
             for (Animal animal : deadBecauseNoHealth) {
                 System.out.println(TEXT_RED + "Animal [" + animal.getName() + "] died because of low health" + TEXT_RESET);
             }
+            System.out.println("Press ENTER to continue. ");
+            Dialog.stringReturn();
+            Game.newScreen();
         }
         if (deadBecauseAge.size() > 0) {
             System.out.println(TEXT_RED + "Player [" + player.getName() + "] you have animals that died from getting too old"+TEXT_RESET);
             for (Animal animal : deadBecauseAge) {
                 System.out.println(TEXT_RED +"Animal [" + animal.getName() + "] died because of old age"+TEXT_RESET);
             }
+            System.out.println("Press ENTER to continue. ");
+            Dialog.stringReturn();
+            Game.newScreen();
         }
     }
 
