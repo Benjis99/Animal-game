@@ -94,7 +94,7 @@ public class Breeding implements Serializable {
                         for (int i = 0; i < counter; i++) newAnimal(player, new Dog());
                     }
                     if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Goldfish")) {
-                        counter = animalBirth(10);
+                        counter = animalBirth(20);
                         for (int i = 0; i < counter; i++) newAnimal(player, new Goldfish());
                     }
                     if (player.animals.get(animal1 - 1).getAnimalBreed().equals("Hamster")) {

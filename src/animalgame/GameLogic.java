@@ -172,12 +172,12 @@ public class GameLogic implements Serializable {
      * @param player Lets us get information from the Player class
      */
     public void checkDeadAnimals(Player player) {
-        ArrayList<Animal> deadBecauseHealth = new ArrayList<>();
+        ArrayList<Animal> deadBecauseNoHealth = new ArrayList<>();
         ArrayList<Animal> deadBecauseAge = new ArrayList<>();
 
         for (int i = 0; i < player.animals.size(); i++) {
             if (player.animals.get(i).getHealth() < 1) {
-                deadBecauseHealth.add(player.animals.get(i));
+                deadBecauseNoHealth.add(player.animals.get(i));
                 player.animals.remove(player.animals.get(i));
                 i--;
             } else if (player.animals.get(i).getAge() > player.animals.get(i).getMaxAge()) {
@@ -186,12 +186,12 @@ public class GameLogic implements Serializable {
                 i--;
             }
         }
-        if (deadBecauseAge.size() > 0 || deadBecauseHealth.size() > 0) {
+        if (deadBecauseAge.size() > 0 || deadBecauseNoHealth.size() > 0) {
             System.out.println("---");
         }
-        if (deadBecauseHealth.size() > 0) {
+        if (deadBecauseNoHealth.size() > 0) {
             System.out.println(TEXT_RED + "Player [" + player.getName() + "] you have animals that died because of low health"+TEXT_RESET);
-            for (Animal animal : deadBecauseHealth) {
+            for (Animal animal : deadBecauseNoHealth) {
                 System.out.println(TEXT_RED + "Animal [" + animal.getName() + "] died because of low health" + TEXT_RESET);
             }
         }
