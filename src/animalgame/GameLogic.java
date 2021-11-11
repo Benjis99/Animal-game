@@ -105,8 +105,9 @@ public class GameLogic implements Serializable {
                 game.players.remove(player);
                 game.loss.add(player);
                 System.out.println("Press ENTER to continue. ");
-                game.gameMenu();
                 Dialog.stringReturn();
+                game.gameMenu();
+
                 Game.newScreen();
             }
         }
