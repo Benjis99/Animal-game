@@ -101,7 +101,7 @@ public class GameLogic implements Serializable {
         if (game.players.size() > 2) {
             if (player.animals.size() <= 0 && player.getCoins() <= 0) {
                 figure();
-                System.out.println(player.getName() + " has no money, animals or animal food, you have lost the game!");
+                System.out.println("["+player.getName()+"]" + " has no money, animals or animal food, you have " + TEXT_RED +"lost the game!" + TEXT_RESET);
                 game.players.remove(player);
                 game.loss.add(player);
                 System.out.println("Press ENTER to continue. ");
@@ -114,14 +114,14 @@ public class GameLogic implements Serializable {
         else {
             if (player.animals.size() <= 0 && player.getCoins() <= 0) {
                 figure();
-                System.out.println(player.getName() + " has no money, animals or animal food, you have lost the game!");
+                System.out.println("["+player.getName()+"]" + " has no money, animals or animal food, you have +" + TEXT_RED +"lost the game!" + TEXT_RESET);
 
 
-            game.players.remove(player);
-            game.loss.add(player);
-            winnerPick(game);
-            System.out.println("\n".repeat(1));
-            new Game();
+                game.players.remove(player);
+                game.loss.add(player);
+                winnerPick(game);
+                System.out.println("\n".repeat(1));
+                new Game();
             }
         }
     }
@@ -151,21 +151,12 @@ public class GameLogic implements Serializable {
 
     public void figure() {
         System.out.println("""
-                 ██████╗  █████╗ ███╗   ███╗███████╗
-                ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
-                ██║  ███╗███████║██╔████╔██║█████╗ 
-                ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝ 
-                ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
-                 ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
-                                                   
-                 ██████╗ ██╗   ██╗███████╗██████╗  
-                ██╔═══██╗██║   ██║██╔════╝██╔══██╗ 
-                ██║   ██║██║   ██║█████╗  ██████╔╝ 
-                ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗ 
-                ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║ 
-                 ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝ 
+                
+                
+                ╔═╗┌─┐┌┬┐┌─┐  ╔═╗┬  ┬┌─┐┬─┐
+                ║ ╦├─┤│││├┤   ║ ║└┐┌┘├┤ ├┬┘
+                ╚═╝┴ ┴┴ ┴└─┘  ╚═╝ └┘ └─┘┴└─
                                                    """);
-        System.out.println("\n".repeat(1));
     }
 
     /**

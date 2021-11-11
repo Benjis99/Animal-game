@@ -55,7 +55,7 @@ public class Game implements Serializable {
                 case 3 -> saveGame.loadGame();
                 case 4 -> {
                     System.out.println("Game is ending...");
-               System.exit(1);
+                    System.exit(1);
                 }
             }
         }
@@ -70,10 +70,10 @@ public class Game implements Serializable {
         currentTurn = 1;
         exit = false;
 
-            amountOfTurns = Dialog.dialog("How many rounds do you wanna play 5-30 rounds", 5, 30);
-            System.out.println("─────────────────────");
-            numberOfPlayers = Dialog.dialog("How many players do you want, between 2-4", 2, 4);
-            System.out.println("─────────────────────");
+        amountOfTurns = Dialog.dialog("How many rounds do you wanna play 5-30 rounds", 5, 30);
+        System.out.println("─────────────────────");
+        numberOfPlayers = Dialog.dialog("How many players do you want, between 2-4", 2, 4);
+        System.out.println("─────────────────────");
 
 
         playerName();
