@@ -60,7 +60,7 @@ public class Breeding implements Serializable {
                     System.out.println("You can pair " + player.animals.get(animal1 - 1).getName() + " with: ");
                     int count = 1;
                     for (Animal animal : tempList) {
-                        System.out.println("[" + count + "] " + animal.getName() + " > " + animal.getAnimalBreed() + " | " + animal.getGender()
+                        System.out.println("[" + count + "] " + animal.getName() + " ─ " + animal.getAnimalBreed() + " | " + animal.getGender()
                                 + " | " + animal.getHealth() + "% health left.");
                         animalOffspringBreed = animal.getAnimalBreed();
                         count++;
@@ -177,14 +177,14 @@ public class Breeding implements Serializable {
     public int animalBirth(int maxAmountOfOffsprings) {
         Random random = new Random();
         int counter = 1;
-        System.out.println("Breeding successful! You've now got a baby");
+        System.out.println("Breeding successful!");
         for (int i = 0; i < maxAmountOfOffsprings; i++) {
             int numberOfOffsprings = random.nextInt(101);
             if (numberOfOffsprings < 20) {
                 counter++;
             }
         }
-        System.out.println("You've got a total of " + counter + " " + animalOffspringBreed + " Offsprings!");
+        System.out.println("You've got a total of " + counter + " " + animalOffspringBreed + " offsprings!");
         return counter;
     }
 
