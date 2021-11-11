@@ -145,7 +145,6 @@ public class GameLogic implements Serializable {
     public void endRound(Player player, Game game) {
         playerLoss(player, game);
         animalsHealth(player);
-        checkDeadAnimals(player);
     }
 
 
