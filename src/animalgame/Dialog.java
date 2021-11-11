@@ -15,9 +15,10 @@ public class Dialog implements Serializable {
      * The 'String text' lets us have an outprint where we use the method,
      * without it, we would not be able to use it with different texts.
      * This is used for ints.
+     *
      * @param text lets the program know that you need to insert a text
-     * @param min this is the minimum value
-     * @param max this is the maximum value
+     * @param min  this is the minimum value
+     * @param max  this is the maximum value
      * @return the input
      */
     public static int dialog(String text, int min, int max) {
@@ -41,6 +42,7 @@ public class Dialog implements Serializable {
      * The 'String text' lets us have an outprint where we use the method,
      * without it, we would not be able to use it with different texts.
      * This is used for ints.
+     *
      * @param text lets the program know that you need to insert a text
      * @return the input
      */
@@ -48,7 +50,7 @@ public class Dialog implements Serializable {
         while (true) {
             System.out.println(text);
             try {
-               return Integer.parseInt(console.nextLine());
+                return Integer.parseInt(console.nextLine());
 
             } catch (Exception e) {
                 System.out.println("Wrong input!");
@@ -61,6 +63,7 @@ public class Dialog implements Serializable {
      * The 'String text' lets us have an outprint where we use the method,
      * without we would not be able to use it with different texts.
      * This is used for Strings.
+     *
      * @param text lets the program know you need to insert text
      * @return the input
      */
@@ -70,12 +73,21 @@ public class Dialog implements Serializable {
     }
 
 
-
     public static int intReturn() {
         return Integer.parseInt(console.nextLine());
     }
 
     public static String stringReturn() {
-        return console.nextLine();
+        while (true){
+            String test = console.nextLine();
+            if (!test.matches("^[a-öA-Ö!@#$&()\\-`.+\\s,/\"]*$")){
+                System.out.println("Please use only letters");
+                System.out.println("Enter the name again");
+                continue;
+            }
+            else{
+                return test;
+            }
+        }
     }
 }

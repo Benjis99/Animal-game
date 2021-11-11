@@ -75,7 +75,7 @@ public class Store implements Serializable {
                 System.out.println("What animal do you want to sell?");
                 int count = 1;
                 for (Animal animal : player.animals) {
-                    System.out.println("[ " +count + " ] --" + " | " + animal.getName() + " | " + animal.getGender() + " | " + animal.getAnimalBreed()
+                    System.out.println("[" +count + "] --" + " | " + animal.getName() + " | " + animal.getGender() + " | " + animal.getAnimalBreed()
                             + " | " +animal.getHealth() + " % health |" + " Price: " + animal.currentPriceAnimal()+ " coins |");
                     count++;
                 }
