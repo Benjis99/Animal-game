@@ -221,11 +221,13 @@ public class Store implements Serializable {
                 int choice = decisionMaker();
 
                 if (choice == 1) {
-                    System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
-                    animal.setName(Dialog.stringReturn());
 
                     System.out.println("Pick the gender for " + animal.getAnimalBreed());
                     int input = maleFemale();
+
+
+                    System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
+                    animal.setName(Dialog.stringReturn());
 
                     if (input == 1) animal.setGender("MALE");
                     if (input == 2) animal.setGender("FEMALE");
