@@ -90,4 +90,10 @@ public class Dialog implements Serializable {
             }
         }
     }
+    public static String enterButton() {
+        String test = console.nextLine();
+        return test;
+    }
+
+
 }

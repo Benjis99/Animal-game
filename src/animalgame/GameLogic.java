@@ -105,7 +105,7 @@ public class GameLogic implements Serializable {
                 game.players.remove(player);
                 game.loss.add(player);
                 System.out.println("Press ENTER to continue. ");
-                Dialog.stringReturn();
+                Dialog.enterButton();
                 game.gameMenu();
 
                 Game.newScreen();
@@ -188,7 +188,7 @@ public class GameLogic implements Serializable {
                 System.out.println(TEXT_RED + "Animal [" + animal.getName() + "] died because of low health" + TEXT_RESET);
             }
             System.out.println("Press ENTER to continue. ");
-            Dialog.stringReturn();
+            Dialog.enterButton();
             Game.newScreen();
         }
         if (deadBecauseAge.size() > 0) {
@@ -197,7 +197,7 @@ public class GameLogic implements Serializable {
                 System.out.println(TEXT_RED +"Animal [" + animal.getName() + "] died because of old age"+TEXT_RESET);
             }
             System.out.println("Press ENTER to continue. ");
-            Dialog.stringReturn();
+            Dialog.enterButton();
             Game.newScreen();
         }
     }
