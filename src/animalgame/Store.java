@@ -233,7 +233,7 @@ public class Store implements Serializable {
                 if (choice == 1) {
 
                     System.out.println("Pick the gender for " + animal.getAnimalBreed());
-                    int input = maleFemale();
+                    int input = Gender();
 
 
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
@@ -252,7 +252,7 @@ public class Store implements Serializable {
      * Allows the player to select if they want to buy a male or female animal in the addAnimals method
      * @return male if input is 1, female if input is 2
      */
-    public int maleFemale() {
+    public int Gender() {
         int answer = Dialog.dialog("Pick gender: 1. Male 2. Female", 1, 2);
         return answer;
     }
