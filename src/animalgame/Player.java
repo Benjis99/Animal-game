@@ -154,6 +154,7 @@ public class Player implements Serializable {
             }
         }
         Game.newScreen();
+        System.out.println("You fed the animal with food and it gained " + 10 + " health!");
     }
 
     /**
