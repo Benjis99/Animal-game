@@ -45,6 +45,7 @@ public class GameLogic implements Serializable {
                 System.out.println(player.getName() + ": " + player.getCoins() + " C");
             }
         }
+        System.exit(1);
     }
 
 
@@ -104,6 +105,7 @@ public class GameLogic implements Serializable {
                 game.players.remove(player);
                 game.loss.add(player);
                 System.out.println("Press ENTER to continue. ");
+                game.gameMenu();
                 Dialog.stringReturn();
                 Game.newScreen();
             }

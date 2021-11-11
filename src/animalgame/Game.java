@@ -118,7 +118,6 @@ public class Game implements Serializable {
     }
 
 
-
     /**
      * Menu of options for the current player
      * @return returns the chosen menu option
@@ -167,6 +166,7 @@ public class Game implements Serializable {
                 currentPlayer = players.get(pick1);
                 currentPlayer.trueStatistics();
 
+
                 logic.startRound(currentPlayer);
                 gameBrain();
                 logic.endRound(currentPlayer, this);
@@ -180,6 +180,9 @@ public class Game implements Serializable {
             playerIndex = 0;
             currentTurn++;
             newScreen();
+        }
+        if (loss.size() >= 1){
+            playerIndex -= 1;
         }
         logic.winnerPick(this);
     }
