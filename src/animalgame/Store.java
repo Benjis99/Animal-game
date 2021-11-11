@@ -225,7 +225,10 @@ public class Store implements Serializable {
         Game.newScreen();
         if (player.checkWithPlayer(player.ableToBuyAnimals)) {
             if (player.getCoins() < animal.getStartPrice()) {
-                System.out.println("Not enough coins for the animal");
+                System.out.println("Not enough coins for the animal.");
+                System.out.println("Press ENTER to continue. ");
+                Dialog.stringReturn();
+                Game.newScreen();
             } else {
                 System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " Coins?");
                 int choice = decisionMaker();

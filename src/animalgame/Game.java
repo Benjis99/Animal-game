@@ -77,7 +77,7 @@ public class Game implements Serializable {
 
 
         playerName();
-        information();
+        //information();
         gameMenu();
     }
 
@@ -91,6 +91,7 @@ public class Game implements Serializable {
         Breeding breeding = new Breeding();
         boolean game = true;
         Game.newScreen();
+        information();
 
         while (game) {
             int pick = 0;
@@ -315,7 +316,6 @@ public class Game implements Serializable {
      */
 
     public void information() {
-        Game.newScreen();
         System.out.println("Current game info: ");
         System.out.println("Amount of rounds = " + amountOfTurns);
         int amountOfPlayer = 1;
@@ -323,7 +323,6 @@ public class Game implements Serializable {
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());
             amountOfPlayer++;
         }
-
     }
 
     /**

@@ -106,8 +106,8 @@ public class Player implements Serializable {
         Game.newScreen();
         int pick1 = 0;
         int pick2 = 0;
-        if (player.animals.size() == 0){
-            System.out.println("You have no animals to feed.");
+        if (player.animals.size() < 1 && player.foods.size() < 1){
+            System.out.println("You need one animal and one sorts of food to be able to feed!");
             System.out.println("Press ENTER to continue. ");
             Dialog.stringReturn();
             Game.newScreen();
@@ -147,10 +147,9 @@ public class Player implements Serializable {
                     }
                 } else {
                     System.out.println("Wrong food for the animal");
-                }
-
-                if (player.animals.size() < 1 || player.foods.size() < 1) { //If the player don't have one animal and one sorts of food, it won't be able to eat
-                    System.out.println("You need one animal and one sorts of food to be able to feed!");
+                    System.out.println("Press ENTER to continue. ");
+                    Dialog.stringReturn();
+                    Game.newScreen();
                 }
             }
         }
@@ -177,6 +176,8 @@ public class Player implements Serializable {
     public boolean checkWithPlayer(boolean checkPlayer) {
         if (!checkPlayer) {
             System.out.println("Too many choices this turn");
+            System.out.println("Press ENTER to continue. ");
+            Dialog.stringReturn();
             return false;
         }
         return true;

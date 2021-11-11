@@ -30,6 +30,7 @@ public class Breeding implements Serializable {
      * @param player the instance of the current player
      */
     public void animalBreed(Player player) {
+        Game.newScreen();
         Random random = new Random();
         int animal1 = 0;
         int animal2 = 0;
@@ -54,6 +55,9 @@ public class Breeding implements Serializable {
                     }
                 } else {
                     System.out.println("There is no suitable animal to breed for " + player.animals.get(animal1 - 1).getName() + "!");
+                    System.out.println("Press ENTER to continue. ");
+                    Dialog.stringReturn();
+                    Game.newScreen();
                     return;
                 }
                 while (animal2 < 1 || animal2 > tempList.size()) {
@@ -105,6 +109,7 @@ public class Breeding implements Serializable {
                 System.out.println("The animals you choose are unable to breed with each other. Please pick a compatible pair");
             }
         }
+        Game.newScreen();
     }
 
 
