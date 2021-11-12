@@ -54,7 +54,7 @@ public class Game implements Serializable {
 
             int first = Dialog.dialog(
                     "[1] Start game" +
-                            "\n[2] Information" +
+                            "\n[2] Game Rules" +
                             "\n[3] Load Game" +
                             "\n[4] Exit Game" +
                             "\n─────────────────────",1, 4);
@@ -203,9 +203,9 @@ public class Game implements Serializable {
     public void gameRules() {
         int input = Dialog.dialog(
                 "─────────────────────" +
-                        "\n [1] Game Summary" +
-                        "\n [2] Detailed description" +
-                        "\n [3] Return to Main Menu" +
+                        "\n[1] Game Summary" +
+                        "\n[2] Detailed description" +
+                        "\n[3] Return to Main Menu" +
                         "\n─────────────────────", 1, 3);
 
         switch (input) {
