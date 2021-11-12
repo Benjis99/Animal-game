@@ -250,7 +250,6 @@ public class Store implements Serializable {
                     for (int i = 0; i < player.animals.size(); i++){
                         if (player.animals.get(i).getName().equalsIgnoreCase(animalName)){
                             nameAvailable = false;
-                            System.out.println("Animal name already exists. Please try again.");
                         }
                     }
 
