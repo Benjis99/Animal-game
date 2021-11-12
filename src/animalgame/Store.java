@@ -240,16 +240,27 @@ public class Store implements Serializable {
 
 
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
-                    animal.setName(Dialog.stringReturn());
+                    String animalName = Dialog.stringReturn();
+                    animal.setName(animalName);
+                    boolean nameAvailable = true;
+                    for (int i = 0; i < player.animals.size(); i++){
+                        if (player.animals.get(i).getName().contains(animalName)){
+                            nameAvailable = false;
+                            System.out.println("Animal name already exists. Please try again.");
+                        }
+                    }
 
-                    if (input == 1) animal.setGender("MALE");
-                    if (input == 2) animal.setGender("FEMALE");
-                    afterPurchaseAnimal(player, animal);
+                    if (nameAvailable) {
+                        if (input == 1) animal.setGender("MALE");
+                        if (input == 2) animal.setGender("FEMALE");
+                        afterPurchaseAnimal(player, animal);
+                    }
                 }
             }
         }
         Game.newScreen();
     }
+
 
     /**
      * Allows the player to select if they want to buy a male or female animal in the addAnimals method
