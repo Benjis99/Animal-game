@@ -102,6 +102,7 @@ public class Breeding implements Serializable {
                         for (int i = 0; i < counter; i++) newAnimal(player, new Hamster());
                     }
                 } else {
+                    Game.newScreen();
                     System.out.println("Breeding failed!");
                     System.out.println("Press ENTER to continue. ");
                     Dialog.enterButton();
@@ -128,6 +129,7 @@ public class Breeding implements Serializable {
     public void newAnimal(Player player, Animal animal) {
 
         String gender = Animal.MaleFemale.getRandomSelectGender().toString();
+
 
         System.out.println("You've got a " + animal.getAnimalBreed() + " that is " + gender + "!");
         System.out.println("Enter a name: ");
@@ -197,7 +199,6 @@ public class Breeding implements Serializable {
             }
         }
         System.out.println("You've got a total of " + counter + " " + animalOffspringBreed + " offsprings!");
-        Game.newScreen();
         return counter;
     }
 

@@ -22,6 +22,7 @@ public class Player implements Serializable {
     public boolean ableToBuyAnimals;
     public boolean ableToBuyFoods;
     public boolean ableToBreed;
+    public boolean animalHasBeenFed = false;
 
     ArrayList<Animal> animals = new ArrayList<>();
     ArrayList<Food> foods = new ArrayList<>();
@@ -103,6 +104,7 @@ public class Player implements Serializable {
      */
     public void animalFeeding(Player player) { //Pick one animal to feed in the first try-catch
         Game.newScreen();
+        animalHasBeenFed = false;
         int pick1 = 0;
         int pick2 = 0;
         if (player.animals.size() < 1 && player.foods.size() < 1){
@@ -141,6 +143,7 @@ public class Player implements Serializable {
                     food.setKg(-1);
                     player.falseStatistics();
                     player.setAbleToFeed(true);
+                    animalHasBeenFed = true;
                     if (food.getKg() <= 0) {
                         foods.remove(food);
                     }
@@ -153,7 +156,10 @@ public class Player implements Serializable {
             }
         }
         Game.newScreen();
-        System.out.println("You fed the animal with food and it gained " + GREEN_BOLD + 10 + " health!" + TEXT_RESET);
+        if (animalHasBeenFed == true){
+            System.out.println("You fed the animal with food and it gained " + GREEN_BOLD + 10 + " health!" + TEXT_RESET);
+        }
+
     }
 
     /**
