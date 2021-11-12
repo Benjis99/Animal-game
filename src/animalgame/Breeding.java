@@ -56,7 +56,7 @@ public class Breeding implements Serializable {
                 } else {
                     System.out.println("There is no suitable animal to breed for " + player.animals.get(animal1 - 1).getName() + "!");
                     System.out.println("Press ENTER to continue. ");
-                    Dialog.stringReturn();
+                    Dialog.enterButton();
                     Game.newScreen();
                     return;
                 }
@@ -104,14 +104,14 @@ public class Breeding implements Serializable {
                 } else {
                     System.out.println("Breeding failed!");
                     System.out.println("Press ENTER to continue. ");
-                    Dialog.stringReturn();
+                    Dialog.enterButton();
                     Game.newScreen();
                     player.falseStatistics();
                 }
             } else {
                 System.out.println("The animals you choose are unable to breed with each other. Please pick a compatible pair");
                 System.out.println("Press ENTER to continue. ");
-                Dialog.stringReturn();
+                Dialog.enterButton();
                 Game.newScreen();
             }
         }

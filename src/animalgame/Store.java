@@ -92,7 +92,7 @@ public class Store implements Serializable {
         } else {
             System.out.println("You have no animals to sell");
             System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
-            Dialog.stringReturn();
+            Dialog.enterButton();
             Game.newScreen();
         }
         Game.newScreen();
@@ -227,7 +227,7 @@ public class Store implements Serializable {
             if (player.getCoins() < animal.getStartPrice()) {
                 System.out.println("Not enough coins for the animal.");
                 System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
-                Dialog.stringReturn();
+                Dialog.enterButton();
                 Game.newScreen();
             } else {
                 System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " Coins?");
