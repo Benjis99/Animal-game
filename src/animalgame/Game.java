@@ -40,8 +40,17 @@ public class Game implements Serializable {
         while (start) {
 
             players.clear();
+            System.out.println("""
+                    
+                    
+                    ╦ ╦┌─┐┬  ┌─┐┌─┐┌┬┐┌─┐                         \s
+                    ║║║├┤ │  │  │ ││││├┤                          \s
+                    ╚╩╝└─┘┴─┘└─┘└─┘┴ ┴└─┘                         \s
+                    ┌┬┐┌─┐  ┌─┐┬ ┬┬─┐  ┌─┐┌┐┌┬┌┬┐┌─┐┬  ┌─┐┌─┐┌┬┐┌─┐
+                     │ │ │  │ ││ │├┬┘  ├─┤│││││││├─┤│  │ ┬├─┤│││├┤\s
+                     ┴ └─┘  └─┘└─┘┴└─  ┴ ┴┘└┘┴┴ ┴┴ ┴┴─┘└─┘┴ ┴┴ ┴└─┘
+                     Creators: Lukas L, Isabella S, Benjamin E, Carl M""");
             System.out.println("─────────────────────");
-            System.out.println("Welcome to our animal game!");
 
             int first = Dialog.dialog(
                     "[1] Start game" +
