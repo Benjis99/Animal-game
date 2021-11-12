@@ -106,7 +106,7 @@ public class Game implements Serializable {
                 case 2 -> breeding.animalBreed(currentPlayer);
                 case 3 -> currentPlayer.animalFeeding(currentPlayer);
                 case 4 -> game = false;
-                case 5 -> information();
+                case 5 -> gameRules();
                 case 6 -> saveGame.saveGame(this);
                 case 7 -> {
                     game = false;
@@ -129,7 +129,7 @@ public class Game implements Serializable {
                         "\n[2] Breed" +
                         "\n[3] Feed Animal" +
                         "\n[4] End Turn" +
-                        "\n[5] Game Info" +
+                        "\n[5] Game Rules" +
                         "\n[6] Save game" +
                         "\n[7] Exit game" +
                         "\n─────────────────────", 1, 7);
