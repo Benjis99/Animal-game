@@ -30,6 +30,16 @@ public class GameLogic implements Serializable {
             System.out.println("No winners");
         } else {
             autoSellAnimals(game);
+            if (game.players.get(index).getCoins() == game.players.get(1).getCoins()){
+                System.out.println("The game was a draw");
+                for (Player player : game.players) {
+                    System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                }
+                for (Player player : game.loss) {
+                    System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                }
+                System.exit(1);
+            }
             for (int i = 0; i < game.players.size(); i++) {
                 if (game.players.get(i).getCoins() > score) {
                     score = game.players.get(i).getCoins();
@@ -48,7 +58,6 @@ public class GameLogic implements Serializable {
         System.exit(1);
     }
 
-
     /**
      * When this method is called, the price of each animal is calculated and then sold,
      * the coins are added to the current players balance.
@@ -64,6 +73,7 @@ public class GameLogic implements Serializable {
                 i--;
             }
         }
+
     }
 
 
