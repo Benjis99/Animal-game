@@ -14,7 +14,7 @@ import java.util.Random;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Breeding implements Serializable {
-
+    private boolean nameAvailable = true;
     public String animalOffspringBreed;
 
     public Breeding() {
@@ -129,16 +129,35 @@ public class Breeding implements Serializable {
     public void newAnimal(Player player, Animal animal) {
 
         String gender = Animal.MaleFemale.getRandomSelectGender().toString();
-
-
         System.out.println("You've got a " + animal.getAnimalBreed() + " that is " + gender + "!");
         System.out.println("Enter a name: ");
 
-        animal.setName(Dialog.stringReturn());
-        animal.setGender(gender);
+        while (nameAvailable) {
+            String animalName = Dialog.enterButton();
 
+            for (int i = 0; i < player.animals.size(); i++) {
+                if (!player.animals.get(i).getName().equalsIgnoreCase(animalName)) {
+                    animal.setName(animalName);
+                    nameAvailable = false;
+
+                } else {
+                    System.out.println("Name is already taken! Please try again:");
+                    nameAvailable = true;
+                    break;
+                }
+                if (animalName == null) {
+                    nameAvailable = true;
+                }
+            }
+        }
+        nameAvailable = true;
+
+
+
+        animal.setGender(gender);
         player.animals.add(animal);
         player.falseStatistics();
+
     }
 
 
