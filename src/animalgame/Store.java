@@ -14,6 +14,7 @@ import java.io.Serializable;
  * @author Lukas L, Isabella S, Benjamin E, Carl M
  */
 public class Store implements Serializable {
+    private boolean nameAvailable = true;
 
     public Store() {
     }
@@ -160,6 +161,9 @@ public class Store implements Serializable {
         Game.newScreen();
         boolean checkMenu = true;
         while (checkMenu) {
+            if (!nameAvailable){
+                System.out.println("Animal name is already taken! No duplicate names. Please try again.");
+            }
             player.playerInv();
             int pick = animalSelect();
 
@@ -203,7 +207,7 @@ public class Store implements Serializable {
      * @param player the current player
      */
     public void sellAnimal(Animal animal, Player player) {
-            System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal() + " Coins? ");
+        System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal() + " Coins? ");
         int pick = decisionMaker();
         if (pick == 1) {
             player.addCoins(animal.currentPriceAnimal());
@@ -242,9 +246,9 @@ public class Store implements Serializable {
                     System.out.println("Enter the name for your " + animal.getAnimalBreed() + ": ");
                     String animalName = Dialog.stringReturn();
                     animal.setName(animalName);
-                    boolean nameAvailable = true;
+                    nameAvailable = true;
                     for (int i = 0; i < player.animals.size(); i++){
-                        if (player.animals.get(i).getName().contains(animalName)){
+                        if (player.animals.get(i).getName().equalsIgnoreCase(animalName)){
                             nameAvailable = false;
                             System.out.println("Animal name already exists. Please try again.");
                         }
