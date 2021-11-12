@@ -201,6 +201,7 @@ public class Game implements Serializable {
      * or to return to Main Menu
      */
     public void gameRules() {
+        newScreen();
         int input = Dialog.dialog(
                 "─────────────────────" +
                         "\n[1] Game Summary" +
@@ -218,6 +219,7 @@ public class Game implements Serializable {
      * A brief summary on how the game works
      */
     public void gameSummary() {
+        newScreen();
         System.out.println("""
                 Summary: 
                 We use coins to purchase animals, animalfood, and we gain coins when we sell animals.
@@ -250,6 +252,7 @@ public class Game implements Serializable {
      * This menu allows the user to read more about how the game works.
      */
     public void detailedGameInfo() {
+        newScreen();
         int input = Dialog.dialog(
                 """
                         ─────────────────────
