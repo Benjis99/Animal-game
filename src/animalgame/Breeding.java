@@ -142,7 +142,7 @@ public class Breeding implements Serializable {
                     nameAvailable = false;
 
                 } else {
-                    System.out.println("Name is already taken! Please try again:");
+                    System.out.println(TEXT_RED+"Name is already taken! Please try again:"+TEXT_RESET);
                     nameAvailable = true;
                     break;
                 }
