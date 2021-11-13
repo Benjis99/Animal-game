@@ -64,7 +64,7 @@ public class GameLogic implements Serializable {
      * @param game grabs information such as: players
      */
     public void autoSellAnimals(Game game) {
-        System.out.println("Game is ending, all animals have been sold.");
+        System.out.println("Game is finished, all animals have been sold.");
         for (Player player : game.players) {
 
             for (int i = 0; i < player.animals.size(); i++) {
