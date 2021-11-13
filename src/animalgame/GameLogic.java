@@ -133,7 +133,7 @@ public class GameLogic implements Serializable {
         } else {
             if (player.animals.size() <= 0 && player.getCoins() <= 0) {
                 figure();
-                System.out.println("[" + player.getName() + "]" + " has no money, animals or animal food, you have +" + TEXT_RED + "lost the game!" + TEXT_RESET);
+                System.out.println("[" + player.getName() + "]" + " has no money, animals or animal food, you have " + TEXT_RED + "lost the game!" + TEXT_RESET);
 
 
                 game.players.remove(player);

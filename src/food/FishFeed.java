@@ -11,6 +11,6 @@ public class FishFeed extends Food {
 
     public FishFeed() {
         name = "FishFeed";
-        price = 29;
+        price = 40;
     }
 }

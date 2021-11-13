@@ -11,6 +11,6 @@ public class DryFoodCat extends Food {
 
     public DryFoodCat() {
         name = "DryFoodCat";
-        price = 49;
+        price = 80;
     }
 }
