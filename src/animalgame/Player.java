@@ -109,7 +109,7 @@ public class Player implements Serializable {
         int pick2 = 0;
         if (player.animals.size() < 1 && player.foods.size() < 1){
             System.out.println("You need one animal and one sorts of food to be able to feed!");
-            System.out.println("Press ENTER to continue. ");
+            System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
             Dialog.enterButton();
             Game.newScreen();
         }
@@ -148,8 +148,8 @@ public class Player implements Serializable {
                         foods.remove(food);
                     }
                 } else {
-                    System.out.println("Wrong food for the animal");
-                    System.out.println("Press ENTER to continue. ");
+                    System.out.println(TEXT_RED+"Wrong food for the animal"+TEXT_RESET);
+                    System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
                     Dialog.enterButton();
                     Game.newScreen();
                 }
@@ -181,8 +181,8 @@ public class Player implements Serializable {
      */
     public boolean checkWithPlayer(boolean checkPlayer) {
         if (!checkPlayer) {
-            System.out.println("Too many choices this turn");
-            System.out.println("Press ENTER to continue. ");
+            System.out.println(TEXT_RED+"Too many choices this turn"+TEXT_RESET);
+            System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
             Dialog.enterButton();
             return false;
         }
@@ -227,12 +227,11 @@ public class Player implements Serializable {
         this.ableToBuyFoods = ableToBuyFoods;
     }
 
+    public static final String WHITE_BOLD = "\033[1;37m";
     public static final String TEXT_RED = "\u001B[31m";
     public static final String TEXT_YELLOW = "\u001B[33m";
     public static final String TEXT_RESET = "\u001B[0m";
-    public static final String RED_BOLD = "\033[1;31m";    // RED
     public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
-    public static final String PURPLE_BOLD = "\033[1;35m"; // PURPLE
-    public static final String CYAN_BOLD = "\033[1;36m";   // CYAN
+
 
 }

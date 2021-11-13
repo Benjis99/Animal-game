@@ -77,7 +77,7 @@ public class Store implements Serializable {
                 int count = 1;
                 for (Animal animal : player.animals) {
                     System.out.println("[" +count + "] --" + " | " + animal.getName() + " | " + animal.getGender() + " | " + animal.getAnimalBreed()
-                            + " | " +animal.getHealth() + " % health |" + " Price: " + TEXT_GREEN + animal.currentPriceAnimal()+ " coins"+ TEXT_RESET+" |" );
+                            + " | " +animal.getHealth() + " % health |" + " Price: " + TEXT_YELLOW + animal.currentPriceAnimal()+ " coins"+ TEXT_RESET+" |" );
                     count++;
                 }
                 int index = leaveStore();
@@ -207,7 +207,7 @@ public class Store implements Serializable {
      * @param player the current player
      */
     public void sellAnimal(Animal animal, Player player) {
-        System.out.println("Do you want to sell animal " + animal.getName() + " for " + animal.currentPriceAnimal() + " Coins? ");
+        System.out.println("Do you want to sell animal " + animal.getName() + " for "+ TEXT_YELLOW + animal.currentPriceAnimal() + " Coins?" + TEXT_RESET);
         int pick = decisionMaker();
         if (pick == 1) {
             player.addCoins(animal.currentPriceAnimal());
@@ -234,7 +234,7 @@ public class Store implements Serializable {
                 Dialog.enterButton();
                 Game.newScreen();
             } else {
-                System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " + animal.getStartPrice() + " Coins?");
+                System.out.println("Do you want to buy a " + animal.getAnimalBreed() + " for " +TEXT_YELLOW+ animal.getStartPrice() + " Coins?" + TEXT_RESET);
                 int choice = decisionMaker();
 
                 if (choice == 1) {
@@ -300,10 +300,10 @@ public class Store implements Serializable {
         Game.newScreen();
         if (player.checkWithPlayer(player.ableToBuyFoods)) {
             if (player.getCoins() < food.getPrice()) {
-                System.out.println("Not enough coins");
+                System.out.println(TEXT_RED+"Not enough coins"+TEXT_RESET);
             } else {
                 int foodCount = 0;
-                System.out.println("1kg of " + food.getName() + " for " + food.getPrice() + " coins");
+                System.out.println("1kg of " + food.getName() + " for " +TEXT_YELLOW+ food.getPrice() + " coins"+TEXT_RESET);
                 int yesNo = decisionMaker();
                 if (yesNo == 1) {
                     if (player.foods.size() > 0) {
@@ -341,6 +341,8 @@ public class Store implements Serializable {
     public static final String TEXT_PURPLE = "\u001B[35m";
     public static final String TEXT_GREEN = "\u001B[32m";
     public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
+    public static final String TEXT_RED = "\u001B[31m";
     public static final String WHITE_BOLD = "\033[1;37m";
     public static final String RED_BOLD = "\033[1;31m";    // RED
     public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
