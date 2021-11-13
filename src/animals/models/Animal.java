@@ -48,7 +48,8 @@ public abstract class Animal implements Serializable {
         if (eatTrue(food)) {
             if (this.health >= 100) {
                 this.health = 100;
-                System.out.println("Animal is at full health");
+                System.out.println("Animal is at full health"); // First if statement is if the animal has 100 health at the start,
+                // and the second if statement is if the animal is being fed to 100%
             }
             if (this.health < 100) {
                 this.health = this.getHealth() + 10;

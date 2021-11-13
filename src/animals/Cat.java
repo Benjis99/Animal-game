@@ -44,7 +44,7 @@ public class Cat extends Animal {
         if (canEat(food)) {
             if (this.health >= 100) {
                 this.health = 100;
-                System.out.println("This animal have full health");
+                System.out.println("This animal has full health");
             }
             if (this.health < 100) {
                 if (this.health >= 50)
