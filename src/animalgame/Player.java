@@ -107,7 +107,7 @@ public class Player implements Serializable {
         animalHasBeenFed = false;
         int pick1 = 0;
         int pick2 = 0;
-        if (player.animals.size() < 1 && player.foods.size() < 1){
+        if (player.animals.size() < 1 || player.foods.size() < 1){
             System.out.println("You need one animal and one sorts of food to be able to feed!");
             System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
             Dialog.enterButton();

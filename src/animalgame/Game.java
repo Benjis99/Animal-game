@@ -331,10 +331,9 @@ public class Game implements Serializable {
     /**
      * Prints out the current game information
      */
-
     public void information() {
         System.out.println("Current game info: ");
-        System.out.println("Amount of rounds = " + amountOfTurns);
+        System.out.println("Amount of rounds : " + amountOfTurns);
         int amountOfPlayer = 1;
         for (Player player : players) {
             System.out.println("Player " + amountOfPlayer + ": " + player.getName());

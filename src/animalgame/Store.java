@@ -221,7 +221,7 @@ public class Store implements Serializable {
      * A menu which confirms that the player wants to buy an animal and give the animal a name and gender.
      * If the player doesn't have enough money for the selected animal, the player will get a message saying
      * that they don't have enough money for it.
-     * After an animal is bought, the said animal will be added to the players arraylist of owned animals.
+     * After an animal is bought, the said animal will be added to the player's arraylist of owned animals.
      * @param player the current player
      * @param animal the type of animal selected from the animalShop method
      */
