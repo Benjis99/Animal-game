@@ -72,6 +72,8 @@ public class Game implements Serializable {
 
     /**
      * Method for storing the amount of rounds and players.
+     * The method also uses the Dialog class for the scanners with a minimum and a maximum value for the amount
+     * of rounds and players.
      */
     public void startMenu() {
         newScreen();
@@ -198,7 +200,7 @@ public class Game implements Serializable {
 
     /**
      * Reads the user input and navigates the user to read the Game summary, detailed description
-     * or to return to Main Menu
+     * or to return to the previous menu.
      */
     public void gameRules() {
         newScreen();
@@ -206,7 +208,7 @@ public class Game implements Serializable {
                 "─────────────────────" +
                         "\n[1] Game Summary" +
                         "\n[2] Detailed description" +
-                        "\n[3] Return to Main Menu" +
+                        "\n[3] Return to the previous menu" +
                         "\n─────────────────────", 1, 3);
 
         switch (input) {
@@ -222,7 +224,7 @@ public class Game implements Serializable {
         newScreen();
         System.out.println("""
                 Summary: 
-                We use coins to purchase animals, animalfood, and we gain coins when we sell animals.
+                We use coins to purchase animals, animal food, and we gain coins when we sell animals.
                 Animals can also breed, and require you to feed them!
                 Different animals have different values, depending on health and age. 
                 After the selected amount of turns exceeds, 
@@ -263,7 +265,7 @@ public class Game implements Serializable {
                         [3] Food
                         [4] After a round ends
                         [5] Store
-                        [6] Return to Main Menu
+                        [6] Return to the previous menu
                         ─────────────────────""", 1,6);
         switch (input) {
             case 1 -> detailedInfoBreeding();
@@ -299,8 +301,8 @@ public class Game implements Serializable {
      */
     public void detailedInfoCoins() {
         System.out.println("""
-                Every player starts with the same amount of coins: 400.\s
-                You use coins to purchase animals and animalfood. You gain coins by selling animals.
+                Every player starts with the same amount of coins: 4000.\s
+                You use coins to purchase animals and animal food. You gain coins by selling animals.
                 At the end of the game, the player with the most amount of coins wins.""");
     }
 

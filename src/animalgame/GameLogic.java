@@ -85,7 +85,7 @@ public class GameLogic implements Serializable {
     public void animalsHealth(Player player) {
         Random random = new Random();
         for (Animal animal : player.animals) {
-            int dmg = 11 + random.nextInt(20); //Lowest health 10, random.nextInt randomize 1-20.
+            int dmg = 11 + random.nextInt(20);
             animal.setHealth(animal.getHealth() - dmg);
             animal.setHealthDifference(dmg);
         }
@@ -102,7 +102,7 @@ public class GameLogic implements Serializable {
 
     /**
      * The playerLoss method lets us check if the current player has lost the game or not.
-     * It is using an if-statement to check the players animal inventory and the players money.
+     * It is using an if-statement to check the players animal inventory and the player's money.
      * If the player has lost the game it will be removed from the game.
      * @param player grabs information such as: money and player
      * @param game remove information about the player who lost
@@ -171,12 +171,12 @@ public class GameLogic implements Serializable {
     /**
      * Method that is using an if-statement to check whether the animal is dead or not.
      * If the animal died because of the age, then it will be added to an array list
-     * If it died because the health, it will be added to an array List as well
+     * If it died because the health, it will be added to an array list as well
      * @param player Lets us get information from the Player class
      */
     public void checkDeadAnimals(Player player) {
         ArrayList<Animal> deadBecauseNoHealth = new ArrayList<>();
-        ArrayList<Animal> deadBecauseAge = new ArrayList<>();
+        ArrayList<Animal> deadBecauseOfAge = new ArrayList<>();
 
         for (int i = 0; i < player.animals.size(); i++) {
             if (player.animals.get(i).getHealth() < 1) {
@@ -184,12 +184,12 @@ public class GameLogic implements Serializable {
                 player.animals.remove(player.animals.get(i));
                 i--;
             } else if (player.animals.get(i).getAge() > player.animals.get(i).getMaxAge()) {
-                deadBecauseAge.add(player.animals.get(i));
+                deadBecauseOfAge.add(player.animals.get(i));
                 player.animals.remove(player.animals.get(i));
                 i--;
             }
         }
-        if (deadBecauseAge.size() > 0 || deadBecauseNoHealth.size() > 0) {
+        if (deadBecauseOfAge.size() > 0 || deadBecauseNoHealth.size() > 0) {
         }
         Game.newScreen();
         if (deadBecauseNoHealth.size() > 0) {
@@ -201,9 +201,9 @@ public class GameLogic implements Serializable {
             Dialog.enterButton();
             Game.newScreen();
         }
-        if (deadBecauseAge.size() > 0) {
+        if (deadBecauseOfAge.size() > 0) {
             System.out.println(TEXT_RED + "Player [" + player.getName() + "] you have animals that died from getting too old"+TEXT_RESET);
-            for (Animal animal : deadBecauseAge) {
+            for (Animal animal : deadBecauseOfAge) {
                 System.out.println(TEXT_RED +"Animal [" + animal.getName() + "] died because of old age"+TEXT_RESET);
             }
             System.out.println("Press ENTER to continue. ");

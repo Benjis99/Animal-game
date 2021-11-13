@@ -12,8 +12,8 @@ public class Dialog implements Serializable {
 
     /**
      * Dialog method is used all over the program instead of using new scanners.
-     * The 'String text' lets us have an outprint where we use the method,
-     * without it, we would not be able to use it with different texts.
+     * The 'String text' lets us have a system out print where we use the method.
+     * Without it, we would not be able to use it with different texts.
      * This is used for ints.
      *
      * @param text lets the program know that you need to insert a text
@@ -39,9 +39,9 @@ public class Dialog implements Serializable {
 
     /**
      * Dialog method is used all over the program instead of using new scanners.
-     * The 'String text' lets us have an outprint where we use the method,
-     * without it, we would not be able to use it with different texts.
-     * This is used for ints.
+     * The 'String text' lets us have a system out print where we use the method.
+     * Without it, we would not be able to use it with different texts.
+     * This is used for ints, and it does not have a max value.
      *
      * @param text lets the program know that you need to insert a text
      * @return the input
@@ -60,8 +60,8 @@ public class Dialog implements Serializable {
 
     /**
      * Dialog method is used all over the program instead of using new scanners.
-     * The 'String text' lets us have an outprint where we use the method,
-     * without we would not be able to use it with different texts.
+     * The 'String text' lets us have a system out print where we use the method.
+     * Without it, we would not be able to use it with different texts.
      * This is used for Strings.
      *
      * @param text lets the program know you need to insert text
@@ -115,8 +115,8 @@ public class Dialog implements Serializable {
     }
 
     public static String enterButton() {
-        String test = console.nextLine();
-        return test;
+        String enterToContinue = console.nextLine();
+        return enterToContinue;
     }
 
 

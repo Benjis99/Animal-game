@@ -122,6 +122,7 @@ public class Breeding implements Serializable {
 
     /**
      * This method allows the player to name their new animal once the parents have mated.
+     * The method also prevents the user from naming the offspring to a name that is already taken.
      *
      * @param player assigns the new name of the newborn animal to the current player
      * @param animal generates a gender and what animal type the newborn animal is

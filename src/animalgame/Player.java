@@ -28,7 +28,7 @@ public class Player implements Serializable {
     ArrayList<Food> foods = new ArrayList<>();
 
     /**
-     * Our constructor have String name inside it, which lets us
+     * Our constructor has String name inside it, which lets us
      * create players with different names.
      * @param name of the player
      */
