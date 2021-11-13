@@ -301,7 +301,7 @@ public class Game implements Serializable {
      */
     public void detailedInfoCoins() {
         System.out.println("""
-                Every player starts with the same amount of coins: 4000.\s
+                Every player starts with the same amount of coins: 4000.\s 
                 You use coins to purchase animals and animal food. You gain coins by selling animals.
                 At the end of the game, the player with the most amount of coins wins.""");
     }
