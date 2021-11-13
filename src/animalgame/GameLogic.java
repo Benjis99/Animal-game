@@ -71,6 +71,9 @@ public class GameLogic implements Serializable {
                 player.addCoins(player.animals.get(i).currentPriceAnimal());
                 player.animals.remove(player.animals.get(i));
                 i--;
+                if (player.getCoins() <= 0){
+                    player.setCoins(0);
+                }
             }
         }
 

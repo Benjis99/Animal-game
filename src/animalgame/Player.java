@@ -206,6 +206,9 @@ public class Player implements Serializable {
         System.out.println("Current balance: " + this.coins +TEXT_YELLOW+ " Coins"+TEXT_RESET);
     }
 
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
 
     public int getCoins() {
         return this.coins;
