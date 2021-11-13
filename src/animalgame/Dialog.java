@@ -29,10 +29,10 @@ public class Dialog implements Serializable {
                 if (number >= min && number <= max)
                     return number;
                 else {
-                    System.out.println("Wrong input!");
+                    System.out.println(TEXT_RED+"Wrong input!"+TEXT_RESET);
                 }
             } catch (Exception e) {
-                System.out.println("Wrong input!");
+                System.out.println(TEXT_RED+"Wrong input!"+TEXT_RESET);
             }
         }
     }
@@ -53,7 +53,7 @@ public class Dialog implements Serializable {
                 return Integer.parseInt(console.nextLine());
 
             } catch (Exception e) {
-                System.out.println("Wrong input!");
+                System.out.println(TEXT_RED+"Wrong input!"+TEXT_RESET);
             }
         }
     }
@@ -81,12 +81,12 @@ public class Dialog implements Serializable {
         while (true){
             String test = console.nextLine();
             if (test.matches("^[ ]*$")){
-                System.out.println("Animal name can't be empty");
+                System.out.println(TEXT_RED+"Animal name can't be empty"+TEXT_RESET);
                 System.out.println("Enter the name again");
                 continue;
             }
             if (!test.matches("^[a-öA-Ö!@#$&()\\-`.+\\s,/\" ]*$")){
-                System.out.println("Please use only letters");
+                System.out.println(TEXT_RED+"Please use only letters"+TEXT_RESET);
                 System.out.println("Enter the name again");
 
             }
@@ -99,12 +99,12 @@ public class Dialog implements Serializable {
         while (true){
             String test = console.nextLine();
             if (test.matches("^[ ]*$")){
-                System.out.println("Username can't be empty");
+                System.out.println(TEXT_RED+"Username can't be empty"+TEXT_RESET);
                 System.out.println("Enter the name again");
                 continue;
             }
             if (!test.matches("^[a-öA-Ö!@#$&()\\-`.+\\s,/\" ]*$")){
-                System.out.println("Please use only letters");
+                System.out.println(TEXT_RED+"Please use only letters"+TEXT_RESET);
                 System.out.println("Enter the name again");
 
             }
@@ -120,4 +120,6 @@ public class Dialog implements Serializable {
     }
 
 
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_RED = "\u001B[31m";
 }
