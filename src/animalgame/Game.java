@@ -22,7 +22,7 @@ public class Game implements Serializable {
     private Player currentPlayer;
     private int playerIndex;
     private int numberOfPlayers = 0;
-    boolean exit = false;
+    private boolean exit = false;
     SaveGame saveGame = new SaveGame();
 
     private final GameLogic logic = new GameLogic();
