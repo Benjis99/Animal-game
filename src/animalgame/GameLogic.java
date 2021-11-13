@@ -33,10 +33,10 @@ public class GameLogic implements Serializable {
             if (game.players.get(index).getCoins() == game.players.get(1).getCoins()){
                 System.out.println("The game was a draw");
                 for (Player player : game.players) {
-                    System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                    System.out.println(player.getName() + ": " + player.getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
                 }
                 for (Player player : game.loss) {
-                    System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                    System.out.println(player.getName() + ": " + player.getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
                 }
                 System.exit(1);
             }
@@ -46,13 +46,13 @@ public class GameLogic implements Serializable {
                     index = i;
                 }
             }
-            System.out.println("Winner is: " + TEXT_YELLOW + game.players.get(index).getName() + TEXT_RESET + " with: "
-                    + game.players.get(index).getCoins() + " C");
+            System.out.println("Winner is: " + TEXT_GREEN + game.players.get(index).getName() + TEXT_RESET + " with: "
+                    + game.players.get(index).getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
             for (Player player : game.players) {
-                System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                System.out.println(player.getName() + ": " + player.getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
             }
             for (Player player : game.loss) {
-                System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                System.out.println(player.getName() + ": " + player.getCoins() + TEXT_YELLOW+" C"+TEXT_RESET);
             }
         }
         System.exit(1);
@@ -114,7 +114,7 @@ public class GameLogic implements Serializable {
                 System.out.println("["+player.getName()+"]" + " has no money, animals or animal food, you have " + TEXT_RED +"lost the game!" + TEXT_RESET);
                 game.players.remove(player);
                 game.loss.add(player);
-                System.out.println("Press ENTER to continue. ");
+                System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
                 Dialog.enterButton();
                 game.gameMenu();
 
@@ -197,7 +197,7 @@ public class GameLogic implements Serializable {
             for (Animal animal : deadBecauseNoHealth) {
                 System.out.println(TEXT_RED + "Animal [" + animal.getName() + "] died because of low health" + TEXT_RESET);
             }
-            System.out.println("Press ENTER to continue. ");
+            System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
             Dialog.enterButton();
             Game.newScreen();
         }
@@ -206,12 +206,13 @@ public class GameLogic implements Serializable {
             for (Animal animal : deadBecauseOfAge) {
                 System.out.println(TEXT_RED +"Animal [" + animal.getName() + "] died because of old age"+TEXT_RESET);
             }
-            System.out.println("Press ENTER to continue. ");
+            System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
             Dialog.enterButton();
             Game.newScreen();
         }
     }
-
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String WHITE_BOLD = "\033[1;37m";
     public static final String TEXT_RED = "\u001B[31m";
     public static final String TEXT_YELLOW = "\u001B[33m";
     public static final String TEXT_RESET = "\u001B[0m";

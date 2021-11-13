@@ -39,7 +39,7 @@ public class Breeding implements Serializable {
         ArrayList<Animal> tempList = new ArrayList<>();
         if (player.checkWithPlayer(player.ableToBreed)) {
             if (player.animals.size() <= 1) {
-                System.out.println("You have 1 or less animal, not enough to breed. ");
+                System.out.println(TEXT_RED+"You have 1 or less animal, not enough to breed. "+TEXT_RESET);
                 return;
             } else {
                 while (animal1 < 1 || animal1 > player.animals.size()) {
@@ -55,7 +55,7 @@ public class Breeding implements Serializable {
                     }
                 } else {
                     System.out.println("There is no suitable animal to breed for " + player.animals.get(animal1 - 1).getName() + "!");
-                    System.out.println("Press ENTER to continue. ");
+                    System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
                     Dialog.enterButton();
                     Game.newScreen();
                     return;
@@ -103,15 +103,15 @@ public class Breeding implements Serializable {
                     }
                 } else {
                     Game.newScreen();
-                    System.out.println("Breeding failed!");
-                    System.out.println("Press ENTER to continue. ");
+                    System.out.println(TEXT_RED+"Breeding failed!"+TEXT_RESET);
+                    System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
                     Dialog.enterButton();
                     Game.newScreen();
                     player.falseStatistics();
                 }
             } else {
                 System.out.println("The animals you choose are unable to breed with each other. Please pick a compatible pair");
-                System.out.println("Press ENTER to continue. ");
+                System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
                 Dialog.enterButton();
                 Game.newScreen();
             }
@@ -134,7 +134,7 @@ public class Breeding implements Serializable {
         System.out.println("Enter a name: ");
 
         while (nameAvailable) {
-            String animalName = Dialog.enterButton();
+            String animalName = Dialog.stringReturn();
 
             for (int i = 0; i < player.animals.size(); i++) {
                 if (!player.animals.get(i).getName().equalsIgnoreCase(animalName)) {
@@ -211,7 +211,7 @@ public class Breeding implements Serializable {
         Random random = new Random();
         int counter = 1;
         Game.newScreen();
-        System.out.println("Breeding successful!");
+        System.out.println(TEXT_GREEN+"Breeding successful!"+TEXT_RESET);
         for (int i = 0; i < maxAmountOfOffsprings; i++) {
             int numberOfOffsprings = random.nextInt(101);
             if (numberOfOffsprings < 20) {
@@ -230,5 +230,9 @@ public class Breeding implements Serializable {
         int first = Dialog.dialogWithoutMax("Choose your first animal to breed! Enter a number: ");
         return first;
     }
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String WHITE_BOLD = "\033[1;37m";
+    public static final String TEXT_RESET = "\u001B[0m";
 
 }
