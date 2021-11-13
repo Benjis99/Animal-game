@@ -80,7 +80,7 @@ public class Dialog implements Serializable {
     public static String stringReturn() {
         while (true){
             String test = console.nextLine();
-            if (!test.matches("^[a-öA-Ö!@#$&()\\-`.+\\s,/\"]*$")){
+            if (!test.matches("^[a-öA-Ö!@#$&()\\-`.+\\s,/\" ]*$")){
                 System.out.println("Please use only letters");
                 System.out.println("Enter the name again");
                 continue;
@@ -90,6 +90,25 @@ public class Dialog implements Serializable {
             }
         }
     }
+    public static String playerName() {
+        while (true){
+            String test = console.nextLine();
+            if (test.matches("^[ ]*$")){
+                System.out.println("Username can't be empty");
+                System.out.println("Enter the name again");
+                continue;
+            }
+            if (!test.matches("^[a-öA-Ö!@#$&()\\-`.+\\s,/\" ]*$")){
+                System.out.println("Please use only letters");
+                System.out.println("Enter the name again");
+
+            }
+            else{
+                return test;
+            }
+        }
+    }
+
     public static String enterButton() {
         String test = console.nextLine();
         return test;

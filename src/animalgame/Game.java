@@ -154,7 +154,7 @@ public class Game implements Serializable {
         for (int i = 1; i < numberOfPlayers + 1; i++) {
             System.out.println("─────────────────────");
             System.out.println("Player " + i + " pick your name: ");
-            String name = Dialog.stringReturn();
+            String name = Dialog.playerName();
             players.add(new Player(name));
         }
         newScreen();
