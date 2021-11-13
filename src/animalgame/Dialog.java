@@ -80,10 +80,15 @@ public class Dialog implements Serializable {
     public static String stringReturn() {
         while (true){
             String test = console.nextLine();
+            if (test.matches("^[ ]*$")){
+                System.out.println("Animal name can't be empty");
+                System.out.println("Enter the name again");
+                continue;
+            }
             if (!test.matches("^[a-öA-Ö!@#$&()\\-`.+\\s,/\" ]*$")){
                 System.out.println("Please use only letters");
                 System.out.println("Enter the name again");
-                continue;
+
             }
             else{
                 return test;
