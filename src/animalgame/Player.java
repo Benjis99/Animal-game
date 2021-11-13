@@ -203,7 +203,7 @@ public class Player implements Serializable {
 
 
     public void getBalance() {
-        System.out.println("Current balance: " + this.coins + " Coins");
+        System.out.println("Current balance: " + this.coins +TEXT_YELLOW+ " Coins"+TEXT_RESET);
     }
 
 

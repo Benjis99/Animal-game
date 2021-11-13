@@ -33,10 +33,10 @@ public class GameLogic implements Serializable {
             if (game.players.get(index).getCoins() == game.players.get(1).getCoins()){
                 System.out.println("The game was a draw");
                 for (Player player : game.players) {
-                    System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                    System.out.println(player.getName() + ": " + player.getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
                 }
                 for (Player player : game.loss) {
-                    System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                    System.out.println(player.getName() + ": " + player.getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
                 }
                 System.exit(1);
             }
@@ -46,13 +46,13 @@ public class GameLogic implements Serializable {
                     index = i;
                 }
             }
-            System.out.println("Winner is: " + TEXT_YELLOW + game.players.get(index).getName() + TEXT_RESET + " with: "
-                    + game.players.get(index).getCoins() + " C");
+            System.out.println("Winner is: " + TEXT_GREEN + game.players.get(index).getName() + TEXT_RESET + " with: "
+                    + game.players.get(index).getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
             for (Player player : game.players) {
-                System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                System.out.println(player.getName() + ": " + player.getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
             }
             for (Player player : game.loss) {
-                System.out.println(player.getName() + ": " + player.getCoins() + " C");
+                System.out.println(player.getName() + ": " + player.getCoins() + TEXT_YELLOW+" C"+TEXT_RESET);
             }
         }
         System.exit(1);
@@ -211,6 +211,7 @@ public class GameLogic implements Serializable {
             Game.newScreen();
         }
     }
+    public static final String TEXT_GREEN = "\u001B[32m";
     public static final String WHITE_BOLD = "\033[1;37m";
     public static final String TEXT_RED = "\u001B[31m";
     public static final String TEXT_YELLOW = "\u001B[33m";
