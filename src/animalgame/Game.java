@@ -172,10 +172,14 @@ public class Game implements Serializable {
      */
     public void gameMenu() {
         for (int pick = currentTurn; pick < amountOfTurns + 1; pick++) {
-
+            for (Player player : players) {
+                logic.checkDeadAnimals(player);
+            }
             for (int pick1 = playerIndex; pick1 < players.size(); pick1++) {
                 currentPlayer = players.get(pick1);
                 currentPlayer.trueStatistics();
+
+
 
 
                 logic.startRound(currentPlayer);

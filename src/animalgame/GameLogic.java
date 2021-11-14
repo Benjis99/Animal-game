@@ -145,7 +145,6 @@ public class GameLogic implements Serializable {
      */
     public void startRound(Player player) {
         animalAge(player);
-        checkDeadAnimals(player);
     }
 
     /**
