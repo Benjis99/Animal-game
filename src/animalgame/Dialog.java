@@ -77,6 +77,10 @@ public class Dialog implements Serializable {
         return Integer.parseInt(console.nextLine());
     }
 
+    /**
+     * Scanner that we use, so we can see if the users uses the correct input for Animals.
+     * @return the input
+     */
     public static String stringReturn() {
         while (true){
             String test = console.nextLine();
@@ -95,6 +99,11 @@ public class Dialog implements Serializable {
             }
         }
     }
+
+    /**
+     * Scanner that we use, so we can see if the users uses the correct input for Usernames.
+     * @return the input
+     */
     public static String playerName() {
         while (true){
             String test = console.nextLine();
