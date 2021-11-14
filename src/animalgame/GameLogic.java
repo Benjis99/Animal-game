@@ -4,6 +4,7 @@ import animals.models.Animal;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -31,32 +32,23 @@ public class GameLogic implements Serializable {
             System.out.println("No winners");
         } else {
             autoSellAnimals(game);
-            for (int k = 1; k < game.players.size(); k++) {
-                if (game.players.get(index).getCoins() == game.players.get(k).getCoins()) {
-                    System.out.println("The game was a draw");
-                    for (Player player : game.players) {
-                        System.out.println(player.getName() + ": " + player.getCoins() + TEXT_YELLOW + " C" + TEXT_RESET);
-                    }
-                    for (Player player : game.loss) {
-                        System.out.println(player.getName() + ": " + player.getCoins() + TEXT_YELLOW + " C" + TEXT_RESET);
-                    }
-                    System.exit(1);
-                }
-            }
+            Collections.sort(game.players, new MyComparator());
+
             for (int i = 0; i < game.players.size(); i++) {
                 if (game.players.get(i).getCoins() > score) {
                     score = game.players.get(i).getCoins();
                     index = i;
                 }
             }
-            System.out.println("Winner is: " + TEXT_GREEN + game.players.get(index).getName() + TEXT_RESET + " with: "
-                    + game.players.get(index).getCoins() + TEXT_YELLOW + " C" + TEXT_RESET);
+            System.out.println(GREEN_BOLD+"────────────"+TEXT_RESET);
+            System.out.println("Scoreboard: ");
             for (Player player : game.players) {
                 System.out.println(player.getName() + ": " + player.getCoins() + TEXT_YELLOW + " C" + TEXT_RESET);
             }
             for (Player player : game.loss) {
                 System.out.println(player.getName() + ": " + player.getCoins() + TEXT_YELLOW + " C" + TEXT_RESET);
             }
+            System.out.println(GREEN_BOLD+"────────────"+TEXT_RESET);
         }
         System.exit(1);
     }
@@ -224,7 +216,8 @@ public class GameLogic implements Serializable {
         }
 
     }
-
+    public static final String BLUE_BOLD = "\033[1;34m";
+    public static final String GREEN_BOLD = "\033[1;32m";
     public static final String TEXT_GREEN = "\u001B[32m";
     public static final String WHITE_BOLD = "\033[1;37m";
     public static final String TEXT_RED = "\u001B[31m";
