@@ -327,7 +327,7 @@ public class Game implements Serializable {
     public void detailedRoundInfo() {
         System.out.println("""
                 After chosen amount of players has made their turn, a new round begins. With a new round comes
-                a loss of health on ALL animals, the ones you own, and those in store. Health loss is randomly
+                a loss of health on ALL animals that you own. Health loss is randomly
                 generated from 10% to 30%.
                 A new turn allows each player to make a new action, such as: Buy, sell breed.""");
     }
