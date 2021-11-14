@@ -324,9 +324,9 @@ public class Store implements Serializable {
                         player.setAbleToBuyFoods(true);
                     }
                 }
+                Game.newScreen();
             }
         }
-        Game.newScreen();
     }
 
     /**
@@ -344,10 +344,10 @@ public class Store implements Serializable {
     public static final String TEXT_YELLOW = "\u001B[33m";
     public static final String TEXT_RED = "\u001B[31m";
     public static final String WHITE_BOLD = "\033[1;37m";
-    public static final String RED_BOLD = "\033[1;31m";    // RED
-    public static final String GREEN_BOLD = "\033[1;32m";  // GREEN
-    public static final String PURPLE_BOLD = "\033[1;35m"; // PURPLE
-    public static final String CYAN_BOLD = "\033[1;36m";   // CYAN
+    public static final String RED_BOLD = "\033[1;31m";
+    public static final String GREEN_BOLD = "\033[1;32m";
+    public static final String PURPLE_BOLD = "\033[1;35m";
+    public static final String CYAN_BOLD = "\033[1;36m";
 
 
 }

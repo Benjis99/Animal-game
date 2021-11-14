@@ -111,7 +111,7 @@ public class GameLogic implements Serializable {
      */
     public void playerLoss(Player player, Game game) {
         if (game.players.size() > 2) {
-            if (player.animals.size() <= 0 && player.getCoins() <= 0) {
+            if (player.animals.size() <= 0 && player.getCoins() < 40) {
                 figure();
                 System.out.println("[" + player.getName() + "]" + " has no money, animals or animal food, you have " + TEXT_RED + "lost the game!" + TEXT_RESET);
                 game.players.remove(player);
@@ -123,7 +123,7 @@ public class GameLogic implements Serializable {
                 Game.newScreen();
             }
         } else {
-            if (player.animals.size() <= 0 && player.getCoins() <= 0) {
+            if (player.animals.size() <= 0 && player.getCoins() < 40) {
                 figure();
                 System.out.println("[" + player.getName() + "]" + " has no money, animals or animal food, you have " + TEXT_RED + "lost the game!" + TEXT_RESET);
 
@@ -215,9 +215,8 @@ public class GameLogic implements Serializable {
         }
 
     }
-    public static final String BLUE_BOLD = "\033[1;34m";
+
     public static final String GREEN_BOLD = "\033[1;32m";
-    public static final String TEXT_GREEN = "\u001B[32m";
     public static final String WHITE_BOLD = "\033[1;37m";
     public static final String TEXT_RED = "\u001B[31m";
     public static final String TEXT_YELLOW = "\u001B[33m";
