@@ -162,7 +162,7 @@ public class Store implements Serializable {
         boolean checkMenu = true;
         while (checkMenu) {
             if (!nameAvailable){
-                System.out.println("Animal name is already taken! No duplicate names. Please try again.");
+                System.out.println(TEXT_RED+"Animal name is already taken! No duplicate names. Please try again."+TEXT_RESET);
             }
             player.playerInv();
             int pick = animalSelect();
