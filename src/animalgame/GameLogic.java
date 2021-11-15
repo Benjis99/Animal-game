@@ -40,6 +40,9 @@ public class GameLogic implements Serializable {
                     index = i;
                 }
             }
+            System.out.println("Winner is: " + game.players.get(index).getName() + TEXT_RESET + " with: "
+                    + game.players.get(index).getCoins() +TEXT_YELLOW+ " C"+TEXT_RESET);
+
             System.out.println(GREEN_BOLD+"────────────"+TEXT_RESET);
             System.out.println("Scoreboard: ");
             for (Player player : game.players) {
