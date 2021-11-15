@@ -269,7 +269,8 @@ public class Game implements Serializable {
                         [3] Food
                         [4] After a round ends
                         [5] Store
-                        [6] Return to the previous menu
+                        [6] Draw
+                        [7] Return to the previous menu
                         ─────────────────────""", 1,6);
         switch (input) {
             case 1 -> detailedInfoBreeding();
@@ -277,7 +278,8 @@ public class Game implements Serializable {
             case 3 -> detailedInfoFood();
             case 4 -> detailedRoundInfo();
             case 5 -> detailedStoreDescription();
-            case 6 -> gameRules();
+            case 6 -> detailedInfoDraw();
+            case 7 -> gameRules();
         }
     }
 
@@ -289,6 +291,7 @@ public class Game implements Serializable {
                 [Breeding] - After you've purchased two of the same animal with opposite gender, you unlock the feature to breed them.
                 Breed has a 50% success rate and the amount of babies depends on the chosen animal.
                 Different animals can breed different amounts of babies.
+                You can't own two animal with the same name!
                         
                 [Bird] max babies: 5
                 [Cat] max babies: 12
@@ -319,6 +322,15 @@ public class Game implements Serializable {
                 differs with the animal. Each animal can consume 1-3 different kind of food.
                 Every kilo increases the health of the animal by 10%.
                 You can't sell food back to the store nor to other players!""");
+    }
+
+    /**
+     * In-depth on how a potential draw would occur
+     */
+    public void detailedInfoDraw(){
+        System.out.println("""
+                [Draw] If a potential draw would occur, the order in which you
+                registered your playernames determines the winner.""");
     }
 
     /**

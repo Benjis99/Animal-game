@@ -87,6 +87,7 @@ public class Dialog implements Serializable {
             if (test.matches("^[ ]*$")){
                 System.out.println(TEXT_RED+"Animal name can't be empty"+TEXT_RESET);
                 System.out.println("Enter the name again");
+
                 continue;
             }
             if (!test.matches("^[a-öA-Ö!@#$&()\\-`.+\\s,/\" ]*$")){
@@ -96,6 +97,7 @@ public class Dialog implements Serializable {
             }
             else{
                 return test;
+
             }
         }
     }
