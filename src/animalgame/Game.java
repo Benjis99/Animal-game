@@ -271,7 +271,7 @@ public class Game implements Serializable {
                         [5] Store
                         [6] Draw
                         [7] Return to the previous menu
-                        ─────────────────────""", 1,6);
+                        ─────────────────────""", 1,7);
         switch (input) {
             case 1 -> detailedInfoBreeding();
             case 2 -> detailedInfoCoins();
