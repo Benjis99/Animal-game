@@ -54,7 +54,7 @@ public class Breeding implements Serializable {
                         }
                     }
                 } else {
-                    System.out.println("There is no suitable animal to breed for " + player.animals.get(animal1 - 1).getName() + "!");
+                    System.out.println(TEXT_RED+"There is no suitable animal to breed for " +TEXT_RESET + player.animals.get(animal1 - 1).getName() + "!");
                     System.out.println("Press "+ WHITE_BOLD + "ENTER" +TEXT_RESET+" to continue. ");
                     Dialog.enterButton();
                     Game.newScreen();
